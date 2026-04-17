@@ -1,0 +1,973 @@
+
+===== PAGE 1 =====
+@ktunotes.in
+e
+‘Ne p )
+(——__F Bl \\a/
+——_
+Pe
+NOT=S
+i Pe -
+The learning companion.
+KTU STUDY MATERIALS | SYLLABUS | LIVE
+NOTIFICATIONS | SOLVED QUESTION PAPERS
+® Website: www.ktunotes.in
+
+===== PAGE 2 =====
+Module 5: Multi Objective Optimization & Hybrid Systems
+Multi-objective optimization problem.
+Principles of Multi-objective optimization,
+Dominance and Pareto-optimality.
+Optimality conditions.
+Neuro-fuzzy hybrid systems.
+Genetic - neuro hybrid systems.
+
+===== PAGE 3 =====
+Module 5: Multi Objective Optimization & Hybrid Systems
+MOOP-Linear &Nonlinear, Convex & Non-Convex
+Principles of MOO-Illustrating Pareto Optimal Solutions
+Objectives in MOO
+Dominance & Pareto-Optimality
+
+Concept of Domination
+
+Properties of Dominance Relation, Pareto Optimality
+
+Procedure for finding a non-dominated set
+Optimality Conditions
+Neuro Fuzzy hybrid system-Classification& Characteristics
+Genetic -neuro hybrid systems
+
+===== PAGE 4 =====
+Multi-objective optimization problem.
+
+===== PAGE 5 =====
+5.1 Multi-objective optimization problem
+Most real-world problems involve the simultaneous optimization of
+several objective functions.
+Generally, these objective functions are measured in different units, often competing
+and conflicting.
+MOOP deals with more than one objective function that is to be minimized or maximized
+The MOO or multi-objective optimization refers to finding the optimal solution values of
+more than one desired goal.
+These optimal solutions are known as Pareto-optimal solutions.
+
+===== PAGE 6 =====
+Multi-objective optimization problem
+MOOP Involves more than one objective function that is to be minimized or maximized
+Multi-objective optimization having such conflicting objective functions gives rise to a
+set of optimal solutions, instead of one optimal solution, because no solution can be
+considered to be better than any other with respect to all objectives.
+Minimizing cost while maximizing comfort while buying a car, and maximizing
+performance at the same time as minimizing fuel consumption and emission of
+pollutants of a vehicle are examples of multi-objective optimization problems involving
+two and three objectives, respectively.
+
+===== PAGE 7 =====
+Multi-objective optimization problem
+* Multi-objective optimization problems with a number of objectives
+and a number of equality and inequality constraints can be
+formulated as: .
+Minimize / Maximize fia), 1 = 1)... Nod
+Subject to: g(x) =0,k = 1,...,K hi
+(x) <0,l=1,..,L
+* Where,
+* fi(x) is the objective function,
+* x is a decision vector that represents a solution
+* Nopj is the number of objectives, and
+* K and L are number of equality and inequality constraints
+respectively.
+
+===== PAGE 8 =====
+MOOP Mathematical form
+oo, oo, ; A solution x is a vector of n decision
+Multi-objective optimization problems with a variables x={x1,x2,X3,...Xn}
+number of objectives and a number of equality Associated with the problem are J
+and inequality constraints can be formulated as: inequality and K equality constraints.
+The term gj(x) and hx(x) are called
+Mathematical! constraint functions.
+athema
+realy If any solution x satisfies all constraints
+min/max /,,(%), m=1,2,L ,M and variable bounds, it is known as a
+subject to g(x)>0, j=1,2,L J feasible solution. The set of all feasible
+solutions is called the feasible region, or
+h,(x)=0, k=1,2,L ,K S
+x” <x, <x”, i=1,2,L ,n
+
+===== PAGE 9 =====
+Multi-objective optimization problem
+There are three components in any optimization problem:
+F: Objectives
+minimize (maximize) fj(x1, Xz, ---,Xn), i= 1,2, ---,m
+
+S: Constraints
+
+Subject to
+
+gj(X1, X2, Xn), ROP; Cj, j = 1,2, ---,
+V: Design variables
+Xk ROPx dk, k= 1,2, 777,/N
+
+Note :
+@ Fora multi-objective optimization problem (MOOP), m > 2
+@ Objective functions can be either minimization, maximization or both.
+
+===== PAGE 10 =====
+formal specification of MOOP
+
+Let us consider, without loss of generality, a multi-objective
+optimization problem with n decision variables and m objective
+functions
+
+Minimize y = f(x) = [y1 © f(x), y2 € f(x), +--+, Ye €fm(X)]
+where X = [X1, Xo, «++, Xn] EX
+
+y= Ly1, ¥2, -,Yn] EY
+
+Here: xis called the decision vector
+
+y is called an objective vector
+
+X is called a decision space
+
+Y is called an objective space
+
+===== PAGE 11 =====
+Illustration: Decision space and objective space
+For each solution x in the
+decision variable space, there
+X3 fe - exists a point in the objective
+- space(Z) denoted by
+ay “ f f(x)=2={Z1,Z2,...4.,Zm}
+x The mapping takes place
+2
+between an n-dimensional
+Decision Space X Objective Space Y decision vector(x) and M
+dimensional objective vector‘(y).
+Thus, solving a MOOP implies to search for x in the decision
+space (X) for an optimum vector (y) in the objective space (Y).
+
+===== PAGE 12 =====
+Illustration: Decision space and objective space
+* Optimization problems with a number of objective functions to be
+satisfied.
+* The objective functions may be conflicting with one another.
+* In order to simplify the solution process, additional objective
+functions are usually handled as constraints.
+* Multiple objective functions are handled at the same time.
+
+===== PAGE 13 =====
+Illustration: Single vs. multiple objectives
+fi f2 fs f
+3 2
+= =
+fo) ° @
+‘es Me
+Search space Search space
+
+===== PAGE 14 =====
+MOOP: Trade-off and conflicts in solutions
+5
+4 ©
+x re) . Ry hed
+8 rae g wit
+E 2g 8
+a / =
+S fe}
+10 :
+Minimizg f,
+Minimize f; Search space
+Trade-off optimal solution Conflicting objectives
+
+===== PAGE 15 =====
+MOOP: Illustration: ideal solution vs. real solution
+It is observed that in many real-life problems, we hardly have a _
+situation in which all the f(x ) have a minimum in Xat a common point X *.
+This is particularly true when objective functions are conflicting in their interests.
+g a . e ] *: Z ° es e e e
+| | | . : VES
+Fi (minimize) ——, Fi (minimize)
+Ideal Situation Real Situation
+
+===== PAGE 16 =====
+5.1.1 Linear and Non linear MOOP
+If all the objective functions and constraints are linear in the MOOP, then the problem is
+defined as a Multi-Objective Linear Problem(MOLP)
+If any of the objective functions or constraints are nonlinear , then the resulting problem
+is called a nonlinear Multi-Objective optimization Problem(nonlinear MOOP)
+Like linear programming problems, MOLP has many theoretical properties
+For nonlinear problems, the solution techniques often do not have convergence proofs.
+Since most of the real-world Multi-Objective optimization Problems are nonlinear in
+nature, we do not assume any particular structure of the objective and constraint
+functions here.
+
+===== PAGE 17 =====
+5.1.1 Linear and Non linear MOOP
+
+If all the objective functions and constraints are linear in the MOOP, then the problem is
+defined as a Multi-Objective Linear Problem(MOLP)
+If any of the objective functions or constraints are nonlinear , then the resulting problem
+is called a nonlinear Multi-Objective optimization Problem(nonlinear MOOP)
+
+maximization objectives | "|
+
+minimization objectives
+1 , 1 ’
+4 ; a .
+
+===== PAGE 18 =====
+5.1.1 Linear and Non linear MOOP
+An optimization problem is nonlinear if the objective function (x) or any of
+the inequality constraints c{x) < 0, /= 1, 2, ..., m, or equality constraints Ax) = 0, /=1,
+2, ..-, 7, are nonlinear functions of the vector of variables x.
+For example, if x contains the components x, and x,, then the function
+3 + 2x, - 7% is linear, whereas the functions (x,)? + 2x, and
+3X, + 2X%,% + % are nonlinear.
+Nonlinear problems arise when the objective or constraints cannot be expressed as
+linear functions without sacrificing some essential nonlinear feature of the real-world
+system
+
+===== PAGE 19 =====
+5.1.2 Convex and Nonconvex MOOP
+A MOOP is convex if all the objective functions and feasible region are convex.
+A function f: R" — R is a convex function if for any two pair
+of solutions x''),x'?) ER", the following condition is true:
+f (Ax!) rane A)x'?)) < Af(x!!)) + (1 —A)f(x!2)), for allO<A<1.
+properties of a convex function:
+1. The linear approximation of f(x) at any point in the interval [x!'),x')] always
+underestimates the actual function value.
+2. The Hessian matrix of f(x) is positive definite for all x.
+3. For a convex function, a local minimum is always a global minimum.
+
+===== PAGE 20 =====
+5.1.2 Convex and Nonconvex MOOP
+£ (x)
+NE(x'1)) + (1-2) £(x!?))
+P £(x!2))
+f (Ax!) + (1—A)x!2)) ;
+(1) i
+< M(x!) + (1—A}f(xl2)), | FOR !
+for allO0<A<1.
+1 E(Aax'1)+ (1 Ayx(2!
+x2) Ax(1) 4 (1 —A)xe(2) ary a
+A convex function is illustrated. A line joining function
+values at two points x'') and x'?) always estimates
+a large value of the true convex function.
+
+===== PAGE 21 =====
+5.1.2 Convex and Nonconvex MOOP [another definition]
+
+A MOOP is convex if all the objective functions and feasible region are convex.
+
+Definition Let x € X andye X.
+
+Let 0< A <1. A function f : R” > R is convex over 4 if
+
+f(Ax+(1-—A)y) < Af(x) + (1—-A)F(y).
+
+The function is called strictly convex if “<" is replaced by “<".
+Geometrically, a function is convex if a line
+segment drawn from any point (x, f(x)) to
+another point (y, f(y)) -- called the chord from __., fi) fy)
+x to y -- lies on or above the graph of f, as in
+the picture x y
+
+===== PAGE 22 =====
+5.1.2 Convex and Nonconvex MOOP
+
+Letxe X¥ andyeX. LetO<A<1.
+A function f : R” > R is convex over & if
+F(Ax+(1—A)y) < Af(x)+(1—A)f(y).
+Mf(a) + (1-A)F(y)
+
+__\ I (y)
+: fw +i — Ady)
+
+=e \ vw
+
+Aw +(1—A)y
+
+===== PAGE 23 =====
+5.1.2 Convex and Nonconvex MOOP
+Letxe NX andyeX. LetO<A <1.
+A function f : R” — R is Non-Convex over 1 if
+f(Ax +(1—A)y) > Af(x)+(1-A)F(y).
+Af (x) + (1 = A)F(y)
+A non-convex function "curves up and down" -- it
+is neither convex nor concave. f(y)
+A familiar example is the sine function. —
+If a function g(x) is nonconvex , the set of solutions f(x) TF fx + —d)y)
+satisfying g(x)>=0
+x x y
+Aw +(1—A)y
+
+===== PAGE 24 =====
+Principles of Multi-objective optimization,
+
+===== PAGE 25 =====
+Principles of Multi-objective optimization,
+
+¢ Real-world problems have more than one objective
+function, each of which may have a different individual
+optimal solution.
+
+¢ Different in the optimal solutions corresponding to
+different objectives because the objective functions are
+often conflicting (competing) with each other.
+
+¢ Set of trade-off optimal solutions instead of one optimal
+solution, generally known as “Pareto-Optimal’ solutions
+(named after Italian economist Vilfredo Pareto (1906)).
+
+¢ No one solution can be considered to be better than any
+other with respect to all objective functions. The non-
+dominant solution concept.
+
+===== PAGE 26 =====
+Principles of Multi-objective optimization
+
+¢ Is the optimization of different objective functions at the same
+time, thus at the end the algorithm return n different optimal
+values which is different to return one value in a normal
+optimization problem.
+
+« Thus, there is more than one objective function
+
+Pareto - optimal solutions and Pareto - optimal front
+
+¢ Pareto - optimal solutions: The optimal solutions found in a
+multiple-objective optimization problem
+
+¢ Pareto - optimal front: the curve formed by joining all these
+solutions (Pareto - optimal solutions)
+
+===== PAGE 27 =====
+Principles of Multi-objective optimization
+* Simple car design example: two objectives - cost and
+accident rate — both of which are to be minimized.
+1
+perete—Opeimal front a.
+\
+el ha A, B, D - One objective
+ei oN ° can only be improved at
+g \ c
+BPN ent the expense of at least
+° ToL | one other objective!
+Se ee
+Cost
+
+===== PAGE 28 =====
+Principles of Multi-objective optimization
+point A represents a solution that incurs a near-minimum cost but is highly accident-
+prone (predisposed).
+On the other hand, point B represents a solution that is costly but is near the least
+accident-prone.
+One cannot really say whether solution A is better than solution B or vice versa because
+one solution is better than the other in one objective but is worse in the other.
+solution C is not optimal because there exists another solution D in the search space,
+which is better than solution C in both objectives
+One cannot conclude about an absolute hierarchy of solutions A, B, D, or any other
+solution in the set.
+
+===== PAGE 29 =====
+Principles of Multi-objective optimization
+These solutions are known as Pareto-Optimal solutions (named after Italian economist
+Vilfredo Pareto (1906))
+The set of the best compromise solutions is referred to as the Pareto-ideal set,
+characterized by the fact that starting from a solution within the set, one objective can
+only be improved at the expense of at least one other objective.
+In front of the Pareto-Optimal front are un-attainable solutions corresponding to the
+optimal of both objectives.
+The area behind the Pareto-Optimal front is known as feasible search space or feasible
+design space.
+
+===== PAGE 30 =====
+Objectives of Multi-objective optimization
+A multi-objective optimization algorithm must achieve:
+Guide the search towards the global Pareto-Optimal front.
+Maintain solution diversity in the Pareto-Optimal front.
+The first goal is mandatory in any optimization task.
+When solutions converges close to the true optimal solutions, that one can be
+assured of their near optimality properties.
+The second goal is entirely specific to MOOP.
+since MOEA deals with two spaces-decision variable space and objective
+space-’diversity’ among solutions can be defined in both of these spaces.
+
+===== PAGE 31 =====
+Objectives of Multi-objective optimization
+For example, two solutions’ are diverse, in the decision variable space, if their
+Euclidean distance(length of a line segment between the two points) in the
+decision variable space is large.
+Similarly, two solutions are diverse in the objective space, if their Euclidean
+distance in the objective space is large.
+Diversity in one space usually means diversity in the other space, this may not
+be so, in all problems.
+In such complex and nonlinear problems, it is then the task to find a set of
+solutions having a good diversity in the desired space.
+
+===== PAGE 32 =====
+Dominance and Pareto-optimality
+
+===== PAGE 33 =====
+Dominance and Pareto-optimality
+Most MOOP uses the concept of dominance in their search.
+Concept of Dominance
+Properties of Dominance Relation
+Pareto Optimality
+
+===== PAGE 34 =====
+Dominance
+2
+m In the single-objective optimization problem, a ee
+the superiority of a solution over other ? :
+. . . . . vo H
+solutions is easily determined by comparing = 2 3. fev O
+their objective function values a eo
+= Ina multi-objective optimization problem, the ~ , |; ee gy
+goodness of a solution is determined by the Poi id
+dominance 2 6 10 14 18
+f, maximize
+Here, 1 aaeee 5 dominates 1 etc
+
+===== PAGE 35 =====
+Dominance
+= Ina multi-objective optimization problem, the goodness of a solution is
+determined by the dominance
+Dominance Test
+X, dominates X;, If
+x» Solution x, is no worse than x in all objectives
+=» Solution x, Is strictly better than x, in at least one objective
+x, dominates X» <=> Xp is dominated by x,
+
+===== PAGE 36 =====
+Example of Dominance
+“nm | oO we say x dominates y if it is at least as good on all
+an oy criteria and better on at least one
+i+ Q-+ OS
+eT. ? fh) aa Pareto front
+| Fi (maximize) *K
+Dominated b
+mw 1 Vs 2: 1 dominates 2 [Minimize] y aif
+mw 1 Vs 5:5 dominates 1 [Maximize]
+a 1 Vs 4: Neither solution dominates f
+2
+
+===== PAGE 37 =====
+Properties of dominance relation
+@ This dominance relation satisfies four binary relation properties.
+Reflexive :
+The dominance relation is NOT reflexive.
+@ Any solution x does not dominate itself.
+@ Condition II of definition 3 does not allow the reflexive property to
+be satisfied.
+Symmetric :
+The dominance relation also NOT symmetric
+@ x x y does not imply y = x.
+
+===== PAGE 38 =====
+Properties of dominance relation
+Antisymmetric :
+@ Dominance relation can not be antisymmetric
+Transitive :
+e@ The dominance relation is TRANSITIVE
+e If x x y andy ~Xz, then x = z.
+
+===== PAGE 39 =====
+Pareto optimal Solution
+
+= Non-dominated solution set
+
+= Given a set of solutions, the non-dominated solution set is a
+set of all the solutions that are not dominated by any
+member of the solution set
+
+= The non-dominated set of the entire feasible decision space
+is called the Pareto-optimal set
+
+= The boundary defined by the set of all points mapped from
+the Pareto optimal set is called the Pareto- optimal front
+
+===== PAGE 40 =====
+Pareto optimality
+; 2 * Consider solutions 3 and 5
+eed * Solution 5 is better than solution 3 with respect to
+4 4 f, while 5 is worse than 3 with respect to 4.
+x 3 ¢ Hence, we can not conclude that 5 dominates 3 nor
+& 1 5 3 dominated 5.
+E 2 . ¢ In other words, we can not say that two solutions 3
+i er ae and 5 are better.
+¢ {3,5} can be considered a non-dominated front
+2 6 10 14 18
+f, maximize
+Non-dominated front
+
+===== PAGE 41 =====
+Non-dominated set
+Non-dominated set
+Among a set of solutions P, the non-dominated set of solutions Pare
+those which are not dominated by any member of the set P.
+2
+5 @
+4
+4
+4g 3 Here P={1,2,3,4,5}
+ra @
+‘= 1
+= 2 w-oonon--@---4-----@ Non-dominated set
+i 3 P’ = {3,5
+1 i @ {3, 5}
+2 6 10 14 «18
+f; maximize
+
+===== PAGE 42 =====
+Non-dominated set
+The non-dominated set concept is applicable when there is a trade-
+off in solutions.
+2
+| 6
+#3 Lf os E \ E Lo |
+- 1 3f/ es uw
+1 1 1}
+2 6 h th : 18 f, (maximize) + ——> F, (minimize) 3
+f, maximize
+
+===== PAGE 43 =====
+Graphical Depiction of Pareto Optimal Solution
+Sx)
+X2 (minimize)
+feasible
+objective
+A space
+feasible e
+decision B
+space Pareto-optimal front
+y
+x]
+Pareto-optimal solutions Sil)
+(minimize)
+
+===== PAGE 44 =====
+Graphical Depiction of Pareto Optimal Solution
+
+m Find a set of solutions as close as possible to Pareto-optimal front
+= To find a set of solutions as diverse as possible
+
+feasible
+
+Sx) objective 1
+space
+X
+Pareto-optimal front
+Silx)
+
+===== PAGE 45 =====
+Pareto optimal set
+Pareto optimal set
+When the set P is the entire search space, that is P = S, the resulting
+non-dominated set P' is called the Pareto-optimal set.
+The following figures show the Pareto optimal set for a set of
+feasible solutions over an entire search space under four different
+situations with two objective functions f; and fo.
+
+===== PAGE 46 =====
+Pareto optimal set
+Fi (minimize) — F, (miniimize) © ——> F, (maximize) —, Fi (maximize) —_
+
+===== PAGE 47 =====
+Pareto optimal set
+| ry | ry |
+fx (min) See fx (max) —S* fi (min) —
+3 ey &
+fi: (min) — fi: (max) — fa (max) —
+
+===== PAGE 48 =====
+= iS =
+E | E =
+fi (min) —_ f: (max) Semen’ fi: (min) ——»'
+5X
+o | : U4
+fi (min) ened fi (max) > f, (max) Semel
+
+===== PAGE 49 =====
+Pareto Optimality
+> Solutions along the line are all non- ¢., [solution sities RE,
+dominated solutions. " Se
+> Dominated solutions are inside the line ‘ 7 os
+as there is another solution on the line I eS
+with at least one objective thatis better. ~ =
+> The line is the Pareto-optimal front and . , -
+the solutions on it are called Pareto-
+optimal. Pareto-Optimal Front
+> All Pareto-optimal solutions are
+non-dominated It is important to find solutions as close as
+possible to the Pareto front and as far along
+it as possible.
+
+===== PAGE 50 =====
+Example of Pareto Optimal solution
+> There are 9 types of air tickets with different time and cost details.
+. . . . Par Ticket | Time Cost
+p> We as to choose from them with objective functions of minimum
+cost and minimum time. 4 3 75
+> If we compare air tickets A and B - we see that while B 3 6
+Ais better from a Time point of view, and B is better from the Cost Cc 3 7.5
+angle. A and B thus form a non-dominated set. D 4 5
+> However, if we compare B and C, we see that B is equal to C in time, E 4 6.5
+but better than C in Cost. Hence, we can say that B “dominates” C . F 5 4.5
+> So, as long as B is a feasible option, there is no reason to choose C. - - -
+; I 6 6.5
+
+===== PAGE 51 =====
+Example of Pareto Optimal solution
+> There are 9 types of air tickets with different time and cost details.
+. - oe . os Ticket | Time Cost
+p> We as to choose from them with objective functions of minimum
+cost and minimum time. 4 3 75
+> Find the dominance of A, by comparing A, with B, C, D, E, F, G, H, I. B 3 6
+> A>B- Non dominating, Cc 3 7.5
+> A>C-A Dominates C b i 2
+>A Non-dominating,4 - Non dominating G 5 6
+> A>H- Non dominating, AI- Non dominating H 5 7
+| 1 6 6.5
+
+===== PAGE 52 =====
+Example of Pareto Optimal solution
+> Similarly Find the dominance Set of B, by comparing B, with C, D, E,
+F, G, H, I. Ticket | Time Cost
+B>C-B Domi c Type | (Hours) | (1000 Won)
+> - B Dominates A 5 75
+> B>D- Non dominating- B Dominates E B 3 6
+> BF- Non-dominating, B>G- B Dominates G Cc 3 7.5
+>» B>H-B Dominates H, B>I- B Dominates | - 2 =
+>| B dominates C, E, G, H, | . : °
+> Similarly No dominance set for C, E, G, H, | G 5 6
+> D Dominates E, G, H, | H 5 7
+> F dominates G, H, | | ft 6 6.5
+
+===== PAGE 53 =====
+Example of Pareto Optimal solution
+9 air tickets to choose from them with objective functions of minimum —fe@amee Cost
+cost and minimum time.
+A 2 75
+A “dominates” C Considering any two air tickets B 3 6
+B “dominates” C, E, G, H, I between A, B, D, or F Cc 3 15
+D “dominates” E, G, H, I we find that they do not dominate D 4 5
+F “dominates” G, H, andI over each other!
+E 4 6.5
+F 5 4.5
+Thus, A, B, D, and F form a “Non-dominated set”. G 5 6
+Hence, A, B, D, and F will form the Pareto-Optimal Front or Non- H 5 7
+Dominated Front and they are the Pareto-Optimal solutions. _ 6 65
+
+===== PAGE 54 =====
+Example of Pareto Optimal solution
+; Ticket | Time Cost
+A c® H Type | (Hours) | (1000 Won)
+e
+’ e e! A 2 7.5
+6 Ee
+¥ B G B 3 6
+o 5
+O, D c 3 7.5
+SS ||
+3 f Pareto-Optimal / Non-dominated Fron t) D 4 5
+5 E 4 6.5
+“oO 10620 3B 4 5 67 F 5 4.5
+Time a 5 :
+H 5 7
+| 1 6 6.5
+A, B, D and F form a “Non-dominated set” and are “Pareto-Optimal solutions.”
+
+===== PAGE 55 =====
+Pareto Vs Non Pareto optimization Techniques
+
+Non-Pareto Techniques
+
+* Approaches that do not incorporate directly the concept of Pareto optimum.
+
+* Incapable of producing certain portions of the Pareto Front.
+
+* Efficient and easy to implement, but appropriate to handle only a few
+objectives.
+
+Pareto Techniques
+
+* Suggested originally by Goldberg (1989) to solve multi-objective problems.
+
+¢ Use of non-dominated ranking and selection to move the population
+towards the Pareto Front.
+
+¢ Require a ranking procedure and the technique to maintain diversity in
+the population.
+
+===== PAGE 56 =====
+Pareto Vs Non Pareto optimization Techniques
+
+Non-Pareto Techniques
+
+* Approaches that do not incorporate directly the concept of Pareto optimum.
+
+* Incapable of producing certain portions of the Pareto Front.
+
+* Efficient and easy to implement, but appropriate to handle only a few
+objectives.
+
+Pareto Techniques
+
+* Suggested originally by Goldberg (1989) to solve multi-objective problems.
+
+¢ Use of non-dominated ranking and selection to move the population
+towards the Pareto Front.
+
+¢ Require a ranking procedure and the technique to maintain diversity in
+the population.
+
+===== PAGE 57 =====
+Pareto Vs Non Pareto optimization Techniques
+Non-Pareto Techniques
+¢ Aggregating approaches
+¢ Vector evaluated genetic algorithm (VEGA)
+¢ Lexicographic ordering
+¢ The C-constraint method
+Pareto Techniques
+* Multi-objective genetic algorithm (MOGA)
+* Non-dominated sorting genetic algorithm-Il (NSGA-II)
+* Multi-objective particle swarm optimization (MOPSO)
+* Pareto evolution archive strategy (PAES)
+* Strength Pareto evolutionary algorithm (SPEA-II)
+
+===== PAGE 58 =====
+Non-dominated Sorting Genetic Algorithm-I
+
+===== PAGE 59 =====
+Non-dominated Sorting
+Ticket | Time Cost
+Type | (Hours) | (1000 Won)
+. ake] wid A 2 7.5
+7 | | : 3 oe 1 Non-dominated Front 3 B 3 6
+¥ B [| ¢  Non-dominated Front 2 Cc 3 15
+QO 4 | y | oF Non-dominated Front 1 D 4 >
+; E + 6.5
+3 ( Pareto-Optimal / Non-dominated Front
+4 F 5 4.5
+“9 1 2 3 4 5 6 =7 G 5 6
+Time H 5 7
+ma 6 6.5
+A, B, D and F form a “Non-dominated set” and are “Pareto-Optimal solutions.”
+
+===== PAGE 60 =====
+Non-dominated Sorting
+Ticket | Time Cost
+Type | (Hours) | (1000 Won)
+8
+, A Cc H | A 2 Tes
+: = e I Rank 3 B 3 6
+oF B | G Rank 2 Cc 3 715
+1S) 4 | | D | oe Rank 1 D 4 5
+: E 4 6.5
+3 ( Pareto-Optimal / Non-dominated Front :
+. | F 5 4.5
+0 1 2 3 . 4 5 6 7 G 5 6
+Time a = 5
+| 1 6 6.5
+A, B, D and F form a “Non-dominated set” and are “Pareto-Optimal solutions.”
+
+===== PAGE 61 =====
+Non-dominated Rank Comparison
+* Given two solutions i and j, Fitness assignment:
+i is preferred to j if: * Non-dominated Front 1 are ranked 1
+, : and have the highest fitness.
+rank (i) < rank ; :
+@) 0) ¢ Solutions in the same front have the
+8 re . I same rank and same fitness.
+2 eee Rank3* A solution with lower non-dominated
+> : [| | B | «© _ Rank 2 rank is preferred over others.
+D
+CO, 1 1 |_| 7 oe When two solutions have the same
+3 (Pareto-Optimal / Non-dominated Front) non-dominated rank (belong to the same
+2 ! | front), the one located in a less crowded
+0 1 2 3 4 5 6 7 ‘ 5
+Time region of the front is preferred.
+
+===== PAGE 62 =====
+Optimality conditions
+
+===== PAGE 63 =====
+Optimality Conditions
+iti to-optimality.
+The following condition is known as the necessary condition for Pare
+tt ition for x"
+Theorem 1. (Fritz—John necessary condition). A nears abe . i
+to be Pareto-optimal is that there exist vectors A 2 0 and ane
+at R) and A,u #0) such that the following conditions are :
+1. eM Ke ele") ~ Yher u; Vgj(x*) = 9, and
+2. uj 93(**) =0 for allj = 1 Qownars}
+
+===== PAGE 64 =====
+Optimality Conditions
+For an unconstrained MOOP, the above theorem
+requires the following condition:
+M
+Y_ AmVfm(x*) = 0
+m=1
+to be necessary for a solution to be Pareto-optimal.
+
+===== PAGE 65 =====
+Optimality Conditions
+Theorem 2. (Karush-Kuhn-Tucker sufficient condition for Pareto-optimality).
+
+Let the obiective functions be conver and the constraint functions of the problem
+be nonconvez.
+Let the objective and constraint functions be continuously differentiable at a feasible
+solution x*
+
+A sufficient condition for
+x* to be Pareto-optimal is that there exist vectors A > 0 andu > 0 (where A € RM
+and u € R) ) such that the following equations are true:
+
+2. wgj(x*) =0 for allj =1,2,...,].
+
+===== PAGE 66 =====
+Hybrid systems
+
+===== PAGE 67 =====
+Hybrid systems
+
+A Hybrid system is an intelligent system that is framed by combining at least two intelligent
+technologies like Fuzzy Logic, Neural networks, Genetic algorithms, reinforcement learning, etc.
+The combination of different techniques in one computational model makes these systems
+possess an extended range of capabilities.
+These systems are capable of reasoning and learning in an uncertain and imprecise
+environment. These systems can provide human-like expertise like domain knowledge,
+adaptation in noisy environments, etc.
+Types of Hybrid Systems:
+
+Neuro-Fuzzy Hybrid systems
+
+Neuro Genetic Hybrid systems
+
+Fuzzy Genetic Hybrid systems
+
+===== PAGE 68 =====
+Genetic neuro hybrid systems
+
+===== PAGE 69 =====
+Genetic neuro hybrid systems
+A Neuro Genetic hybrid system is a system that combines Neural networks: which are capable to
+learn various tasks from examples, classify objects and establish relations between them, and a
+Genetic algorithm: which serves important search and optimization techniques.
+Genetic algorithms can be used to improve the performance of Neural Networks and they can be
+used to decide the connection weights of the inputs.
+These algorithms can also be used for topology selection and training networks.
+Applications:
+Face recognition
+DNA matching
+Animal and human research
+Behavioural system
+
+===== PAGE 70 =====
+e e
+Genetic neuro hybrid systems
+SEND NEW CHILD
+ean A es hi! | Qoeeh Rina mh i INITIAL Sete ee eee wines
+i i POPULATION ; ;
+1 = H : H
+tod »| |By a |
+ine H z ao : So }
+i232] CROSSOVER H & Sz i NEURAL N/W -
+iia i < Li : Si}
+199 H a own : y
+: H : 7
+FITNESS
+SVALUATIO
+NO CALCULATE
+FITNESS
+YES
+OPTIMUM
+PARAMETERS
+
+===== PAGE 71 =====
+Genetic neuro hybrid systems
+
+Working Flow:
+
+GA repeatedly modifies a population of individual solutions. GA uses three main types of rules at
+
+each step to create the next generation from the current population:
+Selection to select the individuals, called parents, that contribute to the population of the next generation
+Crossover to combine two parents to form children for the next generation
+Mutation to apply random changes to individual parents in order to form children
+
+GA then sends the new child generation to the ANN model as a new input parameter.
+
+Finally, calculating the fitness by the developed ANN model is performed.
+
+===== PAGE 72 =====
+Genetic neuro hybrid systems
+
+Advantages:
+GA is used for topology optimization i.e. to select a number of hidden layers, number of hidden nodes, and
+interconnection pattern for ANN.
+In Gas, the learning of ANN is formulated as a weight optimization problem, usually using the inverse mean
+squared error as a fitness measure.
+Control parameters such as learning rate, momentum rate, tolerance level, etc are also optimized using GA.
+Itcan mimic the human decision-making process.
+
+Disadvantages:
+Highly complex system.
+Accuracy of the system is dependent on the initial population.
+Maintenance costs are very high.
+
+===== PAGE 73 =====
+Neuro-fuzzy hybrid systems
+
+===== PAGE 74 =====
+Neuro-fuzzy hybrid systems
+The Neuro-fuzzy system is based on a fuzzy system which is trained on the basis of the working
+of neural network theory.
+The learning process operates only on the local information and causes only local changes in
+the underlying fuzzy system.
+Aneuro-fuzzy system can be seen as a 3-layer feedforward neural network.
+The first layer represents input variables, the middle (hidden) layer represents fuzzy rules and
+the third layer represents output variables.
+Fuzzy sets are encoded as connection weights within the layers of the network, which provides
+functionality in processing and training the model.
+
+===== PAGE 75 =====
+Neuro-fuzzy hybrid systems
+FUZZY RULE
+CRISP BASE CRISP
+INPUT OUTPUT
+— | NEURAL ee
+FUZZIFICATION DEFUZZIFICATION
+
+===== PAGE 76 =====
+Neuro-fuzzy hybrid systems
+Working flow:
+In the input layer, each neuron transmits external crisp signals directly to the next layer.
+Each fuzzification neuron receives a crisp input and determines the degree to which the input
+belongs to the input fuzzy set.
+The fuzzy rule layer receives neurons that represent fuzzy sets.
+An output neuron combines all inputs using fuzzy operation UNION.
+Each defuzzification neuron represents the single output of the neuro-fuzzy system.
+
+===== PAGE 77 =====
+Neuro-fuzzy hybrid systems
+Advantages:
+It can handle numeric, linguistic, logic, etc kind of information.
+It can manage imprecise, partial, vague, or imperfect information.
+It can resolve conflicts through collaboration and aggregation.
+It has self-learning, self-organizing and self-tuning capabilities.
+It can mimic the human decision-making process.
+Disadvantages:
+Hard to develop a model from a fuzzy system
+Problems in finding suitable membership values for fuzzy systems
+Neural networks cannot be used if training data is not available.
+
+===== PAGE 78 =====
+Neuro-fuzzy hybrid systems
+Applications:
+Student Modelling
+Medical systems
+Traffic control systems
+Forecasting and predictions

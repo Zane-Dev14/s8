@@ -1,0 +1,119 @@
+8:► Training and testing algorithm.
+11:► Training and testing algorithm.
+14:► Training and testing algorithm
+29:► An error signal is generated if there is a difference between the actual output 
+31:► On the basis of this error signal, the weights would be adjusted until the actual 
+60:► Adaline Network
+70:perceptron is the basic operational unit of artificial neural networks. 
+97:► The output of perceptron network is given by y= f(Yin) ,where f(Yin) is the activation 
+99:► The perceptron learning rule is used in the weight updation between the associator unit 
+102:not an error has occurred 
+103:► The error calculations are based on the comparison of values for targets with those of 
+111:► Weight will be adjusted on the bias of the learning rule if an error has occurred for a 
+137:► Contain pattern recognizer or perceptron
+144:► perceptron learning rule is used in the weight updation between the associator unit and 
+147:error has occurred.
+164:► In perceptron network, the learning rule is the difference between the desired and 
+176:► Weight updation in case of perceptron learning is as shown 
+182:perceptron network- Flowchart
+229:► The testing algorithm test the performance of the network.
+230:► The perceptron network can be used for linear separability concept.
+235:► The condition above are stated for the single layer perceptron network with 
+240:Single classification perceptron network.
+244:Single classification perceptron network Architecture
+257:► The goal of perceptron network is to classify the input pattern as the 
+280:Implement AND function using perceptron networks with Bipolar 
+285:Implement AND function using perceptron networks
+290:Implement AND function using perceptron networks
+303:Implement AND function using perceptron networks with Bipolar 
+308:Implement AND function using perceptron networks with Bipolar 
+313:Implement AND function using perceptron networks with Bipolar 
+319:Implement AND function using perceptron networks with Bipolar 
+324:Implement AND function using perceptron networks with Bipolar 
+330:Implement AND function using perceptron networks with Bipolar 
+336:Implement AND function using perceptron networks with Bipolar 
+342:Implement AND function using perceptron networks with Bipolar 
+348:Implement AND function using perceptron networks with Bipolar 
+353:Implement AND function using perceptron networks with Bipolar 
+359:Implement AND function using perceptron networks with Bipolar 
+364:Implement AND function using perceptron networks with Bipolar 
+376:Implement OR function with Binary inputs and Bipolar targets using 
+377:perceptron networks  algorithm upto 3 EPOCHS
+381:Implement OR function with Binary inputs and Bipolar targets using 
+382:perceptron networks  algorithm upto 3 EPOCHS
+386:Implement OR function with Binary inputs and Bipolar targets using 
+387:perceptron networks  algorithm upto 3 EPOCHS
+398:Find-the weights using perceptron network for AND NOT function when all the inputs 
+404:Find-the weights using perceptron network for AND NOT function when all the inputs 
+410:Find-the weights using perceptron network for AND NOT function when all the inputs 
+415:Find-the weights using perceptron network for AND NOT function when all the inputs 
+420:Find-the weights using perceptron network for AND NOT function when all the inputs 
+425:Find-the weights using perceptron network for AND NOT function when all the inputs 
+430:Find-the weights using perceptron network for AND NOT function when all the inputs 
+441:perceptron network. The (vectors (1,1, 1, 1) and ( -1, 1 -1, -1) are belonging to 
+460:► Classify the two-dimensiona1 input pattern shown in Figure using perceptron 
+484:► Implement NOR function using perceptron network for bipolar input and 
+486:► Classify the 2D pattern shown in the figure below using perceptron network 
+494:Adaptive Linear Neuron (Adaline)
+500:► In terms of architecture, there is a noticeable difference between perceptron 
+501:and Adaline: the perceptron uses the threshold function whereas Adaline 
+503:► Both Adaline and the Perceptron are (single-layer) neural network models.
+505:there, and we consider Adaline as an improvement over the Perceptron.
+509:Adaptive Linear Neuron (Adaline)
+511:► A network with a single linear unit is called an Adaline (adaptive linear 
+513:► In an Adaline, the input-output relationship is linear.
+514:► Adaline uses bipolar activation for its input signals and its target output.
+516:► The bias in Adaline acts like an adjustable weight, whose connection is from a 
+518:► Adaline is a net which has only one output unit.
+522:Adaptive Linear Neuron (Adaline)
+523:► The Adaline network may be trained using delta rule.
+524:► The delta rule may also be called as least mean square (LMS) rule or Widrow-
+526:► This learning rule is found to minimize the mean squared error between the
+530:► The perceptron learning rule originates
+535:Adaptive Linear Neuron (Adaline)
+536:► The delta rule is derived from the gradient- descent method, which is an
+539:➢ Gradient-calculating the loss or error using functions
+543:► Also, the perceptron learning rule stops after a finite number of learning
+549:Delta Rule for single o/p -Adaline
+550:► The delta rule updates the weights between the connections so as w
+553:► The major aim is to minimize the error over all training patterns.
+554:► This is done by reducing the error for each pattern, one at a time.
+555:► The delta rule for adjusting the weight of ith pattern (i = 1 to n) is
+564:Architecture-Adaline Model
+568:Architecture-Adaline Model
+569:• Adaline is a single unit neuron, which receives input from several units and
+571:• The basic Adaline model consists of trainable weights.
+576:• The Adaline model compares the actual output with the target output and on
+577:the basis of the training algorithm, the weights are adjusted.
+585:Flowchart-Adaline Model
+596:error.
+597:► On the basis of the error Factor,
+602:Adaline –Training Algorithm
+620:Adaline –Testing Algorithm
+621:► Step 0: Initialize the weights(from training algorithm) 
+629:Adaline problems-OR
+634:Implement OR function with bipolar inputs and targets using 
+639:Implement OR function with bipolar inputs and targets using 
+647:Implement OR function with bipolar inputs and targets using 
+652:Adaline problems-ANDNOT
+656:Use Adaline network to train AND NOT function with bipolar 
+662:Use Adaline network to train AND NOT function with bipolar 
+667:Use Adaline network to train AND NOT function with bipolar 
+672:Use Adaline network to train AND NOT function with bipolar 
+707:Adaline layer and one unit of MADALINE layer
+731:propagation network (BPNs).
+733:changing the weights in a BPN to classify the given input patterns correctly.
+735:method as used in the case of simple perceptron networks with differentiable units.
+736:► This is a method where the error is propagated back to the hidden unit
+757:► The general difficulty with the multilayer perceptron is calculating the weights of the
+758:hidden layers in an efficient way that would result in a very small or zero output error.
+764:► To update weights, the error must be calculated. The error, Which is the
+768:of the error.
+769:► Therefore, other techniques should be used to calculate an error at the
+770:hidden layer, which will cause minimization of the output error, and
+772:► The training of the BPN is done in three stages –
+774:➢ the calculation and back-propagation of the error,
+785:► Figure shows the architecture of a BPN, depicting only the direction of
+787:► During the back propagation phase of learning , signals are sent in the
+789:► The inputs sent to the BPN and the output obtained from the net could be
+803:BPN-Training Algorithm

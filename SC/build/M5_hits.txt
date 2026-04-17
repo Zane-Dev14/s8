@@ -1,0 +1,201 @@
+17:Module 5: Multi Objective Optimization & Hybrid Systems
+20:Dominance and Pareto-optimality.
+22:Neuro-fuzzy hybrid systems.
+23:Genetic - neuro hybrid systems.
+26:Module 5: Multi Objective Optimization & Hybrid Systems
+27:MOOP-Linear &Nonlinear, Convex & Non-Convex
+28:Principles of MOO-Illustrating Pareto Optimal Solutions
+30:Dominance & Pareto-Optimality
+34:Properties of Dominance Relation, Pareto Optimality
+36:Procedure for finding a non-dominated set
+38:Neuro Fuzzy hybrid system-Classification& Characteristics
+39:Genetic -neuro hybrid systems
+50:MOOP deals with more than one objective function that is to be minimized or maximized
+53:These optimal solutions are known as Pareto-optimal solutions.
+57:MOOP Involves more than one objective function that is to be minimized or maximized
+82:MOOP Mathematical form
+112:@ Fora multi-objective optimization problem (MOOP), m > 2
+116:formal specification of MOOP
+147:Thus, solving a MOOP implies to search for x in the decision
+169:MOOP: Trade-off and conflicts in solutions
+183:MOOP: Illustration: ideal solution vs. real solution
+193:5.1.1 Linear and Non linear MOOP
+194:If all the objective functions and constraints are linear in the MOOP, then the problem is
+197:is called a nonlinear Multi-Objective optimization Problem(nonlinear MOOP)
+198:Like linear programming problems, MOLP has many theoretical properties
+205:5.1.1 Linear and Non linear MOOP
+207:If all the objective functions and constraints are linear in the MOOP, then the problem is
+210:is called a nonlinear Multi-Objective optimization Problem(nonlinear MOOP)
+219:5.1.1 Linear and Non linear MOOP
+231:5.1.2 Convex and Nonconvex MOOP
+232:A MOOP is convex if all the objective functions and feasible region are convex.
+233:A function f: R" — R is a convex function if for any two pair
+236:properties of a convex function:
+240:3. For a convex function, a local minimum is always a global minimum.
+243:5.1.2 Convex and Nonconvex MOOP
+253:A convex function is illustrated. A line joining function
+255:a large value of the true convex function.
+258:5.1.2 Convex and Nonconvex MOOP [another definition]
+260:A MOOP is convex if all the objective functions and feasible region are convex.
+264:Let 0< A <1. A function f : R” > R is convex over 4 if
+268:The function is called strictly convex if “<" is replaced by “<".
+269:Geometrically, a function is convex if a line
+276:5.1.2 Convex and Nonconvex MOOP
+279:A function f : R” > R is convex over & if
+291:5.1.2 Convex and Nonconvex MOOP
+293:A function f : R” — R is Non-Convex over 1 if
+296:A non-convex function "curves up and down" -- it
+297:is neither convex nor concave. f(y)
+299:If a function g(x) is nonconvex , the set of solutions f(x) TF fx + —d)y)
+319:solution, generally known as “Pareto-Optimal’ solutions
+320:(named after Italian economist Vilfredo Pareto (1906)).
+336:Pareto - optimal solutions and Pareto - optimal front
+338:¢ Pareto - optimal solutions: The optimal solutions found in a
+341:¢ Pareto - optimal front: the curve formed by joining all these
+342:solutions (Pareto - optimal solutions)
+374:These solutions are known as Pareto-Optimal solutions (named after Italian economist
+375:Vilfredo Pareto (1906))
+376:The set of the best compromise solutions is referred to as the Pareto-ideal set,
+379:In front of the Pareto-Optimal front are un-attainable solutions corresponding to the
+381:The area behind the Pareto-Optimal front is known as feasible search space or feasible
+387:Guide the search towards the global Pareto-Optimal front.
+388:Maintain solution diversity in the Pareto-Optimal front.
+391:assured of their near optimality properties.
+392:The second goal is entirely specific to MOOP.
+409:Dominance and Pareto-optimality
+412:Dominance and Pareto-optimality
+413:Most MOOP uses the concept of dominance in their search.
+414:Concept of Dominance
+415:Properties of Dominance Relation
+416:Pareto Optimality
+419:Dominance
+428:dominance 2 6 10 14 18
+433:Dominance
+435:determined by the dominance
+436:Dominance Test
+440:x, dominates X» <=> Xp is dominated by x,
+443:Example of Dominance
+447:eT. ? fh) aa Pareto front
+449:Dominated b
+456:Properties of dominance relation
+457:@ This dominance relation satisfies four binary relation properties.
+459:The dominance relation is NOT reflexive.
+464:The dominance relation also NOT symmetric
+468:Properties of dominance relation
+470:@ Dominance relation can not be antisymmetric
+472:e@ The dominance relation is TRANSITIVE
+476:Pareto optimal Solution
+478:= Non-dominated solution set
+480:= Given a set of solutions, the non-dominated solution set is a
+481:set of all the solutions that are not dominated by any
+484:= The non-dominated set of the entire feasible decision space
+485:is called the Pareto-optimal set
+488:the Pareto optimal set is called the Pareto- optimal front
+491:Pareto optimality
+496:& 1 5 3 dominated 5.
+499:¢ {3,5} can be considered a non-dominated front
+502:Non-dominated front
+505:Non-dominated set
+506:Non-dominated set
+507:Among a set of solutions P, the non-dominated set of solutions Pare
+508:those which are not dominated by any member of the set P.
+516:= 2 w-oonon--@---4-----@ Non-dominated set
+523:Non-dominated set
+524:The non-dominated set concept is applicable when there is a trade-
+535:Graphical Depiction of Pareto Optimal Solution
+543:space Pareto-optimal front
+546:Pareto-optimal solutions Sil)
+550:Graphical Depiction of Pareto Optimal Solution
+552:m Find a set of solutions as close as possible to Pareto-optimal front
+560:Pareto-optimal front
+564:Pareto optimal set
+565:Pareto optimal set
+567:non-dominated set P' is called the Pareto-optimal set.
+568:The following figures show the Pareto optimal set for a set of
+573:Pareto optimal set
+577:Pareto optimal set
+592:Pareto Optimality
+594:dominated solutions. " Se
+595:> Dominated solutions are inside the line ‘ 7 os
+598:> The line is the Pareto-optimal front and . , -
+599:the solutions on it are called Pareto-
+600:optimal. Pareto-Optimal Front
+601:> All Pareto-optimal solutions are
+602:non-dominated It is important to find solutions as close as
+603:possible to the Pareto front and as far along
+607:Example of Pareto Optimal solution
+614:angle. A and B thus form a non-dominated set. D 4 5
+621:Example of Pareto Optimal solution
+626:> Find the dominance of A, by comparing A, with B, C, D, E, F, G, H, I. B 3 6
+634:Example of Pareto Optimal solution
+635:> Similarly Find the dominance Set of B, by comparing B, with C, D, E,
+643:> Similarly No dominance set for C, E, G, H, | G 5 6
+648:Example of Pareto Optimal solution
+658:Thus, A, B, D, and F form a “Non-dominated set”. G 5 6
+659:Hence, A, B, D, and F will form the Pareto-Optimal Front or Non- H 5 7
+660:Dominated Front and they are the Pareto-Optimal solutions. _ 6 65
+663:Example of Pareto Optimal solution
+673:3 f Pareto-Optimal / Non-dominated Fron t) D 4 5
+679:A, B, D and F form a “Non-dominated set” and are “Pareto-Optimal solutions.”
+682:Pareto Vs Non Pareto optimization Techniques
+684:Non-Pareto Techniques
+686:* Approaches that do not incorporate directly the concept of Pareto optimum.
+688:* Incapable of producing certain portions of the Pareto Front.
+693:Pareto Techniques
+697:¢ Use of non-dominated ranking and selection to move the population
+698:towards the Pareto Front.
+704:Pareto Vs Non Pareto optimization Techniques
+706:Non-Pareto Techniques
+708:* Approaches that do not incorporate directly the concept of Pareto optimum.
+710:* Incapable of producing certain portions of the Pareto Front.
+715:Pareto Techniques
+719:¢ Use of non-dominated ranking and selection to move the population
+720:towards the Pareto Front.
+726:Pareto Vs Non Pareto optimization Techniques
+727:Non-Pareto Techniques
+732:Pareto Techniques
+734:* Non-dominated sorting genetic algorithm-Il (NSGA-II)
+736:* Pareto evolution archive strategy (PAES)
+737:* Strength Pareto evolutionary algorithm (SPEA-II)
+740:Non-dominated Sorting Genetic Algorithm-I
+743:Non-dominated Sorting
+747:7 | | : 3 oe 1 Non-dominated Front 3 B 3 6
+748:¥ B [| ¢  Non-dominated Front 2 Cc 3 15
+749:QO 4 | y | oF Non-dominated Front 1 D 4 >
+751:3 ( Pareto-Optimal / Non-dominated Front
+756:A, B, D and F form a “Non-dominated set” and are “Pareto-Optimal solutions.”
+759:Non-dominated Sorting
+768:3 ( Pareto-Optimal / Non-dominated Front :
+773:A, B, D and F form a “Non-dominated set” and are “Pareto-Optimal solutions.”
+776:Non-dominated Rank Comparison
+778:i is preferred to j if: * Non-dominated Front 1 are ranked 1
+783:2 eee Rank3* A solution with lower non-dominated
+787:3 (Pareto-Optimal / Non-dominated Front) non-dominated rank (belong to the same
+801:to be Pareto-optimal is that there exist vectors A 2 0 and ane
+808:For an unconstrained MOOP, the above theorem
+813:to be necessary for a solution to be Pareto-optimal.
+817:Theorem 2. (Karush-Kuhn-Tucker sufficient condition for Pareto-optimality).
+825:x* to be Pareto-optimal is that there exist vectors A > 0 andu > 0 (where A € RM
+831:Hybrid systems
+834:Hybrid systems
+836:A Hybrid system is an intelligent system that is framed by combining at least two intelligent
+843:Types of Hybrid Systems:
+845:Neuro-Fuzzy Hybrid systems
+847:Neuro Genetic Hybrid systems
+849:Fuzzy Genetic Hybrid systems
+852:Genetic neuro hybrid systems
+855:Genetic neuro hybrid systems
+856:A Neuro Genetic hybrid system is a system that combines Neural networks: which are capable to
+870:Genetic neuro hybrid systems
+890:Genetic neuro hybrid systems
+906:Genetic neuro hybrid systems
+908:Advantages:
+916:Disadvantages:
+922:Neuro-fuzzy hybrid systems
+925:Neuro-fuzzy hybrid systems
+937:Neuro-fuzzy hybrid systems
+945:Neuro-fuzzy hybrid systems
+955:Neuro-fuzzy hybrid systems
+956:Advantages:
+962:Disadvantages:
+968:Neuro-fuzzy hybrid systems

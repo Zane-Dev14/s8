@@ -1,0 +1,628 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{setspace}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+
+\setstretch{1.18}
+\setlength{\parskip}{0.45em}
+\setlength{\parindent}{0pt}
+
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{CST428 - Blockchain Technologies}
+\rhead{Module 1 Master Notes}
+\cfoot{\thepage}
+
+\newcommand{\examtip}[1]{%
+\vspace{0.35em}
+\noindent\fcolorbox{black}{gray!12}{\parbox{0.965\linewidth}{\textbf{Exam Tip:} #1}}%
+\vspace{0.35em}
+}
+
+\title{\textbf{CST428 Blockchain Technologies}\\\Large Module 1 High-Clarity Notes\\\normalsize Theory + Hard Topic Explanations + Exam-Ready Answers}
+\author{Prepared from Module 1 source PDFs and all available previous-year Module 1 questions}
+\date{\today}
+
+\begin{document}
+
+\section{Module 1 Topic Map From Previous Questions}
+From all available question papers (May 2024, June 2023, October 2023), Module 1 repeatedly asks:
+\begin{itemize}
+\item Symmetric vs asymmetric cryptography
+\item AES fundamentals and state matrix flow
+\item RSA algorithm and RSA numericals
+\item Elliptic Curve Cryptography (ECC)
+\item Hash function properties
+\item SHA-256 algorithm and compression function
+\item Merkle trees (benefits and blockchain use)
+\item Distributed Hash Tables (DHT)
+\end{itemize}
+
+\section{Core Theory (Explained Clearly)}
+
+\subsection{Introduction to Cryptography}
+Cryptography is the science of protecting information when adversaries are present.
+
+Basic terms:
+\begin{itemize}
+\item \textbf{Plaintext (P)}: original readable message.
+\item \textbf{Ciphertext (C)}: encrypted unreadable output.
+\item \textbf{Encryption (E)}: process converting plaintext to ciphertext.
+\item \textbf{Decryption (D)}: process recovering plaintext from ciphertext.
+\item \textbf{Key (K)}: secret/control parameter used by algorithms.
+\end{itemize}
+
+Security goals:
+\begin{itemize}
+\item \textbf{Confidentiality:} unauthorized users must not read data.
+\item \textbf{Integrity:} unauthorized changes must be detectable.
+\item \textbf{Authentication:} identity or source must be verifiable.
+\item \textbf{Non-repudiation:} sender cannot deny performed action.
+\item \textbf{Accountability:} actions can be traced to responsible entities.
+\end{itemize}
+
+\subsection{Symmetric vs Asymmetric Cryptography}
+\begin{longtable}{p{0.31\textwidth}p{0.62\textwidth}}
+\toprule
+\textbf{Symmetric Cryptography} & \textbf{Asymmetric Cryptography} \\
+\midrule
+One key is used for both encryption and decryption & Two keys are used: public key and private key \\
+Very fast and efficient for large data & Slower, used for secure key exchange and signatures \\
+Key sharing is a challenge & Public key can be shared openly \\
+Mainly confidentiality & Confidentiality + authentication + non-repudiation \\
+Examples: AES, DES & Examples: RSA, ECC, DSA \\
+\bottomrule
+\end{longtable}
+
+Mathematical form:
+\begin{align}
+\text{Symmetric: } & C = E_K(P), \quad P = D_K(C) \\
+\text{Asymmetric: } & C = E_{K_{pub}}(P), \quad P = D_{K_{priv}}(C)
+\end{align}
+
+\subsection{AES (Advanced Encryption Standard)}
+AES is a symmetric block cipher.
+
+Key points:
+\begin{itemize}
+\item Block size: 128 bits.
+\item Key sizes: 128, 192, 256 bits.
+\item Number of rounds: 10, 12, 14 respectively.
+\item Works on a \(4 \times 4\) state matrix of bytes.
+\end{itemize}
+
+Round operations:
+\begin{enumerate}
+\item \textbf{AddRoundKey}: XOR state with round key.
+\item \textbf{SubBytes}: nonlinear substitution using S-box.
+\item \textbf{ShiftRows}: row-wise cyclic shifts.
+\item \textbf{MixColumns}: column-wise linear mixing.
+\end{enumerate}
+
+Final round has no MixColumns.
+
+\examtip{In exam answers, always write the four AES transformations in order and explicitly mention that MixColumns is omitted in the final round.}
+
+\subsection{RSA Cryptography}
+RSA is based on the practical difficulty of factoring a large integer \(n = pq\), where \(p\) and \(q\) are prime.
+
+\subsubsection{RSA Key Generation}
+\begin{itemize}
+\item Choose two large primes \(p\) and \(q\).
+\item Compute modulus: \(n = pq\).
+\item Compute Euler totient: \(\phi(n) = (p-1)(q-1)\).
+\item Choose \(e\) such that \(1 < e < \phi(n)\) and \(\gcd(e,\phi(n))=1\).
+\item Compute \(d\) such that:
+\begin{equation}
+ed \equiv 1 \pmod{\phi(n)}
+\end{equation}
+\item Public key is \((n,e)\), private key is \((n,d)\).
+\end{itemize}
+
+RSA operations:
+\begin{align}
+C &= M^e \bmod n \\
+M &= C^d \bmod n
+\end{align}
+
+\subsection{Elliptic Curve Cryptography (ECC)}
+ECC works over points on elliptic curves over finite fields.
+
+Common curve form:
+\begin{equation}
+y^2 = x^3 + ax + b
+\end{equation}
+
+ECC idea:
+\begin{itemize}
+\item choose a base point \(G\) on curve,
+\item private key is a random integer \(d\),
+\item public key is \(Q=dG\).
+\end{itemize}
+
+Why ECC is important:
+\begin{itemize}
+\item same security with smaller key sizes compared to RSA,
+\item lower storage and bandwidth,
+\item better performance for constrained systems.
+\end{itemize}
+
+\subsection{Digital Signatures (RSA/ ECC Context)}
+Digital signatures provide:
+\begin{itemize}
+\item data origin authentication,
+\item integrity,
+\item non-repudiation.
+\end{itemize}
+
+Typical signing workflow:
+\begin{enumerate}
+\item compute hash \(h(m)\),
+\item sign hash with private key,
+\item verify using public key.
+\end{enumerate}
+
+\subsection{Hash Functions and Properties}
+A hash function maps arbitrary-length input to fixed-length digest.
+
+Practical properties:
+\begin{itemize}
+\item fixed-length output,
+\item fast computation.
+\end{itemize}
+
+Security properties:
+\begin{itemize}
+\item \textbf{Pre-image resistance}: from digest, infeasible to recover input.
+\item \textbf{Second pre-image resistance}: for given input \(x\), infeasible to find \(x'\neq x\) with same hash.
+\item \textbf{Collision resistance}: infeasible to find any two different inputs with same hash.
+\end{itemize}
+
+Avalanche effect: tiny input change causes major output change.
+
+\subsection{SHA-256}
+SHA-256 belongs to SHA-2.
+
+Specifications:
+\begin{itemize}
+\item input block size: 512 bits,
+\item word size: 32 bits,
+\item digest size: 256 bits,
+\item 64 rounds per block.
+\end{itemize}
+
+High-level steps:
+\begin{itemize}
+\item Padding and length appending.
+\item Split input into 512-bit blocks.
+\item Initialize 8 hash words from SHA-256 standard constants.
+\item Prepare message schedule (80 words derived from block).
+\item Run 64-round compression function for each block.
+\item Accumulate state and produce 256-bit final digest.
+\end{itemize}
+
+Compression equations for each round \(t\):
+\begin{align}
+T_1 &= h + \Sigma_1(e) + Ch(e,f,g) + K_t + W_t \\
+T_2 &= \Sigma_0(a) + Maj(a,b,c)
+\end{align}
+where
+\begin{align}
+Ch(x,y,z) &= (x \wedge y) \oplus (\neg x \wedge z) \\
+Maj(x,y,z) &= (x \wedge y) \oplus (x \wedge z) \oplus (y \wedge z)
+\end{align}
+
+\subsection{Merkle Trees}
+Merkle tree is a binary hash tree.
+
+Structure:
+\begin{itemize}
+\item leaves: hash of transactions/data,
+\item parent: hash(left child || right child),
+\item top node: Merkle root.
+\end{itemize}
+
+Benefits:
+\begin{itemize}
+\item fast integrity verification,
+\item efficient inclusion proofs,
+\item tamper detection,
+\item storage and bandwidth efficiency.
+\end{itemize}
+
+\subsection{Distributed Hash Tables (DHT)}
+DHT is a distributed key-value lookup system.
+
+Workflow:
+\begin{enumerate}
+\item hash the key to an identifier,
+\item route request to node responsible for that identifier,
+\item node stores or returns value,
+\item replication improves availability and fault tolerance.
+\end{enumerate}
+
+Applications include P2P networks and decentralized data systems.
+
+\section{Hard Topics Decoded (Numericals + Concepts)}
+
+\subsection{How To Solve RSA Numericals Correctly}
+Use this exact method in exams.
+
+Given \(p,q,e,M\):
+\begin{itemize}
+\item Step 1: Compute \(n=pq\) - multiply the two primes to get modulus.
+\item Step 2: Compute \(\phi(n)=(p-1)(q-1)\) - subtract 1 from each prime and multiply.
+\item Step 3: Find \(d\) such that \(ed \equiv 1 \pmod{\phi(n)}\) - solve using extended Euclidean algorithm or trial.
+\item Step 4: Encrypt using \(C=M^e \bmod n\) - raise message to public exponent, take modulo.
+\item Step 5: Decrypt using \(M=C^d \bmod n\) - raise ciphertext to private exponent, take modulo.
+\item Step 6: Verify recovered message equals original message to confirm correctness.
+\end{itemize}
+
+\textbf{Fast modular exponentiation tip:}
+Break power into squares and reduce modulo at each step to avoid huge numbers.
+
+\subsection{How To Explain AES State Matrix For Full Marks}
+\begin{itemize}
+\item AES takes 128-bit plaintext and arranges it into 16-byte state matrix.
+\item State matrix is transformed round by round through the algorithm.
+\item Start with AddRoundKey pre-round transformation using initial key.
+\item For each normal round: SubBytes, ShiftRows, MixColumns, AddRoundKey in order.
+\item Final round omits MixColumns step to save computation.
+\item Final state matrix is read out as 16-byte ciphertext.
+\end{itemize}
+
+\subsection{How To Explain SHA-256 Compression Clearly}
+\begin{itemize}
+\item Mention eight working variables \((a,b,c,d,e,f,g,h)\).
+\item Define round inputs \(W_t\) (message schedule) and \(K_t\) (round constants).
+\item Write \(T_1\) and \(T_2\) formulas explicitly.
+\item Show register update flow: \(h \leftarrow g\), \(g \leftarrow f\), \(f \leftarrow e\), etc.
+\item Explain 64 rounds per block with different \(W_t\) and \(K_t\).
+\item Explain final state addition and 256-bit output accumulation.
+\end{itemize}
+
+\subsection{How To Explain ECC Without Confusion}
+\begin{itemize}
+\item Start from curve equation and finite-field setting.
+\item Define base point \(G\), private key \(d\), public key \(Q=dG\).
+\item Explain hard problem: reversing scalar multiplication is infeasible.
+\item Explain smaller key-size advantage over RSA for same security level.
+\item Mention ECC is efficient for blockchain and constrained systems.
+\item Conclude with security-efficiency tradeoff benefit.
+\end{itemize}
+
+\newpage
+\section*{Solved Question Papers (Module 1)}
+\addcontentsline{toc}{section}{Solved Question Papers (Module 1)}
+
+\subsection*{Part A (3 Marks) - Every Answer Has 6 Points}
+
+\subsubsection*{Q1 May 2024: Differentiate between symmetric and asymmetric cryptography}
+\begin{itemize}
+\item Symmetric uses one key for both encryption and decryption.
+\item Asymmetric uses two keys: public key and private key.
+\item Symmetric is faster and suitable for large data encryption.
+\item Asymmetric is slower and mainly used for key exchange and signatures.
+\item Symmetric has key distribution challenge between communicating users.
+\item Asymmetric supports authentication and non-repudiation through key pairs.
+\end{itemize}
+
+\subsubsection*{Q2 May 2024: Benefits of Merkle trees}
+\begin{itemize}
+\item Merkle tree stores transaction hashes hierarchically in binary tree form.
+\item Merkle root summarizes entire dataset integrity in single hash.
+\item Any leaf change propagates upward and changes root hash immediately.
+\item Inclusion proofs are efficient using only logarithmic proof path length.
+\item Reduces storage because hashes are much smaller than full data blocks.
+\item Useful for lightweight verification in blockchain clients without full blocks.
+\end{itemize}
+
+\subsubsection*{Q1 June 2023: Compare symmetric and asymmetric key cryptography}
+\begin{itemize}
+\item Symmetric key is shared secret between users; asymmetric has public-private key pair.
+\item Symmetric encryption and decryption are computationally very fast.
+\item Asymmetric operations are computationally heavier and slower.
+\item Symmetric is ideal for bulk confidentiality of large data volumes.
+\item Asymmetric is ideal for key distribution and digital signatures.
+\item Asymmetric improves trust in open networks without pre-shared secrets.
+\end{itemize}
+
+\subsubsection*{Q2 June 2023: How secure hash functions strengthen blockchain}
+\begin{itemize}
+\item Hash links each block to previous block through cryptographic hash chain.
+\item Hashes provide tamper evidence through integrity checks that fail on modification.
+\item SHA-256 based computational puzzles enable Proof-of-Work mining security.
+\item Merkle roots commit all transactions compactly in single 256-bit hash.
+\item Collision resistance prevents attacker from easily substituting fake transaction data.
+\item Avalanche effect makes manipulation immediately visible as digest changes drastically.
+\end{itemize}
+
+\subsubsection*{Q1 October 2023: Major differences between symmetric and asymmetric cryptography}
+\begin{itemize}
+\item Number of keys: one secret key (symmetric) vs two keys public-private pair (asymmetric).
+\item Speed: symmetric is very fast, asymmetric is significantly slower.
+\item Typical use: symmetric for bulk data protection, asymmetric for key setup and signatures.
+\item Key sharing: symmetric needs secure channel; asymmetric can share public key openly.
+\item Security services: asymmetric naturally provides authentication and non-repudiation.
+\item Common examples: AES (symmetric), RSA and ECC (asymmetric).
+\end{itemize}
+
+\subsubsection*{Q2 October 2023: Describe distributed hash tables and their working}
+\begin{itemize}
+\item DHT is a distributed key-value lookup mechanism across many peers.
+\item Key is hashed to produce an identifier in a logical keyspace.
+\item Each node is responsible for specific identifier ranges (ownership shares).
+\item Queries are routed through overlay neighbors to node owning that identifier.
+\item Responsible node stores and retrieves the value for that key.
+\item DHT provides decentralized, scalable, and fault-tolerant lookup without central server.
+\end{itemize}
+
+\subsection*{Part B (14 Marks) - Every Answer Has At Least 18 Points}
+
+\subsubsection*{May 2024 Q11 (a+b): RSA concepts + hash properties + DHT working}
+\textbf{Exam-ready 18 points:}
+\begin{itemize}
+\item RSA is an asymmetric algorithm based on integer factorization hardness.
+\item Choose two large primes \(p\) and \(q\).
+\item Compute modulus \(n=pq\).
+\item Compute Euler totient \(\phi(n)=(p-1)(q-1)\).
+\item Select public exponent \(e\) such that \(1<e<\phi(n)\) and co-prime condition holds.
+\item Compute private exponent \(d\) from \(ed \equiv 1 \pmod{\phi(n)}\).
+\item Public key is \((n,e)\) and private key is \((n,d)\).
+\item RSA encryption formula is \(C=M^e \bmod n\).
+\item RSA decryption formula is \(M=C^d \bmod n\).
+\item RSA gives confidentiality; with signing it also gives authentication.
+\item Hash function property 1: fixed-length digest for arbitrary input length.
+\item Hash function property 2: fast computation.
+\item Hash function property 3: pre-image resistance.
+\item Hash function property 4: second pre-image resistance.
+\item Hash function property 5: collision resistance.
+\item DHT stores key-value pairs across multiple nodes, not one server.
+\item DHT request is routed to node responsible for hashed key identifier.
+\item DHT improves scalability and removes centralized lookup bottleneck.
+\end{itemize}
+
+\subsubsection*{May 2024 Q12 (a+b): ECC algorithm + SHA-256 compression}
+\textbf{Exam-ready 18 points:}
+\begin{itemize}
+\item ECC is based on elliptic curve discrete logarithm difficulty.
+\item Standard curve form is \(y^2=x^3+ax+b\) over finite field.
+\item Choose domain parameters including base point \(G\) and order \(n\).
+\item Select private key \(d\), with \(1\le d \le n-1\).
+\item Compute public key \(Q=dG\).
+\item Key exchange derives shared secret by scalar multiplication.
+\item ECC needs smaller keys than RSA for similar security strength.
+\item Smaller keys reduce storage and communication overhead.
+\item ECC is efficient for resource-constrained environments.
+\item SHA-256 processes input in 512-bit blocks.
+\item SHA-256 has 8 working registers \((a,b,c,d,e,f,g,h)\).
+\item Message schedule \(W_t\) and constant \(K_t\) are used each round.
+\item Compute \(T_1 = h + \Sigma_1(e) + Ch(e,f,g) + K_t + W_t\).
+\item Compute \(T_2 = \Sigma_0(a) + Maj(a,b,c)\).
+\item Update registers and continue for 64 rounds.
+\item Add final working values to previous hash state.
+\item Repeat for all message blocks.
+\item Concatenate final state to obtain 256-bit digest.
+\end{itemize}
+
+\subsubsection*{June 2023 Q11 (a+b): AES state matrix + RSA numerical}
+\textbf{Exam-ready 18 points:}
+\begin{itemize}
+\item AES plaintext block size is 128 bits (16 bytes).
+\item Arrange 16 bytes into a \(4\times4\) state matrix.
+\item AES key sizes are 128, 192, and 256 bits.
+\item Round counts are 10, 12, and 14 respectively.
+\item Initial step is AddRoundKey with round-0 key.
+\item Normal rounds apply SubBytes transformation (S-box substitution).
+\item Then apply ShiftRows transformation (cyclic row shifts).
+\item Then apply MixColumns transformation (linear column mixing).
+\item Then apply AddRoundKey again (XOR with round key).
+\item Final round omits MixColumns step.
+
+\textbf{RSA Numerical: } \(p=7, q=11, e=17, M=25\)
+\item Compute modulus: \(n = p \times q = 7 \times 11 = 77\)
+\item Compute totient: \(\phi(n) = (p-1)(q-1) = (7-1)(11-1) = 6 \times 10 = 60\)
+\item Given \(e=17\), find \(d\) from \(ed \equiv 1 \pmod{60}\)
+\item Test: \(17 \times 3 = 51 \equiv 51 \pmod{60}\) (no), \(17 \times 53 = 901 = 15 \times 60 + 1 \equiv 1 \pmod{60}\) (yes!), so \(d=53\)
+\item Public key: \((n,e)=(77,17)\), Private key: \((n,d)=(77,53)\)
+\item Encrypt \(M=25\): \(C = 25^{17} \bmod 77\). Using successive squaring: \(25^2=625 \equiv 16 \pmod{77}\), \(25^4 \equiv 256 \equiv 25 \pmod{77}\), \(25^{16} \equiv 25 \pmod{77}\), so \(C = 25 \times 16 \times 25 \equiv 9 \pmod{77}\)
+\item Decrypt \(C=9\): \(M = 9^{53} \bmod 77 = 25\)
+\item Recovered message equals original, confirming RSA correctness.
+\end{itemize}
+
+\subsubsection*{June 2023 Q12 (a+b): SHA-256 + Merkle tree security role}
+\textbf{Exam-ready 18 points:}
+\begin{itemize}
+\item SHA-256 belongs to SHA-2 family.
+\item Input is padded to satisfy block alignment rules.
+\item Message is split into 512-bit blocks.
+\item Initial hash state consists of 8 fixed 32-bit words.
+\item For each block, create message schedule words.
+\item Perform 64 compression rounds.
+\item Use functions \(Ch\), \(Maj\), \(\Sigma_0\), and \(\Sigma_1\).
+\item Use constants \(K_t\) and schedule \(W_t\).
+\item Update eight working registers each round.
+\item Add working registers to hash state after rounds.
+\item Repeat across all blocks.
+\item Final output length is 256 bits.
+\item Merkle tree uses hashes at leaves and internal nodes.
+\item Parent node is hash of concatenated child hashes.
+\item Root hash commits whole transaction set.
+\item Inclusion proof requires only sibling hashes along one path.
+\item Any transaction change alters root hash and reveals tampering.
+\item Therefore Merkle tree strengthens integrity and lightweight verification.
+\end{itemize}
+
+\subsubsection*{October 2023 Q11 (a+b): hash properties + public/private keys + RSA numerical}
+\textbf{Exam-ready 18 points:}
+\begin{itemize}
+\item Hash functions convert variable-length input to fixed-length digest.
+\item Hash functions are one-way in practical cryptography.
+\item Security property 1: pre-image resistance (cannot reverse hash).
+\item Security property 2: second pre-image resistance (cannot find alternate input).
+\item Security property 3: collision resistance (cannot find two inputs with same hash).
+\item Additional property: fast deterministic computation.
+\item In blockchain, hashes link blocks and cryptographically preserve integrity.
+\item Public key is openly distributable to any party.
+\item Private key must be kept secret by the owner.
+\item In encryption, receiver public key is used to encipher.
+\item In decryption, receiver private key is used to decipher.
+
+\textbf{RSA Numerical: } \(p=3, q=11, e=7, M=5\)
+\item Compute modulus: \(n = p \times q = 3 \times 11 = 33\)
+\item Compute totient: \(\phi(n) = (p-1)(q-1) = (3-1)(11-1) = 2 \times 10 = 20\)
+\item Given \(e=7\), find \(d\) from \(ed \equiv 1 \pmod{20}\)
+\item Test: \(7 \times 3 = 21 = 1 \times 20 + 1 \equiv 1 \pmod{20}\), so \(d=3\)
+\item Public key: \((n,e)=(33,7)\), Private key: \((n,d)=(33,3)\)
+\item Encrypt \(M=5\): \(C = 5^7 \bmod 33 = 78125 \bmod 33\). Note \(78125 = 2367 \times 33 + 14\), so \(C=14\)
+\item Decrypt \(C=14\): \(M = 14^3 \bmod 33 = 2744\). Note \(2744 = 83 \times 33 + 5\), so \(M=5\)
+\item Recovery of original message validates the RSA process.
+\end{itemize}
+
+\subsubsection*{October 2023 Q12 (a+b): Merkle tree with neat explanation + SHA-256 algorithm}
+\textbf{Exam-ready 18 points:}
+\begin{itemize}
+\item Merkle tree is a binary tree of hashes.
+\item Leaf nodes store hashes of transactions or data blocks.
+\item Internal node value is hash(left child \(\|\) right child) where \(\|\) is concatenation.
+\item Top node is the Merkle root stored in block header.
+\item Root commitment allows verification of any transaction inclusion.
+\item Inclusion proofs use only branch hashes, not full transaction data.
+\item This reduces bandwidth and verification cost significantly.
+\item Any data tampering at leaf level changes leaf hash immediately.
+\item Changed leaf hash propagates upward and changes root hash.
+\item Hence Merkle trees provide efficient integrity checking.
+\item SHA-256 starts with preprocessing and padding step.
+\item Message is divided into 512-bit blocks.
+\item Eight 32-bit hash variables are initialized to fixed values.
+\item Message schedule expands data for each round use.
+\item Each block runs 64 compression rounds sequentially.
+\item Round formulas compute \(T_1\) and \(T_2\) from current state.
+\item Registers are updated in each round: \(h\leftarrow g, g\leftarrow f, \ldots, a\leftarrow T_1+T_2\).
+\item Final state accumulation produces 256-bit digest.
+\end{itemize}
+
+\section{Diagrams and Visual References}
+
+\subsection{RSA Key Generation and Use Diagram}
+\vspace{0.3em}
+\noindent\textbf{RSA Process Flow:}
+\begin{center}
+\framebox[0.9\linewidth][c]{
+  \begin{minipage}{0.85\linewidth}
+    \textbf{Step 1: Key Generation}\\
+    Select primes $p$, $q$ $\rightarrow$ Compute $n = pq$, $\phi(n) = (p-1)(q-1)$\\
+    Choose $e$ with $\gcd(e, \phi(n)) = 1$ $\rightarrow$ Find $d$ such that $ed \equiv 1 \pmod{\phi(n)}$\\
+    \textbf{Public Key:} $(n, e)$ \quad \textbf{Private Key:} $(n, d)$\
+    \\[0.2cm]
+    \textbf{Step 2: Encryption (Sender)}\\[0.1cm]
+    Message $M$ $\rightarrow$ $C = M^e \bmod n$ $\rightarrow$ Send ciphertext $C$\
+    \\[0.2cm]
+    \textbf{Step 3: Decryption (Receiver)}\\[0.1cm]
+    Receive $C$ $\rightarrow$ $M = C^d \bmod n$ $\rightarrow$ Plaintext $M$
+  \end{minipage}
+}
+\end{center}
+\vspace{0.3em}
+
+\subsection{Merkle Tree Structure Diagram}
+\vspace{0.3em}
+\noindent\textbf{4-Level Merkle Tree Hierarchy:}
+\begin{center}
+\framebox[0.95\linewidth][c]{
+  \begin{minipage}{0.90\linewidth}
+    \vspace{0.15cm}
+    \centerline{\textbf{Root} = $H(H_{AB} || H_{CD})$}
+    \vspace{0.1cm}
+    \centerline{$\Big\downarrow$}
+    \vspace{0.05cm}
+    \centerline{$H_{AB} = H(H_A || H_B)$ \hspace{2cm} $H_{CD} = H(H_C || H_D)$}
+    \vspace{0.1cm}
+    \centerline{$\Big\downarrow$ \hspace{2cm} $\Big\downarrow$ \hspace{1.5cm} $\Big\downarrow$ \hspace{2cm} $\Big\downarrow$}
+    \vspace{0.05cm}
+    \centerline{$H_A$ \hspace{1.5cm} $H_B$ \hspace{1.5cm} $H_C$ \hspace{1.5cm} $H_D$}
+    \vspace{0.1cm}
+    \centerline{$\Big\downarrow$ \hspace{1.5cm} $\Big\downarrow$ \hspace{1.5cm} $\Big\downarrow$ \hspace{1.5cm} $\Big\downarrow$}
+    \vspace{0.05cm}
+    \centerline{Tx-A \hspace{1.5cm} Tx-B \hspace{1.5cm} Tx-C \hspace{1.5cm} Tx-D}
+    \vspace{0.1cm}
+    \textbf{Property:} Any change in one transaction changes root hash $\Rightarrow$ Immutability detection.
+    \vspace{0.1cm}
+  \end{minipage}
+}
+\end{center}
+\vspace{0.3em}
+
+\subsection{AES Encryption Flow Diagram}
+\vspace{0.3em}
+\noindent\textbf{AES Block Encryption Pipeline (128-bit key, 10 rounds):}
+\begin{center}
+\framebox[0.95\linewidth][c]{
+  \begin{minipage}{0.90\linewidth}
+    \vspace{0.1cm}
+    \centerline{128-bit Plaintext}
+    \vspace{0.08cm}
+    \centerline{$\Big\downarrow$}
+    \vspace{0.05cm}
+    \centerline{Parse into 4×4 State Matrix (16 bytes)}
+    \vspace{0.08cm}
+    \centerline{$\Big\downarrow$}
+    \vspace{0.05cm}
+    \centerline{Initial AddRoundKey (XOR with Round Key 0)}
+    \vspace{0.08cm}
+    \centerline{$\Big\downarrow$}
+    \vspace{0.1cm}
+    \centerline{\textbf{Main Rounds (10 times for 128-bit key):}}
+    \vspace{0.05cm}
+    \centerline{SubBytes $\rightarrow$ ShiftRows $\rightarrow$ MixColumns $\rightarrow$ AddRoundKey}
+    \vspace{0.08cm}
+    \centerline{$\Big\downarrow$}
+    \vspace{0.1cm}
+    \centerline{\textbf{Final Round (omit MixColumns):}}
+    \vspace{0.05cm}
+    \centerline{SubBytes $\rightarrow$ ShiftRows $\rightarrow$ AddRoundKey}
+    \vspace{0.08cm}
+    \centerline{$\Big\downarrow$}
+    \vspace{0.05cm}
+    \centerline{128-bit Ciphertext}
+    \vspace{0.1cm}
+  \end{minipage}
+}
+\end{center}
+\vspace{0.3em}
+
+\section{Quick Revision Sheets}
+\subsection{Formula Sheet}
+\begin{align}
+\phi(n) &= (p-1)(q-1) \\
+ed &\equiv 1 \pmod{\phi(n)} \\
+C &= M^e \bmod n \\
+M &= C^d \bmod n \\
+T_1 &= h + \Sigma_1(e) + Ch(e,f,g) + K_t + W_t \\
+T_2 &= \Sigma_0(a) + Maj(a,b,c)
+\end{align}
+
+\subsection{One-Page Answer Pattern}
+\begin{itemize}
+\item Start with 1-line definition of the topic.
+\item Write algorithm or structure in ordered steps or bullets.
+\item Add equations with symbols and their meanings.
+\item Add one practical blockchain relevance line.
+\item End with one-line conclusion linked to security goal.
+\end{itemize}
+
+\examtip{If you run short on time: for 14-mark answers, first write all 18 point headers quickly, then fill equations and one-line explanations. Structured answers fetch marks even under time pressure.}
+
+\section*{Closing Note}
+\addcontentsline{toc}{section}{Closing Note}
+This rewritten Module 1 version is optimized for understanding plus exam writing precision. Follow the hard-topic sections first, then practice reproducing the solved answers with the same point structure.
+
+\end{document}

@@ -1,0 +1,66 @@
+{
+  "CST428-QP_May_2024.txt": {
+    "A": [
+      "Differentiate between symmetric and asymmetric cryptography.",
+      "What are the benefits of Merkle trees?",
+      "Describe the two main categories of consensus mechanisms.",
+      "Compare the different features of centralized and decentralized systems.",
+      "How are transactions validated in a Bitcoin network?",
+      "Explain the working of PoW consensus mechanism.",
+      "Define smart contacts? Mention its properties.",
+      "Explain the different types of oracles.",
+      "With the help of a figure show the relationship between the transactions, transaction trie, and block header in Ethereum.",
+      "Explain how libraries are deployed in Solidity language with an example."
+    ],
+    "B": {
+      "Module III": "Explain the Paxos algorithm that solve the consensus problem with crash fault tolerance. Explain the working of PoS with a neat sketch. Explain how a payment is sent using a Bitcoin network in terms of user\u2019s perspective. What is a wallet? List and explain its various types.",
+      "Module IV": "Discuss oracles in a blockchain ecosystem. Explain the generic data flow from a smart contract to an oracle. Illustrate the ways blockchain technology can be employed in government related services. Illustrate with a use case, the application of blockchain technology in finance sector. What are DApps? Outline the design of a DApp.",
+      "Module V": "What is a transaction in Ethereum? Explain the two types of transaction in Ethereum. Explain the various elements present in Ethereum blockchain. What are the various control structures available in Solidity language. Using Solidity language, create a simple bank contract that allows a user to deposit, withdraw and view balance. REKKKK (7) (7) (8) (6) (7) (7) (7) (7) (7) (7) (9) (5) (6) (8)"
+    }
+  },
+  "June_2023_Regular.txt": {
+    "A": [
+      "Compare Symmetric and Asymmetric Key Cryptography.",
+      "How can secure hash functions strengthen blockchain technology?",
+      "What are the different components of a block header?",
+      "Explain the ecosystem of decentralisation with respect to blockchain.",
+      "What are the different steps involved in the process of a Bitcoin transaction?",
+      "What is mining in blockchain?",
+      "What are smart contracts?",
+      "List and explain the different types of oracles.",
+      "Illustrate the role of EVM in Ethereum network.",
+      "List the various components in Ethereum blockchain."
+    ],
+    "B": {
+      "Module III": "Explain the need for consensus algorithms in blockchain technology. What are crash fault tolerant algorithms? Compare PoW and PoS. How are transactions validated in a Bitcoin network? Explain the different steps involved in mining a Bitcoin. What is the role of a miner in a Bitcoin network?",
+      "Module IV": "Explain the impact of blockchain technology to artificial intelligence. Illustrate with a use case, the application of blockchain technology in finance sector. What are DApps? Explain the design of a DApp. Explain how blockchain technology can impact the health care sector?",
+      "Module V": "Compare Bitcoin and Ethereum? With neat diagram explain the concept of Ethereum world state. Write a smart contract using solidity to show various bank transactions like credit, deposit and view balance. Explain how transactions are processed in Ethereum. Briefly explain the concept of gas and how does it affect the transaction processing? Write smart contract using solidity to implement a voting system. KReKKEK (7) (7) (7) (7) (7) (7) (7) (7) (7) (7) (7) (7) (7) (7)"
+    }
+  },
+  "October_2023_Supplementary.txt": {
+    "A": [
+      "List the major differences between symmetric and asymmetric cryptography.",
+      "Describe what distributed hash tables are and how they work.",
+      "Define blockchain and elaborate on the different terminologies used in the definition.",
+      "List and explain the different types of blockchain.",
+      "If your blockchain network has 6 Byzantine nodes, what is the minimum number of nodes that are required to ensure Byzantine fault tolerance using PBFT protocol?",
+      "What is the Byzantine generals problem, and how is it relevant to blockchain design?",
+      "What is a Sybil attack, and how does the Bitcoin network prevent it?",
+      "What are smart contracts?",
+      "What are the two types of accounts used in Ethereum and what are the differences between them?",
+      "Explain different datatypes in solidity."
+    ],
+    "B": {
+      "Module III": "What are the different tasks of a Bitcoin miner? Explain the mining algorithm (7) used in Bitcoin with the help of a flowchart. Describe the process of achieving consensus through the Paxos protocol, and (7) provide an example to illustrate its implementation Let us assume, for consensus in Bitcoin, instead of PoW, arandom node is selected (7) as the winner who can propose the next block in the blockchain. If the randomly chosen node is a malicious (Byzantine) node, then which of the following statement is true? Justify your answer 1. The malicious node can steal Bitcoin from other addresses 2. The malicious node can make a denial-of-service attack 3. The malicious node can make a double spend attack With a neat diagram explain the structure of a transaction in Bitcoin. Explain (7) Unspent Transaction Output (UTXO) and its use in transaction verification.",
+      "Module IV": "Illustrate how blockchain technology can be used in supply chain management. (7) Detail the basic architecture of a DApp with the help of a neat diagram. (7)",
+      "Module V": "Create a Solidity bank contract that allows users to deposit, withdraw, and view their balance. Explain how transactions are processed in Ethereum. Briefly explain the concept of gas and how does it affect the transaction processing? Define Smart Contract. Using Solidity language, create a simple contract that allows a user to store and retrieve a single string value. Explain the various elements present in the Ethereum blockchain. KReKKEK (7) (7) (7) (7) (7) (7)"
+    }
+  },
+  "IMG-20250403-WA0007.txt": {
+    "A": [
+      "A 1 Differentiate between symmetric and asymmetric cryptography. () 2) What are the benefits of Merkle trees? (3) 3 Describe the two main categories of consensus mechanisms. (3) 4 Compare the different features of centralized and decentralized systems. (3) 5 How are transactions validated in a Bitcoin network? (3) 6 Explain the working of PoW consensus mechanism. (3) 7 Define smart contacts? Mention its properties. (3) 8 Explain the different types of oracles. (3) 9) With the help of a figure show the relationship between the transactions, (3) transaction trie, and block header in Ethereum.",
+      "10 Explain how libraries are deployed in Solidity language with an example. @)"
+    ],
+    "B": {}
+  }
+}

@@ -1,0 +1,451 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{setspace}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+
+\setstretch{1.18}
+\setlength{\parskip}{0.45em}
+\setlength{\parindent}{0pt}
+\setlength{\headheight}{15pt}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{CST428 - Blockchain Technologies}
+\rhead{Module 3 Master Notes}
+\cfoot{\thepage}
+
+\newcommand{\examtip}[1]{%
+\vspace{0.35em}
+\noindent\fcolorbox{black}{gray!12}{\parbox{0.965\linewidth}{\textbf{Exam Tip:} #1}}%
+\vspace{0.35em}
+}
+
+\begin{document}
+
+\section{Module 3 Topic Map From Previous Questions}
+
+From May 2024, June 2023, and October 2023 papers, Module 3 repeatedly asks these topics:
+
+\begin{itemize}
+\item Why consensus is needed in blockchain.
+\item Crash Fault Tolerance (CFT) and Byzantine Fault Tolerance (BFT).
+\item Paxos protocol and its phases.
+\item Proof of Work (PoW) and Proof of Stake (PoS).
+\item Bitcoin mining process and miner responsibilities.
+\item Bitcoin transaction flow and transaction validation.
+\item UTXO model and Bitcoin transaction structure.
+\item Wallet concept and wallet types.
+\item Byzantine Generals Problem, Sybil attack, DoS, and double-spend discussion.
+\end{itemize}
+
+\section{Core Theory (Explained Clearly)}
+
+\subsection{Start Here: Why Consensus Exists}
+In blockchain, there is no single bank server to say ``this transaction is final.''
+So all nodes in the network need a common rule to agree on one valid ledger.
+That common rule is called \textbf{consensus}.
+
+If consensus is weak, these problems happen:
+\begin{itemize}
+\item one coin can be spent twice,
+\item different users see different balances,
+\item fake transaction history may spread,
+\item trust in the system collapses.
+\end{itemize}
+
+\examtip{If a long question asks ``need for consensus'', begin with one sentence: ``Consensus keeps all distributed copies of the ledger in the same state without a central authority.''}
+
+\subsection{Fault Types in Simple Words}
+
+\begin{itemize}
+\item \textbf{Crash fault:} node stops, hangs, or becomes silent.
+\item \textbf{Byzantine fault:} node acts maliciously or sends wrong/conflicting data.
+\end{itemize}
+
+In one line: \textbf{CFT handles accidental crashes, BFT handles adversarial behavior.}
+
+\subsection{Byzantine Generals Problem and PBFT Formula}
+Byzantine Generals Problem asks: how can honest participants agree on one decision when some participants may lie?
+
+PBFT requirement is:
+\[
+n \ge 3f + 1
+\]
+where:
+\begin{itemize}
+\item $f$ = maximum Byzantine nodes tolerated,
+\item $n$ = total nodes needed.
+\end{itemize}
+
+Example in exam:
+If Byzantine nodes are 6, then
+\[
+n \ge 3(6)+1=19
+\]
+So minimum required nodes are \textbf{19}.
+
+\subsection{Paxos in an Easy Way}
+Paxos is a \textbf{CFT} consensus protocol. It works well when failures are crashes, not malicious lies.
+
+Roles:
+\begin{itemize}
+\item \textbf{Proposer:} suggests a value.
+\item \textbf{Acceptor:} votes on proposed value.
+\item \textbf{Learner:} learns final agreed value.
+\end{itemize}
+
+Phases:
+\begin{itemize}
+\item \textbf{Prepare:} proposer sends proposal number $N$.
+\item \textbf{Promise:} acceptors promise not to accept lower numbers.
+\item \textbf{Accept:} proposer asks acceptors to accept value.
+\item \textbf{Learn:} majority acceptance becomes final value.
+\end{itemize}
+
+\begin{center}
+\framebox[0.95\linewidth][c]{
+\begin{minipage}{0.90\linewidth}
+\vspace{0.1cm}
+\centerline{\textbf{Paxos Flow (Simple)}}
+\centerline{Prepare $\rightarrow$ Promise $\rightarrow$ Accept $\rightarrow$ Learn}
+\vspace{0.1cm}
+\end{minipage}}
+\end{center}
+
+\subsection{Proof of Work (PoW) and Mining}
+PoW is used by Bitcoin to select who adds the next block.
+
+Main idea:
+\begin{itemize}
+\item miners collect valid transactions,
+\item build block candidate,
+\item change nonce and hash repeatedly,
+\item if hash is below target, block is valid.
+\end{itemize}
+
+Why useful:
+\begin{itemize}
+\item creating fake history becomes expensive,
+\item verifying a valid block remains easy,
+\item network gets security from real-world computation cost.
+\end{itemize}
+
+\begin{center}
+\framebox[0.95\linewidth][c]{
+\begin{minipage}{0.90\linewidth}
+\vspace{0.1cm}
+\centerline{\textbf{Bitcoin Mining Flowchart}}
+\centerline{Pick TX from mempool}
+\centerline{$\Downarrow$}
+\centerline{Verify TX}
+\centerline{$\Downarrow$}
+\centerline{Build block + nonce}
+\centerline{$\Downarrow$}
+\centerline{Hash and compare with target}
+\centerline{No: retry \hspace{0.6cm} Yes: broadcast block}
+\vspace{0.1cm}
+\end{minipage}}
+\end{center}
+
+\subsection{Proof of Stake (PoS)}
+PoS chooses validators using stake (locked coins), not heavy computation.
+
+\begin{itemize}
+\item users lock coins to join as validators,
+\item protocol selects one validator to propose block,
+\item others verify and attest,
+\item valid behavior gets rewards,
+\item malicious behavior gets slashing penalty.
+\end{itemize}
+
+Quick comparison:
+\begin{itemize}
+\item \textbf{PoW:} leader by computation, high energy use, mature security history.
+\item \textbf{PoS:} leader by stake, low energy use, faster and more efficient in many designs.
+\end{itemize}
+
+\subsection{Bitcoin Transaction and UTXO (Most Important)}
+Bitcoin does not use account balance in the same way as a bank app.
+It uses \textbf{UTXO} (Unspent Transaction Output).
+
+Think like this:
+\begin{itemize}
+\item each UTXO is a spendable digital coin piece,
+\item transaction inputs consume old UTXOs,
+\item transaction outputs create new UTXOs,
+\item one UTXO cannot be spent twice.
+\end{itemize}
+
+\begin{center}
+\framebox[0.95\linewidth][c]{
+\begin{minipage}{0.90\linewidth}
+\vspace{0.1cm}
+\centerline{\textbf{Bitcoin Transaction Structure}}
+\centerline{Input(s): previous UTXO references + signature}
+\centerline{$\Downarrow$}
+\centerline{Transaction core data}
+\centerline{$\Downarrow$}
+\centerline{Output(s): recipient + change}
+\vspace{0.1cm}
+\end{minipage}}
+\end{center}
+
+\subsection{How Transaction Validation Works}
+Nodes verify a transaction before accepting it:
+\begin{itemize}
+\item signatures must be valid,
+\item referenced UTXOs must exist,
+\item referenced UTXOs must be unspent,
+\item output amount must not exceed input amount,
+\item scripts/conditions must pass.
+\end{itemize}
+
+\subsection{Wallets and Types}
+A wallet stores \textbf{keys}, not actual coins.
+Coins remain on blockchain ledger.
+
+\begin{itemize}
+\item \textbf{Hot wallets:} online wallets (mobile/web/desktop), easy to use, higher attack surface.
+\item \textbf{Cold wallets:} offline wallets (hardware/paper), safer for long-term storage.
+\item \textbf{Custodial:} third party holds keys.
+\item \textbf{Non-custodial:} user holds keys and full responsibility.
+\end{itemize}
+
+\examtip{Good practical strategy: hot wallet for small daily amount, cold wallet for larger long-term amount.}
+
+\section{Solved Question Papers}
+
+\subsection{Part A: 3-Mark Questions}
+
+\subsubsection*{Q1. Describe the two main categories of consensus mechanisms.}
+\begin{itemize}
+\item Consensus is the rule that makes all nodes agree on one ledger state.
+\item CFT handles crashes/timeouts and assumes nodes do not lie.
+\item BFT handles malicious or conflicting node behavior.
+\item Paxos is a CFT example; PoW and PoS are blockchain BFT-style approaches.
+\end{itemize}
+
+\subsubsection*{Q2. How are transactions validated in a Bitcoin network?}
+\begin{itemize}
+\item Node checks transaction structure and protocol rules.
+\item Signature must prove sender authorization.
+\item Inputs must reference valid unspent UTXOs.
+\item Input value must be at least output value.
+\item If valid, transaction is relayed and added to mempool.
+\end{itemize}
+
+\subsubsection*{Q3. Explain the working of PoW consensus mechanism.}
+\begin{itemize}
+\item Miner gathers transactions and forms a candidate block.
+\item Miner keeps changing nonce and hashing block header.
+\item Target is to get hash below difficulty limit.
+\item First successful miner broadcasts block.
+\item Network verifies quickly and adds block.
+\item Miner receives block reward and fees.
+\end{itemize}
+
+\subsubsection*{Q4. What are the different steps involved in a Bitcoin transaction?}
+\begin{itemize}
+\item User enters receiver address and amount.
+\item Wallet selects UTXOs and prepares outputs.
+\item Sender signs with private key.
+\item Transaction is broadcast to network.
+\item Nodes validate and miners include it in a block.
+\item Confirmations make payment safer to accept.
+\end{itemize}
+
+\subsubsection*{Q5. What is mining in blockchain?}
+\begin{itemize}
+\item Mining means validating transactions and creating blocks in PoW.
+\item Miners solve a hash puzzle by nonce trial-and-error.
+\item Winning miner publishes block to network.
+\item Other nodes verify and append the block.
+\item Mining gives security and transaction ordering.
+\item Rewards and fees motivate miners to participate.
+\end{itemize}
+
+\subsubsection*{Q6. If network has 6 Byzantine nodes, what minimum nodes are required for PBFT?}
+\begin{itemize}
+\item PBFT uses formula $n \ge 3f+1$.
+\item Here $f=6$.
+\item So $n \ge 3(6)+1=19$.
+\item Minimum required nodes are 19.
+\end{itemize}
+
+\subsubsection*{Q7. What is Byzantine generals problem and why relevant to blockchain?}
+\begin{itemize}
+\item It models agreement in presence of dishonest participants.
+\item Honest nodes must still reach one common decision.
+\item Blockchain faces this exact challenge in open networks.
+\item Consensus protocols are designed to solve it.
+\item Without this, ledger can split into conflicting histories.
+\end{itemize}
+
+\subsubsection*{Q8. What is a Sybil attack, and how does Bitcoin prevent it?}
+\begin{itemize}
+\item Sybil attack means one actor creates many fake nodes.
+\item If voting is identity-based, attacker gains unfair control.
+\item Bitcoin ties influence to hash power, not node count.
+\item So fake identities alone do not help the attacker.
+\item PoW makes control expensive due to hardware and energy cost.
+\end{itemize}
+
+\subsection{Part B: 14-Mark Questions}
+
+\subsubsection*{Q1. Explain need for consensus algorithms. What are CFT algorithms? Compare PoW and PoS.}
+\begin{itemize}
+\item Consensus is needed because blockchain has no central authority.
+\item It keeps all nodes on one valid ledger history.
+\item It prevents double spending and conflicting states.
+\item CFT handles crash failures, not malicious behavior.
+\item Paxos is a well-known CFT protocol.
+\item PoW selects leader by computational work.
+\item PoS selects leader by stake and validator rules.
+\item PoW is energy-heavy but proven.
+\item PoS is energy-efficient and generally faster.
+\item Both add economic cost to attack the network.
+\end{itemize}
+
+\subsubsection*{Q2. Explain Paxos protocol and give an implementation-style example.}
+\begin{itemize}
+\item Paxos solves consensus when nodes may crash or delay.
+\item It defines proposer, acceptor, and learner roles.
+\item Proposer starts with a numbered prepare message.
+\item Acceptors promise to ignore lower proposal numbers.
+\item Proposer sends accept request after majority promises.
+\item Majority acceptance finalizes the value.
+\item Learners record that final value.
+\item In 5 nodes, majority is 3, so 2 crashes can be tolerated.
+\item Paxos is safe for crash faults, not Byzantine attacks.
+\item It is widely used in distributed backend systems.
+\end{itemize}
+
+\subsubsection*{Q3. Explain working of PoS with neat sketch. Compare PoW and PoS.}
+\begin{itemize}
+\item PoS works by locking coins as validator stake.
+\item Protocol selects validator to propose a block.
+\item Other validators verify and attest the block.
+\item Enough attestations make the block final.
+\item Honest validators earn rewards.
+\item Dishonest validators can be slashed.
+\item PoS uses less energy than PoW.
+\item PoW relies on compute race and electricity.
+\item PoW attack needs hash-power majority.
+\item PoS attack needs very large stake with slashing risk.
+\item[]
+\vspace{0.25em}
+\noindent\framebox[0.97\linewidth][c]{
+\begin{minipage}{0.93\linewidth}
+\vspace{0.08cm}
+\centerline{\textbf{PoS Sketch}}
+\centerline{Stake Lock $\rightarrow$ Validator Selection $\rightarrow$ Block Proposal}
+\centerline{$\Downarrow$}
+\centerline{Peer Verification $\rightarrow$ Finality $\rightarrow$ Reward/Slashing}
+\vspace{0.08cm}
+\end{minipage}}
+\end{itemize}
+
+\subsubsection*{Q4. Explain Bitcoin payment from user perspective. What is a wallet? Explain types.}
+\begin{itemize}
+\item User enters receiver address and amount.
+\item Wallet selects UTXOs and creates outputs.
+\item Transaction is signed with private key.
+\item Signed transaction is broadcast to network.
+\item Nodes validate and place it in mempool.
+\item Miner includes it in a block.
+\item Confirmations make payment increasingly final.
+\item Wallet is a key-management tool, not coin storage.
+\item Hot wallets are convenient but online risk exists.
+\item Cold wallets are safer for long-term holdings.
+\end{itemize}
+
+\subsubsection*{Q5. Explain transaction validation, mining steps, and role of miner in Bitcoin network.}
+\begin{itemize}
+\item Nodes validate signatures, scripts, and input references.
+\item Inputs must be unspent UTXOs with enough value.
+\item Valid transactions are stored in mempool.
+\item Miner selects transactions and builds a candidate block.
+\item Miner performs nonce hashing against difficulty target.
+\item On success, block is broadcast and verified by peers.
+\item Accepted block updates ledger and UTXO set.
+\item Miners provide ordering, validation, and network security.
+\item Rewards and fees incentivize participation.
+\item This process keeps Bitcoin decentralized and reliable.
+\end{itemize}
+
+\subsubsection*{Q6. Explain tasks of Bitcoin miner and mining algorithm with flowchart.}
+\begin{itemize}
+\item Miner gathers transactions from mempool.
+\item Miner validates and filters invalid entries.
+\item Miner forms candidate block and block header.
+\item Miner performs repeated hashing with nonce.
+\item Hash below target means valid proof.
+\item Miner broadcasts block to the network.
+\item Peers verify and append if valid.
+\item Miner receives subsidy and fees.
+\item Miner then starts next round.
+\item Continuous competition keeps chain secure.
+\item[]
+\vspace{0.25em}
+\noindent\framebox[0.97\linewidth][c]{
+\begin{minipage}{0.93\linewidth}
+\vspace{0.08cm}
+\centerline{\textbf{Mining Algorithm Flowchart}}
+\centerline{Collect TX $\rightarrow$ Validate TX $\rightarrow$ Build Header}
+\centerline{$\Downarrow$}
+\centerline{Hash + Nonce $\rightarrow$ Target Check}
+\centerline{No: Retry \hspace{0.5cm} Yes: Broadcast Block}
+\vspace{0.08cm}
+\end{minipage}}
+\end{itemize}
+
+\subsubsection*{Q7. Random node (not PoW) is chosen. If chosen node is Byzantine, analyze stealing, DoS, and double-spend claims.}
+\begin{itemize}
+\item Random single-leader choice is weaker than PoW for security.
+\item Byzantine leader can delay/censor transactions, so DoS is possible.
+\item Direct theft of others' coins still needs their private keys.
+\item Without private keys, direct stealing is false.
+\item Reordering/censoring can support double-spend attempts.
+\item Double-spend success depends on confirmations and protocol rules.
+\item So double-spend attempt is true, guaranteed success is not.
+\item Final answer: stealing false, DoS true, double-spend attempt true.
+\item This is why Bitcoin uses expensive work-based leader selection.
+\end{itemize}
+
+\subsubsection*{Q8. Explain Bitcoin transaction structure with diagram. Explain UTXO and use in verification.}
+\begin{itemize}
+\item Bitcoin transaction contains inputs, outputs, and metadata.
+\item Inputs reference previous outputs and provide authorization data.
+\item Outputs define receiver value and lock conditions.
+\item Unspent outputs are called UTXOs.
+\item Validation checks input references exist and are unspent.
+\item Validation checks signatures/scripts and amount consistency.
+\item Input minus output becomes fee.
+\item After confirmation, spent inputs are removed from UTXO set.
+\item New outputs become fresh UTXOs.
+\item UTXO model makes double-spend detection straightforward.
+\item[]
+\vspace{0.25em}
+\noindent\framebox[0.97\linewidth][c]{
+\begin{minipage}{0.93\linewidth}
+\vspace{0.08cm}
+\centerline{\textbf{Bitcoin Transaction Diagram}}
+\centerline{Input 1: Prev TXID + Index + Unlock Script}
+\centerline{Input 2: Prev TXID + Index + Unlock Script}
+\centerline{$\Downarrow$}
+\centerline{Transaction Data Core}
+\centerline{$\Downarrow$}
+\centerline{Output 1: Recipient Value + Lock Script}
+\centerline{Output 2: Change Value + Lock Script}
+\vspace{0.08cm}
+\end{minipage}}
+\end{itemize}
+
+\end{document}

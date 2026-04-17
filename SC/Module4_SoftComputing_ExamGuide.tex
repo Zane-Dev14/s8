@@ -1,0 +1,401 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=0.95in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\setlength{\parskip}{0.46em}
+\setlength{\parindent}{0pt}
+\setlength{\headheight}{15pt}
+\linespread{1.07}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{CST444 Soft Computing - Module 4}
+\rhead{Exam-Ready Beginner Guide}
+\cfoot{\thepage}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+
+\newcommand{\examtip}[1]{%
+\vspace{0.2em}
+\noindent\fcolorbox{black}{gray!12}{\parbox{0.97\linewidth}{\textbf{Exam Tip:} #1}}%
+\vspace{0.2em}
+}
+
+\begin{document}
+
+\section*{Module 4 Topic Map from OCR Questions}
+\textbf{Frequently repeated concepts}
+\begin{itemize}
+\item Fuzzy Inference System (FIS): architecture, operation, Mamdani and Sugeno models.
+\item Design steps of fuzzy logic controller (FLC).
+\item Genetic Algorithm (GA): flowchart, operators, and stopping conditions.
+\item Selection operators in GA.
+\item Crossover operators: single-point, two-point, uniform, three-parent, shuffle, precedence-preservative.
+\item Encoding methods: binary, value/real, permutation, tree.
+\end{itemize}
+
+\textbf{High-mark asks}
+\begin{itemize}
+\item Explain Mamdani and Sugeno FIS with diagram and comparison.
+\item Explain selection and crossover operators with examples.
+\item Explain encoding schemes and stopping criteria in GA.
+\item Design-type question: Mamdani controller for washing machine.
+\end{itemize}
+
+\textbf{Must-study-first order}
+\begin{enumerate}
+\item FIS blocks and flow.
+\item Mamdani vs Sugeno.
+\item GA pipeline from population to next generation.
+\item Selection and crossover.
+\item Mutation and stopping criteria.
+\item Encoding schemes.
+\end{enumerate}
+
+\section*{Core Theory (Teaching-First, Exam-Formal)}
+
+\subsection*{1) Fuzzy Inference System (FIS)}
+FIS is a rule-based mapping from input to output using fuzzy logic. It uses IF-THEN rules and operators like AND/OR.
+
+\textbf{Main blocks in FIS/FLC}
+\begin{itemize}
+\item Fuzzifier
+\item Rule base
+\item Database/knowledge base
+\item Decision-making unit (inference engine)
+\item Defuzzifier
+\end{itemize}
+
+\begin{center}
+\framebox[0.97\linewidth][c]{
+\begin{minipage}{0.93\linewidth}
+\vspace{0.08cm}
+\centerline{\textbf{FIS Block Diagram}}
+\centerline{Crisp Input $\rightarrow$ Fuzzifier $\rightarrow$ Inference Engine + Rule Base}
+\centerline{$\rightarrow$ Aggregation $\rightarrow$ Defuzzifier $\rightarrow$ Crisp Output}
+\vspace{0.08cm}
+\end{minipage}}
+\end{center}
+
+\subsection*{2) Mamdani vs Sugeno FIS}
+\textbf{Mamdani:} consequent is fuzzy set. Defuzzification is mandatory.
+
+\textbf{Sugeno:} consequent is linear/constant function of inputs. Computationally compact and optimization-friendly.
+
+\textbf{Typical Mamdani steps}
+\begin{enumerate}
+\item Fuzzify inputs.
+\item Evaluate rule strengths.
+\item Clip/scale output membership functions.
+\item Aggregate all rule outputs.
+\item Defuzzify to crisp output.
+\end{enumerate}
+
+\subsection*{3) FLC Design Steps}
+\begin{enumerate}
+\item Identify input, output, and state variables.
+\item Partition universe and assign linguistic labels.
+\item Select membership functions.
+\item Build rule base.
+\item Normalize/scaling choices.
+\item Fuzzification.
+\item Inference and aggregation.
+\item Defuzzification.
+\end{enumerate}
+
+\subsection*{4) Genetic Algorithm Basics}
+\textbf{GA cycle:} initialize population $\rightarrow$ fitness evaluation $\rightarrow$ selection $\rightarrow$ crossover $\rightarrow$ mutation $\rightarrow$ next generation.
+
+\begin{center}
+\framebox[0.97\linewidth][c]{
+\begin{minipage}{0.93\linewidth}
+\vspace{0.08cm}
+\centerline{\textbf{GA Flow}}
+\centerline{Initialize Population $\rightarrow$ Evaluate Fitness $\rightarrow$ Select Parents}
+\centerline{$\rightarrow$ Crossover $\rightarrow$ Mutation $\rightarrow$ New Population $\rightarrow$ Stop?}
+\vspace{0.08cm}
+\end{minipage}}
+\end{center}
+
+\subsection*{5) Selection, Crossover, Mutation, Encoding}
+\textbf{Selection methods (as in notes):}
+Roulette-wheel, rank selection, tournament selection, stochastic universal sampling.
+
+\textbf{Crossover methods:}
+Single-point, two-point, multi-point, uniform, three-parent, shuffle, precedence-preservative.
+
+\textbf{Mutation examples:}
+Bit-flip, interchanging (swap), reversing.
+
+\textbf{Encoding types:}
+Binary, value/real, permutation, tree encoding.
+
+\subsection*{6) Stopping Criteria in GA}
+\begin{itemize}
+\item Maximum generation reached.
+\item Maximum elapsed time reached.
+\item No significant fitness improvement.
+\item Reaching desired objective/fitness threshold.
+\item Saturation in best-individual behavior.
+\end{itemize}
+
+\examtip{For GA answers, always write operators in this order: selection, crossover, mutation. This matches standard marking flow.}
+
+\section*{Numericals and Derivations (Stepwise)}
+
+\subsection*{N1) Roulette-wheel selection probability (worked pattern)}
+\textbf{Given:} Fitness values for four chromosomes: $[2,6,3,1]$.
+
+\textbf{Find:} Selection probabilities.
+
+\textbf{Formula:}
+\[
+P_i=\frac{f_i}{\sum f_i}
+\]
+
+\textbf{Substitution:}
+\[
+\sum f_i=2+6+3+1=12
+\]
+\[
+P=[2/12,6/12,3/12,1/12]=[0.1667,0.5,0.25,0.0833]
+\]
+
+\textbf{Final answer:} Probabilities are $16.67\%$, $50\%$, $25\%$, $8.33\%$.
+
+\subsection*{N2) Single-point crossover example}
+\textbf{Given:} Parent1 = 11001010, Parent2 = 00110111, cut after 4th bit.
+
+\textbf{Step}
+\[
+\text{Child1}=1100|0111=11000111,
+\quad
+\text{Child2}=0011|1010=00111010
+\]
+
+\textbf{Final answer:} Children are 11000111 and 00111010.
+
+\subsection*{N3) Triangle inference pattern (I, R, IR, T) for angles $120^\circ,50^\circ,10^\circ$}
+\textbf{Given:} $X=120, Y=50, Z=10$ with $X\ge Y\ge Z$, $X+Y+Z=180$.
+
+\textbf{Find:} Membership values for isosceles (I), right (R), isosceles-right (IR), and other triangle (T).
+
+\textbf{Method (notes style):}
+Use the given membership formulas for each fuzzy shape and substitute angle values; then combine using min/max where required (for IR use logical intersection).
+
+\textbf{Exam-ready result format:}
+\begin{itemize}
+\item Compute $\mu_I$ from closeness of $Y$ and $Z$.
+\item Compute $\mu_R$ from closeness of one angle to $90^\circ$.
+\item Compute $\mu_{IR}=\min(\mu_I,\mu_R)$.
+\item Compute residual/other-triangle membership from complement logic.
+\end{itemize}
+
+\section*{Solved Questions for Module 4 (Self-Contained)}
+
+\subsection*{Part A / 3-Mark Questions (Each Answer Has 6 Scoring Points)}
+
+\textbf{Q1. Draw flow chart and explain steps of Genetic Algorithm.}
+\begin{enumerate}
+\item Start with random initial population of chromosomes.
+\item Evaluate fitness of each chromosome.
+\item Select parents based on fitness using a selection method.
+\item Apply crossover to create offspring.
+\item Apply mutation to maintain diversity.
+\item Form next generation and repeat until stopping criterion.
+\end{enumerate}
+
+\textbf{Q2. Explain any 3 mutation techniques with examples.}
+\begin{enumerate}
+\item Bit-flip mutation: 0 changes to 1 or 1 to 0 at selected locus.
+\item Interchange mutation: swap two positions in chromosome.
+\item Reversing mutation: reverse order of genes in selected segment.
+\item Mutation helps recover lost genetic material.
+\item Mutation prevents premature convergence.
+\item Mutation rate is kept low to preserve good schemata.
+\end{enumerate}
+
+\textbf{Q3. Explain stopping conditions for GA flow.}
+\begin{enumerate}
+\item Stop if maximum generation count is reached.
+\item Stop if maximum execution time is reached.
+\item Stop if desired fitness/target objective is achieved.
+\item Stop if best fitness does not improve for many generations.
+\item Stop if population diversity collapses and search saturates.
+\item Practical systems may combine multiple stop conditions.
+\end{enumerate}
+
+\textbf{Q4. What is Fuzzy Inference System (FIS)?}
+\begin{enumerate}
+\item FIS is a fuzzy rule-based decision mapping system.
+\item It uses IF-THEN rules with linguistic variables.
+\item Inputs may be crisp or fuzzy.
+\item Fuzzifier converts crisp inputs to fuzzy values.
+\item Inference engine applies rule base and combines outputs.
+\item Defuzzifier converts final fuzzy output to crisp decision.
+\end{enumerate}
+
+\textbf{Q5. Differentiate value encoding and permutation encoding.}
+\begin{enumerate}
+\item Value encoding stores genes as real/float values.
+\item Permutation encoding stores genes as ordered sequence.
+\item Value encoding is used in continuous parameter optimization.
+\item Permutation encoding is used in scheduling/order problems.
+\item Crossover/mutation operators differ for these encodings.
+\item Permutation operators must preserve sequence validity.
+\end{enumerate}
+
+\textbf{Q6. Explain single-point and two-point crossover briefly.}
+\begin{enumerate}
+\item Single-point crossover uses one cut location.
+\item Tails after cut are exchanged between parents.
+\item Two-point crossover uses two cut locations.
+\item Middle segment between cuts is exchanged.
+\item Two-point crossover generally explores more combinations.
+\item Both are recombination operators for offspring generation.
+\end{enumerate}
+
+\subsection*{Part B / 14-Mark Questions (Each Answer Has 14 Scoring Points)}
+
+\textbf{Q1. What is FIS? Illustrate Mamdani and Sugeno FIS with examples.}
+\begin{enumerate}
+\item FIS is a fuzzy rule-based mapping from input space to output space.
+\item It consists of fuzzifier, rule base, database, inference engine, and defuzzifier.
+\item Mamdani model uses fuzzy sets in rule consequents.
+\item Sugeno model uses linear/constant output function in consequents.
+\item Mamdani is intuitive and widely accepted in expert-style control.
+\item Sugeno is computationally efficient and optimization-friendly.
+\item In Mamdani, output membership functions are aggregated.
+\item Mamdani requires explicit defuzzification at output stage.
+\item In Sugeno zero-order model, consequent is a constant value.
+\item In Sugeno first-order model, consequent is linear in inputs.
+\item Mamdani example rule: IF temperature is high THEN fan speed is fast (fuzzy).
+\item Sugeno example rule: IF temperature is high THEN speed = $aT+b$.
+\item Mamdani suits linguistic interpretability; Sugeno suits adaptive tuning.
+\item Conclusion: both share fuzzy front-end but differ in consequent modeling and output computation.
+\end{enumerate}
+
+\textbf{Q2. Explain any three selection techniques in GA.}
+\begin{enumerate}
+\item Selection chooses parents for reproduction based on fitness.
+\item Roulette-wheel gives probability proportional to fitness.
+\item Rank selection assigns probabilities based on ranking, not raw fitness.
+\item Tournament selection selects best individual among random subset.
+\item Stochastic universal sampling reduces selection variance.
+\item Strong selection speeds convergence but can reduce diversity.
+\item Weak selection preserves diversity but slows convergence.
+\item Roulette-wheel is simple and popular in basic GA.
+\item Rank method helps avoid domination by very fit individuals.
+\item Tournament method is efficient and easy to implement.
+\item Selection pressure controls exploration vs exploitation balance.
+\item Parent pool created from selected individuals feeds crossover stage.
+\item Selection does not create new genes by itself.
+\item Conclusion: selection strategy strongly affects convergence speed and robustness.
+\end{enumerate}
+
+\textbf{Q3. Explain uniform, three-parent, shuffle and precedence-preservative crossover with examples.}
+\begin{enumerate}
+\item Uniform crossover decides gene-by-gene parent source.
+\item It uses random mask or probability at each locus.
+\item Three-parent crossover combines information from three parents.
+\item Third parent helps resolve conflicts when first two differ.
+\item Shuffle crossover shuffles gene order before crossover.
+\item Then normal crossover is applied and order is unshuffled.
+\item This reduces positional bias of fixed crossover points.
+\item Precedence-preservative crossover is used for ordering/scheduling tasks.
+\item It preserves relative precedence constraints.
+\item It avoids invalid offspring in permutation problems.
+\item These methods are chosen based on chromosome representation.
+\item Binary/value problems often use uniform and multipoint methods.
+\item Permutation problems prefer precedence-preservative variants.
+\item Conclusion: crossover design must match encoding to preserve feasibility and diversity.
+\end{enumerate}
+
+\textbf{Q4. Explain various encoding schemes used in GA.}
+\begin{enumerate}
+\item Encoding maps candidate solution to chromosome form.
+\item Binary encoding uses bit strings (0/1 genes).
+\item Value/real encoding uses floating-point values.
+\item Permutation encoding uses ordered lists.
+\item Tree encoding represents expressions/program structures.
+\item Binary encoding is easy for classical genetic operators.
+\item Real encoding is effective for continuous optimization.
+\item Permutation encoding suits route/schedule/order tasks.
+\item Tree encoding is common in genetic programming.
+\item Operator design depends on encoding validity constraints.
+\item Mutation/crossover for permutation must avoid duplicates.
+\item Real encoding often uses arithmetic crossover and perturbation mutation.
+\item Good encoding improves search efficiency and feasibility handling.
+\item Conclusion: problem type determines best encoding strategy.
+\end{enumerate}
+
+\textbf{Q5. Explain concept of crossover and methods possible in GA.}
+\begin{enumerate}
+\item Crossover combines two or more parent chromosomes.
+\item Purpose is to create better offspring by recombination.
+\item It is applied after selection stage.
+\item Single-point crossover swaps segments at one cut point.
+\item Two-point crossover swaps middle segment between two cuts.
+\item Multi-point crossover swaps multiple alternating segments.
+\item Uniform crossover performs locus-wise random mixing.
+\item Three-parent crossover involves additional parent guidance.
+\item Shuffle crossover randomizes order before recombination.
+\item Precedence-preservative crossover protects order constraints.
+\item Ordered and partially matched crossover are used for permutations.
+\item Crossover rate controls how often recombination is applied.
+\item Excessive crossover without diversity control can destabilize search.
+\item Conclusion: crossover is the primary exploration mechanism in GA.
+\end{enumerate}
+
+\textbf{Q6. Apply Mamdani FIS to design washing-machine wash-time controller (input: dirt, grease).}
+\begin{enumerate}
+\item Define input linguistic variables: dirt and grease.
+\item Choose three descriptors each (low, medium, high).
+\item Define output variable wash-time with five descriptors (very short to very long).
+\item Assign membership functions for all input and output labels.
+\item Construct rule base, e.g., IF dirt high AND grease high THEN wash-time very long.
+\item Add all rule combinations to cover full input space.
+\item Fuzzify measured crisp dirt and grease values.
+\item Compute rule strengths using AND operator (typically min/product).
+\item Clip/scaled output sets using rule strengths.
+\item Aggregate all clipped output sets (typically max).
+\item Obtain one combined fuzzy wash-time output distribution.
+\item Apply defuzzification (centroid/weighted method).
+\item Resulting crisp output gives final wash-time decision.
+\item Conclusion: Mamdani controller converts expert washing rules into practical control output.
+\end{enumerate}
+
+\section*{Formula Sheet (Module 4)}
+\begin{itemize}
+\item FIS rule: IF $x$ is $A$ AND $y$ is $B$ THEN $z$ is $C$ (Mamdani)
+\item Sugeno rule: IF $x$ is $A$ AND $y$ is $B$ THEN $z=ax+by+c$
+\item Roulette probability: $P_i=f_i/\sum_j f_j$
+\item Common GA flow: init $\to$ fitness $\to$ selection $\to$ crossover $\to$ mutation $\to$ loop
+\item Stopping check: max generation, target fitness, stagnation, time limit
+\end{itemize}
+
+\section*{One-Page Quick Revision Summary}
+\textbf{Memory hooks}
+\begin{itemize}
+\item FIS = fuzzy decision engine with 5 classic blocks.
+\item Mamdani = fuzzy consequents, Sugeno = function consequents.
+\item GA operators order: selection $\to$ crossover $\to$ mutation.
+\item Encoding and crossover must be compatible.
+\item Stopping criteria should be stated explicitly in every GA long answer.
+\end{itemize}
+
+\textbf{Exam rapid skeleton}
+\begin{enumerate}
+\item One-line definition.
+\item Block diagram.
+\item Steps/algorithm list.
+\item One example rule or chromosome example.
+\item Final application statement.
+\end{enumerate}
+
+\examtip{For diagram-heavy questions, draw compact block diagrams first, then explain each block in 1 line; this secures structure marks fast.}
+
+\end{document}

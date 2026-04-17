@@ -1,0 +1,203 @@
+
+
+===== PAGE 1 =====
+Reg No.:
+
+Max. Marks: 100
+
+0 Om N HD Nn FP Ww NY
+
+—
+So
+
+11
+
+12
+
+13
+
+a)
+
+b)
+
+a)
+
+b)
+
+a)
+)
+
+oy
+
+0400CST428052301 Pages: 2
+
+Name:
+
+APJ ABDUL KALAM TECHNOLOGICAL UNIVERSITY
+Eighth Semester B.Tech Degree Regular Examination June 2023 (2019 Scheme)
+
+Course Code: CST428
+Course Name: BLOCKCHAIN TECHNOLOGIES
+
+PARTA
+Answer all questions, each carries 3 marks.
+
+Compare Symmetric and Asymmetric Key Cryptography.
+
+How can secure hash functions strengthen blockchain technology?
+
+What are the different components of a block header?
+
+Explain the ecosystem of decentralisation with respect to blockchain.
+
+What are the different steps involved in the process of a Bitcoin transaction?
+What is mining in blockchain?
+
+What are smart contracts?
+
+List and explain the different types of oracles.
+
+Illustrate the role of EVM in Ethereum network.
+
+List the various components in Ethereum blockchain.
+
+PART B
+Answer any one full question from each module, each carries 14 marks.
+
+Module |
+What is state matrix in AES? Explain the different steps involved in conversion
+of initial state matrix to output state matrix.
+Perform encryption and decryption using RSA for p=7, q=11, e=17 and M=25.
+OR
+Explain SHA-256 algorithm. With neat diagram explain the compression function
+used in SHA-256.
+How can Merkle tree increase the security of blockchain?
+Module Il
+With neat diagram explain the working of blockchain.
+Explain the architecture of blockchain with the help of a neat diagram.
+OR
+
+Page | of 2
+
+Duration: 3 Hours
+
+Marks
+(3)
+(3)
+(3)
+(3)
+(3)
+(3)
+(3)
+(3)
+(3)
+(3)
+
+(8)
+
+(6)
+
+(7)
+
+(7)
+
+(7)
+(7)
+
+
+===== PAGE 2 =====
+14
+
+15
+
+16
+
+17
+
+18
+
+19
+
+20
+
+a)
+b)
+
+a)
+b)
+
+a)
+
+b)
+
+a)
+b)
+
+a)
+
+b)
+
+a)
+
+b)
+
+a)
+
+b)
+
+0400CST428052301
+
+Enumerate benefits and limitations of using blockchain technology.
+How is decentralisation achieved in blockchain technology?
+Module III
+Explain the need for consensus algorithms in blockchain technology.
+What are crash fault tolerant algorithms? Compare PoW and PoS.
+OR
+How are transactions validated in a Bitcoin network?
+Explain the different steps involved in mining a Bitcoin. What is the role of a
+miner in a Bitcoin network?
+Module IV
+Explain the impact of blockchain technology to artificial intelligence.
+Illustrate with a use case, the application of blockchain technology in finance
+sector.
+OR
+What are DApps? Explain the design of a DApp.
+Explain how blockchain technology can impact the health care sector?
+Module V
+Compare Bitcoin and Ethereum? With neat diagram explain the concept of
+Ethereum world state.
+Write a smart contract using solidity to show various bank transactions like credit,
+deposit and view balance.
+OR
+Explain how transactions are processed in Ethereum. Briefly explain the concept
+of gas and how does it affect the transaction processing?
+
+Write smart contract using solidity to implement a voting system.
+
+KReKKEK
+
+Page 2 of 2
+
+(7)
+(7)
+
+(7)
+(7)
+
+(7)
+(7)
+
+(7)
+(7)
+
+(7)
+
+(7)
+
+(7)
+
+(7)
+
+(7)
+
+(7)

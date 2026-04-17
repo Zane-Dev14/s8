@@ -1,0 +1,413 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=0.85in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\setlength{\parskip}{0.35em}
+\setlength{\parindent}{0pt}
+\setlength{\headheight}{15pt}
+\linespread{1.02}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{CST444 Soft Computing - Module 2}
+\rhead{PDF-Source Locked Guide}
+\cfoot{\thepage}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+
+\newcommand{\examtip}[1]{%
+\vspace{0.2em}
+\noindent\fcolorbox{black}{gray!12}{\parbox{0.97\linewidth}{\textbf{Exam Tip:} #1}}%
+\vspace{0.2em}
+}
+
+\begin{document}
+
+\section*{Source Lock Declaration}
+This Module 2 guide is rewritten using only \textbf{SC - M2 -Ktunotes.in.pdf}. Question coverage comes from your OCR question papers, while answer points are sourced from that PDF and its training/testing problem sections.
+
+\section*{Module 2 Topic Map from Questions}
+\textbf{Frequently repeated concepts}
+\begin{itemize}
+\item Perceptron architecture, training algorithm, and testing algorithm.
+\item Perceptron learning rule and weight updates with error correction.
+\item Perceptron implementation of AND/OR/ANDNOT style logic.
+\item Adaline model, delta rule (LMS/Widrow-Hoff), training and testing.
+\item BPN architecture, stages, backpropagated error, and weight updation.
+\item Perceptron convergence condition and XOR discussion.
+\end{itemize}
+
+\textbf{High-mark areas}
+\begin{itemize}
+\item BPN architecture + three-stage training explanation.
+\item Perceptron 2-epoch style implementation questions.
+\item Adaline training algorithm and delta-rule interpretation.
+\item Error propagation significance in multilayer networks.
+\end{itemize}
+
+\textbf{Must-study-first order}
+\begin{enumerate}
+\item Perceptron network units and output idea.
+\item Perceptron learning rule and stop condition.
+\item Perceptron testing algorithm and linear separability link.
+\item Adaline architecture and delta rule.
+\item Adaline training/testing steps.
+\item BPN architecture, feed-forward, backpropagation, and updates.
+\end{enumerate}
+
+\section*{Core Theory (From Source PDF)}
+
+\subsection*{1) Perceptron Network Basics}
+\begin{itemize}
+\item Source notes describe three units: sensory, associator, and response unit.
+\item Perceptron output is written as activation over net input.
+\item Learning rule updates weights between associator and response unit.
+\item Error is based on desired target versus calculated output.
+\item Learning rate controls amount of update each step.
+\item Goal is class membership decision for input patterns.
+\end{itemize}
+
+\subsection*{2) Perceptron Training and Testing}
+\textbf{Training (source points)}
+\begin{itemize}
+\item Present patterns one by one; one full pass is one epoch.
+\item Initial weights/bias are commonly set to zero in source examples.
+\item Update occurs only when predicted output differs from target.
+\item Stop when no weight changes in current epoch or max epoch reached.
+\end{itemize}
+
+\textbf{Testing (source points)}
+\begin{itemize}
+\item Testing checks performance of trained network.
+\item Compute output for each input vector using learned weights.
+\item Source links testing with linear separability decision boundary.
+\item No training update is done in testing mode.
+\end{itemize}
+
+\subsection*{3) Adaline (Adaptive Linear Neuron)}
+\begin{itemize}
+\item Developed by Widrow and Hoff (source note statement).
+\item Difference from perceptron: Adaline uses linear activation relation.
+\item Adaline uses bipolar input and bipolar target style in source sections.
+\item Trained using delta rule (also called LMS/Widrow-Hoff rule).
+\item Objective is minimizing mean squared error.
+\item Gradient-descent idea is explicitly discussed in notes.
+\end{itemize}
+
+\subsection*{4) Delta Rule and Adaline Algorithms}
+\begin{itemize}
+\item Delta rule reduces difference between net input and target value.
+\item Major aim is minimizing error over all patterns.
+\item Source provides stepwise training algorithm and testing algorithm.
+\item Training includes initialization, net calculation, update, stopping check.
+\item Testing uses trained weights, net calculation, and activation application.
+\item Adaline problem sets include OR and ANDNOT training tasks.
+\end{itemize}
+
+\subsection*{5) Back Propagation Network (BPN)}
+\begin{itemize}
+\item BPN is multilayer feedforward network with differentiable activation.
+\item Algorithm changes weights to classify input-output pairs correctly.
+\item Source states training has three stages.
+\item Stage 1: feed-forward of input pattern.
+\item Stage 2: error calculation and backpropagation.
+\item Stage 3: weight updation.
+\end{itemize}
+
+\subsection*{6) Error Propagation and Convergence View}
+\begin{itemize}
+\item Error is directly available at output layer.
+\item Hidden-layer error is not directly available.
+\item Backpropagation computes hidden corrections to reduce output error.
+\item Source contrasts memorization and generalization behavior.
+\item Perceptron is linked to linear separability conditions.
+\item XOR is discussed in the module as a nonlinearly separable challenge context.
+\end{itemize}
+
+\examtip{For full marks, always name the three BPN stages exactly in order: feed-forward, error backpropagation, weight updation.}
+
+\section*{Numericals and Derivations (Source-Only Procedure)}
+
+\subsection*{N1) Perceptron OR (binary inputs, bipolar targets) -- source problem pattern}
+\textbf{Given in source problem set}
+\begin{itemize}
+\item OR implementation is shown up to multiple epochs.
+\item Initial weights/bias and learning rate setup are provided in example flow.
+\end{itemize}
+
+\textbf{Source-based steps}
+\begin{itemize}
+\item Present each pattern one by one.
+\item Compute net input and predicted output.
+\item Compare with target and check if mismatch exists.
+\item Update weights only when mismatch occurs.
+\item Complete all patterns to finish one epoch.
+\item Repeat epoch until stop condition is satisfied.
+\end{itemize}
+
+\subsection*{N2) Adaline training (single output) -- source method}
+\textbf{Given:} bipolar training pairs and initialized parameters.
+
+\textbf{Find:} updated weights and bias after required epoch(s).
+
+\textbf{Source-based steps}
+\begin{itemize}
+\item Set weights/bias and learning rate.
+\item Calculate net input for each training pair.
+\item Compute error factor from target and model response.
+\item Adjust weights and bias according to delta-rule step.
+\item Track highest weight change for stopping check.
+\item Continue until tolerance condition or epoch limit.
+\end{itemize}
+
+\subsection*{N3) BPN error-propagation type question -- source method}
+\textbf{Given:} multilayer architecture and target-output mismatch.
+
+\textbf{Source-based method}
+\begin{itemize}
+\item Perform feed-forward to obtain output.
+\item Compute output-layer error.
+\item Propagate this error backward to hidden layer.
+\item Use propagated corrections for weight update.
+\item Repeat for all patterns and epochs.
+\end{itemize}
+
+\section*{Solved Questions for Module 2}
+
+\subsection*{Part A / 3-Mark Questions (Each Answer Has 6 Scoring Points)}
+
+\textbf{Q1. Explain training algorithm of perceptron network.}
+\begin{enumerate}
+\item Initialize weights, bias, and learning rate.
+\item Present one training pattern at a time.
+\item Compute net input and output using activation rule.
+\item Compare calculated output with target output.
+\item If error occurs, adjust trainable weights.
+\item Repeat pattern loop across epochs until stop condition.
+\end{enumerate}
+
+\textbf{Q2. State testing algorithm used in perceptron network.}
+\begin{enumerate}
+\item Testing evaluates trained network performance.
+\item Use weights obtained from training phase.
+\item Apply each test input to the network.
+\item Compute net input and corresponding output class.
+\item Compare predicted class with expected class.
+\item Report classification result or accuracy.
+\end{enumerate}
+
+\textbf{Q3. List stages involved in backpropagation network.}
+\begin{enumerate}
+\item Feed-forward of training input.
+\item Calculation of output error.
+\item Back-propagation of error to hidden layer.
+\item Weight updation based on propagated error.
+\item Repeat for all patterns.
+\item Continue epochs until stopping criterion.
+\end{enumerate}
+
+\textbf{Q4. Explain architecture and delta-rule update in Adaline.}
+\begin{enumerate}
+\item Adaline is a single linear output unit model.
+\item Inputs and one bias connection feed the output unit.
+\item Weights are trainable and can be positive/negative.
+\item Error is measured against target output.
+\item Delta rule adjusts weights to reduce error.
+\item Goal is minimization of mean squared error.
+\end{enumerate}
+
+\textbf{Q5. What activations are used in backpropagation networks?}
+\begin{enumerate}
+\item BPN needs continuously differentiable activation functions.
+\item Source notes mention monotonic differentiable activation requirement.
+\item Inputs/outputs can be binary or bipolar.
+\item Differentiability is needed for gradient-based updates.
+\item Hidden/output layers use activation suitable for backpropagation.
+\item Activation choice affects convergence and learning stability.
+\end{enumerate}
+
+\textbf{Q6. How is error propagated in BPN? Explain phase-II idea.}
+\begin{enumerate}
+\item Error is directly computed at output layer.
+\item Hidden-layer error is not directly measurable.
+\item Error signals are propagated backward from output.
+\item Backward correction estimates hidden contribution.
+\item These corrections are used in weight updates.
+\item This backward correction stage corresponds to phase-II error propagation.
+\end{enumerate}
+
+\subsection*{Part B / 14-Mark Questions (Each Answer Has 14 Scoring Points)}
+
+\textbf{Q1. Explain significance of error terms in BPN and explain architecture.}
+\begin{enumerate}
+\item BPN is a multilayer feedforward network.
+\item It contains input, hidden, and output layers.
+\item Hidden and output layers include bias terms.
+\item Training objective is reducing target-output mismatch.
+\item Output-layer error is directly computed.
+\item Hidden-layer error is inferred by backward propagation.
+\item Source states this is required for hidden-layer weight tuning.
+\item Stage 1 is feed-forward computation.
+\item Stage 2 is error calculation and backpropagation.
+\item Stage 3 is weight updation.
+\item This process repeats for all training patterns.
+\item Repeated epochs reduce overall output error.
+\item Differentiable activation is required in BPN.
+\item Conclusion: error terms guide all layer-wise weight corrections.
+\end{enumerate}
+
+\textbf{Q2. Implement OR with binary inputs and bipolar targets using perceptron (up to epochs).}
+\begin{enumerate}
+\item Use source OR-perceptron problem setup.
+\item Initialize weights/bias as shown in source pattern.
+\item Set learning rate as prescribed.
+\item Present one input-target pair at a time.
+\item Compute output from perceptron rule.
+\item Check mismatch with bipolar target.
+\item Update trainable weights when mismatch occurs.
+\item Update bias similarly.
+\item Continue for all four OR patterns (one epoch).
+\item Repeat for next epoch(s).
+\item Stop when no further updates are needed.
+\item Verify all OR patterns are classified correctly.
+\item Report final learned weights and bias from table/process.
+\item Conclusion: OR converges under perceptron due separability.
+\end{enumerate}
+
+\textbf{Q3. Explain Adaline training algorithm for single-output class.}
+\begin{enumerate}
+\item Initialize random non-zero weights and bias.
+\item Set learning-rate parameter in source-recommended range.
+\item Present each bipolar training pair.
+\item Compute net input to output unit.
+\item Compute error with respect to target.
+\item Apply delta-rule correction to each weight.
+\item Update bias along with weights.
+\item Repeat for all patterns in one epoch.
+\item Monitor highest weight change in epoch.
+\item Compare with tolerance condition.
+\item Stop when change is below tolerance.
+\item Otherwise continue epochs.
+\item Use final trained parameters for testing.
+\item Conclusion: Adaline learns by continuous error minimization.
+\end{enumerate}
+
+\textbf{Q4. Implement one epoch of Adaline for logic function (source style).}
+\begin{enumerate}
+\item Write given input-target table (binary/bipolar as question states).
+\item Record initial $w$, $b$, and learning-rate values.
+\item For first pattern, compute net response.
+\item Compute error factor against target.
+\item Update each weight using delta-rule correction.
+\item Update bias using same correction principle.
+\item Move to second pattern and repeat.
+\item Continue similarly for all patterns in epoch.
+\item Maintain tabular record of each update step.
+\item At epoch end, report updated parameters.
+\item Mention whether stop condition is met.
+\item If not met, indicate next epoch continuation.
+\item Keep calculations in sequence to secure method marks.
+\item Conclusion: one-epoch result is an intermediate trained state.
+\end{enumerate}
+
+\textbf{Q5. Implement AND with binary inputs and bipolar targets using perceptron.}
+\begin{enumerate}
+\item Use source AND-perceptron worked-problem structure.
+\item Set initial weights and bias.
+\item Write bipolar target mapping for AND.
+\item Compute output for each pattern.
+\item Compare with target for each row.
+\item Update weights for mismatch rows.
+\item Update bias accordingly.
+\item Complete first epoch updates.
+\item Repeat epoch if needed.
+\item Stop when all outputs match targets.
+\item Verify final classification for four input rows.
+\item State final weights and bias from process table.
+\item Mention separability reason for convergence.
+\item Conclusion: perceptron correctly learns AND boundary.
+\end{enumerate}
+
+\textbf{Q6. Draw BPN architecture and explain training algorithm.}
+\begin{enumerate}
+\item Draw input, hidden, and output layers.
+\item Show forward signal direction for feed-forward phase.
+\item Show reverse direction for error backpropagation phase.
+\item Initialize all trainable weights and biases.
+\item Feed one input vector and compute outputs.
+\item Compare output with target and compute error.
+\item Backpropagate error to hidden layer.
+\item Update output-layer incoming weights.
+\item Update hidden-layer incoming weights.
+\item Repeat for all training patterns.
+\item Complete one epoch and evaluate progress.
+\item Continue until stopping criterion.
+\item Note requirement of differentiable activation function.
+\item Conclusion: BPN training is iterative gradient-based correction.
+\end{enumerate}
+
+\textbf{Q7. What is Adaline? Draw model and explain OR/ANDNOT training approach.}
+\begin{enumerate}
+\item Adaline means adaptive linear neuron.
+\item Source describes it as single linear unit with trainable weights.
+\item Bias acts as an adjustable weight input.
+\item Training uses delta rule (LMS/Widrow-Hoff).
+\item Write bipolar input-target table for required gate.
+\item Compute net response for each pattern.
+\item Compute error term from target-response mismatch.
+\item Apply weight and bias updates pattern-wise.
+\item Continue for all patterns in epoch.
+\item Repeat for required number of epochs.
+\item Evaluate progress using error reduction idea.
+\item Use final weights for testing.
+\item Verify gate behavior on all input combinations.
+\item Conclusion: Adaline improves learning smoothness versus threshold-only update.
+\end{enumerate}
+
+\textbf{Q8. Explain perceptron convergence idea and discuss XOR.}
+\begin{enumerate}
+\item Source connects perceptron with linear separability concept.
+\item Training update continues when errors occur.
+\item Stopping can occur when no updates are needed in epoch.
+\item This behavior corresponds to separable-pattern convergence.
+\item XOR is used in module as nonlinearly separable example context.
+\item Non-separable patterns cannot be separated by single linear boundary.
+\item Therefore simple perceptron is insufficient for XOR-type separation.
+\item Multilayer methods are introduced to address this gap.
+\item BPN is one such multilayer method in this module.
+\item BPN uses backpropagated error for hidden-layer adjustment.
+\item Differentiable units enable gradient correction.
+\item This allows non-linear decision mapping.
+\item Exam sketch of XOR point layout strengthens justification.
+\item Conclusion: perceptron convergence is separability-dependent; XOR motivates multilayer learning.
+\end{enumerate}
+
+\section*{Formula/Method Sheet (Source-Safe)}
+\begin{itemize}
+\item Perceptron output is activation over net input.
+\item Perceptron update occurs only when calculated output differs from target.
+\item Learning rate controls step size in updates.
+\item Epoch: one complete presentation of all patterns.
+\item Adaline training uses delta rule (LMS/Widrow-Hoff).
+\item Delta-rule objective: minimize mean squared error.
+\item BPN stages: feed-forward, error backpropagation, weight updation.
+\item BPN requires monotonic differentiable activation.
+\end{itemize}
+
+\section*{One-Page Quick Revision}
+\begin{itemize}
+\item Perceptron: error-triggered weight correction for separable classes.
+\item Testing phase never changes trained weights.
+\item Adaline: linear unit + delta rule + error minimization.
+\item BPN: hidden-layer correction through backward error flow.
+\item Learn these three phrases exactly: epoch, learning rate, stop condition.
+\item For long answers, always state architecture first, then algorithm steps.
+\item For numerical questions, show row-wise update table clearly.
+\item Mention linear-separability link when discussing perceptron behavior.
+\end{itemize}
+
+\examtip{When you are short on time, write algorithm steps as numbered lines first; this secures method marks before arithmetic detail.}
+
+\end{document}

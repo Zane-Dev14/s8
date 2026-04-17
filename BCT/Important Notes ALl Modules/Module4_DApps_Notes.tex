@@ -1,0 +1,373 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{setspace}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+
+\setstretch{1.18}
+\setlength{\parskip}{0.45em}
+\setlength{\parindent}{0pt}
+\setlength{\headheight}{15pt}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{CST428 - Blockchain Technologies}
+\rhead{Module 4 Master Notes}
+\cfoot{\thepage}
+
+\newcommand{\examtip}[1]{%
+\vspace{0.35em}
+\noindent\fcolorbox{black}{gray!12}{\parbox{0.965\linewidth}{\textbf{Exam Tip:} #1}}%
+\vspace{0.35em}
+}
+
+\begin{document}
+
+\section{Module 4 Topic Map From Previous Questions}
+
+From May 2024, June 2023, and October 2023 papers, Module 4 repeatedly asks:
+
+\begin{itemize}
+\item Smart contracts: definition, properties, and practical meaning.
+\item Oracles: types, oracle problem, and smart contract data flow.
+\item DApps: definition, architecture, and design flow with diagram.
+\item Sector applications: government, finance, healthcare, supply chain.
+\item Emerging combinations: blockchain with AI and cloud computing.
+\end{itemize}
+
+\section{Core Theory (Explained Clearly)}
+
+\subsection{Smart Contracts: The Core Idea}
+A smart contract is a program stored on a blockchain that runs automatically when predefined conditions are satisfied.
+
+Simple way to think:
+\begin{itemize}
+\item Traditional contract: written on paper, humans enforce it.
+\item Smart contract: written in code, network enforces it.
+\end{itemize}
+
+Key properties:
+\begin{itemize}
+\item \textbf{Automatic execution:} no manual follow-up needed after trigger condition.
+\item \textbf{Immutable logic:} after deployment, rules are hard to change.
+\item \textbf{Transparent behavior:} anyone can verify what contract will do.
+\item \textbf{Deterministic output:} same input gives same output on all nodes.
+\end{itemize}
+
+\examtip{In 3-mark questions, one strong definition plus 4 properties is enough for full marks.}
+
+\subsection{What Is an Oracle and Why Is It Needed?}
+Blockchains are excellent at verifying on-chain data, but they cannot directly read external web APIs.
+Oracles solve this by bringing trusted external data into smart contracts.
+
+Examples of oracle data:
+\begin{itemize}
+\item weather data for crop insurance payout,
+\item market prices for DeFi lending,
+\item shipment status for supply chain release,
+\item election result feeds for governance triggers.
+\end{itemize}
+
+\subsubsection*{Common Oracle Types}
+\begin{itemize}
+\item \textbf{Software oracle:} fetches digital data from web services.
+\item \textbf{Hardware oracle:} reads sensor or IoT device data.
+\item \textbf{Inbound oracle:} external data to blockchain.
+\item \textbf{Outbound oracle:} blockchain event to external system.
+\item \textbf{Centralized oracle:} single provider, simple but risky.
+\item \textbf{Decentralized oracle:} multiple providers, safer through aggregation.
+\end{itemize}
+
+Useful formula used by decentralized oracle systems:
+\[
+\text{Final Price} = \mathrm{median}(p_1, p_2, \dots, p_n)
+\]
+Median helps reduce manipulation by outlier values.
+
+\begin{center}
+\framebox[0.95\linewidth][c]{
+\begin{minipage}{0.90\linewidth}
+\vspace{0.1cm}
+\centerline{\textbf{Generic Oracle Data Flow}}
+\centerline{Smart Contract requests data}
+\centerline{$\Downarrow$}
+\centerline{Oracle network fetches from APIs/sensors}
+\centerline{$\Downarrow$}
+\centerline{Responses are validated and aggregated}
+\centerline{$\Downarrow$}
+\centerline{Trusted value posted back on-chain}
+\centerline{$\Downarrow$}
+\centerline{Smart contract executes rule}
+\vspace{0.1cm}
+\end{minipage}}
+\end{center}
+
+\subsection{DApps: What Makes Them Different}
+A DApp (Decentralized Application) is an application where backend logic runs on smart contracts instead of a centralized server.
+
+\subsubsection*{DApp Building Blocks}
+\begin{itemize}
+\item \textbf{Frontend:} web or mobile interface.
+\item \textbf{Wallet layer:} identity and signing (for example, MetaMask).
+\item \textbf{Web3 library:} bridge between UI and blockchain.
+\item \textbf{Smart contract backend:} business rules on chain.
+\item \textbf{Node/RPC service:} path to read/write blockchain state.
+\item \textbf{Optional off-chain storage:} large files in IPFS/Arweave.
+\end{itemize}
+
+\begin{center}
+\framebox[0.95\linewidth][c]{
+\begin{minipage}{0.90\linewidth}
+\vspace{0.1cm}
+\centerline{\textbf{Basic DApp Architecture}}
+\centerline{User Interface (Web/Mobile)}
+\centerline{$\Downarrow$}
+\centerline{Wallet + Web3 Library}
+\centerline{$\Downarrow$}
+\centerline{RPC Node}
+\centerline{$\Downarrow$}
+\centerline{Smart Contract (On-chain Logic)}
+\centerline{$\Downarrow$}
+\centerline{Blockchain State + Events}
+\vspace{0.1cm}
+\end{minipage}}
+\end{center}
+
+Simple throughput idea for DApps:
+\[
+\text{User Throughput} \approx \frac{\text{Network TPS}}{\text{Average Calls Per User Action}}
+\]
+If one user action needs multiple contract calls, perceived speed decreases.
+
+\subsection{Where Module 4 Is Used in Real Life}
+
+\subsubsection*{Government Services}
+\begin{itemize}
+\item tamper-evident land records,
+\item transparent subsidy disbursal,
+\item auditable procurement logs,
+\item verifiable digital certificates.
+\end{itemize}
+
+\subsubsection*{Finance Use Cases}
+\begin{itemize}
+\item instant settlement without many intermediaries,
+\item programmable escrow,
+\item tokenized assets and fractional ownership,
+\item transparent audit trails for compliance.
+\end{itemize}
+
+\subsubsection*{Healthcare Use Cases}
+\begin{itemize}
+\item patient-consent-controlled data sharing,
+\item immutable access logs,
+\item anti-counterfeit medicine tracking,
+\item inter-hospital record interoperability.
+\end{itemize}
+
+\subsubsection*{Supply Chain Use Cases}
+\begin{itemize}
+\item source-to-shelf product traceability,
+\item cold-chain sensor-backed verification,
+\item delayed-payment automation via smart contracts,
+\item dispute reduction through shared immutable records.
+\end{itemize}
+
+\subsubsection*{Blockchain + AI and Cloud}
+\begin{itemize}
+\item AI: blockchain gives verifiable data lineage for model trust.
+\item AI: smart contracts can automate model access and usage payment.
+\item Cloud: blockchain audit trails improve integrity and compliance checks.
+\item Cloud: multi-organization workflows can share trust without one central owner.
+\end{itemize}
+
+\section{Solved Question Papers}
+
+\subsection{Part A: 3-Mark Questions}
+
+\subsubsection*{Q1. What are smart contracts? Mention their properties.}
+\begin{itemize}
+\item A smart contract is a blockchain-stored program that auto-executes agreed rules.
+\item It removes manual enforcement after deployment.
+\item It is immutable in normal operation, so logic tampering is difficult.
+\item It is transparent because rule behavior can be audited.
+\item It is deterministic: same input gives same output on all nodes.
+\item It supports trust-minimized transactions between unknown parties.
+\end{itemize}
+
+\subsubsection*{Q2. Explain different types of oracles.}
+\begin{itemize}
+\item Software oracle collects digital data from APIs and websites.
+\item Hardware oracle collects physical-world data from sensors and devices.
+\item Inbound oracle sends off-chain data to smart contracts.
+\item Outbound oracle sends blockchain events to external systems.
+\item Centralized oracle uses one source and has single-point risk.
+\item Decentralized oracle aggregates multiple sources to improve trust.
+\end{itemize}
+
+\subsubsection*{Q3. What are DApps?}
+\begin{itemize}
+\item DApps are applications whose backend logic runs on smart contracts.
+\item Users interact using wallets instead of username-password models.
+\item Transaction authorization is done by digital signatures.
+\item Business logic becomes transparent and verifiable.
+\item Censorship resistance is stronger than many centralized apps.
+\item They still use frontend UI, but trust anchor is on-chain logic.
+\end{itemize}
+
+\subsection{Part B: 14-Mark Questions}
+
+\subsubsection*{Q1. Discuss oracles in blockchain ecosystem. Explain generic data flow from smart contract to oracle.}
+\begin{itemize}
+\item Smart contracts cannot directly call external APIs due to determinism and consensus limits.
+\item Oracles bridge this gap by fetching and delivering external data.
+\item Typical use areas are DeFi price feeds, insurance triggers, and supply-chain status updates.
+\item The smart contract raises a data request event.
+\item Oracle nodes monitor request events and fetch requested off-chain data.
+\item Data is validated, normalized, and often aggregated.
+\item Aggregation can use median to reduce manipulation impact.
+\item Oracle network publishes verified result back on-chain.
+\item Smart contract reads returned value and executes programmed action.
+\item Decentralized oracle design reduces single-point failure and censorship risk.
+\item Oracle integrity is still a system risk area called the oracle problem.
+\item Reputation, staking, and multi-source verification are common protections.
+\item Secure oracle integration is mandatory for production-grade smart contracts.
+\item[]
+\vspace{0.25em}
+\noindent\framebox[0.97\linewidth][c]{
+\begin{minipage}{0.93\linewidth}
+\vspace{0.08cm}
+\centerline{\textbf{Oracle Flow Diagram}}
+\centerline{Contract Request $\rightarrow$ Oracle Fetch $\rightarrow$ Validate/Aggregate}
+\centerline{$\Downarrow$}
+\centerline{On-chain Response $\rightarrow$ Contract Action}
+\vspace{0.08cm}
+\end{minipage}}
+\end{itemize}
+
+\subsubsection*{Q2. Illustrate ways blockchain can be employed in government services.}
+\begin{itemize}
+\item Land and property records can be made tamper-evident and publicly verifiable.
+\item Certificate issuance can use verifiable credentials with instant authenticity checks.
+\item Subsidy distribution can use transparent eligibility and payment audit trails.
+\item Public procurement can be logged with immutable milestones to reduce corruption.
+\item Identity systems can move toward citizen-controlled verifiable identity claims.
+\item Voting-related modules can improve transparency for selected workflows.
+\item Cross-border document attestation can become faster and less fraud-prone.
+\item Smart contracts can automate conditional grants and compliance checks.
+\item Permissioned blockchain can preserve privacy while enabling traceability.
+\item Adoption success depends on legal process redesign and governance policy.
+\end{itemize}
+
+\subsubsection*{Q3. Illustrate with a use case: blockchain application in finance sector.}
+\begin{itemize}
+\item Consider cross-border remittance between two banks and a settlement partner.
+\item Traditional process involves multiple intermediaries and delayed reconciliation.
+\item With blockchain, transaction status is shared on a common ledger.
+\item Smart contract can verify KYC status and transaction rules automatically.
+\item Payment release can be conditional on compliance checks and confirmations.
+\item Settlement can occur faster with less manual matching.
+\item Audit trail is immutable and easier for regulators to inspect.
+\item Dispute resolution time decreases due to common data visibility.
+\item Programmable escrow reduces counterparty risk in trade finance.
+\item Operational cost can reduce by minimizing duplicate reconciliation work.
+\item Risk controls must include oracle quality, compliance, and private key safety.
+\end{itemize}
+
+\subsubsection*{Q4. What are DApps? Outline/basic architecture and design of a DApp with neat diagram.}
+\begin{itemize}
+\item A DApp is an app where core logic is executed by smart contracts.
+\item The UI can look similar to normal apps but trust model is different.
+\item User identity and authorization are wallet-based via signatures.
+\item Web3/Ethers layer translates UI actions to blockchain calls.
+\item Read operations query current chain state through RPC endpoints.
+\item Write operations create signed transactions and wait for confirmations.
+\item Contract events are used to update UI state predictably.
+\item Off-chain storage is used for large media to reduce blockchain cost.
+\item Security review includes contract audit and frontend signing safety.
+\item Gas optimization is a design requirement for user affordability.
+\item Error handling must include transaction pending, revert, and timeout states.
+\item Production DApps need monitoring for RPC health and oracle consistency.
+\item[]
+\vspace{0.25em}
+\noindent\framebox[0.97\linewidth][c]{
+\begin{minipage}{0.93\linewidth}
+\vspace{0.08cm}
+\centerline{\textbf{DApp Design Diagram}}
+\centerline{UI $\leftrightarrow$ Wallet $\leftrightarrow$ RPC Node}
+\centerline{$\Downarrow$}
+\centerline{Smart Contract $\leftrightarrow$ On-chain State}
+\centerline{$\Downarrow$}
+\centerline{Optional Oracle + IPFS Layers}
+\vspace{0.08cm}
+\end{minipage}}
+\end{itemize}
+
+\subsubsection*{Q5. Explain impact of blockchain technology on artificial intelligence.}
+\begin{itemize}
+\item AI quality depends heavily on data quality and data trust.
+\item Blockchain can provide verifiable data lineage and timestamped provenance.
+\item This helps teams prove where training data came from.
+\item Model sharing can be controlled by smart contracts and access policies.
+\item Payments for model usage can be automated per inference request.
+\item Federated AI collaborations can share results without full data exposure.
+\item Tamper-evident logs help with model governance and auditability.
+\item On-chain storage is expensive, so hybrid design is necessary.
+\item Privacy, latency, and regulation remain practical constraints.
+\item Best architecture combines blockchain trust layer with off-chain AI compute.
+\item Use blockchain where auditability and multi-party trust are critical.
+\end{itemize}
+
+\subsubsection*{Q6. Explain how blockchain can impact healthcare sector.}
+\begin{itemize}
+\item Patient records can be shared with explicit and revocable consent.
+\item Access logs become immutable, improving accountability.
+\item Drug supply chain can be tracked to detect counterfeit medicines.
+\item Insurance claims can use smart contracts for faster adjudication.
+\item Clinical trial records can be timestamped for integrity.
+\item Interoperability improves when multiple hospitals trust same ledger.
+\item Patients can maintain stronger control over who accesses what data.
+\item Data integrity helps reduce accidental record tampering.
+\item Encryption and permissioning are mandatory for privacy compliance.
+\item Off-chain storage with on-chain proofs is practical for large files.
+\item Governance and legal compliance determine real-world deployment success.
+\end{itemize}
+
+\subsubsection*{Q7. Illustrate how blockchain can be used in supply chain management.}
+\begin{itemize}
+\item Every handoff event can be logged as a verifiable transaction.
+\item Product origin can be checked quickly using immutable history.
+\item Sensor-backed data (temperature, location) can trigger contract conditions.
+\item Payments can be released automatically when delivery milestones are met.
+\item Shared ledger reduces disputes between suppliers and buyers.
+\item Counterfeit insertion becomes harder due to chain-of-custody proofs.
+\item Recall operations become faster by tracing affected batches.
+\item Multi-party planning can improve when status data is synchronized.
+\item Smart contracts reduce manual paperwork in shipment workflows.
+\item Permissioned blockchain helps preserve commercial confidentiality.
+\item Integration with ERP systems is required for enterprise adoption.
+\item Overall impact is improved trust, traceability, and operational speed.
+\end{itemize}
+
+\subsubsection*{Q8. Explain benefits and applications of integrating blockchain in cloud computing.}
+\begin{itemize}
+\item Cloud environments need strong auditability across many actors.
+\item Blockchain can provide immutable logs of critical cloud events.
+\item Multi-cloud workflows can coordinate trust without one dominant operator.
+\item Smart contracts can automate SLA checks and penalty enforcement.
+\item Identity and access events can be made tamper-evident.
+\item Billing disputes can reduce through transparent metering evidence.
+\item Data integrity checks can use hash anchoring on chain.
+\item Federated organizations can collaborate with auditable governance rules.
+\item Throughput and latency constraints require selective on-chain use.
+\item Sensitive data should remain encrypted and mostly off-chain.
+\item Blockchain should complement cloud, not replace core cloud services.
+\end{itemize}
+
+\end{document}

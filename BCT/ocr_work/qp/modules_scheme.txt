@@ -1,0 +1,133 @@
+Module |
+
+11
+
+a)
+
+Idea and purpose — (2 marks)
+RSA algorithm — (5 marks)
+Example — (2 marks)
+
+(9)
+
+b)
+
+Properties — 2 marks
+
+Working of DHT with an example — 3 marks
+
+(5)
+
+OR
+
+12
+
+a)
+
+Logic of Ellipitical curve — 2 mark
+ECC key exchange — 3 marks
+ECC encryption -2 marks
+
+ECC decryption -2 marks
+
+Advantages — | marks
+
+(10)
+
+b)
+
+Diagram of SHA-256 compression — 4 marks
+
+(4)
+
+Module Il
+
+13
+
+a)
+
+Working of block chain (4 marks)
+
+Diagram (3 marks)
+
+(7)
+
+b)
+
+idea of disintermediation (3.5 marks)
+
+idea of competition (3.5 marks)
+
+(7)
+
+OR
+
+Page 2of 4
+
+
+
+===== PAGE 3 =====
+0400CST428052303
+
+14 | a) | Storage(2 marks), (7)
+communication (2 marks),
+computation (3 marks)
+b) | Benefits (3 marks), features (2 marks) and limitations (2 marks) of block chain (7)
+Module Ill
+15 | a) | Working of Paxos (5 marks) (8)
+Benefits (3 marks)
+b) | PoS working idea (4 marks) (6)
+Figure (2 marks)
+Stake
+calculator
+OR
+16 | a) | Steps for bitcoin transcations 7 marks (7)
+b) | Definition — (2 marks) (7)
+Types — (5 marks)
+Module IV
+17 | a) | Idea of Oracle — (3 marks) (7)
+Generic data flow — (4 marks)
+b) | Applications like border control, voting , citizen identification (7 marks) (7)
+OR
+18 | a) | Explanation — 7 marks (7)
+b) | DApp -3 marks. Design -4 marks (7)
+Module V
+19 | a) | Definition — (2 marks) (9)
+
+Message call (2.5 marks)
+
+Contract creation (2.5 marks)
+
+Page 3of 4
+
+
+
+===== PAGE 4 =====
+0400CST428052303
+
+_ | b)| Explanation-S marks 9 )
+
+OR
+
+20\a
+
+~—
+
+Any 3 control structures each (2 marks)
+
+(6)
+
+b
+
+~—
+
+Contract on bank process (8 marks)
+
+(8)
+
+38K eK
+
+EStd,
+
+Page 4of 4
+

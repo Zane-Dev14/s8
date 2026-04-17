@@ -1,0 +1,107 @@
+
+===== PAGE 1 =====
+~ L
+"2
+B 0400CST444052302 Pagéi3. Sy
+Reg No.: Name: lr fe : YAN \
+APJ ABDUL KALAM TECHNOLOGICAL UNIVERSITY =} 2; 0 &'U VI
+Eighth Semester B.Tech Degree Regular Examination June 2023 (2019) 21 ere) OR i
+, Course Code: CST444 a
+; Course Name: SOFT COMPUTING
+Max. Marks: 100 -Duration: 3 Hours
+PART A
+Answer all questions, each carries 3 marks. Marks
+1 Draw a simple Artificial Neuron and discuss the calculation of net input. (3)
+. 2. Compare and contrast biological neuron and artificial neuron. (3)
+3 State the testing algorithm used in Perceptron Network. (3)
+4 List the stages involved in Backpropagation Network. 3)
+5 Using your own intuition, plot the Fuzzy membership function for the “Age of (3)
+people”.
+6 Let A={(x1,0.5), (x2,0.1), (x3,0.9)} and B={(x1,0.4), (x2,0.4), (x3,0.5)} (3)
+Find intersection, union and complement of both the fuzzy sets.
+7 Draw the flow chart and explain the steps of Genetic Algorithm. (3)
+8 Explain any 3 mutation techniques with example. (3)
+9 Differentiate between linear and nonlinear Multi Objective Optimization Problem. (3)
+10 Explain the processes of tuning in genetic-fuzzy rule-based systems. (3)
+PART B
+Answer any one full question from each module, each carries 14 marks.
+. , Module |
+. 11_ a) Implement ANDNOT function using Mc-Culloch Pitts Neuron. . 8
+b) Define linear separability. Justify -XOR fuffétion is non-linearly separable bya 6
+single decision boundary line.
+OR
+12 a) Calculate the output of the neuron y for the following network using 6
+. 1. binary sigmoidal activation function
+2. bipolar sigmoidal activation function
+Page lof 3 .
+
+===== PAGE 2 =====
+0400CST444052302
+03 02 1.0
+~@)
+0.35
+05 04
+Om
+0.6
+b) Using the Hebb rule, find the weights required to perform the following 8
+classifications of the given input patterns shown in figure. The “+” symbols
+represent the value “1” and empty space indicate “-1”. Consider “1” belongs to
+the members of class (so has target value 1) and “0” does not belong to the
+members of class (so has target value -1).
++ + + + + +
++ + +
++ + + + + +
+sey? “OQ”
+Module II
+13 a) Implement AND function with binary inputs and bipolar targets using perceptron 8
+training algorithm.
+7 b) Draw the architecture of Back propagation Network and explain the training 6
+algorithm.
+OR
+14 a) What is Adaline? Draw the model of an Adaline Network. 4
+. b) Use Adaline to train OR function with bipolar inputs and targets. Perform 2 epoclts 10
+of training.
+Module III
+15 a) Using intuition and your own definition of the universe of discourse, plot fuzzy 5
+membership functions to the following variables:
+~ Liquid level in the tank
+(a)Very small (b) Small (c) Empty (d) Full (e) Very full
+b) Define defuzzification. With the help of examples, explain various defuzzification 9
+methods. . °
+Page 2of 3
+
+===== PAGE 3 =====
+0400CST444052302
+OR
+16 a) Consider the discrete fuzzy set defined on the universe X= {a, b, c, d, e} as 5
+A= { =+ = + as + = + a}, Using Zadeh’s notation, find the 4- cut sets for 4 = 1,
+0.9, 0.6, 0+ and 0.
+: b) Given two universes X= {x1, x2, x3, x4, x5} and Y= {yl, y2, y3, y4, y5}, the 9
+fuzzy sets A defined on X and fuzzy set B defined on Y are given below.
+. An (et O74 1 08 , 06,
+xl x20 x3 x40 x5
+pa 240541, 09, 07
+yl y2 y3 y4 y5
+i) Find the relation R=A XB
+‘ Consider another fuzzy set C defined on the universe V = {vl, v2, v3}
+cu Cty 4
+vl v2 v3
+ii) Find P=B xC.
+iii) Using max-min composition find RoP.
+Module IV
+17 a) What is the Fuzzy Inference System (FIS)? Illustrate Mamdani FIS with an 7
+example.
+b) Explain the different methods of encoding that are possible in genetic algorithms. 7
+OR
+, 18 a) What is the concept of crossover in Genetic Algorithm? Explain the different 7
+methods of cross over that are possible in genetic algorithms.
+: b) Explain any 4 Genetic Algorithm selection operators. T
+_ Module Vv
+“19 a) Explain convex and non-convex MOORS , 7
+b) Illustrate the different steps in genetic-neuro hybrid systems with the help ofa 7
+neat block diagram.
+OR
+20 a) What are the properties of dominance relation? 7
+b) What are the classifications of neuro-fuzzy hybrid systems? Discuss in detail. 7
+seketek
+Page 3of 3

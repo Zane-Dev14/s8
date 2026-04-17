@@ -1,0 +1,171 @@
+
+===== PAGE 1 =====
+
+
+===== PAGE 5 =====
+CST 444 SOFT COMPUTING
+Module I
+S
+. . . . KTU
+1 Differentiate between the problem solving strategies: Soft 3 (SFE)
+computing and Hard computing.? >
+2021
+2 What is the role of activation function in Artificial Neural 3 |KTU(S,FE
+Network (ANN)? Write and explain any two activation )2021
+functions of ANN.
+3 Implement AND function using Mc Culloch-Pitts neuron. Use IKTU(S,FE
+binary data. )2021
+4 Calculate the net input to the neuron Y for the network shown in} 5 |KTU(S,FE
+figure. )
+|} 2021
+05__ ~«)— 03 ?
+0.3 —{x2)—_ 07 ~
+5 Explain the five basic architectures of ANN based on connection. 4 |KTU(S,FE
+)
+2021
+“The Hebb rule is more suited for Bipolar data than binary data.” 3 |DEC 2021
+Justify the statement.?
+KTU
+Explain the training algorithm of Hebb network. oe
+2022
+What are the different types of learning methods employed in 4 KTU
+neural networks? (S,FE)
+JAN
+2022
+Implementation of logic gates using 1) MP neuron 11) Hebb network MODEL
+--AND,OR,NOR,XOR ,AND, NOT etc. QUESTIO
+N
+10 Obtain the output of the neuron for a network with inputs are given as MODEL
+[x1, x2] = [0.7, 0.8] and the weights are [wl, w2] = [0.2, 0.3] with] QUESTIO
+bias = 0.9. N
+Use i) Binary sigmoidal activation function ii) Bipolar sigmoid
+activation function
+11 Design a Hebb net to implement NOR function using with KTU
+bipolar inputs and targets. (R,S)
+DEC 2020
+7
+
+===== PAGE 6 =====
+A 4-input neuron has weights 1, 2, 3 and 4. The transfer function is
+
+12 . : ; : ; : MODEL
+linear with the constant of proportionality being equal to 2. The inputs QUESTION
+lare 4, 10, 5 and 20 respectively. Predict the output?
+
+13 Implement AND(x1, x2) where x1, x2 is an element of {0,1} using] 4 MODEL
+
+MP neuron. QUESTION
+Module II
+l What are the activations used in backpropagation network algorithm | 3 KTU (PT)DEC
+2021
+State the testing algorithm used in perceptron algorithm.
+5 4 _ | KTU(PT)DEC
+2021
+
+3 IHow is error propagated in backpropagation network? Explain the| 5 KTU (S,Fe)Jan
+phase II of BPN training algorithm. 2022
+
+4 Implement OR function using perceptron training algorithm with| 4 KTU Dec 2020
+binary inputs and bipolar targets. (up to 2 epochs)
+
+Draw the architecture of back propagation network and write
+
+5 training algorithm. KTU Dec 2020
+Explain the architecture and training algorithm of Adaline network . Model
+Use Adaline nerwork to train NOR logic function with bipolar inputs Question
+land targets. Perform 2 epochs of training.
+
+7 [Discuss the training algorithm and explain the weight updates in back} 10 Model
+propagation networks Question
+Explain how synaptic weights are adapted iteration by iteration using
+lerror correction rule in Perceptron convergence algorithm for an OR} 10 Model
+gate with bipolar inputs and outputs. Initial weights are all zero and Question
+learning rate parameter n=0.1
+[Explain Perceptron convergence theorem and discuss Perceptron} 4 Model
+lalgorithm based on XOR logic function. Question
+
+10 {Implement OR function using Adaline network. Use bipolar inputs. Model
+Perform one epoch of training. Question
+
+Module IIT
+8
+
+===== PAGE 7 =====
+1 5 KTU DEC
+Define (i) core (il) support (111) boundary of a fuzzy set. 2020
+2 List the properties of fuzzy set. 5 KTU DEC
+2020
+3 Differentiate between fuzzy tolerance and equivalence relation. How 3 | KTU Dec 2020
+an we convert fuzzy tolerance relation to fuzzy equivalence relation?
+4 sing your own intuition and your own definitions of the universe o 3 | KTU Dec 2020
+discourse,
+plot fuzzy membership functions for “Age of people”:
+(i) Very young (ii) Young (i11) Middle-aged (iv) Old (v) Very old
+5 Define composition operation in fuzzy relations? Two fuzzy relations| KTU (S,FE)
+IR and S are given below. Obtain the composition T of these fuzzy 2022
+relations using
+yl ¥ ma 2 23
+m5 862 . ; is .
+R = S . yl 1 ao
+x2] 3 8 y}8 4 6
+i)Max-min composition
+11)Max-product composition
+Given two fuzzy sets A and B, compute the following set operations} 5 KTU (S,FE)
+on A and 2022
+IB:
+a) Algebraic sum b) Algebraic product c) Bounded sum d) Bounded
+difference
+i» 1 " 0.5 4. 0.3 ~ 0.2
+= W's 4° 5
+B 0.5 4. 0.7 % 0.2 n 0.4
+~~ | 2 3 4 5
+Module IV
+1 Apply Mamdani fuzzy model to design a controller to determine the 10 Model
+ash time of a domestic washing machine. Assume input is dirt and| Question
+grease of the cloth. Use three descriptors for input variable and five
+descriptors for output variables .Derive the set of rules for controller
+laction and defuzzification. Design should be supported by figure
+herever possible.
+9
+
+===== PAGE 8 =====
+2 sing inference approach, find the membership values for each of the Model
+riangular shapes (I, R, IR, T) for a triangle with angles 120°, 50°, 10°. Question
+3 xplain Single-Point Crossover and Two-Point Crossover with| 4 Model
+example. question
+4 Differentiate between value encoding and permutation encoding. Model
+Question
+xplain the stopping conditions for genetic algorithm. 6 | Model question
+“plain five different types of selection and crossover genetic 10 | KTU(S.FEJA
+operators. N2022
+7 With block diagram explain about Fuzzy Inference system. 5 KTU
+DEC2020
+ith an example explain Mamdani FIS model. KTU(PT)DEC
+2021
+ist out the various encoding techniques in GA with examples for each 5 KTU(PT)DEC
+2021
+MODULE V
+1 Explain convex and non convex MOOP? How to find a non 10 Model
+dominated set. Question
+2 at are the properties of dominance relation? 4 Model
+Question
+xplain Genetic Neuro-Hybrid System with block diagram. Also write
+3 . . Model
+he advantages of Genetic- Neuro Hybrid systems .
+Question
+4 Discuss the classification of Neuro-Fuzzy Hybrid System. Model
+Question
+5 Give the properties of Genetic-neuro hybrid systems with a Model question
+block diagram.
+ith suitable example,explain about different methods of encoding that
+“as : : 5 Model
+lare possible in genetic algorithm. .
+Question
+7 ist the various advantages of Genetic-neuro hybrid systems. 3 Model
+Question
+xplain cooperative Neural Fuzzy systems. 5 Model
+Question
+ae . . . 5 Model
+i | h h 1 .
+> | xplain a simple genetic algorithm with an example 5 Model
+10

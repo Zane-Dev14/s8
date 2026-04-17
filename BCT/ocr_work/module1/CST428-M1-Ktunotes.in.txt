@@ -1,0 +1,1141 @@
+
+
+===== PAGE 1 =====
+@ktunotes.in
+
+» Google Play
+
+KTU
+NOTES
+
+KTU
+
+ln
+NOT=S
+
+hm
+The learning companion.
+
+KTU STUDY MATERIALS | SYLLABUS | LIVE
+NOTIFICATIONS | SOLVED QUESTION PAPERS
+
+© Website: www.ktunotes.in
+
+
+
+===== PAGE 2 =====
+MODULE 1
+
+FUNDAMENTALS OF
+Syllabus CRYPTOGRAPHY
+Introduction to Cryptography, Symmetric cryptography - AES.Asymmetric
+
+cryptography - RSA.Elliptic curve cryptography, Digital signatures - RSA digital
+signature algorithms. Secure Hash Algorithms - SHA-256. Applications of
+cryptographic hash functions - Merkle trees, Distributed hash tables.
+
+Introduction to Cryptography
+
+@ Cryptography is the science of making information secure in the presence of
+adversaries.
+
+@ Ciphers are algorithms used to encrypt or decrypt data so that if intercepted by
+an adversary, the data is meaningless to them without decryption, which
+requires a secret key.
+
+@ The below diagram shows the model of generic encryption and decryption.
+
+@ Inthe below diagram, P, E, C, and D represent plaintext, encryption, cipher text,
+and decryption, respectively.
+
+ENTITY ENTITY
+
+QP SENDER QP RECEIVER
+
+- =\=)
+p P
+KEY + E— ) (pd \ KEY
+
+CHANNEL
+
+- —_
+i?) |
+\ J,
+
+YP ADVERSARY
+Se
+
+Fig: A model of the generic encryption and decryption model
+
+Downloaded from Ktunotes.in
+
+
+===== PAGE 3 =====
+The services provided by cryptography are:
+
+e Confidentiality: Confidentiality is the assurance that information is only
+
+available to authorized entities.
+
+e Integrity: Integrity is the assurance that information is modifiable only by
+
+authorized entities.
+
+@ Authentication: Authentication provides assurance about the identity of an
+
+entity or the validity of a message.
+
+There are two types of authentication mechanisms, namely, entity
+authentication and data origin authentication.
+
+Entity authentication is the assurance that an entity is currently involved
+and active in a communication session. Traditionally, users are issued a
+username and password that is used to gain access to the various
+platforms with which they are working. This practice is known as single-
+factor authentication.
+
+This type of authentication is not very secure for a variety of reasons, for
+example, password leakage; therefore, additional factors are now
+commonly used to provide better security. The use of additional
+techniques for user identification is known as multi-factor authentication
+(or two-factor authentication if only two methods are used).
+
+Data origin authentication: Also known as message authentication, data
+origin authentication is an assurance that the source of the information is
+indeed verified. Various methods, such asMessage Authentication Codes
+
+(MACs) and digital signatures, are most commonly used.
+
+@ Non-repudiation: Non-repudiation is the assurance that an entity cannot deny a
+
+previous commitment or action by providing incontrovertible evidence. This is a
+
+security service that offers definitive proof that a particular activity has occurred.
+
+@ Accountability: Accountability is the assurance that actions affecting security can
+
+be traced back to the responsible party. This is usually provided by logging and
+
+audit mechanisms in systems where a detailed audit is required.
+
+Downloaded from Ktunotes.in
+
+
+===== PAGE 4 =====
+Cryptographic
+primitives
+
+Symmetric key Asymmetric
+
+Keyless primitives primitives primitives
+
+Symmetric Cryptography
+
+@ Refers to a type of cryptography where the key that is used to encrypt the data is
+the same one that is used for decrypting the data.
+
+@ Also known as shared key cryptography or secret key cryptography.
+
+@ Keys can also be ephemeral (temporary) or static. Ephemeral keys are intended
+to be used only for a short period of time, such as in a single session between
+the participants, whereas static keys are intended for long-term usage.
+
+@ Another type of key is called the master key, which is used for the protection,
+encryption, decryption, and generation of other keys.
+
+@ Examples: Data Encryption Standard (DES), Advanced Encryption Standard
+(AES)
+
+Advanced Encryption Standard (AES)
+@ Symmetric encryption algorithm.
+@ Invented by cryptographers Joan Daemen and Vincent Rijmen.
+@ So far, no attack has been found against AES that is more effective than the brute-
+
+force method.
+How AES works?
+
+e The encryption algorithm takes two inputs — the plaintext and key.
+@ AES takes the plaintext as blocks of size 128 bits (or 16 Bytes), and the key sizes
+of 128 bits, 192 bits or 256 bits.
+
+Downloaded from Ktunotes.in
+
+
+===== PAGE 5 =====
+This 16 bytes plaintext is processed as a 4 x 4 array of bytes, known as the state.
+The state is then modified using multiple rounds.
+Full encryption requires 10 to 14 rounds, depending on the size of the key.
+
+The following table shows the key sizes and the required number of rounds.
+
+Key size | Number of rounds required
+
+128-bit 10 rounds
+
+192-bit 12 rounds
+
+256-bit 14 rounds
+
+Once the state is initiated, the following four operations are performed.
+
+1. AddRoundKey: In this step, the state array is XORed with a subkey (also
+
+known as the Round Key), which is derived from the master key.
+
+2. SubstituteBytes (or SubBytes): This is the substitution step where a lookup
+
+table (S-box) is used to replace all bytes of the state array.
+
+3. ShiftRows: This step is used to shift each row to the left, except for the first
+one, in the state array in a cyclic and incremental manner. That is, the first
+row of state is not altered. For the second row, a 1-byte circular left shift is
+
+performed. For the third row, a 2-byte circular left shift is performed. For the
+
+fourth row, a 3-byte circular left shift is performed.
+
+4. MixColumns: Finally, all bytes are mixed in a linear fashion (linear
+
+transformation), column-wise.
+This is one round of AES.
+In the final round (either the 10", 12", or 14"round, depending on the key size),
+stage 4 is replaced with AddRoundKey.
+
+Downloaded from Ktunotes.in
+
+
+===== PAGE 6 =====
+P (Plaintext)
+
+v
+
+(Internal State) | a 128/192/256 bits
+a ce Secret Key
+
+! l
+
+AddRoundKey | € Round Key
+—— eit
+SubBytes 3
+Rounds ShiftRows ia
+Lo/12/14 MixColumns Ps
+AddRoundKey 3
+il cs)
+A
+SubBytes “
+
+Final ShiftRows
+Round
+
+AddRomdKey |¢——{ _RomdKey
+
+Encrypted Output EEE
+
+C (Ciphertext)
+
+Fig: AES block diagram, showing the first round of AES encryption.
+
+Asymmetric Cryptography
+
+@ Asymmetric cryptography refers to a type of cryptography where the key that is
+
+used to encrypt the data is different from the key that is used to decrypt the
+data.
+
+It uses both public and private keys to encrypt and decrypt data, respectively.
+That is why asymmetric cryptography is also known as_ public key
+cryptography.
+
+Examples of asymmetric cryptography are RSA (named after its founders,
+Rivest, Shamir, and Adelman), DSA (Digital Signature Algorithm), and
+ElGamalencryption.
+
+Downloaded from Ktunotes.in
+
+
+===== PAGE 7 =====
+Public and Private keys:
+
+@ A private key, as the name suggests, is a randomly generated number that is
+
+kept secret and held privately by its users.
+
+@ Private keys need to be protected and no unauthorized access should be granted
+
+to that key.
+
+@ Private keys can be of various lengths, depending on the type and class of
+
+algorithms used.
+
+@ A public key is freely available and published by the private key owner.
+
+An overview of public-key cryptography is shown in the following diagram:
+
+SENDER
+
+ea
+CRD m8)
+
+—
+RECEIVER é /
+PUBLIC. —~...E } | DO
+
+A CHANNEL
+
+Cc > Cc
+
+i,
+
+RECEIVER
+
+RECEIVER
+PRIVATE
+KEY
+
+Fig: Encryption and Decryption using Public/Private keys
+
+@ The sender encrypts data P using the recipient's public key and encryption
+
+function E, and produces an output encrypted data C, which is then transmitted
+
+over the network to the receiver.
+
+@ Once it reaches the receiver, it can be decrypted using the receiver's private
+
+using the decryption function D, which will output plaintext P.
+
+@ This way, the private key remains on the receiver's side, and there is no need to
+
+share keys in order to perform encryption and decryption, which is the case
+
+with symmetric encryption.
+
+The following diagram shows how the receiver uses public key cryptography to verify
+
+the integrity of the received message.
+
+Downloaded from Ktunotes.in
+
+
+===== PAGE 8 =====
+SENDER “_P \__P RECEIVER
+
+a la
+Li Ci\
+P P
+SENDER / Ke q SENDER
+PRIVATE- x Ss | ( v k - PUBLIC
+\ CHANNEL
+
+C | ic
+Fig: Signing and verification using public-key cryptography
+
+In this model, the sender signs the data using their private key and transmits
+the message across to the receiver. Once the message is received, it is verified
+for integrity by the sender's public key.
+
+It's worth noting that there is no encryption being performed in this model.
+
+The preceding diagram shows that the sender digitally signs the plaintext P with
+their private key using signing function S, and produces data C, which is sent to
+the receiver, who verifies C using the sender's public key and function V to
+
+ensure the message has indeed come from the sender.
+Public key algorithms are slower in terms of computation than symmetric key
+algorithms. Therefore, they are not commonly used in the encryption of large
+files or the actual data that requires encryption. They are usually used to
+exchange keys for symmetric algorithms. Once the keys are established
+securely, symmetric key algorithms can be used to encrypt the data.
+Security mechanisms offered by public key cryptosystems include key
+establishment, digital signatures, identification, encryption, and decryption.
+Public key cryptography algorithms are based on various underlying
+mathematical functions. The three main categories of asymmetric algorithms are:
+o Integer factorization
+o Discrete logarithm
+
+o Elliptic curves
+
+Downloaded from Ktunotes.in
+
+
+===== PAGE 9 =====
+1.
+
+Integer factorization schemes are based on the fact that large integers are very
+hard to factor. RSA is a prime example of this type of algorithm.
+
+A discrete logarithm scheme is based on a problem in modular arithmetic.It is
+easy to calculate the result of a modulo function, but it is computationally
+impractical to find the exponent of the generator.In other words, it is extremely
+difficult to find the input from the result (output).This is called a one-way
+function.
+
+The elliptic curves algorithm is based on the discrete logarithm problem
+discussed previously, but in the context of elliptic curves. An elliptic curve is
+an
+
+algebraic cubic curve over a field, which can be defined by an equation, as shown
+below. The curve is non-singular, which means that it has no cusps or self-
+
+intersections. It has two variables a and b, as well as a point of infinity:
+
+y2 =x? +ax+b
+
+Here, a and b are integers whose values are elements of the field on which the
+
+elliptic curve is defined.
+
+RSA (Rivest, AdiShamir and Leonard Adelman )
+
+RSA was invented in 1977 by Ron Rivest, AdiShamir, and Leonard Adelman, hence the
+name RSA. This type of public key cryptography is based on the integer factorization
+problem, where the multiplication of two large prime numbers is easy, but it is difficult
+to factor the product (the result of the multiplication) back to the two original
+numbers.The crux of the work involved with the RSA algorithm happens during the
+
+key generation process.
+
+An RSA key pair is generated by performing the following steps:
+
+Modulus generation:
+o Select p and q, which are very large prime numbers
+
+o Multiply p and q, n=p.q to generate modulus n
+
+Downloaded from Ktunotes.in
+
+
+===== PAGE 10 =====
+2. Calculate the Euler’s Totient Function ¢(n)
+o(n) = (p-1) (q-1)
+
+3. Generate the co-prime:
+
+o Assume a number called e.
+
+o eshould satisfy a certain condition; that is, it should be greater than 1 and
+less than ¢$(n). In other words, e must be a number such that no number
+other than 1 can be divided into e and @(n). This is called a co-prime, that
+is, e is the co-prime of @(n).
+
+1<e<@(n) and ged(e, d(n)) =1
+4. Generate the public key:
+
+o The modulus generated in step 1 and co-prime generated in step2 as a pair
+is the public key, ie., (n, e ). This part is the public part that can be shared
+with anyone; however, p and q need to be kept secret.
+
+5. Generate the private key:
+
+o The private key pair is (d, e). d is calculated from p, q, and e. The private
+
+key is basically the inverse of e modulo (p-1)(q-1).
+
+As an equation, it is as follows:
+ed = I mod(p-1)(q-1)
+
+or
+ed mod @(n) = 1
+
+Now, let's see how encryption and decryption operations are performed using RSA.
+
+@ Encryption in RSA is provided using the following equation:
+C=P* modn
+
+@ Decryption in RSA is provided using the following equation:
+
+P=C!modn
+
+Downloaded from Ktunotes.in
+
+
+===== PAGE 11 =====
+e This means that the receiver who has a public key pair (n, e) can decipher the
+
+data using their private key pair (d, e).
+
+Symmetric vs. Asymmetric Cryptography
+
+Symmetric Cryptography Asymmetric Cryptography
+
+It only requires a single key for both It requires two keys, a public key and a
+encryption and decryption. private key, one to encrypt and the other
+
+one to decrypt.
+
+The size of cipher text is the same or The size of cipher text is the same or
+
+smaller than the original plain text. larger than the original plain text.
+
+It is used when a large amount of data is | It is used to transfer small amounts of
+
+required to transfer. data.
+
+It only provides confidentiality. It provides confidentiality, authenticity,
+
+and non-repudiation.
+
+The encryption process is very fast. The encryption process is slow.
+
+The Mathematical Representation is as The Mathematical Representation is as
+
+follows- follows-
+
+P=D({K, E(P)) P = D(Kd, E (Ke,P))
+where K -> encryption and decryption where Ke -> encryption key
+
+key P -> plain text Kd -> decryption key
+
+D —-> Decryption D -> Decryption
+
+E(P) -> Encryption of plain text E(Ke, P) -> Encryption of plain text
+
+using encryption key Ke. P -> plain text
+
+Examples - AES, DES Examples - RSA, DSA
+
+Downloaded from Ktunotes.in
+
+
+===== PAGE 12 =====
+Epi Core Cypher 2 Cee ©
+
+ress - ‘The pret ple Cty netium of Bec i Cons pantel to RSA, wv
+ob oet
+wer That ik appears b oye equal se cumty for a i Sra oA
+ray Sie ) Thea tly Tanti Prmtnes tag oveshoad .
+—~ Kec is ah Sap rothaie Kee] enuyplton acheme .
+
+- IE maken wc et eltephia Coes -
+
+- An ete phic curve  \s Rar eimeal - an equatrer ‘ww hoo
+Vawahbl» . ( Note that etlipte eimves are N0l ellipses) «
+
+- Sttephce curves we doped by sem,y —- athrennahrecrl
+
+tec C by an equatier q hog nat 3. gg  ceebre Pn)
+
+Y= x 4 arth |
+
+Purse is Ayrepeic to X- anty
+- IF we dw a : it coil) uch & Mantes ie COR Limiting the valus
+
+
+===== PAGE 13 =====
+what wv a trap- door Rurcteas ?
+b to
+
+tHe r Compu w
+corp wm One dliveaten | yet it ert 4b mop
+
+the  ©ppostte direction ( & Riggs cate tp Act the tovene)
+tor trout | Some Apeccal inhoyrdiun .
+
+©,
+
+en iF given “t” -7 trapdoor vatlue .
+- Consider the equation G@=kP , eohur & and P cue potoh
+on fry curve and ken, dks vrelabvely eouy to
+caleutake A given k ant P > bee ek v had |b cetem
+k, geo 6 an Pp. Thin ty cated  olincrelle Legauttre
+
+Downloaded from Ktunotes.in
+
+
+===== PAGE 14 =====
+)
+
+® Chlebat public elercenb - [£4 Carb) & cn |
+
+~ Fingte pick a Lange inte gen % rohich wv etthe, a
+
+Y)
+Db Tene no. Or an inbegey Of tye fon Q.
+
+- pick the ebtiplte CUtre  pahameters Sa and ‘hb’
+
+~ Thes cer ellep be =u wut be,
+
+Ca,b) .
+Ka
+
+~ Next pick base pest (n = Cu 54, ) en Eq lard),
+whose ordeS BH a vey lasge vale =O.
+
+~ The ord ‘n' oh a pet G on an etliphe COLUTVe
+0 the Sroattest — positive i di n uh that ntr=0,
+
+@ User A key generertun -
+- Select private hal,). Cn, <<?)
+
+- Caloutots the peblic kay iP.
+
+\p = pn, |
+
+@ user B key qeneraskuso :
+
+~ Select Private iar YM, » Npsv
+
+- calewlek pubic Py ; Ps A Op, x Cy
+
+Downloaded from Ktunotes.in
+
+
+===== PAGE 15 =====
+® Coheutatiin y Seoret key by wen A.
+
+[k= n, * |
+
+6) cal eulatres of 2¢ ovet- a by WRI
+
+fake Op, x Pa
+
+: bott the
+secret ker, k is shaned a c
+
+B.
+
+Thay the
+
+uns A and B-
+
+) Ecc ene plier | decrypter fe
+
+& 4
+
+Eneayphion: he oe
+| = lain bent «esse
+— let our ?P T a voc pen th
+Vy ag
+- encode the Mag
+ebtep hie CLAVE -
+5 ‘phen toxt
+N the pow Tro 1S enay pled wo @ UP
+- Wow ;
+pow t ae
+
+; wl P uses A cheoses &
+- To encrypt tre message Pe  ,
+
+random positive tobeger Ke git
+
+Thun the crphea — potst will be,
+
+-Ihs powk, Cry worl! be gent fo the ewer B Cre eet ver)
+
+Downloaded from Ktunotes.in
+
+
+===== PAGE 16 =====
+@)
+
+Joy decxyplion :
+for deeyptun, © muukiplis the fist point & the pan
+= lee )
+C pene
+- and Subtvacks the avenue
+by. Big Seuet key
+thy  Secend podol: .
+w@ OU Cine | ko e, Po K:Fo |
+L Sermnol pan
+Piet Pend
+e. cotth tHe
+: Ane Caste paul in Co
+” ‘ ~~ te key)
+”
+meeervenr geen Kee (sk, POPS
+
+i kty x 28
+Vo bur on th P
+
+- Men aubtrout thy
+
+é | + kK. Py - (KOx °8)|
+
+- Bur we knao thak ,
+- #P G the public ky oy We
+MR = Ne , P Never .
+
+a k. Pe — k&xne
+
+= Pot = fy > plaintext point. Thuy ‘he Aarrup hin
+
+——
+
+urgently done .
+
+”
+Downloaded from Ktunotes.i
+
+
+===== PAGE 17 =====
+Digital Signatures
+
+Digital signatures provide a means of associating a message with an entity from which
+the message has originated. Digital signatures are used to provide data origin
+authentication and non-repudiation.Digital signatures are used in blockchains, where
+transactions are digitally signed by senders using their private key, before the sender
+broadcasts the transaction to the network. This digital signing proves that the sender
+is the rightful owner of the asset; for example, bitcoins. These transactions are verified
+again by other nodes on the network to ensure that the funds indeed belong to the
+
+node (user) who claims to be the owner.
+
+Bob Transmit Alice
+
+Bob's
+private
+key
+
+signature
+valid or not valid
+
+Bob's
+signature
+for M
+
+Fig: A generic model of digital signature
+
+Digital Signature must have the following properties:
+
+@ Authenticity means that the digital signatures are verifiable by a receiving party.
+@ The unforgeability property ensures that only the sender of the message can
+
+use the signing functionality using the private key. Digital signatures must
+
+provide
+
+Downloaded from Ktunotes.in
+
+
+===== PAGE 18 =====
+protection against forgery.In other words, unforgeability means that no one else
+can produce the signed message produced by a legitimate sender. This is also
+called the property of non-repudiation.
+
+@ Non-reusability means that the digital signature cannot be separated from a
+message and used again for another message. In other words, the digital
+signature is firmly bound to the corresponding message and cannot be simply
+
+cut from its original message and attached to another.
+
+Various schemes, such as RSA-, DSA-, and ECDSA-based digital signature schemes, are
+used in practice. RSA is the most commonly used; however, with the traction of ECC,
+ECDSA-based schemes are also becoming quite popular. This is beneficial in
+blockchains because ECC provides the same level of security that RSA does, but it uses
+less space. Also, the generation of keys is much faster in ECC compared to RSA, so it
+
+helps with the overall performance of the system.
+
+RSA Digital Signature Algorithm
+
+RSA-based digital signature algorithms are calculated using the two steps listed here.
+Fundamentally, the idea is to first compute the hash of the data and then sign it with
+
+the private key:
+
+1. Calculate the hash value of the data packet. This will provide the data integrity
+guarantee, as the hash can be computed at the receiver's end again and matched
+with the original hash to check whether the data has been modified in transit.
+Technically, message signing can work without hashing the data first, but that is
+not considered secure.
+
+2. Sign the hash value with the signer's private key. As only the signer has the
+
+private key, the authenticity of the signature and the signed data is ensured.
+
+Downloaded from Ktunotes.in
+
+
+===== PAGE 19 =====
+The operation of a generic digital signature function using RSA is shown in the
+
+following diagram:
+
+) : _/ Signed \
+Data Hash function a \ data /
+Hash
+Encrypt 10110101
+hash Data Signature
+using
+private r } a!
+key =
+: Decrypt
+| 10110101 using
+— Hash ‘ signer's
+| (Ges function ‘ public
+=e Attach to data Signature key
+data f , F
+= 10111101 e 10111101
+Hash : , l Hash
+
+Fig: Digital signing (left) and verification process (right) (example of RSA digital signatures)
+
+If a sender wants to send an authenticated message to a receiver, there are two
+methods that can be used: sign then encrypt and encrypt then sign. These two
+
+approaches of using digital signatures with encryption are as follows.
+
+@ Sign then encrypt:With this approach, the sender digitally signs the data using
+the private key, appends the signature to the data, and then encrypts the data
+and the digital signature using the receiver's public key. This is considered a
+
+more secure scheme compared to the ‘encrypt then sign’ scheme.
+
+@ Encrypt then sign:With this method, the sender encrypts the data using the
+receiver's public key and then digitally signs the encrypted data.
+
+Downloaded from Ktunotes.in
+
+
+===== PAGE 20 =====
+Elliptic Curve Digital Signature Algorithm (ECDSA)
+
+In order to sign and verify using the ECDSA scheme, the first key pair needs to be
+
+generated:
+
+1. First, define an elliptic curve E with the
+following:o0 Modulus q
+o Coefficients a and b
+o Generator point G that forms a cyclic group of prime ordern
+
+2. Aninteger n is chosen randomly so that 0 < x n.
+3. Calculate publickey sothatP =n G.
+A A oA
+
+o The public key is a six tuple in the form shown here:
+
+K_ = (q,a,b,n,G, P )
+pb A
+
+o The private key is a randomly chosen integer n in step 2:
+A
+
+K =n
+pr A
+
+Now, the signature can be generated using the private and public key.
+
+4. An ephemeral key K is chosen, where 0 < <n. It should be ensured that Kk is
+
+truly random and that no two signatures have the same key; otherwise, the
+private key can be calculated.
+
+5. Another value R is calculated using R = K G; that is, by multiplying G (the
+
+generator point) and the random ephemeral key.
+6. Initialize a variable r with the x coordinate value of point R so that r = xR.
+7. The signature can be calculated as follows:
+S=(h(™) tn rT) K -1 mod n
+Here, m is the message for which the signature is being computed, and h(m) is
+the hash of the message m.
+8. Signature verification is carried out by following this
+process: o Auxiliary value w is calculated as, w = s-1
+modn
+
+o Auxiliary value ul = w. h(m) modn
+
+Downloaded from Ktunotes.in
+
+
+===== PAGE 21 =====
+o Auxiliary value u2=w.rmodn
+
+o Calculate point P, P=ulG+ u2P
+
+9. Verification is carried out as follows:
+o r,s is accepted as a valid signature if the x-coordinate of point P has the
+same value as r mod n;; that is:
+Xp =r mod n means valid signature
+Xp !=r mod n means invalid signature
+
+Hash Functions
+Hash functions are used to create fixed-length digests of arbitrarily long input strings.
+Hash functions are keyless cryptographic primitives, and they provide a data integrity
+service. Various families of hash functions are available, such as MD, SHA-1, SHA-2,
+
+SHA-3 and Whirlpool.
+
+dog —— > | Hash function | ——— ae
+nh wa a a :
+flower | —— Hash function | ——» | _ksnf5200djzn1900
+kszm
+Dog plays 5 eee a eres bo77s65ckqpgx2gf
+with flower qzly
+
+Hash functions are typically used to provide data integrity services. These can be used
+both as one-way functions and to construct other cryptographic primitives, such as
+MACs and digital signatures.
+Different properties of hash functions are given below. There are two practical and
+three security properties for hash functions.
+The practical properties are:
+e Compression of arbitrary messages into fixed-length digests
+A hash function must be able to take an input text of any length and output a
+fixed-length compressed message. Hash functions produce a compressed output
+
+in various bit sizes, usually between 128-bits and 512-bits.
+
+Downloaded from Ktunotes.in
+
+
+===== PAGE 22 =====
+e Easy to compute
+Hash functions are efficient and fast one-way functions. It is required that hash
+
+functions should be very quick to compute regardless of the message size.
+
+The security properties of hash functions are:
+
+L—
+
+1 - PRE-IMAGE RESISTANCE
+
+fae
+
+Known x, ———>
+
+Find x, >
+
+2x — J
+
+7x, >
+
+3 - STRONG COLLISION RESISTANCE
+
+Fig: The three security properties of hash functions
+
+e Pre-image Resistance (One-way Property)
+This property can be explained by using the simple equation:
+h(x) =y
+Here, h is the hash function, x is the input, and y is the hash. This property
+requires that y cannot be reverse-computed to x. x is considered a pre-image of
+
+y, hence the name pre-image resistance. This is also called a one-way property.
+
+Downloaded from Ktunotes.in
+
+
+===== PAGE 23 =====
+e Second Pre-image Resistance (Weak Collision Resistance)
+The second pre-image resistance property requires that given x and h(x), it is
+almost impossible to find any other message m, where m! = x and hash of m =
+hash of x or h(m) = h(x). This property is also known as weak collision
+
+resistance.
+
+e Collision Resistance (Strong Collision Resistance)
+The collision resistance property requires that two different input messages
+should not hash to the same output. In other words, h(x) != h(z). This property is
+
+also known as strong collision resistance.
+
+Avalanche Effect:
+A concept known as the avalanche effect is desirable in all cryptographic hash
+functions. The avalanche effect specifies that a small change, even a single character
+
+change in the input text, will result in an entirely different hash output.
+
+Secure Hash Algorithms (SHA - 256)
+SHA-256 is included in the SHA-2 category. SHA-256 is used in Bitcoins.
+
+Design of SHA-256
+SHA-256 has an input message size limit of 2 - 1 bits. The block size is 512 bits, and it
+has a word size of 32 bits. The output is a 256-bit digest. The algorithm works as
+
+follows, in nine steps:
+
+Pre-processing:
+
+1. Padding of the message is used to adjust the length of a block to a
+
+multiple of 512 bits if it is smaller than the required block size.
+
+2. Parsing the message into message blocks, which ensures that the
+
+message and its padding is divided into equal blocks of 512 bits
+
+Downloaded from Ktunotes.in
+
+
+===== PAGE 24 =====
+Block 1 Block 2 Block N
+
+(512b) = (512b) (512b)
+Initial hash | pA SHA 7 SHA Message hash
+(256b) "| 256 | ‘| 256 | ~ 256 |  (256b)
+
+3.
+
+Initializing the buffers. Setting up the initial hash value, which consists
+of the eight 32-bit words obtained by taking the first 32 bits of the
+fractional parts of the square roots of the first eight prime numbers. These
+
+initial values are fixed and chosen to initialize the process.
+
+H, = 6a09e667
+H, = bb67ae85
+H, = 3c6ef372
+
+H, = a54ff53a
+
+H, = 510e527f
+H. = 9b05688c
+H, = 1f83d9ab
+H, = SbeOcd19
+
+Hash Computing:
+
+4.
+
+ona
+
+Each message block is then processed in a sequence, and it requires 64
+rounds to compute the full hash output. Each round uses slightly different
+constants to ensure that no two rounds are the same.
+
+The message schedule is prepared.
+
+Eight working variables are initialized.
+
+The compression function runs 64 times.
+
+The intermediate hash value is calculated.
+
+Downloaded from Ktunotes.in
+
+
+===== PAGE 25 =====
+9. Finally, after repeating steps 5 through 8 until all blocks in the input
+
+message are processed, the output hash is produced by concatenating
+
+intermediate hash values.
+
+Initial values Output hast
+Eight 32-bit i
+256 bits
+words
+
+Fig: SHA-256 high level overview
+
+As shown in the above diagram, SHA-256 takes the input message and divides it into
+equal blocks (chunks of data) of 512 bits. Initial values (or initial hash values) or the
+initialization vector are composed of eight 32 bit words (256 bits) that are fed into the
+compression function with the first message. Subsequent blocks are fed into the
+compression function until all blocks are processed and finally, the output hash is
+
+produced.
+
+The compression function of SHA-256 is shown in the following diagram:
+
+Fig: One round of an SHA-256 compression function
+
+Downloaded from Ktunotes.in
+
+
+===== PAGE 26 =====
+In the preceding diagram, a, b, c, d, e, f, g, and hare the registers for 8 working
+
+variables. Maj (majority) and Ch (choose) functions are applied bitwise.
+
+Ch(x,y,z) (xa y)@( xaz)
+Maj(x,y,z) = (xa y)@(xaz)@(y az)
+
+Xp and 2} perform bitwise rotation. The round constants are Wj and Kj, which are added
+
+in the main loop (compressor function) of the hash function.
+Applications of cryptographic hash functions
+
+@ Hash functions are used to build Merkle trees, which are used to efficiently and
+securely verify large amounts of data in distributed systems.
+
+@ Hash functions are used in cryptographic puzzles such as the Proof of Work
+(PoW) mechanism in Bitcoin. Bitcoin's POW makes use of the SHA-256
+cryptographic hash function.
+
+@ The generation of addresses in blockchains. For example, in Ethereum,
+blockchain accounts are represented as addresses.
+
+@ Message digests (or hash values) in digital signatures.
+Merkle Trees
+
+@ The concept of Merkle trees was introduced by Ralph Merkle.
+
+@ Merkle trees enable the secure and efficient verification of large datasets.
+
+@ A Merkle tree is a binary tree in which the inputs are first placed at the leaves
+(nodes with no children).
+
+@ Then the values of pairs of child nodes are hashed together to produce a value
+for the parent node (internal node), until a single hash value known as a Merkle
+
+root is achieved.
+
+Downloaded from Ktunotes.in
+
+
+===== PAGE 27 =====
+Root
+HABCDEFGHUKLMNOP
+u a a
+
+HABCDEFGH | HuKLMNOP
+re . =
+HaBcD | HEFGH HUJKL HMNOP
+_ ~
+
+Hap Hoo | Her HGH | Hy HKL HMN Hop
+~_ cid 7 | *_ Pid | *~_
+
+Ha || He He || 4p | He He || 4a || Hy Ay} Ay) AK |} AL Hm | | HN | Ho | Hp
+
+Fig: A Merkle Tree
+
+@ This structure helps to quickly verify the integrity of the entire tree (entire
+dataset), just by verifying the Merkle root on top of the Merkle tree, because if
+any change occurs in any of the hashes in the tree, the Merkle root will also
+change.
+
+@ Another advantage of Merkle trees is that there is no requirement of storing
+large amounts of data, only the hashes of the data, which are fixed-length
+digests of the large dataset need to be stored. Due to this property, the storage
+and management of Merkle trees is easy and efficient.
+
+@ Also, due to the fact that the tree is storage efficient, it is also bandwidth efficient
+
+over the network.
+
+Distributed hash tables
+
+A distributed hash table (DHT) is a type of distributed system that provides a lookup
+service similar to a hash table. In a hash table, data is stored and retrieved using keys,
+and the keys are used to determine the location of the data in the table. A distributed
+hash table is similar, but the data is distributed across multiple nodes in a network
+
+rather than being stored in a single table.
+
+Downloaded from Ktunotes.in
+
+
+===== PAGE 28 =====
+In a DHT, each node is responsible for storing and managing a portion of the data.
+When a client wants to retrieve or store data, it sends a request to the network. The
+request is then forwarded to the appropriate node based on the key of the data being
+requested. The node then responds to the request and either retrieves or stores the data.
+DHTs are used in a variety of applications, including peer-to-peer (P2P) networks,
+
+distributed databases, and distributed file systems.
+
+Data Key Distributed
+
+[if sreetiens DFCD3454
+
+Hash
+Hash
+—————__—__ Peers
+
+Fig: Distributed Hash Table
+
+Downloaded from Ktunotes.in

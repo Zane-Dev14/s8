@@ -1,0 +1,1631 @@
+===== PAGE 1 =====
+
+
+===== PAGE 2 =====
+Page 2
+-
+
+
+===== PAGE 3 =====
+Introduction to Soft Computing & Artificial Neural Network
+► Introduction to Soft Computing.
+► Difference between Hard Computing & Soft Computing.
+► Applications of Soft Computing.
+► Artificial Neurons Vs Biological Neurons.
+► Basic models of artificial neural networks
+► Connections,
+► Learning,
+► Activation Functions.
+► McCulloch and Pitts Neuron.
+► Hebb network.
+Module 1:
+
+
+===== PAGE 4 =====
+Introduction to Soft Computing
+
+
+===== PAGE 5 =====
+Introduction to Soft Computing,
+► Soft computing is an emerging collection of methodologies, which aim to 
+exploit tolerance for imprecision, uncertainty, and partial truth to achieve 
+robustness, tractability and total low cost.
+► Role model of soft computing is human mind.
+► Soft-computing is defined as a collection of techniques spanning many 
+fields that fall under various categories in computational intelligence.
+► Soft computing has three main branches:
+► fuzzy Systems,
+► artificial neural Networks
+► Genetic Algorithms
+
+
+===== PAGE 6 =====
+Evolution of Soft Computing
+
+
+===== PAGE 7 =====
+Problem Solving Methodologies
+► Two major problem solving methodologies includes
+► Hard computing
+► Based on the concept of precise modeling and analyzing to yield accurate 
+results.
+► Traditional AI uses Hard computing
+► Accurate Models based on Symbolic Logic Reasoning and numerical 
+modelling
+► Works well for simple problems
+► Soft computing
+► Model the Approximate System and  Uses inexact methods
+► Represents a computing which reflects the human mind.
+► Tolerant to imprecision, uncertainty, partial truth, and approximation.
+► Well suited for real world problems where ideal models are not available
+
+
+===== PAGE 8 =====
+Problem Solving Methodologies
+
+
+===== PAGE 9 =====
+soft computing
+► The term soft computing was introduced by Prof.Lotfi Zadeh. (1994),University 
+of California,Berkeley ,USA
+► Goal
+► To emulate the human mind as closely as possible
+► Partnership with many fields
+► Neural network
+► Genetic Algorithm
+► Fuzzy Logic
+
+
+===== PAGE 10 =====
+Hard computing
+► In 1996, L. A. Zadeh (LAZ) introduced the term hard computing. 
+► According to LAZ: We term a computing as Hard computing, 
+► Characteristics of hard computing 
+► Precise result is guaranteed. 
+► Control action is unambiguous. 
+► Control action is formally defined (i.e., with mathematical model or algorithm)..
+► Examples of hard computing 
+► Solving numerical problems (e.g., roots of polynomials, integration, etc.).
+► Searching and sorting techniques. 
+► Solving computational geometry problems (e.g., shortest tour in a graph, finding closet pair 
+of points given a set of points, etc.). 
+
+
+===== PAGE 11 =====
+Soft computing 
+► The term soft computing was proposed by the inventor of fuzzy logic, Lotfi A. 
+Zadeh
+► Definition 1: 
+► Soft computing Soft computing is a collection of methodologies that aim to exploit the 
+tolerance for imprecision and uncertainty to achieve tractability, robustness, and low 
+solution cost. Its principal constituents are fuzzy logic, neurocomputing, and probabilistic 
+reasoning. 
+► The role model for soft computing is the human mind
+► Characteristics of soft computing 
+► It does not require any mathematical modeling of problem solving. 
+► It may not yield the precise solution. 
+► Algorithms are adaptive (i.e., it can adjust to the change of dynamic environment). 
+► Use some biological inspired methodologies such as genetics, evolution, Ant’s behaviors, 
+particles swarming, human nervous system, etc.). 
+
+
+===== PAGE 12 =====
+Soft computing 
+► There are three types of soft computing techniques which include the 
+following.
+► Artificial Neural Network
+► Fuzzy Logic
+► Genetic algorithm
+► Artificial Neural Network
+►
+Hand written character recognition (Artificial Neural Networks)
+
+
+===== PAGE 13 =====
+Soft computing 
+► Examples of soft computing-fuzzy logic
+► An example of a robot that wants
+to move from one place to another
+within a short time where there
+are many obstacles on the way.
+Now the question arises is that
+how the robot can calculate its
+movement to reach the
+destination point, without colliding
+to any obstacle. These types of
+problems have uncertainty
+problem which can be solved
+using fuzzy logic
+
+
+===== PAGE 14 =====
+Soft computing 
+► Examples of soft computing-Genetic Algorithm
+► A person who wants to invest some
+money in the bank, we know there are
+different banks available with different
+schemes and policies. Its individual
+interest how much amount to be
+invested in the bank, so that he can
+get maximum profit. There are certain
+criteria for the person that is, how he
+can invest and how can he get profited
+by investing in the bank. These criteria
+can be overcome by the “Evolutional
+Computing” algorithm like genetic
+computing.
+
+
+===== PAGE 15 =====
+
+
+===== PAGE 16 =====
+How Soft Computing?
+► How a student learns from his teacher? 
+► Teacher asks questions and tell the answers then. 
+► Teacher puts questions and hints answers and asks whether the answers are 
+correct or not. 
+► Student thus learn a topic and store in his memory. 
+► Based on the knowledge he solves new problems. 
+► This is the way how human brain works. 
+► Based on this concept Artificial Neural Network is used to solve problems.
+
+
+===== PAGE 17 =====
+How Soft Computing?
+► How a doctor treats his patient? 
+► Doctor asks the patient about suffering. 
+► Doctor find the symptoms of diseases. 
+► Doctor prescribed tests and medicines. 
+► This is exactly the way Fuzzy Logic works. 
+► Symptoms are correlated with diseases with uncertainty 
+► Doctor prescribes tests/medicines fuzzily
+
+
+===== PAGE 18 =====
+How Soft Computing?
+► How world selects the best? 
+► It starts with a population (random).
+► Reproduces another population (next generation).
+► Rank the population and selects the superior individuals. 
+► Genetic algorithm is based on this natural phenomena. 
+► Population is synonymous to solutions.
+► Selection of superior solution is synonymous to exploring the optimal solution
+
+
+===== PAGE 19 =====
+Neural Network
+► Neural networks are a series of algorithms that mimic the operations of a 
+human brain to recognize relationships between vast amounts of data.
+► A neural network works similarly to the human brain’s neural network.
+► A “neuron” in a neural network is a mathematical function that collects and 
+classifies information according to a specific architecture.
+► Well suited for real time systems because of fast response and computation 
+time(Parallel Architecture)
+
+
+===== PAGE 20 =====
+Artificial Neural Network
+► ANN is an efficient Information processing paradigm inspired by biological 
+nervous systems
+► ANN is composed of large number of interconnected processing elements 
+called nodes/neurons which operates in parallel
+► ANN learn by example
+► Each neuron is connected with the other by a connection link.
+► Each connection link is associated with weights which contain information 
+about the input signal.
+
+
+===== PAGE 21 =====
+Fuzzy Systems and Logic
+► Concept is conceived by Lotfi Zadeh
+► It is an organized method dealing with imprecise data
+► Fuzzy logic is a super set of Boolean Logic
+► Fuzzy set allows Partial Membership
+► Multi valued Logic is allowed,
+► Intermediate values between conventional evaluations such as YES/NO,T/F, 
+Black/White etc
+
+
+===== PAGE 22 =====
+Genetic Algorithm
+► genetic algorithms are inspired by Darwin's theory about evolution.
+► Genetic Algorithm (GA) is a search based algorithms based on the principles 
+of Genetics and Natural Selection.
+► It is frequently used to find optimal or near-optimal solutions to difficult 
+problems which otherwise would take a lifetime to solve. 
+► GAs are a subset of a much larger branch of computation known as 
+Evolutionary Computation.
+► Genetic algorithms are inspired by Darwin's theory about evolution. 
+► Genetic Algorithms (GAs) were invented by John Holland 
+
+
+===== PAGE 23 =====
+Multi Objective Optimization & Hybrid Systems
+► The optimal value or the best solution can be found through the optimization 
+process.
+► The optimization problems include looking for maximum or minimum value 
+or using one objective or multi-objective.
+► Problems that have more than one objective is referred to as multi-objective 
+optimization (MOO). 
+► This type of problem is found in everyday life, such as mathematics, 
+engineering, social studies, economics, agriculture, aviation, automotive, and 
+many others.
+► The MOO or the multi-objective optimization refers to finding the optimal 
+solution values of more than one desired goals. 
+► The motivation of using the MOO is because in optimization, it does not 
+require complicated equations, which consequently simplifies the problem. 
+
+
+===== PAGE 24 =====
+Applications of Soft Computing 
+► Handwriting Recognition
+► Image Processing and Data Compression 
+► Automotive Systems and Manufacturing 
+► Soft Computing to Architecture
+► Decision-support Systems 
+► Soft Computing to Power Systems 
+► Neuro Fuzzy systems 
+► Fuzzy Logic Control 
+► Machine Learning Applications 
+► Speech and Vision Recognition Systems 
+
+
+===== PAGE 25 =====
+Artificial Neural Network
+
+
+===== PAGE 26 =====
+About Human Brain
+► Cells within the nervous system, called neurons, communicate with each other in 
+unique ways ,which doesn’t regenerate.
+► The neuron is the basic working unit of the brain, a specialized cell designed to 
+transmit information to other nerve cells, muscle, or gland cells.
+► The human brain contains around 100 billion neurons(interconnected neurons)and 
+each neuron can connect up to 2,00,000 other neurons.(1011 neurons approximately)
+► Each neuron consists of a cell body, dendrites, and an axon.
+► The approximate size of neuron body(in micrometer) is 10-80. The gap of Biological 
+neuron at synapses is 200nm.
+► A synapse is the connection between nodes, or neurons, in an artificial neural 
+network (ANN).
+► The power of human brain comes from this sheer number of neurons and their 
+multiple interconnections
+
+
+===== PAGE 27 =====
+Page 27 Prof.Smitha Jacob, Department of Computer Science and Engineering, SJCET Palai
+Biological Neurons
+
+
+===== PAGE 28 =====
+Biological Neurons
+► A neuron is the basic processing unit in a neural network sitting on our 
+brain.
+► It consists of 
+► Soma or cell body where cell nucleus is situated
+► Dendrites –Tree like network made of nerve fibre connected to cell body 
+which receives signals
+► Axon-Single long connection  extending from the cell body which carries 
+impulses of the neuron and transmit signals
+► Synapse –The end of the axon splits into fine strands, each strand 
+terminates into a small bulb like organ called Synapse.
+► There are approximately 104 synapses/neurons in human brain.There are 
+1015 synaptic connection are there in human brain
+
+
+===== PAGE 29 =====
+Biological Neurons
+► Neuron collects signals from dendrites.
+► Sends out spikes of electrical activity through an axon, which splits into 
+thousands of branches.
+► Electric pulses are passed between the synapse and the dendrites
+► At the end, a synapses converts activity into either excitatory or inhibiting 
+activity of a dendrite at another neuron.
+► Neuron fires during an excitatory activity and surpasses inhibitory activity
+► If the electrical potential inside the body of the receiving cell reaches a 
+threshold, then the receiving cell fires and pulse or action of fixed strength 
+and duration is sent out through the axon to the synaptic junctions of the 
+other cell.
+► After firing the cell has to wait for a period called refractory period before it 
+can fire again.
+
+
+===== PAGE 30 =====
+Biological Neurons
+
+
+===== PAGE 31 =====
+Artificial Neural Network
+► ANN is an efficient Information processing paradigm which resembles the 
+characteristics of a biological neural network.
+► ANN is composed of large number of interconnected processing elements 
+called neurons connected by synapses which operates in parallel
+► Each neuron is connected with the other by a connection link.
+► Each connection link is associated with weights which contain information about 
+the input signal.
+► This information is used by the neurons net to solve a particular problem
+► Each neuron has an individual state of its own. This state can be varied based on 
+the activation signal.
+► The activation signal of a neuron is transmitted to other neurons
+► A neuron can send only one signal at a time ,which can be transmitted to other neurons.
+
+
+===== PAGE 32 =====
+Artificial Neural Network
+► ANN is an efficient Information 
+processing paradigm which 
+resembles the characteristics of a 
+biological neural network.
+► ANN is composed of large number 
+of interconnected processing 
+elements called neurons 
+connected by synapses which 
+operates in parallel
+► ANN is a model that simulates 
+the human brain created 
+artificially to solve complex 
+problems
+
+
+===== PAGE 33 =====
+Artificial Neuron Model
+► consider a set of neurons, say X1 & X2 , 
+the input signals x1,x2 and Yin is the 
+Net input and Y is the output neuron 
+which receives the signal.
+► Each neuron is connected to other 
+neuron by means of directed 
+communication links and associated 
+with weights w1,w2
+
+
+===== PAGE 34 =====
+Artificial Neuron Model
+► consider a set of neurons, say X1,X2
+► x1 & x2 which are the input signals 
+and 
+► Yin is the Net input and
+► ‘y’ is the output of neural net, which 
+receives the signal.
+► Each neuron is connected to other 
+neuron by means of directed 
+communication links and associated 
+with weights w1,w2
+
+
+===== PAGE 35 =====
+Artificial Neuron Model
+► ANN is a model that simulates the human brain created artificially to solve complex 
+problems
+► To depict the basic operation of neuron net ,consider a set of neurons, say x1,x2.---xm are 
+the input signals and Yin is the Net input and ‘y’ is the output neuron which receives the 
+signal.
+► Each neuron is connected to other neuron by means of directed communication links and 
+associated with weights w1,w2,…..wm
+
+
+===== PAGE 36 =====
+Artificial Neuron Model
+
+
+===== PAGE 37 =====
+Similarities of ANN and BNN
+
+
+===== PAGE 38 =====
+Comparison between ANN and BNN
+
+
+===== PAGE 39 =====
+Advantages of  ANN
+► Adaptive learning: An ability to learn how to do tasks based on the data 
+given for training or initial experience. 
+► Self-Organisation: An ANN can create its own organisation or 
+representation of the information it receives during learning time. 
+► Real Time Operation: ANN computations may be carried out in parallel, 
+and special hardware devices are being designed and manufactured 
+which take advantage of this capability. 
+► Fault Tolerance via Redundant Information Coding: 
+
+
+===== PAGE 40 =====
+Features of  ANN
+► Parallel Distributed information processing 
+► High degree of connectivity between basic units 
+► Connections are modifiable based on experience 
+► Learning is a continuous unsupervised process 
+► Learns based on local information 
+► Performance degrades with less units 
+
+
+===== PAGE 41 =====
+Problems
+
+
+===== PAGE 42 =====
+Problem
+Q1:Calculate the net input of the following  network
+
+
+===== PAGE 43 =====
+Artificial Neuron Model- additional points
+► The function to be applied over the net input is called the activation functions
+► i →represent the ith processing element
+► w→ weight represents the strength of synapse connecting the input and output neurons
+► Excitatory Synapse –Positive Weights
+► Inhibitory Synapse –Negative Weights
+► Bias →Bias included in the network has its impact in calculating the net input
+► Bias is included by adding x0=1 to the input vector x.so the input signal value can be 1 and 
+denoted by b and can be considered like another weight with weight 1.
+► Positive bias helps in increasing the net input of the network
+► Negative bias helps in decreasing the net input of the network
+► As a result of the bias effect ,output of the network can be varied
+
+
+===== PAGE 44 =====
+Problem
+Q2:Calculate the net input of the following  network
+
+
+===== PAGE 45 =====
+Problems
+Q3:Calculate the net input of the following  network
+
+
+===== PAGE 46 =====
+Page 46 Prof.Smitha Jacob, Department of Computer Science and Engineering, SJCET Palai
+Problems
+
+
+===== PAGE 47 =====
+Basic models of 
+Artificial Neural Networks 
+
+
+===== PAGE 48 =====
+Basic models of artificial neural networks
+► The models of Artificial neural network is characterized by  three basic 
+entities namely 
+1. connections between the neurons called its architecture 
+2. training or learning  rules adopted for updating and              
+adjusting weights on the connections 
+3. Its internal state called its Activation function. 
+► The arrangement of neurons into layers and the connection patterns within 
+and between layers is called the net architecture
+
+
+===== PAGE 49 =====
+Connections
+
+
+===== PAGE 50 =====
+1.Connections
+► An ANN consists of set of highly interconnected processing 
+elements(Neurons)
+► The point where the connection originates and terminated should be noted 
+and functions of each processing element of an ANN is specified.
+► Connection means the network topology ,which is the arrangement of a 
+network along with its nodes and connecting lines.
+► There are five types of Neural Network Connections
+► Single layer feed forward network
+► Multilayer feed forward network
+► Single node with its own feed back
+► Single layer recurrent network
+► Multilayer recurrent network
+
+
+===== PAGE 51 =====
+1.Connections
+► Generally there are two category of Neural network Connections
+► Feed Forward/Recurrent
+► Single Layer/Multi Layer
+► Connections across the layers in standard topologies can be in feedforward manner or in 
+feedback manner but not both.
+► A neural net in which the signals flow from the input units to the output units 
+in a forward direction is called feed forward nets. 
+► Interconnected competitive net in which there are closed loop signal paths 
+from a unit back to it is called a recurrent network.
+
+
+===== PAGE 52 =====
+1.Connections Single layer feed forward network
+► A neural net with only input
+layer and output layer is
+called single layer neural
+network.
+► The i/p layer and o/p layer
+are linked with each other
+► The input layer receives
+input data from the user
+► The output layer sends
+its calculated output
+to the user from which
+decision can be made.
+
+
+===== PAGE 53 =====
+1.Connections Multi layer feed forward network
+► A neural network with input
+layer, one or more hidden
+layers and an output layer is
+called a multilayer neural
+network.
+► The feed forward model is
+the simplest form of neural
+network as information is
+only processed in one
+direction.
+► While the data may pass
+through multiple hidden
+nodes, it always moves in
+one direction and never
+backwards.
+
+
+===== PAGE 54 =====
+1.Connections Multi layer feed forward network
+► A neural network with input layer, one or more 
+hidden layers and an output layer is called a 
+multilayer neural network.
+► input layer -The input layer receives input data from 
+the user and propagates a signal to the next layer 
+called the hidden layer. While doing so it multiplies 
+the weight along with the input signal. 
+► Hidden layer-Any layer which lies between the input 
+and the output layers is called hidden layer. The 
+hidden layer is internal to the network and has no 
+direct contact with the external environment. The 
+hidden layer performs all kinds of computation on 
+the features entered through the input layer and 
+transfers the result to the output layer.
+► Output layer-The output layer sends its calculated 
+output to the user from which decision can be made
+
+
+===== PAGE 55 =====
+1.Connections
+Single node with its own feed back
+► This shows a simple recurrent neural network model having a single 
+neuron with Feedback to itself
+
+
+===== PAGE 56 =====
+1.Connections
+Single layer recurrent network
+► Single layer network with a feedback connection in which a Processing 
+elements output can be directed back to PE itself or to the other PE or to 
+both
+
+
+===== PAGE 57 =====
+1.Connections
+Multi layer recurrent network
+► A PE’s output can be directed 
+back to the nodes in a preceding 
+layer forming a multilayer 
+recurrent network
+► A PE’s o/p can be directed back 
+to the PE’s  itself and to PE in the 
+same layer or preceding layer.
+
+
+===== PAGE 58 =====
+Training /Learning
+
+
+===== PAGE 59 =====
+2.Learning
+► Learning, in artificial neural network, is the method of modifying the weights 
+of connections between the neurons of a specified network.
+► The main property of ANN is its ability to learn
+► Generating the output in response to the input after processing is called 
+Learning.
+► The method of setting the values of the weights called training is an important 
+characteristic of neural nets. 
+► Based on the training methodology used neural nets can be distinguished 
+into supervised or unsupervised neural nets
+► Types of Learning
+► Supervised Learning
+► Unsupervised Learning
+► Reinforcement Learning
+
+
+===== PAGE 60 =====
+2.Learning
+► supervised learning takes place under the supervision of 
+a teacher. This learning process is dependent.
+► Basically supervised learning is when we teach or 
+train the machine using data that is well labelled. 
+Which means some data is already tagged with the 
+correct answer.
+► After that, the machine is provided with a new set of 
+examples(data) so that the supervised learning 
+algorithm analyses the training data(set of training 
+examples) and produces a correct outcome from 
+labelled data
+
+
+===== PAGE 61 =====
+2.Learning-supervised learning example
+► suppose you are given a basket filled with different 
+kinds of fruits. 
+► The first step is to train the machine with all the 
+different fruits one by one like this
+► If the shape of the object is rounded and has a 
+depression at the top, is red in color or green, then it 
+will be labeled as –Apple.
+► If the shape of the object is a long curving cylinder 
+having Green-Yellow color, then it will be labeled as –
+Banana.
+► Now suppose after training the data, you have given 
+a new separate fruit, say Banana from the basket, 
+and asked to identify it.
+
+
+===== PAGE 62 =====
+2.Learning- Supervised Learning
+► During the training of ANN under supervised learning, the input vector is presented 
+to the network, which will produce an output vector. This output vector is compared 
+with the desired/target output vector.
+► An error signal is generated if there is a difference between the actual output and 
+the desired/target output vector. On the basis of this error signal, the weights 
+would be adjusted until the actual output is matched with the desired output.
+► In ANN each input vector requires a corresponding target vector ,which represents 
+the desired output.The i/p vector along with target vector is called Training Pair.
+► In this type a supervisor is required for error minimization.
+
+
+===== PAGE 63 =====
+2.Learning- Supervised Learning
+► Supervised learning is classified into
+two categories of algorithms:
+► Classification: A classification
+problem is when the output variable
+is a category,
+► Regression: A regression problem is
+when the output variable is a real
+value,
+► Supervised learning deals with or
+learns with “labeled” data.
+► This implies that some data is already
+tagged with the correct answer.
+
+
+===== PAGE 64 =====
+2.Learning Unsupervised Learning
+► In unsupervised learning no teacher is 
+available.
+► Learning process is independent. 
+► The learner only discovers persistent 
+patterns in the data consisting of a 
+collection of perceptions. This is also called 
+exploratory learning. 
+
+
+===== PAGE 65 =====
+2.Learning
+Unsupervised Learning
+► The i/p vectors of similar types are grouped without the use of training data.
+► In the training process ,the network receives the i/p patterns and organizes 
+these patterns to form clusters.
+► When a new input pattern is applied the neural network gives the output 
+response indicating the class to which the i/p pattern belongs .
+► If for an i/p ,a pattern class cannot be found ,then a new class can be 
+generated.
+► By self organizing process exact clusters will be formed by discovering 
+similarities and dissimilarities among the objects
+► Finding out malicious network attacks from a sequence of anomalous data 
+packets is an example of unsupervised learning. 
+
+
+===== PAGE 66 =====
+2.Learning
+Unsupervised Learning
+► Unlike supervised learning, no teacher is provided that means no training 
+will be given to the machine. 
+► Therefore the machine is restricted to find the hidden structure in 
+unlabeled data by itself.
+► Here the task of the machine is to group unsorted information according to 
+similarities, patterns, and differences without any prior training of data.
+► Ex: the machine has no idea about the features of dogs and cats so we can’t 
+categorize it as ‘dogs and cats ‘. But it can categorize them according to 
+their similarities, patterns, and differences,
+► It mainly deals with unlabelled data.
+
+
+===== PAGE 67 =====
+2.Learning
+Unsupervised Learning
+► The i/p vectors of similar types are grouped without the use of training data.
+► In the training process ,the network receives the i/p patterns and organizes 
+these patterns to form clusters.
+► When a new input pattern is applied the neural network gives the output 
+response indicating the class to which the i/p pattern belongs .
+► If for an i/p ,a pattern class cannot be found ,then a new class can be 
+generated.
+► By self organizing process exact clusters will be formed by discovering 
+similarities and dissimilarities among the objects
+► Finding out malicious network attacks from a sequence of anomalous data 
+packets is an example of unsupervised learning. 
+
+
+===== PAGE 68 =====
+2.Learning
+Unsupervised Learning
+► Unsupervised learning is classified 
+into two categories of algorithms:
+► Clustering: A clustering problem is 
+where you want to discover the 
+inherent groupings in the data, such 
+as grouping customers by 
+purchasing behavior.
+► Association: An association rule 
+learning problem is where you want 
+to discover rules that describe large 
+portions of your data, such as 
+people that buy X also tend to buy 
+Y.
+
+
+===== PAGE 69 =====
+2.Learning
+Reinforcement Learning
+► Similar to supervised learning. But only critic information available.
+► In reinforcement learning the learning is based on critic information 
+and the feedback sent is known as Reinforcement signal.
+► The network receives some feedback from the environment.
+
+
+===== PAGE 70 =====
+2.Learning
+Reinforcement Learning
+► The ANN makes a decision by observing its environment. 
+► If the observation is negative, the network adjusts its weights to be able 
+to make a different required decision the next time..
+► Examples include a robot in a unknown terrain where its get a 
+punishment when its hits an obstacle and reward when it moves 
+smoothly.
+► It is a trial and error method.
+► Reinforcement learning is about an autonomous agent taking suitable 
+actions to maximize rewards in a particular environment. Over time, the 
+agent learns from its experiences and tries to adopt the best 
+possible behavior.
+► In the case of reinforcement learning, we limit human interaction to 
+changing the environment states, and the system of rewards and 
+penalties. This setup is known as the Markov Decision Process
+
+
+===== PAGE 71 =====
+2.Learning Reinforcement Learning
+► example of training a pet.
+► consider the pet as an autonomous agent. If you’re trying to train the pet 
+in our living room, that can be considered as the environment:
+► you can throw a ball and expect the pet to run and fetch it. Here, throwing 
+the ball represents a state that the environment presents, and running to 
+fetch it represents an action that the pet may take. 
+► issue rewards immediately or delay them to some point in the future.
+
+
+===== PAGE 72 =====
+Activation Function
+
+
+===== PAGE 73 =====
+3.Activation Function
+► In ANN activation function may be defined as the extra force or effort applied over the 
+net input to obtain an exact output.Activation function is applied over the net input to 
+calculate the o/p of the ANN
+► An Activation Function decides whether a neuron should be activated or not by 
+calculating weighted sum and further adding bias with it.. 
+► This means that it will decide whether the neuron’s input to the network is important or 
+not in the process of prediction using simpler mathematical operations.
+► Linear and Non linear activation functions can be used to generate the neurons 
+response.
+► Linear
+► Identity functions
+► Binary Step Function
+► Bipolar step functions
+► Non Linear
+► Sigmoid Function
+► Ramp Function
+
+
+===== PAGE 74 =====
+3.Activation Function
+► linear activation function
+► It is simply a linear regression model.
+► It has limited power and ability to handle complexity varying parameters of input 
+data.
+► with linear activation functions, no matter how many layers in the neural network, the 
+last layer will be a linear function of the first layer (because a linear combination of 
+linear functions is still a linear function).
+► So a linear activation function turns the neural network into just one layer.
+► Non-Linear Activation Functions
+► Modern neural network models use non-linear activation functions. 
+► They allow the model to create complex mappings between the network’s inputs and 
+outputs, which are essential for learning and modeling complex data, such as images, 
+video, audio, and data sets which are non-linear or have high dimensionality.
+
+
+===== PAGE 75 =====
+3.Activation Function
+
+
+===== PAGE 76 =====
+3.Activation Function
+► Two major problems:
+► Back-propagation is not possible — The derivative of the function is a constant, 
+and has no relation to the input, X. So it’s not possible to go back and understand 
+which weights in the input neurons can provide a better prediction.
+► All layers of the neural network collapse into one — with linear activation 
+functions, no matter how many layers in the neural network, the last layer will be 
+a linear function of the first layer
+
+
+===== PAGE 77 =====
+3.Activation Function
+limitations of binary step function:
+► It cannot provide multi-value outputs so, it cannot be used for multi-class classification 
+problems.
+► The gradient of the step function is zero, which causes a hindrance in the backpropagation 
+process.
+
+
+===== PAGE 78 =====
+3.Activation Function
+► In the Bipolar Step Function, if the value of Y is above a certain value known as the 
+threshold, the output is +1and if it’s less than the threshold then the output is -1.
+► It has bipolar outputs (+1 to -1). It can be utilized in single-layer networks.
+
+
+===== PAGE 79 =====
+3.Activation function
+4.Sigmoidal Functions
+► A sigmoidal function is a mathematical function having a characteristic "S"-shaped curve or 
+sigmoid curve.
+► When the activation function for a neuron is a sigmoid function it is a guarantee that the 
+output of this unit will always be between 0 and 1.
+► Also, as the sigmoid is a non-linear function, the output of this unit would be a non-linear 
+function of the weighted sum of inputs. 
+► This function takes any real value as input and outputs values in the range of 0 to 1. 
+► The larger the input (more positive), the closer the output value will be to 1.0, whereas the 
+smaller the input (more negative), the closer the output will be to 0.0
+► They are widely used in backpropagation networks because of the relationship between the 
+value of the functions at a point and the value of the derivative at that point which reduces 
+the computational burden during training.
+► Sigmoidal functions are of two types
+► Binary Sigmoidal Function
+► Bipolar Sigmoidal function
+
+
+===== PAGE 80 =====
+3.Activation function
+Sigmoidal Functions
+
+
+===== PAGE 81 =====
+3.Activation Function
+• Binary Sigmoid Function or Sigmoid function is 
+a logistic function where the output values are 
+either binary or vary from 0 to 1. 
+• It is differentiable, non-linear, and produces 
+non-binary activations 
+• sigmoid activation is not a zero-centric function.
+
+
+===== PAGE 82 =====
+3.Activation Function
+► Hyperbolic Tangent Function or Tanh is a 
+logistic function where the output value 
+varies from -1 to 1. Also known as Bipolar 
+Sigmoid Function.
+► The output of Tanh centers around 0 and 
+sigmoid’s around 0.5. Tanh Convergence is 
+usually faster if the average of each input 
+variable over the training set is close to zero
+
+
+===== PAGE 83 =====
+3.Activation Function
+• ReLu stands for the rectified linear unit (ReLU). It is the most used activation function in 
+the world. It output 0 for negative values of x. This is also known as a ramp function..
+• The name of the ramp function is derived from the appearance of its graph.
+• ReLu(Rectified Linear Unit) is like a linearity switch. If you don’t need it, you “switch” it off. 
+If you need it, you “switch” it on. 
+• ReLu also provides the benefit of sparsity and sigmoids result in dense representations. 
+Sparse representations are more useful than dense representations.
+
+
+===== PAGE 84 =====
+Problems
+
+
+===== PAGE 85 =====
+Q1 :Activation Function
+Obtain the output of the neuron Y for the network shown in Figure using the 
+following activation functions
+i)Binary Sigmoidal
+ii)Bipolar sigmoidal
+
+
+===== PAGE 86 =====
+Q1 :Activation Function
+
+
+===== PAGE 87 =====
+Q1 :Activation Function
+
+
+===== PAGE 88 =====
+Q1 :Activation Function
+
+
+===== PAGE 89 =====
+Q2 :Activation Function
+► Calculate the net o/p of the NN using the bipolar and binary sigmoidal  
+activation function
+
+
+===== PAGE 90 =====
+Q1 :Activation Function
+
+
+===== PAGE 91 =====
+Q1 :Activation Function
+
+
+===== PAGE 92 =====
+Q3 :Activation Function
+► Construct a feed forward network with 4 input nodes,2 hidden nodes and 
+3 o/p nodes
+
+
+===== PAGE 93 =====
+Q4 :Activation Function  [Univ ques January 2022]
+► Net input to the neuron Y =0.93 
+► Output of the neuron Y using binary sigmoidal activation function=0 .72
+► Calculate the net input to the neuron Y for the network shown in figure. 
+Compute output of the neuron Y using binary sigmoidal activation 
+function.
+
+
+===== PAGE 94 =====
+McCulloch and Pitts Neuron
+
+
+===== PAGE 95 =====
+McCulloch and Pitts Neuron
+
+
+===== PAGE 96 =====
+McCulloch and Pitts Neuron
+► The first Mathematical /computational model of a 
+Biological Neuron was proposed by Warren MuCulloch
+(neuroscientist) and Walter Pitts (logician) in 1943.
+► It is considered as the earliest Neural Network and is
+also called M-P Neuron.
+► M P Neurons are connected by directed weighted 
+paths.
+► It’s main purpose is to process the binary data.i-e the 
+activation of a M-P neuron is binary(at any time 
+neuron may fire/may not fire).
+► Logic gates /functions can be used in application
+► It may be divided into 2 parts. The first part, g takes 
+an input, performs an aggregation and based on the 
+aggregated value the second part, f makes a decision.
+
+
+===== PAGE 97 =====
+Architecture of McCulloch and Pitts Neuron
+
+
+===== PAGE 98 =====
+Architecture of McCulloch and Pitts Neuron
+► Weights associated with the communication links excitatory(+ve weights) or inhibitory(-
+ve)
+► M-P Neuron has either excitatory or inhibitory connections
+► i/p’s from x1 to xn are excitatory weighted connections and will have same weights 
+(w>0) and i/p’s from xn+1 to xn+m are inhibitory weighted connections with weight -p(p<0) 
+► There is a fixed threshold for each neuron.
+► Firing of Neuron is based upon a Threshold.
+► For inhibition to be absolute ,the threshold with the activation function should satisfy 
+the following condition.  
+► Where n→no of neurons , w→ weight of excitatory connections , p→ weight of 
+inhibitory connections
+► The o/p will fire if it contains ‘k’ or more excitatory inputs but no inhibitory inputs where
+
+
+===== PAGE 99 =====
+Architecture of McCulloch and Pitts Neuron
+► Simple McCulloch-Pitts neurons can be used to design logical operations.
+► For that purpose, the connection weights need to be correctly decided along with the threshold 
+function
+► The inputs of the McCulloch-Pitts neuron could be either 0 or 1. It has a threshold function as an 
+activation function. So, the output signal yout is 1 if the input ysum is greater than or equal to 
+a given threshold value, else 0
+
+
+===== PAGE 100 =====
+Example of McCulloch and Pitts Neuron
+► Person X carries an umbrella if it is sunny or if it is raining. We need to 
+decide when Person X will carry the umbrella
+► There are four given situations. The situations are as follows:
+► First scenario: It is not raining, nor it is sunny
+► Second scenario: It is not raining, but it is sunny
+► Third scenario: It is raining, and it is not sunny
+► Fourth scenario: It is raining as well as it is sunny
+► To analyze the situations using the McCulloch-Pitts neural model, consider 
+the input signals as follows:
+► X1: Is it raining? [0/1]
+► X2 : Is it sunny? [0/1]
+► So, the value of both scenarios can be either 0 or 1..
+
+
+===== PAGE 101 =====
+Example of McCulloch and Pitts Neuron
+► Person X carries an umbrella if it is sunny 
+or if it is raining. We need to decide when 
+Person X will carry the umbrella
+► 1: not raining, not sunny
+► 2: not raining , sunny
+► 3:  raining, and not sunny
+► 4: raining as well as sunny
+► From the truth table, we can conclude that in the 
+situations where the value of yout is 1 Person X 
+needs to carry an umbrella. 
+► We can use the value of both weights X1 and X2 as 1 
+and a threshold function as 1
+► Hence, he will need to carry an umbrella in 
+scenarios 2, 3 and 4.
+Situation x1 x2 ysum yout
+1 0 0 0 0
+2 0 1 1 1
+3 1 0 1 1
+4 1 1 2 1
+
+
+===== PAGE 102 =====
+Problems McCulloch and Pitts Neuron
+
+
+===== PAGE 103 =====
+Implement AND  function using M-P 
+Neuron Model(Use Binary Data)
+
+
+===== PAGE 104 =====
+Implement AND  function using M-P Neuron Model(Use Binary Data)
+
+
+===== PAGE 105 =====
+Implement AND  function using M-P Neuron Model(Use Binary Data)
+
+
+===== PAGE 106 =====
+Implement AND  function using M-P Neuron Model(Use Binary Data)
+
+
+===== PAGE 107 =====
+Implement ANDNOT  function using M-P 
+Neuron Model(Use Binary Data)
+
+
+===== PAGE 108 =====
+Implement AND NOT function using M-P Neuron Model(Use Binary Data)
+
+
+===== PAGE 109 =====
+Implement AND NOT function using M-P Neuron Model(Use Binary Data)
+
+
+===== PAGE 110 =====
+Page 110 Prof.Smitha Jacob, Department of Computer Science and Engineering, SJCET Palai
+Implement AND NOT function using M-P Neuron Model(Use Binary Data)
+
+
+===== PAGE 111 =====
+Implement AND NOT function using M-P Neuron Model(Use Binary Data)
+
+
+===== PAGE 112 =====
+Implement NOT  function using M-P 
+Neuron Model(with one input)
+
+
+===== PAGE 113 =====
+Implement NOT gate function using M-P Neuron Model
+(with one input x1)
+
+
+===== PAGE 114 =====
+Page 115 Prof.Smitha Jacob, Department of Computer Science and Engineering, SJCET Palai
+Implement NOT gate function using M-P Neuron Model
+(with one input x1)
+
+
+===== PAGE 115 =====
+Implement NOT gate function using M-P Neuron Model
+(with one input x1)
+
+
+===== PAGE 116 =====
+Implement OR  function using M-P 
+Neuron Model(Use Binary Data)
+
+
+===== PAGE 117 =====
+Page 118 Prof.Smitha Jacob, Department of Computer Science and Engineering, SJCET Palai
+Implement OR gate function using M-P Neuron Model(with binary data)
+
+
+===== PAGE 118 =====
+Implement OR gate function using M-P Neuron Model(with binary data)
+
+
+===== PAGE 119 =====
+Implement OR gate function using M-P Neuron Model(with binary data)
+kw=2*1=2
+(k-1)w=(2-1)*1=1
+
+
+===== PAGE 120 =====
+Implement NAND  function using M-P 
+Neuron Model(Use Binary Data)
+
+
+===== PAGE 121 =====
+Implement NAND(NOT-AND) gate function using M-P Neuron Model(with 
+binary input
+
+
+===== PAGE 122 =====
+Implement NAND(NOT-AND) gate function using M-P Neuron Model(with 
+binary input
+
+
+===== PAGE 123 =====
+Implement NAND(NOT-AND) gate function using M-P Neuron Model(with 
+binary input
+
+
+===== PAGE 124 =====
+Implement NAND(NOT-AND) gate function using M-P Neuron Model(with 
+binary input
+
+
+===== PAGE 125 =====
+Implement NAND(NOT-AND) gate function using M-P Neuron Model(with 
+binary input
+
+
+===== PAGE 126 =====
+Implement NAND(NOT-AND) gate function using M-P Neuron Model
+(with binary input)
+► =2*0-1
+► =-1
+
+
+===== PAGE 127 =====
+Implement XOR  function using M-P 
+Neuron Model(Use Binary Data)
+
+
+===== PAGE 128 =====
+Implement XOR gate function using M-P Neuron Model
+(with binary input)
+
+
+===== PAGE 129 =====
+Implement XOR gate function using M-P Neuron Model
+(with binary input)
+
+
+===== PAGE 130 =====
+Implement XOR gate function using M-P Neuron Model
+(with binary input)
+
+
+===== PAGE 131 =====
+Implement XOR gate function using M-P Neuron Model
+(with binary input)
+
+
+===== PAGE 132 =====
+Implement XOR gate function using M-P Neuron Model
+(with binary input)
+
+
+===== PAGE 133 =====
+Implement XOR gate function using M-P Neuron Model
+(with binary input)
+
+
+===== PAGE 134 =====
+Implement XOR gate function using M-P Neuron Model
+(with binary input)
+
+
+===== PAGE 135 =====
+McCulloch and Pitts Neuron Conclusion
+► McCulloch-pitts model doesn’t have the ability of learning,because of fixed 
+weight.
+► Cannot handle non-boolean (say, real) inputs
+► Need to hand code the threshold always
+► inputs can either be excitatory or inhibitory. 
+► Inhibitory inputs are those that have maximum effect on the decision 
+making irrespective of other inputs 
+► Excitatory inputs are NOT the ones that will make the neuron fire on their 
+own but they might fire it when combined together
+
+
+===== PAGE 136 =====
+Geometric Interpretation Of M-P Neuron
+
+
+===== PAGE 137 =====
+Geometric Interpretation Of M-P Neuron
+
+
+===== PAGE 138 =====
+Hebb Network
+
+
+===== PAGE 139 =====
+Hebb Network
+► In 1949, Donald Hebb proposed one of the key   ideas in biological learning, 
+commonly known as Hebb’s Law.
+► Hebb introduced a neurophysiological postulate : 
+“…When an axon of cell A is near enough to excite a cell B 
+and repeatedly and persistently takes part in firing it, some growth 
+process or metabolic change takes place in one or both cells, such that 
+A’s  efficiency as one of the cells firing B, is increased.”
+► Hebb’s Law states that if neuron i is near enough to excite neuron j and 
+repeatedly participates in its activation, the synaptic connection between 
+these two neurons is strengthened and neuron j becomes more sensitive to 
+stimuli from neuron i
+
+
+===== PAGE 140 =====
+Hebb Network
+► basically the above explanation is derived from the modus operandi (the way in 
+which something operates or works)used by the brain where learning is 
+performed by the changes in the synaptic gap
+► In this, if 2 interconnected neurons are ON simultaneously then the weight 
+associated with these neurons can be increased by the modification made in 
+their synaptic gaps(strength).
+► Hebb’s Law can be represented in the form of two    rules:
+► If two neurons on either side of a connection    are activated synchronously, 
+then the weight of    that connection is increased.
+► If two neurons on either side of a connection    are activated asynchronously, 
+then the weight of that connection is decreased.              
+► Hebb’s Law provides the basis for learning    without a teacher.
+► Learning here is a local   phenomenon occurring without feedback from    the 
+environment.
+► It is a kind of feed-forward, unsupervised learning.
+
+
+===== PAGE 141 =====
+Hebbian learning in a neural network
+i
+j
+I n p u t  S i g n a l s
+O u t p u t  S i g n a l s
+
+
+===== PAGE 142 =====
+Hebb Network
+► Hebb learning rule,is the oldest and simplest ANN rules, was introduced 
+by Donald Hebb in his book The Organization of Behavior in 1949.
+► It is more suited for bipolar data than binary data
+► From the postulate , we may conclude that the connections between two 
+neurons might be strengthened if the neurons fire at the same time and 
+might weaken if they fire at different times.
+► Hebb Rule states that “the weight vector is found to increase 
+proportionately to the product of the input signal and the learning 
+signal(o/p signal)” 
+► ANN learning rule defines how to adjust the weights of connections to 
+get desirable output
+► The process of adjusting the weight is known as Learning.
+► The procedure to incrementally update each of weights in neural is based 
+on Training algorithm & Learning law
+
+
+===== PAGE 143 =====
+Hebb Network
+
+
+===== PAGE 144 =====
+Hebb Network
+
+
+===== PAGE 145 =====
+Hebb Network Flowchart& Algorithm
+
+
+===== PAGE 146 =====
+Hebb Network-Training Algorithm
+
+
+===== PAGE 147 =====
+
+
+===== PAGE 148 =====
+Hebb Network Problem 
+
+
+===== PAGE 149 =====
+Hebb Network -logical AND function
+
+
+===== PAGE 150 =====
+Design a Hebb Network to implement logical AND function .Use 
+bipolar i/p and targets
+► AND function is very simple 
+and mostly known to everyone 
+where the output 
+is 1/SET/ON if both the inputs 
+are 1/SET/ON.
+► But in this example, we have 
+used ‘-1' instead of ‘0’ this is 
+because the Hebb network 
+uses bipolar data and not 
+binary data because the 
+product item in the above 
+equations would give the 
+output as 0 which leads to a 
+wrong calculation.
+
+
+===== PAGE 151 =====
+Design a Hebb Network to implement logical AND function .Use 
+bipolar i/p and targets
+► Step 1: Initially the weight and bias as set as Zero. w1=w2=b=0
+► Step2 :First input[x1 x2 b]=[1 1 1] target y=1.
+Setting the initial weight as old weight and applying the Hebb Rule.                          
+((w1(old)=0, w2(old)=0, b(old)=0))
+
+
+===== PAGE 152 =====
+Design a Hebb Network to implement logical AND function .Use 
+bipolar i/p and targets
+► The above calculated weights are used as the initial weight when second 
+pattern is considered.
+► Weight change here is 
+
+
+===== PAGE 153 =====
+Design a Hebb Network to implement logical AND function .Use 
+bipolar i/p and targets
+► Second input[x1 x2 b]=[1 -1 1] target y=-1.
+Setting the initial weight as old weight and applying the Hebb Rule.                          
+((w1(old)=1, w2(old)=1, b(old)=1))
+► The weight changes here are:
+
+
+===== PAGE 154 =====
+Palai
+Design a Hebb Network to implement logical AND function .Use 
+bipolar i/p and targets
+
+
+===== PAGE 155 =====
+Hebb Network -logical OR function
+
+
+===== PAGE 156 =====
+Design a Hebb Network to implement logical OR function 
+Use bipolar i/p and targets
+
+
+===== PAGE 157 =====
+Design a Hebb Network to implement logical OR function 
+Use bipolar i/p and targets
+
+
+===== PAGE 158 =====
+Design a Hebb Network to implement logical OR function 
+Use bipolar i/p and targets
+
+
+===== PAGE 159 =====
+Palai
+Design a Hebb Network to implement logical OR function 
+Use bipolar i/p and targets
+
+
+===== PAGE 160 =====
+Design a Hebb Network to implement logical OR function 
+Use bipolar i/p and targets
+► For third input
+
+
+===== PAGE 161 =====
+Design a Hebb Network to implement logical OR function 
+Use bipolar i/p and targets
+► For fourth input
+
+
+===== PAGE 162 =====
+Design a Hebb Network to implement logical OR function 
+Use bipolar i/p and targets
+
+
+===== PAGE 163 =====
+Hebb Network -logical XOR function
+
+
+===== PAGE 164 =====
+Design a Hebb Network to implement XOR function .Use bipolar i/p 
+and targets
+
+
+===== PAGE 165 =====
+Design a Hebb Network to implement XOR function .Use bipolar i/p 
+and targets
+
+
+===== PAGE 166 =====
+Design a Hebb Network to implement XOR function .Use bipolar i/p 
+and targets
+
+
+===== PAGE 167 =====
+Design a Hebb Network to implement XOR function .Use bipolar i/p 
+and targets
+
+
+===== PAGE 168 =====
+Design a Hebb Network to implement XOR function .Use bipolar i/p 
+and targets
+
+
+===== PAGE 169 =====
+Design a Hebb Network to implement XOR function .Use bipolar i/p 
+and targets
+► The final weights obtained after presenting all i/p functions do not give the 
+correct o/p for all patterns
+► Thus XOR function is a special case of Pattern classification problem 
+which is not linearly separable.
+► It can be made linear separable by separating +ve regions and –ve Regions
+
+
+===== PAGE 170 =====
+Hebb Network -problem
+
+
+===== PAGE 171 =====
+Using Hebb Network calculate the weight required to perform the 
+following classification of given i/p pattern
+► The pattern shown is a 3X3 matrix formed in squares. 
+► The ‘+’ symbol represent 1 and empty squares represent ‘-1’.
+► I →belongs to the members of the class→target value 1
+► 0→does not belongs to members of class→target value -1
+I o
+
+
+===== PAGE 172 =====
+Using Hebb Network calculate the weight required to perform the 
+following classification of given i/p pattern
+I o
+
+
+===== PAGE 173 =====
+Using Hebb Network calculate the weight required to perform the 
+following classification of given i/p pattern
+► Here a single-layer network with nine input neurons, one bias and one 
+output neuron is formed. 
+► Set the initial weights and bias to zero, i.e., 
+w1=w2=w3=w4=w5=w6=w7=w8=w9= 0 
+► Case 1: Presenting first input pattern (I), we calculate change in weights:
+
+
+===== PAGE 174 =====
+Using Hebb Network calculate the weight required to perform the 
+following classification of given i/p pattern
+
+
+===== PAGE 175 =====
+Using Hebb Network calculate the weight required to perform the 
+following classification of given i/p pattern
+
+
+===== PAGE 176 =====
+Using Hebb Network calculate the weight required to perform the 
+following classification of given i/p pattern
+
+
+===== PAGE 177 =====
+Using Hebb Network calculate the weight required to perform the 
+following classification of given i/p pattern
+
+
+===== PAGE 178 =====
+Using Hebb Network calculate the weight required to perform the 
+following classification of given i/p pattern
+
+
+===== PAGE 179 =====
+Hebb Network –tutorial questions
+
+
+===== PAGE 180 =====
+1.Using Hebb Network calculate the weight required to perform the 
+following classification of given i/p pattern
+► Using Hebb Network calculate the weight required to perform the 
+following classification of given i/p pattern.
+► L →belongs to the members of the class(+)→target value 1
+► U→does not belongs to members of class(.)→target value -1
+
+
+===== PAGE 181 =====
+
+
+===== PAGE 182 =====
+2.Using Hebb Network calculate the weight required to perform the 
+following classification of given i/p pattern
+
+
+===== PAGE 183 =====
+3.Using Hebb Network calculate the weight required to perform the 
+following classification of given i/p pattern
+► Using Hebb rule find weights required to perform following classifications. 
+The vectors(1 -1 1 -1 ) and (1 1 1 -1) belongs to class (target value +1); 
+vectors (-1 -1 1 1) and(1 1 -1 -1) do not belongs to class( target value -1).
+Also using each of training x vectors as input, test the response of the net
+
+
+===== PAGE 184 =====
+Linear Separability
+
+
+===== PAGE 185 =====
+Linear separability
+► ANN does not give exact solution for a nonlinear problem.
+► Linear separability is the concept wherein , the separation of input space into 
+regions is based on whether the network response is positive or negative.
+► Linear separable means ,in the plane if we can splits the input data into two half-
+spaces such that all points of the first class should be in one half-space and other 
+points of the second class should be in the other half-space.
+► In two dimensional space, it means that there is a line, which separates points of 
+one class from points of the other class.
+► The idea of linearly separable is easiest to visualize and understand in 2 dimensions
+
+
+===== PAGE 186 =====
+Linear separability
+► A dataset is said to be linearly separable if it is possible to draw a line that 
+can separate the red and green points from each other.
+► For example: In the following image, Let the two classes be represented by colors red 
+and green. if blue circles represent points from one class and red circles represent 
+points from the other class, then these points are linearly separable.
+
+
+===== PAGE 187 =====
+Linear separability
+
+
+===== PAGE 188 =====
+Linear separability
+
+
+===== PAGE 189 =====
+Linear separability
+► The most classic example of linearly inseparable pattern is a logical 
+exclusive-OR (XOR) function.
+► The illustration of XOR function that two classes,
+► 0 for black dot and 1 for white dot, cannot be separated with a single line. 
+
+
+===== PAGE 190 =====
+Important Questions
+► Define Artificial Neural Network
+► List the main components of biological neuron.
+► Compare and contrast biological neuron and artificial neuron
+► State the characteristics of ANN.
+► Define Learning. Differentiate between supervised and unsupervised 
+learning
+► What is the necessity of Activation function?
+► List the commonly used activation functions.
+► Define Bias and Threshold.
+► Why M-P neuron is widely used in processing binary data?
+

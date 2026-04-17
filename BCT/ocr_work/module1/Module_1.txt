@@ -1,0 +1,1199 @@
+
+
+===== PAGE 1 =====
+CST 428 BLOCK CHAIN TECHNOLOGIES
+S8 CSE - ELECTIVE
+MODULE - 1
+
+Introduction to Cryptography
+
+
+
+===== PAGE 2 =====
+Definitions
+
+Cryptography = the science (art) of encryption
+
+Cryptanalysis = the science (art) of breaking
+encryption
+
+Cryptology = cryptography + cryptanalysis
+
+channel data, control —
+messages Nee
+
+
+
+===== PAGE 3 =====
+Cryptography Goals
+
+Encryption — Prevent Eve from intercepting message
+
+Authentication — Prevent Eve from impersonating Alice
+
+Cryptographic algorithms and protocols can be grouped into
+four main areas:
+Symmetric encryption: to conceal the contents of blocks or streams
+of data
+Asymmetric encryption: to conceal small blocks of data, keys and
+hash function values, which are used in digital signatures
+
+Data integrity algorithms: to protect blocks of data, such as
+messages from alteration
+
+Authentication protocols: to authenticate the identity of entities
+
+
+===== PAGE 4 =====
+Sery ies
+
+Figure 1.1 The Security Requirements
+Triad
+
+
+===== PAGE 5 =====
+Cryptographic Attacks
+
+Ciphertext only: attacker has only ciphertext.
+
+Known plaintext: attacker has plaintext and corresponding
+ciphertext.
+
+Chosen plaintext: attacker can encrypt messages of his
+choosing.
+
+Distinguishing attack: an attacker can distinguish your cipher
+from an ideal cipher (random permutation).
+
+A cipher must be secure against all of these
+attacks.
+
+
+===== PAGE 6 =====
+Kerckhoffs’ Principle
+
+The security of an encryption system
+must depend only on the key, not on the
+secrecy of the algorithm.
+
+Nearly all proprietary encryption systems
+
+have been broken (Enigma, DeCSS,
+Zipcrack).
+
+secure systems use published algorithms
+(PGP, OpenSSL, Truecrypt).
+
+
+===== PAGE 7 =====
+Provable Security
+
+There is no such thing as a provably secure
+system.
+
+Proof of unbreakable encryption does not
+prove the system is secure.
+
+The only provably secure encryption is the
+one time pad: C = P + K, where K is as long
+as P and never reused.
+
+systems are believed secure only when
+many people try and fail to break them.
+
+
+===== PAGE 8 =====
+grapny
+
+Symm
+
+Cryptograp!
+
+
+
+===== PAGE 9 =====
+Transposition Cipher
+
+ME E T M €E T E M E E M
+A F T E R_ P E F A P T R
+A R T Y Y R A T
+
+Plain Text: MEET ME AFTER PARTY
+Key Used: 4271635
+Cipher Text: TEMEEMEFAPTRYRAT
+
+
+===== PAGE 10 =====
+Substitution Cipher
+
+L3
+
+
+
+===== PAGE 11 =====
+Block vs Stream Ciphers
+
+
+
+===== PAGE 12 =====
+Difference ?
+
+S.NO Block Cipher
+
+1. Block Cipher Converts the plain text
+into cipher text by taking plain text's
+block at a time.
+
+2. Block cipher uses either 64 bits or
+more than 64 bits.
+
+3. The complexity of block cipher is
+
+simple.
+
+Stream Cipher
+
+Stream Cipher Converts the plain
+text into cipher text by taking 1
+byte of plain text at a time.
+
+While stream cipher uses 8 bits.
+
+While stream cipher is more
+
+complex.
+
+
+===== PAGE 13 =====
+Symmetric Key Encryption
+
+
+===== PAGE 14 =====
+Introduction
+
+Also known as SECRET KEY, WEAK ALGORITHMS
+SINGLE KEY, PRIVATE KEY > Classical substitution and
+
+transposition ciphers
+Assumption: Sender and Receiver
+share already a secret key
+
+“STRONGER” ALGORITHMS
+
+Assumption requires solution to > DES - No longer considered safe
+
+key-distribution problem
+
+> Triple-DES
+. > AES (Rijndael)
+Symmetric key algorithms also >IDEA
+popular for file encryption, then >RC5, RC6
+Encrypter = Decrypter > Blowfish
+
+> Many others
+
+Network Security (N. Dulay & M. Huth) Symmetric Key Cryptography (3.14)
+
+
+===== PAGE 15 =====
+Symmetric Key Cryptography
+
+
+
+===== PAGE 16 =====
+Encryption & Decryption
+
+Key (K)
+Plaintext (P) — Ciphertext (C)
+
+C = Ex(P)
+
+ame
+ety
+Ciphertext (C) Plaintext (P)
+
+P = Dk(C)
+
+
+===== PAGE 17 =====
+AES- Advanced Encryption Standard
+
+also known as Rijndael algorithm
+symmetric block cipher algorithm
+block/chunk size of 128 bits
+converts these individual blocks
+using keys of 128, 192, and 256
+bits
+
+Once it encrypts these blocks, it
+
+joins them together to form the
+
+cipher text
+based on a substitution-
+permutation network, known as
+
+SP network
+
+Sub Key Generation
+
+uses 128 bit Master Key
+Key is processed in words of
+size 32 bit (4 words / 16
+bytes)
+
+Each sub key size is 32 bit /
+1 word/4 bytes
+
+Each round have 4 sub keys
+(128 bit/4 words/16 bytes)
+For pre round calculation we
+use 4 sub key initially
+
+Total sub key is 44
+
+
+===== PAGE 18 =====
+AES- Advanced Encryption Standard
+
+128-bit plaintext ——
+
+Round keys
+
+Daoud (128 bits) :
+
+(128, 192, or 2456 bits)
+
+Round WN, Relationship between
+
+(slightly different) number of rounds@)
+and cipher key size
+
+128-bit ciphertext
+
+
+===== PAGE 19 =====
+Plaintext—16 bytes (128 bits)
+LITITT TTT TTT Titi tt |
+
+Input state
+(16 bytes)
+
+¥
+
+Round 0 key
+(16 bytes)
+
+Initial transformation pH
+State after
+
+initia!
+transformation
+(16 bytes)
+
+¥
+
+¥
+Round 1
+output state
+(16 bytes)
+
+¥
+.
+
+Round 1
+(4 transformations)
+
+Round | key
+(16 bytes)
+
+Rey—W bytes
+
+Key
+(M bytes)
+
+=
+
+cy expansion
+
+Kk
+
+
+===== PAGE 20 =====
+Round N - 1
+
+(4 transformations)
+
+Round N — 1 key
+(16 bytes)
+
+Round N = 1
+output state
+(16 bytes)
+
+Round NV key
+(16 bytes)
+
+Round NV
+(4 transformations)
+
+Final state
+(16 bytes)
+
+CITTTTTT rt tt tT Tr
+Cipchertext—16 bytes (128 bits)
+
+Figure 5.1) AKFS Eneryption Process
+
+
+===== PAGE 21 =====
+Plaintext Key Plaintext
+
+Add round key Add round key
+
+c=)
+Substitute bytes Expand key Inverse sub bytes 5
+5
+- .
+1) Soeoeee eS eee ee
+g
+Add round key
+an
+Inverse sub bytes g
+Fe
+Substitute bytes ¥
+¥
+i ¥
+o
+u
+|
+a ~
+3
+Add round key Add round key
+Substitute bytes Inverse sub bytes ba
+g 5
+z Inverse shift rows 2
+3
+ce
+
+Add round key w[40, 43] Add round key
+
+Ciphertext Ciphertext
+
+
+
+===== PAGE 22 =====
+AES (Advanced Encryption Standard)
+
+L) Plain Text transform into Matrix Form
+¢ For Example, “AES USES A MATRIX”.
+
+¢ Plain text (128-bit) converts into 4x4 matrix of bytes.
+
+Hexadecimal | 00 04 12 14 12 04 12 00 0C 00 13 Il 08 17 19 19
+Ey,
+00 12 OC O8
+04 04 00 17
+State
+2 122 123 19
+
+14 00 Il 19
+
+\S}
+iW
+a)
+
+
+
+===== PAGE 23 =====
+Substitute Byte
+
+ota fa ja fa fs te tite fe fate fe fo te te
+| 7B | F ELS | 30/01 | 67 {2B | FE | Di | AB | 76 |
+rrfea}e [es traps [aro apppe [ar [ar [ee tar [nm co
+(2 ]s7 [ep] 93 [26 [36 [ar [rr] cc] 34 [as [es [Fi [7 [ps [31 [is |
+3} oa | cr [23 | 3 | 18 | 96 | 05 | oA | O7 | 12 | 80 |B? | EB | 27 | B2 | 75 |
+(4 oe | 83 | 2c | 1a | 1B | GE | 5A] AG | 52 | 3B | Dé | B3 | 29 | 53 | oF | 84 |
+54 33 | Bi 00 | ED | 20 | FC | BI} SB | 6A | CB | BE | 39 | 4A | 4€ | 58 | CEL
+rer fan pea fas [apts fos [as fro [oo [oe foe [sc for Lar
+raxpao [sr [92 [9p [3s [Fs [Boss [oa por [10 [FF [Fs [Dr
+{OC | AS PEC TE O7 ae fT fs aT LE foo fee ep te
+
+rar far [pet ay faa foo Pes [as [ee fas bs [pe] se fos
+| 32 | 3A | 0A | 49 | 06 | 24 | 5¢ | C2 | D3 | AC | 62 | 91 [95 [Ba | 79
+rors: Te [ap oraz fas ec toe tes Texter a ae fos
+
+Pep sa] 7s [os [F [ic [As] sales [es [oo] [tr [as [sD] s8 [8
+(DI 70 | 3E | BS | és | 48 | 03 | Fé | OE | si | 35 | 57 | BO | 86 | Ci | ID | OE |
+EJ E1 | F8 [98 | 11 | 69 | D9| se | 94 | 9B 1E | 87 | E9 | CE | 55 | 28 | DF |
+Fy sc | Ai] 89 | OD] BE | £6 | 42 | 68 | 41 | 99 | 2D | OF | BG | 34 | BB | 16 |
+
+
+
+===== PAGE 24 =====
+AES (Advanced Encryption Standard)
+
+2. Shift Row transformation
+
+¢ The shift row transformation is called
+ShiftRows.
+
+‘i als
+* Rules of shifting rows
+
++ Row 1 > No Shifting ia Fa | S13
+* Row 2 > 1 byte left shift $2.0 | $2.1 | S22 | $2.
+
+* Row 3 > 2 byte left shift
+Row 4 > 3 byte left shift
+
+s'0, 1 2311 sO, 1
+s'1,1 1231 s1,1
+s'2,1 7 41°32 3 s2,1
+s'3, 1 SASF & s3, 1
+
+Transform Matrix of Mix Columns
+
+
+
+===== PAGE 25 =====
+Asymmetric Cryptography
+
+Decryption algorithm output
+
+ oh+¥an
+
+Bob (a) Encryption with public key Alice
+
+
+
+===== PAGE 26 =====
+Asymmetric Cryptography
+
+Decryption algorithm —— Pyaintext
+
+Bob (b) Encryption with private key Alice
+Figure %.1 =Public-Key Cryptography
+
+
+===== PAGE 27 =====
+Asymmetric Cryptography
+
+Source A Destination B
+
+Figure 9.4 Public-Key Cryptosystem: Authentication and Secrecy
+
+
+===== PAGE 28 =====
+RSA
+
+RSA stands for Rivest, Shamir, Adleman -
+creators
+
+public-key encryption technique used for
+secure data transmission especially over the
+internet
+
+
+===== PAGE 29 =====
+RSA
+
+Pg, two prime numbers
+
+a= py
+
+#, with ped(din), 2) — li lee < dfn)
+dae! (mod din))
+
+(private, chosen)
+(public, calculated)
+(public, chosen)
+(private, calculated)
+
+Key Generation
+
+Select p, g pand g both prime
+Calculate n = pxq
+
+Calculate (nm) =(p—1)(¢-1)
+Select integer e
+
+Calculate d
+
+Public key
+
+Private key
+
+ged((n), e) = 1; 1<e<$(n)
+d= e™ mod $(n)
+
+KU = fe, n}
+KR = {d,n}
+
+Encryption
+
+Plaintext
+Ciphertext
+
+Decryption
+
+Ciphertext Cc
+
+Plaintext M= C7 (mod n)
+
+
+===== PAGE 30 =====
+1. Select two prime numbers, p = 17 and g = 11.
+2. Calculate n = pg=17 11 = 187.
+3. Calculate 6(n) = (p — 1)(q—1)= 16 x 10= 160.
+
+4. Select e such that e is relatively prime to (7) = 160 and less than d(n); we
+choose e=7.
+
+5. Determine d such that de = 1 (mod 160) and d < 160. The correct value is d= 23,
+because 23 x 7 = 161 = (1 « 160) + 1; d can be calculated using the extended
+Euclid’s algorithm (Chapter 4).
+
+The resulting keys are public key PU = {7,187} and private key PR = {23,187}.
+The example shows the use of these keys for a plaintext input of M — 88. For encryp-
+tion, we need to calculate C = 88’ mod 187. Exploiting the properties of modular
+arithmetic, we can do this as follows.
+
+887 mod 187 = [(88* mod 187) x (882 mod 187)
+x (88! mod 187)] mod 187
+
+88! mod 187 = 88
+
+882 mod 187 = 7744 mod 187 =77
+
+88* mod 187 = 59,969,536 mod 187 = 132
+
+887 mod 187 = (88 x 77 x 132) mod 187 = 894,432 mod 187 = 11
+
+
+===== PAGE 31 =====
+Encryption Decryption
+
+Plaintext Plaintext
+
+88
+
+PU = 7,187 PR = 23, 187
+Figure 9.6 Example of RSA Algorithm
+
+For decryption, we calculate M = 117 mod 187:
+
+117° mod 187 = [(11' mod 187) x (117 mod 187) x (114 mod 187)
+x (118 mod 187) x (118 mod 187)] mod 187
+
+11! mod 187= 11
+
+117 mod 187 = 121
+
+11* mod 187 = 14,641 mod 187 = 55
+
+118 mod 187 = 214,358,881 mod 187 = 33
+
+117° mod 187 = (11 x 121 x 55 x 33 x 33) mod 187 = 79,720,245 mod 187 = 88
+
+
+===== PAGE 32 =====
+Question
+
+Explain public and private keys. Perform
+encryption and decryption using RSA for p=3,
+q=11, e= 7 and M=5
+
+
+===== PAGE 33 =====
+Elliptic Curve Cryptography
+
+Asymmetric Public key cryptosystem
+Provides security with smaller key size
+alternative to the Rivest-Shamir-Adleman
+(RSA) cryptographic algorithm
+
+used for digital signatures in
+cryptocurrencies, such as Bitcoin and
+Ethereum, as well as one-way encryption of
+emails, data and software
+
+fast key generation, fast key agreement and
+fast signatures
+
+
+===== PAGE 34 =====
+Elliptic Curve Cryptography
+
+2 families of Elliptic curves
+Prime curves over Z,
+
+uses cubic equation in which variables and
+coefficients from O through p-1
+
+best for software applications
+
+Binary curves over GF(2™)
+variables and coefficients in GF(2™)
+best for hardware applications
+
+
+===== PAGE 35 =====
+Elliptic Curve Cryptography
+
+Makes use of Elliptic Curves y7=x*?+ ax+b
+variables and coefficients restricted to
+elements in a finite field ; oe
+Properties of Elliptical Curve
+symmetric over x axis
+A non vertical line will
+intersect the curve at
+
+most 3 points
+yy" —7°4+ ar + 6
+
+Fig, 2 shows simple elliptic curve.
+Ps
+
+
+===== PAGE 36 =====
+common number = 2
+
+random number =5
+
+2° =32
+
+random number = 4
+at =16
+
+32
+
+32" = 1,048,576 | 16° = 1,048,576
+
+Global Public Elerents
+
+Ea b) dlipicanve wih pararetes a b, aniq, whee qisa
+pine or aninteger of the fhm”
+
+G point on elliptic curve whose order is large valuen
+
+Sdectpavate ny m<n
+
+Calailae putlic P, Py =m *G
+
+Usa BKey Generation
+
+Sdletpivae tm fk <n
+
+Giailaepiiic Pah = Pp=m*G
+Calcilation of Secret Key by User A
+
+K=ny* Pp
+Calculation of Secret Key by User B
+
+K = ng* Pa
+
+
+===== PAGE 37 =====
+ECC Encryption/ Decryption
+
+To encrypt and send a message P,, to B, A
+chooses a random positive integer k and
+produces the ciphertext C,, consisting of the
+pair of points:
+
+Cm = {kG, P,, + kP,}
+
+For decryption, B multiplies the first point in the
+pair by B’s private key and subtracts the result
+from the second point
+
+
+===== PAGE 38 =====
+Digital Signatures
+
+m an electronic, encrypted, stamp of authentication on
+digital information such as email messages, macros,
+or electronic documents
+
+m confirms that the information originated from the
+signer and has not been altered
+
+
+===== PAGE 39 =====
+Message
+
+Digest
+
+Function Message
+Digest
+Function
+
+Encrypt Decrypt with
+
+“a
+
+Signature
+
+Public Rey
+Expected Actual
+Digest Digest
+
+If the expected digest and
+actual digest are the same,
+the signature is verified.
+
+Originator Recipient
+
+RSA Digital Signature Process
+
+
+===== PAGE 40 =====
+© RSA Digital Signature Example
+|
+¢ RSA signature example:
+-P=17,q=11
+°n=187
+* h(n) = 160
+ee=7
+ed =23
+*m=88
+¢ s=8873 mod 187= 11 Signed message (88, 11)
+¢ Verification of (m ,s) : 11’ mod 187 = 88
+
+¢ Verification of forged message (88 , 13): 13” mod
+187 =106
+
+
+
+===== PAGE 41 =====
+Secure Hash Functions
+
+Authentication Algorithm can be classified into
+
+1. Message Encryption - uses encryption algorithm
+2. Message Authentication Code - generates fixed length code
+3. Hash Function - generates fixed length code
+
+m Message authentication code - uses the message authentication
+function on the plain text along with the key to generate fixed
+
+—— length code. This fixed length code will be appended with the
+
+message and send to the receiver for authentication
+m hash function do not use the key for generating the fixed length
+code
+
+
+===== PAGE 42 =====
+Secure Hash Functions
+
+Characteristics :
+Fixed Length output
+Avalanche Effect
+Collision Resistant
+
+Commonly used Hash functions :
+MD5 (Message Digest)
+SHA (Secure Hash Function)
+
+Used in Blockchain and cryptocurrencies
+
+
+===== PAGE 43 =====
+SHA- 256
+
+one of the strongest hash functions available
+
+=» Secure communications for websites and web
+services are based on files known as certificates
+
+m They are used to establish and authenticate secure
+connections
+
+m These certificates contain cryptographic elements
+that are generated using algorithms such as SHA-
+256
+
+
+===== PAGE 44 =====
+SHA- 256
+
+mw hash value will always be 256 bits
+
+m Characteristics
+=» Message Length: Any length
+m Hash Length: 256 bits
+m= Bigger hash suggest significantly more
+calculations at the cost of speed and space
+
+mw Irreversible: all hash functions such as the SHA 256 are
+irreversible neither get a plaintext when you have the digest
+beforehand nor should the digest provide its original value
+
+when you pass it through the hash function again
+
+
+===== PAGE 45 =====
+SHA- 256 Steps
+
+m Padding
+
+a first bit should be one, and the rest of it should
+
+be filled with zeroes
+
+| Original Message Padding Bits
+$4
+
+Total length to be 64 bits less than multiple of 512
+
+
+===== PAGE 46 =====
+SHA- 256 Steps
+
+m Padding Length
+m= add 64 bits of data to make the final plaintext a
+multiple of 512 applying the modulus to original
+text without the padding
+
+Final Data to be Hashed as a multiple of 512
+
+
+===== PAGE 47 =====
+SHA- 256 Steps
+
+a Initialising buffers
+initialize the default values for eight buffers to be
+used in the rounds
+store 64 different keys in an array,
+ranging from K[O] to K[63]
+
+k[0..63] :=
+0x428a2f98,
+0xd807aa98,
+Oxe49b69c1,
+0x983e5152,
+0x27b70a85,
+Oxa2bfe8al,
+0x19a4c1l16,
+0x748f82ee,
+
+0x71374491,
+0x12835b01,
+Oxefbe4786,
+0xa831c66d,
+0x2e1b2138,
+0xa81a664b,
+0x1e376c08,
+0x78a5636£,
+
+Oxb5c0fbcf,
+0x243185be,
+0x0fcl19dc6,
+0xb00327c8,
+0x4d2cé6dfc,
+0xc24b8b70,
+0x2748774c,
+0x84c87814,
+
+Oxe9b5dba5,
+0x550c7dc3,
+0x240calcc,
+Oxbf597£c7,
+0x53380d13,
+Oxc76c51la3,
+0x34b0bcb5,
+0x8cc70208,
+
+0x3956c25b,
+0x72be5d74,
+Ox2de92c6f,
+Oxc6e00bf3,
+0x650a7354,
+0xd192e819,
+0x391c0cb3,
+0x90befffa,
+
+0x59f111f1,
+0x80deblfe,
+0x4a7484aa,
+0xd5a79147,
+0x766a0abb,
+0xd6990624,
+Ox4ed8aa4a,
+0xa4506ceb,
+
+0x923£82a4,
+0x9bdc06a7,
+Ox5cb0a9dc,
+0x06ca6351,
+0x81c2c92e,
+0x£40e3585,
+Ox5b9cca4f,
+Oxbef9a3f7,
+
+Oxablic5Sed5,
+Oxcl19bf174,
+0x76£988da,
+0x14292967,
+0x92722c85,
+0x106aa070,
+0x682e6f£3,
+0xc67178£2
+
+a = Ox6a09e667
+b = Oxbb67ae85
+
+c = Ox3c6ef372
+
+on
+ll
+
+Oxa54ff53a
+
+Ox510e527f
+
+e
+f = Ox9b05688c
+g = Ox1f83d9ab
+
+h = Ox5be0cd19
+
+
+===== PAGE 48 =====
+512 bits
+| |
+| Message Chunk |
+a
+
+128 bits
+
+Se a
+
+|
+|
+|
+|
+/ _ SS Round - 1 l
+| ee
+|
+|
+
+32bits =|
+
+W(1) & K(1)
+/ IS Round - 2
+32 bits |
+
+pe ieee Sr
+
+value of K[i] in all rounds is
+pre-initialized, W[Ii] is
+another input that is
+
+|
+|
+| W(2)&K(2)
+Le Round - 3 LL
+32 bits ] |
+
+|
+|
+|
+|
+|
+—— calculated individually for
+— | a as | each block, depending on
+| _ | | Round-17— |__| . :
+oa = the number of iterations
+: ena Keen , being processed at the
+! oT yp leds os moment
+| ‘ ,
+\
+\
+‘
+\ | Ww(63) & K(63)__
+[/_ | } Round-64 |__|
+32 bits | |
+: Output for
+
+| ———-> the next
+
+FRIAS ee OR
+
+
+===== PAGE 49 =====
+SHA- 256 Applications
+
+Digital Signature Verification + + Ft Password Hashing
+) ap Gp Ga»
+——
+SA SSL Handshake in browsing all Integrity checks
+
+
+===== PAGE 50 =====
+Merkle Tree
+
+a fundamental part of blockchain technology
+= mathematical data structure composed of
+hashes of different blocks of data, and which
+serves as a summary of all the transactions in
+a block
+——_m allows for efficient and secure verification of
+
+content in a large body of data
+
+
+===== PAGE 51 =====
+Merkle Tree
+
+Both Bitcoin and Ethereum use Merkle Trees
+structure
+
+also known as Binary Hash Tree
+
+used to encrypt blockchain data more
+efficiently and securely
+
+enables quick and secure content verification
+across big datasets and verifies the
+
+consistency and content of the data
+
+
+===== PAGE 52 =====
+Merkle Root
+
+Merkle Root
+H(12, H(56,
+34) 7B)
+
+
+
+===== PAGE 53 =====
+Merkle Tree Working
+
+a totals all transactions in a block and generates
+a digital fingerprint of the entire set of
+operations, allowing the user to verify
+whether it includes a transaction in the block
+m Each non-leaf node is a hash of its previous
+— hash, and every leaf node is a hash of
+
+transactional data
+
+
+===== PAGE 54 =====
+Merkle Tree
+
+Top Hash
+Hash Hash
+0 1
+
+ee eee eee
+
+
+===== PAGE 55 =====
+Merkle Tree Working
+
+Merkle Root is stored in the block header
+block header is the part of the bitcoin block
+which gets hash in the process of mining
+
+It contains the hash of the last block, a
+Nonce, and the Root Hash of all the
+transactions in the current block in a Merkle
+
+Tree
+
+
+===== PAGE 56 =====
+Merkle Tree Working
+
+m= having the Merkle root in block header makes
+
+the transaction tamper-proof
+
+m As this Root Hash includes the hashes of all
+the transactions within the block, these
+transactions may result in saving the disk
+
+Space
+
+
+===== PAGE 57 =====
+Merkle Tree Working
+
+Block N-1 Block N Block N+1
+
+HEADER
+
+Hash of block header N72
+
+TRANSACTION DATA TRANSACTION DATA TRANSACTION DATA
+
+Merkle Tree Merkle Tree Merkle Tree
+
+
+
+===== PAGE 58 =====
+Merkle Tree Benefits
+
+Validates the data's integrity effectively
+Compared to other data structures, the Merkle
+tree takes up very little disk space
+
+can be broken down into small pieces of data
+for verification
+
+data format is efficient, and verifying the
+
+data's integrity takes only a few moments.
+
+
+===== PAGE 59 =====
+Distributed Hash Tables
+
+a decentralized data store based on key-value
+pairs
+
+Every node is responsible for a set of keys
+and their associated values
+
+The key is a unique identifier for its associated
+data value, created through a hashing
+function
+
+The data values can be any form of data
+
+
+===== PAGE 60 =====
+Distributed Hash Tables
+
+provide an easy way to find information in a
+large collection of data
+
+each node stores the key partitioning scheme
+So that if it receives a request to access a
+given key, it can quickly map the key to the
+node that stores the data
+
+It then sends the request to that node
+
+
+===== PAGE 61 =====
+Distributed Hash Tables
+
+m nodes can be easily added or removed
+
+Data Key Distributed
+
+Hash Network
+function
+
+Hash
+function
+Hash
+function
+

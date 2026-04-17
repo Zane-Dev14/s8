@@ -1,0 +1,490 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=0.95in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\setlength{\parskip}{0.48em}
+\setlength{\parindent}{0pt}
+\setlength{\headheight}{15pt}
+\linespread{1.08}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{CST444 Soft Computing - Module 3}
+\rhead{Exam-Ready Beginner Guide}
+\cfoot{\thepage}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+
+\newcommand{\examtip}[1]{%
+\vspace{0.2em}
+\noindent\fcolorbox{black}{gray!12}{\parbox{0.97\linewidth}{\textbf{Exam Tip:} #1}}%
+\vspace{0.2em}
+}
+
+\begin{document}
+
+\section*{Module 3 Topic Map from OCR Question Papers}
+\textbf{Repeated ask areas}
+\begin{itemize}
+\item Fuzzy set basics, membership function, and fuzzy set operations.
+\item Core, support, boundary and properties of fuzzy sets.
+\item Plotting membership functions (Age of people, Liquid level).
+\item Fuzzy relations, cartesian product, and composition.
+\item Max-min and max-product composition numericals.
+\item Algebraic sum/product and bounded sum/difference numericals.
+\item $\alpha$/$\lambda$ cuts and cut-set properties.
+\item Defuzzification methods (max-membership, centroid, weighted average, center of sums).
+\end{itemize}
+
+\textbf{High-mark concepts}
+\begin{itemize}
+\item Defuzzification methods with examples and formulas.
+\item Relation construction $R=A\times B$, $P=B\times C$ and $R\circ P$.
+\item Cut-set problems and interpretation.
+\item Composition methods with full step tables.
+\end{itemize}
+
+\textbf{Must-study-first order}
+\begin{enumerate}
+\item Fuzzy set and membership function meaning.
+\item Basic operations and properties.
+\item Core-support-boundary and cut sets.
+\item Fuzzy relation and composition.
+\item Defuzzification methods and method selection.
+\item Exam numericals and matrix-style solving.
+\end{enumerate}
+
+\section*{Core Theory (Beginner-Friendly, Exam-Formal)}
+
+\subsection*{1) Fuzzy Set and Membership Function}
+\textbf{Intuition:} In many real situations, belonging is not only yes/no. Fuzzy logic allows partial belonging.
+
+\textbf{Formal definition}
+\[
+A=\{(x,\mu_A(x))\mid x\in U\},\qquad \mu_A(x)\in[0,1]
+\]
+where $U$ is universe of discourse and $\mu_A(x)$ is degree of membership.
+
+\textbf{Discrete representation}
+\[
+A=\sum_{i=1}^{n}\frac{\mu_A(x_i)}{x_i}
+\]
+
+\subsection*{2) Main Features of Membership Function}
+\begin{itemize}
+\item \textbf{Core:} region where $\mu_A(x)=1$.
+\item \textbf{Support:} region where $\mu_A(x)>0$.
+\item \textbf{Boundary:} region where $0<\mu_A(x)<1$.
+\end{itemize}
+
+\begin{center}
+\framebox[0.97\linewidth][c]{
+\begin{minipage}{0.93\linewidth}
+\vspace{0.08cm}
+\centerline{\textbf{Membership-Feature View}}
+\centerline{Core: full membership $\rightarrow$ Boundary: partial membership $\rightarrow$ Outside support: zero membership}
+\vspace{0.08cm}
+\end{minipage}}
+\end{center}
+
+\subsection*{3) Fuzzy Set Operations}
+For two fuzzy sets $A,B$ on same universe:
+\[
+\mu_{A\cup B}(x)=\max(\mu_A(x),\mu_B(x)),\quad
+\mu_{A\cap B}(x)=\min(\mu_A(x),\mu_B(x)),\quad
+\mu_{\bar A}(x)=1-\mu_A(x)
+\]
+
+Additional operations frequently asked:
+\[
+\mu_{A\oplus B}(x)=\mu_A(x)+\mu_B(x)-\mu_A(x)\mu_B(x)\quad\text{(algebraic sum)}
+\]
+\[
+\mu_{A\odot B}(x)=\mu_A(x)\mu_B(x)\quad\text{(algebraic product)}
+\]
+\[
+\mu_{A\boxplus B}(x)=\min(1,\mu_A(x)+\mu_B(x))\quad\text{(bounded sum)}
+\]
+\[
+\mu_{A\boxminus B}(x)=\max(0,\mu_A(x)-\mu_B(x))\quad\text{(bounded difference)}
+\]
+
+\subsection*{4) Properties of Fuzzy Sets}
+\begin{itemize}
+\item Commutative, associative, distributive laws.
+\item Idempotent laws: $A\cup A=A$, $A\cap A=A$.
+\item Involution: $\overline{\overline{A}}=A$.
+\item De-Morgan laws hold in fuzzy form.
+\item In fuzzy logic, excluded-middle and contradiction are not strict equalities for all cases.
+\end{itemize}
+
+\subsection*{5) Fuzzy Relations and Composition}
+A fuzzy relation on $X\times Y$ is
+\[
+R=\{((x,y),\mu_R(x,y))\mid (x,y)\in X\times Y\}
+\]
+
+For $R(X\times Y)$ and $S(Y\times Z)$:
+\[
+\mu_{R\circ S}(x,z)=\max_{y\in Y}\min\{\mu_R(x,y),\mu_S(y,z)\}\quad\text{(max-min)}
+\]
+\[
+\mu_{R\circ S}(x,z)=\max_{y\in Y}\{\mu_R(x,y)\mu_S(y,z)\}\quad\text{(max-product)}
+\]
+
+\subsection*{6) Fuzzification and Defuzzification}
+\textbf{Fuzzification:} crisp input $\rightarrow$ fuzzy quantity via membership functions.
+
+\textbf{Defuzzification:} fuzzy output $\rightarrow$ crisp value.
+
+Methods commonly shown in source notes:
+\begin{itemize}
+\item Max-membership principle.
+\item Centroid (center of area).
+\item Weighted average method.
+\item Center of sums / center of largest area.
+\item First of maxima (when multiple maxima exist).
+\end{itemize}
+
+\subsection*{7) $\alpha$-Cut and $\lambda$-Cut}
+\[
+A_\alpha=\{x\in U\mid \mu_A(x)\ge\alpha\}
+\]
+Strong cut uses $>$; weak cut uses $\ge$.
+
+\examtip{In cut-set numericals, always write the rule first: ``include all elements whose membership is at least the cut level''; then list elements level by level.}
+
+\section*{Numericals and Derivations (Full Steps)}
+
+\subsection*{N1) Intersection, union, complement for given fuzzy sets}
+\textbf{Given}
+\[
+A=\{(x_1,0.5),(x_2,0.1),(x_3,0.9)\},\quad
+B=\{(x_1,0.4),(x_2,0.4),(x_3,0.5)\}
+\]
+
+\textbf{Find}
+$A\cap B$, $A\cup B$, $\bar A$, $\bar B$.
+
+\textbf{Formula}
+\[
+\mu_{A\cap B}=\min(\mu_A,\mu_B),\quad
+\mu_{A\cup B}=\max(\mu_A,\mu_B),\quad
+\mu_{\bar A}=1-\mu_A
+\]
+
+\textbf{Substitution}
+\begin{itemize}
+\item $x_1$: min$(0.5,0.4)=0.4$, max$(0.5,0.4)=0.5$.
+\item $x_2$: min$(0.1,0.4)=0.1$, max$(0.1,0.4)=0.4$.
+\item $x_3$: min$(0.9,0.5)=0.5$, max$(0.9,0.5)=0.9$.
+\item Complements: $\bar A=(0.5,0.9,0.1)$, $\bar B=(0.6,0.6,0.5)$.
+\end{itemize}
+
+\textbf{Final answer}
+\[
+A\cap B=\{(x_1,0.4),(x_2,0.1),(x_3,0.5)\}
+\]
+\[
+A\cup B=\{(x_1,0.5),(x_2,0.4),(x_3,0.9)\}
+\]
+
+\subsection*{N2) Algebraic sum/product and bounded sum/difference}
+\textbf{Given} (module-3 pattern)
+\[
+A=[1,0.5,0.3,0.2],\quad B=[0.5,0.7,0.2,0.4]
+\]
+
+\textbf{Formulas}
+\[
+A\oplus B=a+b-ab,\ A\odot B=ab,\ A\boxplus B=\min(1,a+b),\ A\boxminus B=\max(0,a-b)
+\]
+
+\textbf{Element-wise substitution}
+\begin{itemize}
+\item Algebraic sum: $[1,0.85,0.44,0.52]$.
+\item Algebraic product: $[0.5,0.35,0.06,0.08]$.
+\item Bounded sum: $[1,1,0.5,0.6]$.
+\item Bounded difference: $[0.5,0,0.1,0]$.
+\end{itemize}
+
+\textbf{Sanity check}
+All resulting memberships remain in $[0,1]$.
+
+\subsection*{N3) Max-min and max-product composition}
+\textbf{Given}
+\[
+R=\begin{bmatrix}0.6&0.3\\0.2&0.4\end{bmatrix},
+\quad
+S=\begin{bmatrix}1&0.5&0.3\\0.8&0.4&0.7\end{bmatrix}
+\]
+
+\textbf{Max-min formula}
+\[
+\mu_{T}(x_i,z_k)=\max_j\min\{R_{ij},S_{jk}\}
+\]
+
+\textbf{Max-product formula}
+\[
+\mu_{T}(x_i,z_k)=\max_j\{R_{ij}S_{jk}\}
+\]
+
+\textbf{One detailed element each}
+\[
+T_{11}^{\text{max-min}}=\max(\min(0.6,1),\min(0.3,0.8))=\max(0.6,0.3)=0.6
+\]
+\[
+T_{11}^{\text{max-prod}}=\max(0.6\times1,0.3\times0.8)=\max(0.6,0.24)=0.6
+\]
+
+\textbf{Final matrices}
+\[
+T_{\text{max-min}}=\begin{bmatrix}0.6&0.5&0.3\\0.4&0.4&0.4\end{bmatrix},
+\qquad
+T_{\text{max-prod}}=\begin{bmatrix}0.6&0.3&0.21\\0.32&0.16&0.28\end{bmatrix}
+\]
+
+\subsection*{N4) Defuzzification mini-example (weighted average)}
+\textbf{Given}
+Rule-output centers $(z_1,z_2,z_3)=(20,40,60)$ and corresponding firing strengths $(0.2,0.5,0.3)$.
+
+\textbf{Formula}
+\[
+z^*=\frac{\sum_i \mu_i z_i}{\sum_i\mu_i}
+\]
+
+\textbf{Substitution}
+\[
+z^*=\frac{0.2(20)+0.5(40)+0.3(60)}{0.2+0.5+0.3}=\frac{4+20+18}{1}=42
+\]
+
+\textbf{Final answer:} defuzzified crisp value is $42$.
+
+\section*{Solved Questions for Module 3 (Self-Contained)}
+
+\subsection*{Part A / 3-Mark Questions (Each Answer Has 6 Scoring Points)}
+
+\textbf{Q1. Plot fuzzy membership function for Age of people (very young, young, middle-aged, old, very old).}
+\begin{enumerate}
+\item Define universe, for example $U=[0,80]$ years.
+\item Choose five overlapping fuzzy labels: very young, young, middle-aged, old, very old.
+\item Use triangular/trapezoidal shapes for smooth transition.
+\item Ensure neighboring sets overlap to model gradual change.
+\item Peak points represent strongest membership for each age label.
+\item Final plot must cover whole universe without large gaps.
+\end{enumerate}
+
+\textbf{Q2. What are the three basic features of fuzzy membership function?}
+\begin{enumerate}
+\item Core is region where membership value is exactly 1.
+\item Support is region where membership value is greater than 0.
+\item Boundary is region where membership is between 0 and 1.
+\item Core indicates complete belonging.
+\item Support indicates possible belonging.
+\item Boundary captures ambiguity/partial belonging.
+\end{enumerate}
+
+\textbf{Q3. Define core, support, boundary of a fuzzy set.}
+\begin{enumerate}
+\item Core$(A)=\{x\mid \mu_A(x)=1\}$.
+\item Support$(A)=\{x\mid \mu_A(x)>0\}$.
+\item Boundary$(A)=\{x\mid 0<\mu_A(x)<1\}$.
+\item Core may be empty for some fuzzy sets.
+\item Support can be finite or continuous interval.
+\item Boundary region is most important for soft transitions.
+\end{enumerate}
+
+\textbf{Q4. List properties of fuzzy set.}
+\begin{enumerate}
+\item Commutativity for union and intersection.
+\item Associativity for union and intersection.
+\item Distributive laws hold in fuzzy operations.
+\item Idempotent laws: $A\cup A=A$, $A\cap A=A$.
+\item Involution: $\bar{\bar A}=A$.
+\item De-Morgan laws are valid in fuzzy algebra.
+\end{enumerate}
+
+\textbf{Q5. Differentiate fuzzy tolerance and equivalence relation; how convert tolerance to equivalence?}
+\begin{enumerate}
+\item Both are fuzzy relations on same universe.
+\item Tolerance relation is reflexive and symmetric.
+\item Equivalence relation is reflexive, symmetric, and transitive.
+\item Main difference is transitivity requirement.
+\item Conversion is done by transitive closure of tolerance relation.
+\item Resulting closure relation becomes fuzzy equivalence relation.
+\end{enumerate}
+
+\textbf{Q6. Define composition operation in fuzzy relations.}
+\begin{enumerate}
+\item Composition combines two compatible fuzzy relations.
+\item If $R(X,Y)$ and $S(Y,Z)$, output is relation on $(X,Z)$.
+\item Max-min composition uses max of mins.
+\item Max-product composition uses max of products.
+\item Composition helps build multi-stage fuzzy mappings.
+\item It is widely used in fuzzy inference chains.
+\end{enumerate}
+
+\textbf{Q7. Given two fuzzy sets, compute algebraic sum/product and bounded sum/difference.}
+\begin{enumerate}
+\item Use formula $a+b-ab$ for algebraic sum.
+\item Use formula $ab$ for algebraic product.
+\item Use $\min(1,a+b)$ for bounded sum.
+\item Use $\max(0,a-b)$ for bounded difference.
+\item Apply element-wise for each universe element.
+\item Keep all final values in interval $[0,1]$.
+\end{enumerate}
+
+\textbf{Q8. Define fuzzification and defuzzification.}
+\begin{enumerate}
+\item Fuzzification converts crisp quantity to fuzzy quantity.
+\item It assigns membership values to linguistic labels.
+\item Defuzzification converts fuzzy output to single crisp value.
+\item Max-membership selects point of highest membership.
+\item Centroid uses area-balance concept.
+\item Weighted average uses weighted centers and firing strengths.
+\end{enumerate}
+
+\subsection*{Part B / 14-Mark Questions (Each Answer Has 14 Scoring Points)}
+
+\textbf{Q1. Given fuzzy sets A and B, compute algebraic sum, algebraic product, bounded sum, bounded difference. Then explain defuzzification methods with examples.}
+\begin{enumerate}
+\item Write all given membership values of $A$ and $B$ in tabular form.
+\item State algebraic sum formula $a+b-ab$.
+\item Compute algebraic sum element by element.
+\item State algebraic product formula $ab$.
+\item Compute algebraic product element by element.
+\item State bounded sum formula $\min(1,a+b)$.
+\item Compute bounded sum element by element.
+\item State bounded difference formula $\max(0,a-b)$.
+\item Compute bounded difference element by element.
+\item Present final four resulting fuzzy sets clearly.
+\item Define defuzzification as fuzzy-to-crisp transformation.
+\item Explain max-membership principle and when it is used.
+\item Explain centroid and weighted-average methods with equations.
+\item Conclude with method choice: weighted average for singleton-like outputs, centroid for full-area balance.
+\end{enumerate}
+
+\textbf{Q2. Consider fuzzy relation matrix and perform $\lambda$-cut operations for $\lambda=0.9$ and $0^+$. Also compute weighted-average and center-of-sums defuzzification for the given fuzzy output.}
+\begin{enumerate}
+\item Write relation matrix entries in structured table.
+\item For $\lambda$-cut, keep entries with membership $\ge\lambda$.
+\item For $\lambda=0.9$, retain only very high-membership cells.
+\item For $0^+$ cut, retain all entries with strictly positive membership.
+\item Present both cut relations as binary/filtered relation matrices.
+\item Define weighted-average formula $z^*=\frac{\sum \mu_i z_i}{\sum\mu_i}$.
+\item Identify centers $z_i$ and corresponding membership heights $\mu_i$ from given output set.
+\item Substitute all values and compute numerator.
+\item Compute denominator and final weighted-average crisp value.
+\item Define center-of-sums concept as area-weighted center of clipped outputs.
+\item Compute each component area and center location.
+\item Apply $z^*=\frac{\sum A_i c_i}{\sum A_i}$.
+\item Compare WA and COS outputs briefly.
+\item Conclude that different defuzzifiers can produce different but valid crisp outputs.
+\end{enumerate}
+
+\textbf{Q3. Plot fuzzy membership functions for liquid level (very small, small, empty, full, very full). Define and explain defuzzification methods.}
+\begin{enumerate}
+\item Set universe of discourse for liquid level, e.g., 0 to 100 units.
+\item Define five linguistic terms requested in the question.
+\item Use triangular/trapezoidal curves with overlap.
+\item Mark key points (peaks, feet) for each curve.
+\item Ensure edge terms cover low and high extremes.
+\item Define defuzzification in one formal line.
+\item Explain max-membership with formula condition.
+\item Explain centroid with integral formula.
+\item Explain weighted average with discrete formula.
+\item Explain center of sums using area and centroid of each output region.
+\item Mention first-of-maxima if multiple peaks exist.
+\item State practical preference: centroid is smooth and common.
+\item Relate method choice to control precision and computational cost.
+\item Conclude with one crisp-value extraction workflow from fuzzy output.
+\end{enumerate}
+
+\textbf{Q4. For discrete fuzzy set on $X=\{a,b,c,d,e\}$ find $\alpha$-cut sets for $\alpha=1,0.9,0.6,0^+,0$. Also given A on X and B on Y, find R=A$\times$B, P=B$\times$C and R$\circ$P (max-min).}
+\begin{enumerate}
+\item Write membership values of the discrete set in table form.
+\item Use cut rule $A_\alpha=\{x\mid\mu_A(x)\ge\alpha\}$.
+\item Find set at $\alpha=1$ (fully belonging elements).
+\item Find set at $\alpha=0.9$.
+\item Find set at $\alpha=0.6$.
+\item Find weak positive cut $0^+$ (all with membership $>0$).
+\item Find $\alpha=0$ cut (entire universe).
+\item For fuzzy cartesian product, apply $\mu_R(x,y)=\min(\mu_A(x),\mu_B(y))$.
+\item Construct full relation matrix $R=A\times B$.
+\item Similarly construct $P=B\times C$.
+\item Use max-min composition formula for $R\circ P$.
+\item Compute each output cell with ``max of mins'' operation.
+\item Present final composed matrix with dimensions $|X|\times|V|$.
+\item Conclude interpretation: composition propagates fuzzy compatibility across chained universes.
+\end{enumerate}
+
+\textbf{Q5. Define composition in fuzzy relations. Given R and S, compute T using max-min and max-product composition.}
+\begin{enumerate}
+\item Write given relation matrices $R$ and $S$.
+\item Verify compatibility of inner dimension (Y set must match).
+\item State max-min formula explicitly.
+\item Compute one cell of max-min composition step by step.
+\item Compute remaining max-min cells and form matrix.
+\item State max-product formula explicitly.
+\item Compute one cell of max-product step by step.
+\item Compute remaining max-product cells and form matrix.
+\item Compare values from both methods in one line.
+\item Note: max-product tends to reduce values more aggressively when memberships are small.
+\item Verify all output memberships lie in $[0,1]$.
+\item Mention computational flow as matrix-style repeated operations.
+\item Provide final two matrices clearly labeled.
+\item Conclude: choice of composition method affects relation strength in inference pipelines.
+\end{enumerate}
+
+\section*{Formula Sheet (Module 3)}
+\begin{itemize}
+\item Fuzzy set: $A=\{(x,\mu_A(x))\mid x\in U\}$
+\item Union: $\mu_{A\cup B}=\max(\mu_A,\mu_B)$
+\item Intersection: $\mu_{A\cap B}=\min(\mu_A,\mu_B)$
+\item Complement: $\mu_{\bar A}=1-\mu_A$
+\item Algebraic sum: $a+b-ab$
+\item Algebraic product: $ab$
+\item Bounded sum: $\min(1,a+b)$
+\item Bounded difference: $\max(0,a-b)$
+\item Cartesian product relation: $\mu_{A\times B}(x,y)=\min(\mu_A(x),\mu_B(y))$
+\item Max-min composition: $\mu_{R\circ S}(x,z)=\max_y\min(\mu_R(x,y),\mu_S(y,z))$
+\item Max-product composition: $\mu_{R\circ S}(x,z)=\max_y(\mu_R(x,y)\mu_S(y,z))$
+\item $\alpha$-cut: $A_\alpha=\{x\mid\mu_A(x)\ge\alpha\}$
+\item Weighted average defuzzifier: $z^*=\frac{\sum\mu_i z_i}{\sum\mu_i}$
+\item Centroid defuzzifier: $z^*=\frac{\int z\mu(z)\,dz}{\int \mu(z)\,dz}$
+\end{itemize}
+
+\section*{One-Page Quick Revision Summary}
+\textbf{Memory hooks}
+\begin{itemize}
+\item Fuzzy set = graded membership, not strict yes/no.
+\item Core/support/boundary = full/possible/partial regions.
+\item Composition = connect two fuzzy relations through common universe.
+\item Cut sets = threshold snapshots of fuzzy information.
+\item Defuzzification = final crisp decision from fuzzy output.
+\end{itemize}
+
+\textbf{Fast exam writing sequence}
+\begin{enumerate}
+\item Definition in one line.
+\item Formula with symbols.
+\item Step-by-step substitution.
+\item Final set/matrix/value clearly boxed or isolated.
+\item One-line interpretation.
+\end{enumerate}
+
+\textbf{Last-minute 45-second recall}
+\begin{itemize}
+\item Use min for intersection and max for union.
+\item For $A\times B$, use min of two memberships.
+\item Max-min and max-product are not the same.
+\item $\alpha$-cut uses threshold rule $\mu\ge\alpha$.
+\item Centroid is area-balance method; WA is weighted-center method.
+\end{itemize}
+
+\examtip{In matrix composition, show one full cell derivation clearly. Examiners often award method marks quickly when that line is correct.}
+
+\end{document}

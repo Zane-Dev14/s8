@@ -1,0 +1,845 @@
+===== PAGE 1 =====
+
+
+===== PAGE 2 =====
+Supervised Learning Network
+► Perceptron Networks–
+► Learning rule,
+► Training and testing algorithm.
+► Adaptive Linear Neuron
+► Architecture,
+► Training and testing algorithm.
+► Back propagation Network
+► Architecture,
+► Training and testing algorithm
+Module 2:
+
+
+===== PAGE 3 =====
+Perceptron Networks
+
+
+===== PAGE 4 =====
+Supervised Learning
+► supervised learning takes place under the supervision of a teacher. 
+► This learning process is dependent.
+► During the training of ANN under supervised learning, the input vector is 
+presented to the network, which will produce an output vector. 
+► This output vector is compared with the desired/target output vector.
+► An error signal is generated if there is a difference between the actual output 
+and the desired/target output vector. 
+► On the basis of this error signal, the weights would be adjusted until the actual 
+output is matched with the desired output.
+
+
+===== PAGE 5 =====
+Layers in Neural Network
+► The input layer: 
+► Introduces input values into the network. 
+► No activation function or other processing. 
+► The hidden layer(s): 
+► Performs classification of features. 
+► Two hidden layers are sufficient to solve any problem.
+► Features imply more layers may be better. 
+► The output layer: 
+► Functionally is just like the hidden layers. 
+► Outputs are passed on to the world outside the neural network
+
+
+===== PAGE 6 =====
+Single Layer , Feed Forward Network
+► Single Layer network
+► In Single layer network i/p stage/layer and o/p layer are linked with each other.
+► i/p layer → transmits i/p and 
+► o/p layer→ generates the o/p of the n/w
+► Feed Forward Network
+► A network is said to be feed forward ,if no neuron in the o/p layer is an i/p to a 
+node in the same /preceding layer
+► Single layer feed forward n/w
+► Perceptron Network 
+► Adaline Network
+► Multi Layer Feed forward n/w
+► Back Propagation network
+
+
+===== PAGE 7 =====
+Perceptron Networks
+► Also called Simple Perceptron’s.
+► Type of Single layer feed forward network, used to classify the given i/p data.
+► Developed by Frank Rosenblatt (1962)by using McCulloch and Pitts model, 
+perceptron is the basic operational unit of artificial neural networks. 
+► It employs supervised learning rule and is able to classify the data into two 
+classes.
+► A Perceptron is an algorithm for supervised learning of binary classifiers.
+► This algorithm enables neurons to learn and processes elements in the training 
+set one at a time.
+► A target output is present and the i/p signals should be processed to meet the 
+target output.(Comparing the calculated[Actual] and Target[Desired] o/p)
+► It processes both binary and bipolar i/p data’s and targets.
+
+
+===== PAGE 8 =====
+Perceptron Networks
+► Perceptron Networks  consist of 3 units 
+❑ Sensory unit(input unit) 
+❑ Associator Unit(hidden unit) 
+❑ Response unit(output unit) 
+► Sensory units are connected to associator unit with a fixed weight having values 1, 0 or 
+-1 which are assigned at random 
+► Binary activation functions are used in the sensory unit and associator unit 
+► The response unit has an activation of 1,0 or -1 
+► The binary step with fixed threshold θ is used as an activation for associator 
+► The output signal that are send from the associator to response are only binary 
+
+
+===== PAGE 9 =====
+Perceptron Networks
+► The output of perceptron network is given by y= f(Yin) ,where f(Yin) is the activation 
+function and is defined as
+► The perceptron learning rule is used in the weight updation between the associator unit 
+and the response unit 
+► For each training input, the net will calculate the response and it will determine whether or 
+not an error has occurred 
+► The error calculations are based on the comparison of values for targets with those of 
+calculated output 
+
+
+===== PAGE 10 =====
+Perceptron Networks
+► The weight s on the connection from the unit that send the non zero signal will get adjusted 
+suitably 
+► Weight will be adjusted on the bias of the learning rule if an error has occurred for a 
+particular training pattern
+► Learning Rate is used to control the amount of weight adjustment at each step of 
+training. takes values between 0 to 1
+► ln general, these learning rules begin with an initial guess at the weight values and then 
+successive adjustments are made on the basis of the evaluation of an objective function. 
+Eventually, the learning rules reach a near-optimal or optimal solution in a finite number of 
+steps
+
+
+===== PAGE 11 =====
+
+
+===== PAGE 12 =====
+Perceptron Networks
+► Sensory unit 
+► can be a 2D matrix of 400 photo detectors 
+► These detectors provide a binary electrical signal if the input signal is found to 
+exceed a certain value of threshold
+► Also these detectors are connected randomly with the associator unit
+► Associator unit
+► consist of a set of sub circuits called feature predicates
+► For a particular feature each predicate is examined with a few or all of the 
+responses of sensory unit
+► The result from these predicate unit is also binary
+► Response Unit
+► Contain pattern recognizer or perceptron
+► The weight present in the input layer are all fixed
+► While weight in the response layer are trainable
+
+
+===== PAGE 13 =====
+Perceptron Networks
+► perceptron learning rule is used in the weight updation between the associator unit and 
+response unit.
+► For each training i/p ,the net will  calculate the Response and will determine whether or not an 
+error has occurred.
+► Error calculation is based on the comparison of values of targets with those of the calculated 
+o/p’s.
+► The parameter, α is called the learning rate, which as the name suggests can be used to tune how 
+quickly or slowly w is updated.
+► if the learning rate is too small, the learning algorithm may fail to converge in a reasonable 
+amount of time. If the learning rate is too large, the learning algorithm may fail to settle on a 
+good decision boundary at all! Thus we can see that the learning rate, α, is an important 
+parameter in the learning algorithm, and is vital to the success of the Perceptron.
+
+
+===== PAGE 14 =====
+Perceptron learning rule
+
+
+===== PAGE 15 =====
+Perceptron Networks Learning Rule
+► In perceptron network, the learning rule is the difference between the desired and 
+actual response of a neuron.
+► Learning rule explained as follows
+► Consider a finite ‘n’ number of input training vectors, with their associated target 
+values x(n) and t(n), where n ranges from 1 to n
+► The target is either +1 or -1
+► The output y is obtained on the basis of the net input calculated and activation 
+function being applied over the net input
+
+
+===== PAGE 16 =====
+Perceptron Networks Learning Rule
+► Weight updation in case of perceptron learning is as shown 
+► If y ≠ t then
+► Else 
+
+
+===== PAGE 17 =====
+perceptron network- Flowchart
+
+
+===== PAGE 18 =====
+
+
+===== PAGE 19 =====
+Perceptron Training Algorithm For Single Output Class
+
+
+===== PAGE 20 =====
+Perceptron Training Algorithm For Single Output Class
+
+
+===== PAGE 21 =====
+Perceptron Training Algorithm For Single Output Class
+
+
+===== PAGE 22 =====
+Perceptron Training Algorithm For Single Output Class
+
+
+===== PAGE 23 =====
+Training algorithm –Multiple Output class
+
+
+===== PAGE 24 =====
+
+
+===== PAGE 25 =====
+Training algorithm –Multiple Output class
+
+
+===== PAGE 26 =====
+Training algorithm –Multiple Output class
+
+
+===== PAGE 27 =====
+Perceptron –Testing Algorithm
+
+
+===== PAGE 28 =====
+Testing algorithm
+
+
+===== PAGE 29 =====
+Testing algorithm
+► The testing algorithm test the performance of the network.
+► The perceptron network can be used for linear separability concept.
+► Separating line may be based on the Threshold and must be a non-negative 
+value.
+► The condition for separating the response from region +ve to region 0 is
+► The condition for separating the region of zero to region of negative is 
+► The condition above are stated for the single layer perceptron network with 
+two i/p neurons and one o/p neurons and one bias.
+
+
+===== PAGE 30 =====
+Single classification perceptron network.
+
+
+===== PAGE 31 =====
+Single classification perceptron network Architecture
+► The output obtained from the associator unit is a binary vector 
+and hence that the output is taken as input signal
+to the response unit 
+► Here the weight between the sensory unit and associator
+unit are fixed 
+► Weight between the associator unit and response unit
+output unit can be adjusted
+► As a result the discussion of the network is limited to a 
+single portion ,Thus associator unit behaves like input unit 
+► There are n input neuron and one output neuron and a bias 
+► The input layer and output layer are connected through 
+the direct communication link which is associated with weight 
+► The goal of perceptron network is to classify the input pattern as the 
+member or not a member of a particular class
+
+
+===== PAGE 32 =====
+Perceptron Network-Problems
+
+
+===== PAGE 33 =====
+Perceptron Network-Problems
+► The input patterns are presented to the network one by one.
+► When all the four input patterns are presented ,then one EPOCH is completed
+► The initial weights ,bias and threshold are set to zero.w1=w2=0,b=0
+► The learning rate α is set to 1.
+► Learning occurs only when a sample has y != t – Otherwise, it’s similar to Hebb Learning 
+rule 
+► Two loops, a completion of the inner loop (each sample is used once) is called an epoch 
+► Stop condition
+– When no weight is changed in the current epoch, or 
+– When pre determined number of epochs is reached 
+
+
+===== PAGE 34 =====
+Implement AND function using perceptron networks with Bipolar 
+inputs and targets.
+
+
+===== PAGE 35 =====
+Implement AND function using perceptron networks
+with Bipolar inputs and targets.
+
+
+===== PAGE 36 =====
+Implement AND function using perceptron networks
+with Bipolar inputs and targets.
+The weights w1=1,w2=1 and b=1 are the final weights and 
+bias after the first input is processed.
+The same processes is repeated for all other input patterns.
+The process can be stopped when all the targets becomes 
+equals to the calculated output.
+Or when a separate line is obtained using the final weights 
+for separating the positive responses from negative 
+responses.
+
+
+===== PAGE 37 =====
+Implement AND function using perceptron networks with Bipolar 
+inputs and targets. From step1
+
+
+===== PAGE 38 =====
+Implement AND function using perceptron networks with Bipolar 
+inputs and targets. From step1
+
+
+===== PAGE 39 =====
+Implement AND function using perceptron networks with Bipolar 
+inputs and targets. From step1
+
+
+===== PAGE 40 =====
+Page 41 Prof.Smitha Jacob, Department of Computer Science and Engineering, SJCET Palai
+Implement AND function using perceptron networks with Bipolar 
+inputs and targets. From step1
+
+
+===== PAGE 41 =====
+Implement AND function using perceptron networks with Bipolar 
+inputs and targets. From step1
+
+
+===== PAGE 42 =====
+Page 43 Prof.Smitha Jacob, Department of Computer Science and Engineering, SJCET Palai
+Implement AND function using perceptron networks with Bipolar 
+inputs and targets. From step1
+
+
+===== PAGE 43 =====
+Page 44 Prof.Smitha Jacob, Department of Computer Science and Engineering, SJCET Palai
+Implement AND function using perceptron networks with Bipolar 
+inputs and targets. From step1
+
+
+===== PAGE 44 =====
+Page 45 Prof.Smitha Jacob, Department of Computer Science and Engineering, SJCET Palai
+Implement AND function using perceptron networks with Bipolar 
+inputs and targets. From step1
+
+
+===== PAGE 45 =====
+Page 46 Prof.Smitha Jacob, Department of Computer Science and Engineering, SJCET Palai
+Implement AND function using perceptron networks with Bipolar 
+inputs and targets. From step1
+
+
+===== PAGE 46 =====
+Implement AND function using perceptron networks with Bipolar 
+inputs and targets. From step1
+
+
+===== PAGE 47 =====
+Page 48 Prof.Smitha Jacob, Department of Computer Science and Engineering, SJCET Palai
+Implement AND function using perceptron networks with Bipolar 
+inputs and targets. From step1
+
+
+===== PAGE 48 =====
+Implement AND function using perceptron networks with Bipolar 
+inputs and targets. From step1
+
+
+===== PAGE 49 =====
+
+
+===== PAGE 50 =====
+Perceptron OR
+
+
+===== PAGE 51 =====
+Implement OR function with Binary inputs and Bipolar targets using 
+perceptron networks  algorithm upto 3 EPOCHS
+
+
+===== PAGE 52 =====
+Implement OR function with Binary inputs and Bipolar targets using 
+perceptron networks  algorithm upto 3 EPOCHS
+
+
+===== PAGE 53 =====
+Implement OR function with Binary inputs and Bipolar targets using 
+perceptron networks  algorithm upto 3 EPOCHS
+
+
+===== PAGE 54 =====
+
+
+===== PAGE 55 =====
+Perceptron ANDNOT
+
+
+===== PAGE 56 =====
+Find-the weights using perceptron network for AND NOT function when all the inputs 
+are presented only one time. Use bipolar inputs and targets. 
+
+
+===== PAGE 57 =====
+Page 58 Prof.Smitha Jacob, Department of Computer Science and Engineering, SJCET Palai
+Find-the weights using perceptron network for AND NOT function when all the inputs 
+are presented only one time. Use bipolar inputs and targets. 
+
+
+===== PAGE 58 =====
+Page 59 Prof.Smitha Jacob, Department of Computer Science and Engineering, SJCET Palai
+Find-the weights using perceptron network for AND NOT function when all the inputs 
+are presented only one time. Use bipolar inputs and targets. 
+
+
+===== PAGE 59 =====
+Find-the weights using perceptron network for AND NOT function when all the inputs 
+are presented only one time. Use bipolar inputs and targets. 
+
+
+===== PAGE 60 =====
+Find-the weights using perceptron network for AND NOT function when all the inputs 
+are presented only one time. Use bipolar inputs and targets. 
+
+
+===== PAGE 61 =====
+Find-the weights using perceptron network for AND NOT function when all the inputs 
+are presented only one time. Use bipolar inputs and targets. 
+
+
+===== PAGE 62 =====
+Find-the weights using perceptron network for AND NOT function when all the inputs 
+are presented only one time. Use bipolar inputs and targets. 
+
+
+===== PAGE 63 =====
+Perceptron problem
+
+
+===== PAGE 64 =====
+Perceptron problem
+► Find the weights required to perform the following classification using 
+perceptron network. The (vectors (1,1, 1, 1) and ( -1, 1 -1, -1) are belonging to 
+the class (so have target value 1), vectors (1, 1, 1, -1) and (1, -1, -1, 1) are not 
+belonging to the class (so have target value -1). Assume learning rate as 
+1,threshold as 0.2 and initial weights as 0. 
+
+
+===== PAGE 65 =====
+Perceptron problem
+
+
+===== PAGE 66 =====
+
+
+===== PAGE 67 =====
+Perceptron problem
+
+
+===== PAGE 68 =====
+Perceptron problem
+► Classify the two-dimensiona1 input pattern shown in Figure using perceptron 
+network .The symbol "*" indicates the data representation to be + 1 and "•" 
+indicates data to be -1. The patterns are I-F. For pattern I, the target is + 1, and 
+for F, the target is -1.
+
+
+===== PAGE 69 =====
+Perceptron problem
+
+
+===== PAGE 70 =====
+
+
+===== PAGE 71 =====
+
+
+===== PAGE 72 =====
+
+
+===== PAGE 73 =====
+
+
+===== PAGE 74 =====
+Tutorial questions
+► Implement NOR function using perceptron network for bipolar input and 
+targets 
+► Classify the 2D pattern shown in the figure below using perceptron network 
+
+
+===== PAGE 75 =====
+ADALINE Network
+
+
+===== PAGE 76 =====
+Adaptive Linear Neuron (Adaline)
+► In 1959, Bernard Widrow and Marcian Hoff of Stanford, developed models  
+called ADALINE (Adaptive Linear Neuron) and MADALINE (Multilayer ADALINE).
+► These models were named for their use of Multiple ADAptive LINear Elements.
+► MADALINE was the first neural network to be applied to a real world problem.
+► It is an adaptive filter which eliminates echoes on phone lines.
+► In terms of architecture, there is a noticeable difference between perceptron 
+and Adaline: the perceptron uses the threshold function whereas Adaline 
+uses a linear activation function
+► Both Adaline and the Perceptron are (single-layer) neural network models.
+► The Perceptron is one of the oldest and simplest learning algorithms out 
+there, and we consider Adaline as an improvement over the Perceptron.
+
+
+===== PAGE 77 =====
+Adaptive Linear Neuron (Adaline)
+► The units with linear activation function are called linear units.
+► A network with a single linear unit is called an Adaline (adaptive linear 
+neuron). 
+► In an Adaline, the input-output relationship is linear.
+► Adaline uses bipolar activation for its input signals and its target output.
+► The weights between the input and the output are adjustable.
+► The bias in Adaline acts like an adjustable weight, whose connection is from a 
+unit with activations being always 1. 
+► Adaline is a net which has only one output unit.
+
+
+===== PAGE 78 =====
+Adaptive Linear Neuron (Adaline)
+► The Adaline network may be trained using delta rule.
+► The delta rule may also be called as least mean square (LMS) rule or Widrow-
+Hoff rule.
+► This learning rule is found to minimize the mean squared error between the
+activation and the target value.
+► The Widrow-Hoff rule is very similar to percepton learning rule. However,
+their origins are different.
+► The perceptron learning rule originates
+➢ from the Hebbian & M-P Neuron assumption
+
+
+===== PAGE 79 =====
+Adaptive Linear Neuron (Adaline)
+► The delta rule is derived from the gradient- descent method, which is an
+optimization algorithm used to find the values of parameters (coefficients) of a
+function (f) that minimizes a cost function (cost).[Rate of change of a function]
+➢ Gradient-calculating the loss or error using functions
+➢ Descent-Update the existing parameters in response to the gradient.
+➢ Gradient descent is best used when the parameters cannot be calculated
+analytically
+► Also, the perceptron learning rule stops after a finite number of learning
+steps, but the gradient-descent approach continues forever, converging only
+asymptotically to the solution.
+
+
+===== PAGE 80 =====
+Delta Rule for single o/p -Adaline
+► The delta rule updates the weights between the connections so as w
+minimize the difference between the net input to the output unit and the
+target value.
+► The major aim is to minimize the error over all training patterns.
+► This is done by reducing the error for each pattern, one at a time.
+► The delta rule for adjusting the weight of ith pattern (i = 1 to n) is
+► where Δwi is the weight change;
+► α the learning rate;
+► xi the vector of activation of input unit;
+► Yin, the net input to output unit,
+► t the target output.
+
+
+===== PAGE 81 =====
+Architecture-Adaline Model
+
+
+===== PAGE 82 =====
+Architecture-Adaline Model
+• Adaline is a single unit neuron, which receives input from several units and
+also from one unit called bias.
+• The basic Adaline model consists of trainable weights.
+• Inputs are either of the two values (+ 1 or -1) and the weights have signs
+(positive or negative).Initially, random weights are assigned.
+• The net input calculated is applied to a quantizer transfer function that
+restores the output to + 1 or -1.
+• The Adaline model compares the actual output with the target output and on
+the basis of the training algorithm, the weights are adjusted.
+
+
+===== PAGE 83 =====
+TRAINING ALGORITHM & FLOWCHART
+
+
+===== PAGE 84 =====
+Flowchart-Adaline Model
+► This gives a pictorial representation of
+the network training.
+► The conditions necessary for weight
+adjustments have to be checked
+carefully.
+► The weights and other required
+parameters are initialized.
+► Then the net input is calculated,
+output is obtained and compared with
+the desired output for calculation of
+error.
+► On the basis of the error Factor,
+weights are adjusted.
+
+
+===== PAGE 85 =====
+Adaline –Training Algorithm
+► Step 0: Weights and bias are set to some random values but not zero. 
+► Set the learning rate parameter α. (The range can be between 0.1 and 1.0.)
+► Step 1: Perform Steps 2-6 when stopping condition is false.
+► Step 2: Perform Steps 3-5 for each bipolar training pair s:t.
+► Step 3: Set activations for input units i =1 to n, xi=si
+► Step 4: Calculate the net input to the output unit.
+► Step 5: Update the weights and bias for i= 1 to n:
+► Step 6: If the highest weight change that occurred during training is smaller 
+than a specified tolerance then stop training process, else continue. This is 
+the rest for stopping condition of a network.
+
+
+===== PAGE 86 =====
+Testing Algorithm
+
+
+===== PAGE 87 =====
+Adaline –Testing Algorithm
+► Step 0: Initialize the weights(from training algorithm) 
+► Step 1: Perform steps2-4 for each bipolar input vector x 
+► Step 2: Set the activations of the input units to x 
+► Step 3: Calculate the net input 
+► Step 4: Apply the activation function over the net input calculated
+
+
+===== PAGE 88 =====
+Adaline problems-OR
+
+
+===== PAGE 89 =====
+Prof.Smitha Jacob, Department of Computer Science and Engineering, SJCET Palai
+Implement OR function with bipolar inputs and targets using 
+ADALINE network 
+
+
+===== PAGE 90 =====
+Implement OR function with bipolar inputs and targets using 
+ADALINE network 
+
+
+===== PAGE 91 =====
+
+
+===== PAGE 92 =====
+Implement OR function with bipolar inputs and targets using 
+ADALINE network 
+
+
+===== PAGE 93 =====
+Adaline problems-ANDNOT
+
+
+===== PAGE 94 =====
+Use Adaline network to train AND NOT function with bipolar 
+inputs and targets. Perform 2 epochs of training. 
+
+
+===== PAGE 95 =====
+Page 97 Prof.Smitha Jacob, Department of Computer Science and Engineering, SJCET Palai
+Use Adaline network to train AND NOT function with bipolar 
+inputs and targets. Perform 2 epochs of training. 
+
+
+===== PAGE 96 =====
+Use Adaline network to train AND NOT function with bipolar 
+inputs and targets. Perform 2 epochs of training. 
+
+
+===== PAGE 97 =====
+Use Adaline network to train AND NOT function with bipolar 
+inputs and targets. Perform 2 epochs of training. 
+
+
+===== PAGE 98 =====
+Assignment 1
+
+
+===== PAGE 99 =====
+Assignment 1
+
+
+===== PAGE 100 =====
+MADALINE Network
+
+
+===== PAGE 101 =====
+MADALINE network
+► MADALINE is a Multilayer Adaptive Linear Element.
+► MADALINE was the first neural network to be applied to a real world
+problem.
+► It is used in several adaptive filtering process.
+► Two or more ADALINE are integrated to develop MADALINE model
+
+
+===== PAGE 102 =====
+MADALINE network
+► MADALINE is a Multilayer Adaptive Linear Element.
+► Used for nonlinearly separable logic functions (X-OR) function
+► Used for adaptive noise cancellation and adaptive inverse control
+► In noise cancellation the objective is to filter out an interference component
+by identifying a linear model of a measurable noise source and the
+corresponding immeasurable interference.
+► ECG, echo elimination from long distance telephone transmission lines
+► Simple MADALINE architecture consist of ‘n’ unit of input layer ‘k’ unit of
+Adaline layer and one unit of MADALINE layer
+✔ Each neuron in the adaline and MADALINE layer has a bias of excitation
+✔ ADALINE layer is present between the input layer and MADALINE layer
+hence the ADALINE layer can be considered as hidden layer
+
+
+===== PAGE 103 =====
+MADALINE network
+
+
+===== PAGE 104 =====
+Back Propagation Network
+
+
+===== PAGE 105 =====
+Back Propagation Network
+► The back-propagation learning algorithm is one of the most important developments in
+neural networks (Bryson and Ho, 1969; Werbos, 1974; Lecun, 1985; Parker, 1985;
+Rumelhan, 1986).
+► This network has reawakened the scientific and engineering community to the
+modeling and processing of numerous phenomena using neural networks.
+► This learning algorithm is applied to multilayer feed-forward network consisting on
+processing elements with continuous differentiable activation functions.
+► The networks associated with back-propagation learning algorithm are also called back-
+propagation network (BPNs).
+► For a given set of training input-output pair, this algorithm provides a procedure for
+changing the weights in a BPN to classify the given input patterns correctly.
+► The basic concept for this weight update algorithm is simply the gradient-descent
+method as used in the case of simple perceptron networks with differentiable units.
+► This is a method where the error is propagated back to the hidden unit
+
+
+===== PAGE 106 =====
+Back Propagation Network
+
+
+===== PAGE 107 =====
+Back Propagation Network
+► The aim of the neural network is
+► to train the net to achieve a balance between the net's ability to respond
+(memorization) and its ability to give reasonable responses to the input that is
+similar but not identical to the one that is used in training (generalization).
+► Memorization
+► Ability to remember training Data
+► Poor classification on testing data
+► Generalization
+► Ability to learn from training Data
+► Good classification on testing data
+► The back-propagation algorithm is different from other networks in respect to the process
+by which the weights are calculated during the learning period of the network.
+► The general difficulty with the multilayer perceptron is calculating the weights of the
+hidden layers in an efficient way that would result in a very small or zero output error.
+► When the hidden layers are increased the network training becomes more complex.
+
+
+===== PAGE 108 =====
+Back Propagation Network
+► To update weights, the error must be calculated. The error, Which is the
+difference between the actual (calculated) and the desired (target) output, is
+easily measured at the output layer.
+► It should be noted that at the hidden layers, there is no direct information
+of the error.
+► Therefore, other techniques should be used to calculate an error at the
+hidden layer, which will cause minimization of the output error, and
+this is the ultimate goal.
+► The training of the BPN is done in three stages –
+➢ the feed-forward of the input training pattern,
+➢ the calculation and back-propagation of the error,
+➢ updation of weights. 
+
+
+===== PAGE 109 =====
+Back Propagation Network
+► A back-propagation neural network is a multilayer, feed forward neural
+network consisting of an input layer, a hidden layer and an output layer.
+► The neurons present in the hidden and output layers have biases, which
+are the connections from the units whose activation is always 1.
+► The bias terms also acts as weights.
+► Figure shows the architecture of a BPN, depicting only the direction of
+information flow for the feed forward phase.
+► During the back propagation phase of learning , signals are sent in the
+reverse direction
+► The inputs sent to the BPN and the output obtained from the net could be
+either binary (0, 1) or bipolar ( -1, + 1).
+► The activation function could be any function which increases monotonically
+and is also differentiable
+
+
+===== PAGE 110 =====
+Back Propagation Network
+
+
+===== PAGE 111 =====
+
+
+===== PAGE 112 =====
+BPN-Training Algorithm
+
+
+===== PAGE 113 =====
+Back Propagation Network-Training Algorithm
+
+
+===== PAGE 114 =====
+Back Propagation Network-Training Algorithm
+
+
+===== PAGE 115 =====
+Back Propagation Network-Training Algorithm
+
+
+===== PAGE 116 =====
+
+
+===== PAGE 117 =====
+
+
+===== PAGE 118 =====
+
+
+===== PAGE 119 =====
+
+
+===== PAGE 120 =====
+
+
+===== PAGE 121 =====
+
+
+===== PAGE 122 =====
+
+
+===== PAGE 123 =====
+Back Propagation Network
+
+
+===== PAGE 124 =====
+Important Questions
+

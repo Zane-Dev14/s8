@@ -1,0 +1,20 @@
+[
+  {
+    "pdf": "/Users/eric/Documents/StudyCollege/SC/QP/CST444 SOFT COMPUTING, JUNE 2023.PDF",
+    "page_count": 3,
+    "txt_output": "/Users/eric/Documents/StudyCollege/SC/QP/ocr_output/CST444_SOFT_COMPUTING,_JUNE_2023.txt",
+    "json_output": "/Users/eric/Documents/StudyCollege/SC/QP/ocr_output/CST444_SOFT_COMPUTING,_JUNE_2023.json"
+  },
+  {
+    "pdf": "/Users/eric/Documents/StudyCollege/SC/QP/CST444 SOFT COMPUTING, MAY 2024.pdf",
+    "page_count": 3,
+    "txt_output": "/Users/eric/Documents/StudyCollege/SC/QP/ocr_output/CST444_SOFT_COMPUTING,_MAY_2024.txt",
+    "json_output": "/Users/eric/Documents/StudyCollege/SC/QP/ocr_output/CST444_SOFT_COMPUTING,_MAY_2024.json"
+  },
+  {
+    "pdf": "/Users/eric/Documents/StudyCollege/SC/QP/DC+SC.pdf",
+    "page_count": 8,
+    "txt_output": "/Users/eric/Documents/StudyCollege/SC/QP/ocr_output/DC+SC.txt",
+    "json_output": "/Users/eric/Documents/StudyCollege/SC/QP/ocr_output/DC+SC.json"
+  }
+]

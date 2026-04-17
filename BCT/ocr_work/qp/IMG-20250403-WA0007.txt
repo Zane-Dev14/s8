@@ -1,0 +1,41 @@
+Pages: 2
+0400CST428052303
+Reg No.: Name:
+APJ ABDUL KALAM TECHNOLOGICAL UNIVERSITY
+Eighth Semester B.Tech Degree (R,S) Examination May 2024 (2019 Scheme)
+
+Course Code: CST428
+Course Name: BLOCKCHAIN TECHNOLOGIES
+
+Max. Marks: 100 Duration: 3 Hours
+PART A
+
+Answer all questions, each carries 3 marks. Marks.
+1 Differentiate between symmetric and asymmetric cryptography. ()
+2) What are the benefits of Merkle trees? (3)
+3 Describe the two main categories of consensus mechanisms. (3)
+4 Compare the different features of centralized and decentralized systems. (3)
+5 How are transactions validated in a Bitcoin network? (3)
+6 Explain the working of PoW consensus mechanism. (3)
+7 Define smart contacts? Mention its properties. (3)
+8 Explain the different types of oracles. (3)
+9) With the help of a figure show the relationship between the transactions, (3)
+
+transaction trie, and block header in Ethereum.
+
+10 Explain how libraries are deployed in Solidity language with an example. @)
+PART B
+Answer any one full question from each module, each carries 14 marks.
+Module I
+11 a) Outline the concepts to achieve cryptography using RSA algorithm. (9)
+b) List the properties of a hash function. Discuss the working of distributed hash (5)
+tables.
+OR
+12 a) Explain elliptic curve cryptography algorithm. (10)
+b) Explain the compression function of SHA-256 algorithm with the help ofaneat (4)
+diagram.
+Module If
+13 a) Illustrate and explain how blockchain works using a neat diagram. (2)
+b) Explain the methods used to achieve decentralization. (7)
+
+Page | of 2

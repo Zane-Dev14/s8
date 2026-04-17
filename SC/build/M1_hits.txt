@@ -1,0 +1,92 @@
+19:► McCulloch and Pitts Neuron.
+33:► Role model of soft computing is human mind.
+68:soft computing
+69:► The term soft computing was introduced by Prof.Lotfi Zadeh. (1994),University 
+81:► In 1996, L. A. Zadeh (LAZ) introduced the term hard computing. 
+83:► Characteristics of hard computing 
+87:► Examples of hard computing 
+96:► The term soft computing was proposed by the inventor of fuzzy logic, Lotfi A. 
+103:► The role model for soft computing is the human mind
+104:► Characteristics of soft computing 
+108:► Use some biological inspired methodologies such as genetics, evolution, Ant’s behaviors, 
+114:► There are three types of soft computing techniques which include the 
+126:► Examples of soft computing-fuzzy logic
+143:► Examples of soft computing-Genetic Algorithm
+209:► ANN is an efficient Information processing paradigm inspired by biological 
+340:characteristics of a biological neural network.
+348:the activation signal.
+349:► The activation signal of a neuron is transmitted to other neurons
+358:biological neural network.
+447:Q1:Calculate the net input of the following  network
+452:► The function to be applied over the net input is called the activation functions
+457:► Bias →Bias included in the network has its impact in calculating the net input
+460:► Positive bias helps in increasing the net input of the network
+461:► Negative bias helps in decreasing the net input of the network
+467:Q2:Calculate the net input of the following  network
+472:Q3:Calculate the net input of the following  network
+815:► In ANN activation function may be defined as the extra force or effort applied over the 
+816:net input to obtain an exact output.Activation function is applied over the net input to 
+822:► Linear and Non linear activation functions can be used to generate the neurons 
+835:► linear activation function
+839:► with linear activation functions, no matter how many layers in the neural network, the 
+842:► So a linear activation function turns the neural network into just one layer.
+844:► Modern neural network models use non-linear activation functions. 
+860:► All layers of the neural network collapse into one — with linear activation 
+884:► A sigmoidal function is a mathematical function having a characteristic "S"-shaped curve or 
+885:sigmoid curve.
+886:► When the activation function for a neuron is a sigmoid function it is a guarantee that the 
+888:► Also, as the sigmoid is a non-linear function, the output of this unit would be a non-linear 
+912:non-binary activations 
+913:• sigmoid activation is not a zero-centric function.
+923:sigmoid’s around 0.5. Tanh Convergence is 
+930:• ReLu stands for the rectified linear unit (ReLU). It is the most used activation function in 
+935:• ReLu also provides the benefit of sparsity and sigmoids result in dense representations. 
+946:following activation functions
+948:ii)Bipolar sigmoidal
+965:► Calculate the net o/p of the NN using the bipolar and binary sigmoidal  
+966:activation function
+986:► Output of the neuron Y using binary sigmoidal activation function=0 .72
+987:► Calculate the net input to the neuron Y for the network shown in figure. 
+988:Compute output of the neuron Y using binary sigmoidal activation 
+993:McCulloch and Pitts Neuron
+997:McCulloch and Pitts Neuron
+1001:McCulloch and Pitts Neuron
+1010:activation of a M-P neuron is binary(at any time 
+1019:Architecture of McCulloch and Pitts Neuron
+1023:Architecture of McCulloch and Pitts Neuron
+1031:► For inhibition to be absolute ,the threshold with the activation function should satisfy 
+1039:Architecture of McCulloch and Pitts Neuron
+1040:► Simple McCulloch-Pitts neurons can be used to design logical operations.
+1043:► The inputs of the McCulloch-Pitts neuron could be either 0 or 1. It has a threshold function as an 
+1044:activation function. So, the output signal yout is 1 if the input ysum is greater than or equal to 
+1049:Example of McCulloch and Pitts Neuron
+1057:► To analyze the situations using the McCulloch-Pitts neural model, consider 
+1065:Example of McCulloch and Pitts Neuron
+1088:Problems McCulloch and Pitts Neuron
+1109:Implement ANDNOT  function using M-P 
+1209:Implement XOR  function using M-P 
+1214:Implement XOR gate function using M-P Neuron Model
+1219:Implement XOR gate function using M-P Neuron Model
+1224:Implement XOR gate function using M-P Neuron Model
+1229:Implement XOR gate function using M-P Neuron Model
+1234:Implement XOR gate function using M-P Neuron Model
+1239:Implement XOR gate function using M-P Neuron Model
+1244:Implement XOR gate function using M-P Neuron Model
+1249:McCulloch and Pitts Neuron Conclusion
+1250:► McCulloch-pitts model doesn’t have the ability of learning,because of fixed 
+1275:► In 1949, Donald Hebb proposed one of the key   ideas in biological learning, 
+1283:repeatedly participates in its activation, the synaptic connection between 
+1454:Hebb Network -logical XOR function
+1458:Design a Hebb Network to implement XOR function .Use bipolar i/p 
+1463:Design a Hebb Network to implement XOR function .Use bipolar i/p 
+1468:Design a Hebb Network to implement XOR function .Use bipolar i/p 
+1473:Design a Hebb Network to implement XOR function .Use bipolar i/p 
+1478:Design a Hebb Network to implement XOR function .Use bipolar i/p 
+1483:Design a Hebb Network to implement XOR function .Use bipolar i/p 
+1487:► Thus XOR function is a special case of Pattern classification problem 
+1489:► It can be made linear separable by separating +ve regions and –ve Regions
+1614:exclusive-OR (XOR) function.
+1615:► The illustration of XOR function that two classes,
+1622:► List the main components of biological neuron.
+1623:► Compare and contrast biological neuron and artificial neuron
+1628:► List the commonly used activation functions.

@@ -1,0 +1,401 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=0.95in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\setlength{\parskip}{0.5em}
+\setlength{\parindent}{0pt}
+\setlength{\headheight}{15pt}
+\linespread{1.08}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{CST444 Soft Computing - Module 1}
+\rhead{PDF-Source Locked Guide}
+\cfoot{\thepage}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+
+\newcommand{\examtip}[1]{%
+\vspace{0.2em}
+\noindent\fcolorbox{black}{gray!12}{\parbox{0.97\linewidth}{\textbf{Exam Tip:} #1}}%
+\vspace{0.2em}
+}
+
+\begin{document}
+
+\section*{Source Lock Declaration}
+This Module 1 guide is rewritten using only \textbf{SC - M1 -Ktunotes.in.pdf}. Question coverage follows your OCR question set, but answer points are sourced from that PDF content and its worked-problem sections.
+
+\section*{Module 1 Topic Map from Questions}
+\textbf{Frequently repeated concepts}
+\begin{itemize}
+\item Soft computing vs hard computing.
+\item Biological neuron and artificial neuron comparison.
+\item Net input, bias, and activation function role.
+\item McCulloch-Pitts neuron and logic implementation.
+\item Hebb rule and Hebb logical designs.
+\item Linear separability and XOR non-separability.
+\end{itemize}
+
+\textbf{High-mark concepts}
+\begin{itemize}
+\item Linear separability with XOR justification.
+\item AND/ANDNOT using MP neuron with threshold logic.
+\item Hebb training algorithm with bipolar coding.
+\item Activation-function based network outputs.
+\end{itemize}
+
+\textbf{Must-study-first order}
+\begin{enumerate}
+\item Soft computing idea and characteristics.
+\item Biological neuron parts and behavior.
+\item Artificial neuron model and bias effect.
+\item Activation functions and output ranges.
+\item MP neuron logic realization.
+\item Hebb learning and XOR limitation.
+\end{enumerate}
+
+\section*{Core Theory (From Source PDF)}
+
+\subsection*{1) Soft Computing and Hard Computing}
+\textbf{From source notes}
+\begin{itemize}
+\item Soft computing was proposed by Lotfi A. Zadeh.
+\item It exploits tolerance for imprecision and uncertainty.
+\item It aims at tractability, robustness, and low solution cost.
+\item The role model for soft computing is the human mind.
+\item Main techniques listed are ANN, fuzzy logic, and GA.
+\item Hard computing emphasizes precise result and formal model.
+\end{itemize}
+
+\subsection*{2) Biological Neuron and ANN Mapping}
+\begin{itemize}
+\item Biological neuron parts listed: soma, dendrites, axon, synapse.
+\item Dendrites receive signals; axon carries impulses.
+\item Firing behavior depends on crossing threshold.
+\item ANN is described as inspired by biological nervous system.
+\item ANN uses interconnected neurons with weighted links.
+\item Weights contain input signal information.
+\end{itemize}
+
+\subsection*{3) Net Input and Bias}
+\begin{itemize}
+\item Source notation uses \textbf{Yin} for net input and \textbf{Y} for output.
+\item Bias is included by adding an input term ($x_0=1$ style statement in notes).
+\item Positive bias increases net input.
+\item Negative bias decreases net input.
+\item Net-input questions are repeatedly asked in module problems.
+\item Output is obtained after applying activation over net input.
+\end{itemize}
+
+\subsection*{4) Activation Functions}
+\begin{itemize}
+\item Activation function is applied over net input to obtain output.
+\item Linear activation has limited complexity handling.
+\item Nonlinear activation is needed for complex mappings.
+\item Sigmoid is non-linear and bounded.
+\item Binary sigmoid output is between 0 and 1.
+\item Bipolar sigmoid output is between -1 and 1.
+\end{itemize}
+
+\subsection*{5) McCulloch-Pitts Neuron}
+\begin{itemize}
+\item MP neuron is an early binary computational neuron model.
+\item Inputs are binary and output is threshold-based.
+\item Links can be excitatory or inhibitory.
+\item Firing is based on threshold condition.
+\item Source notes state simple MP neurons can realize logical operations.
+\item AND and ANDNOT are included in source problem sets.
+\end{itemize}
+
+\subsection*{6) Hebb Learning and Linear Separability}
+\begin{itemize}
+\item Hebb learning idea: synchronous activation strengthens connection.
+\item Source states Hebb rule is more suited to bipolar data.
+\item Hebb sections include AND, OR, XOR, and pattern-classification examples.
+\item Linear separability is explained with one separating line in 2D.
+\item XOR is explicitly given as linearly inseparable.
+\item Notes state XOR cannot be separated with a single line.
+\end{itemize}
+
+\examtip{Use source phrase in exams: ``XOR cannot be separated with a single line.'' This is a direct scoring statement from your notes.}
+
+\section*{Numericals and Derivations (Source-Only)}
+
+\subsection*{N1) Activation numerical from source worked example}
+\textbf{Given in source problem}
+\begin{itemize}
+\item Net input to neuron $Y$ is shown as 0.93.
+\item Binary sigmoidal activation is asked.
+\end{itemize}
+
+\textbf{Result reported in source}
+\begin{itemize}
+\item Output of neuron $Y$ using binary sigmoidal activation is 0.72.
+\end{itemize}
+
+\textbf{Exam format writeup}
+\begin{itemize}
+\item Given: $Y_{in}=0.93$.
+\item Formula used: binary sigmoid function (as source activation section).
+\item Final answer (source result): $Y=0.72$.
+\end{itemize}
+
+\subsection*{N2) Net-input diagram problems (source method)}
+\textbf{Given:} network diagram with inputs, weights, and bias.
+
+\textbf{Find:} net input (Yin), and output if activation is specified.
+
+\textbf{Source-based method}
+\begin{itemize}
+\item Read all weighted links from diagram.
+\item Include bias influence (increase/decrease Yin based on sign).
+\item Compute aggregated net input Yin.
+\item Apply requested activation function.
+\item Report output in required range.
+\end{itemize}
+
+\subsection*{N3) Hebb pattern classification (I vs O) from source section}
+\textbf{Given in notes}
+\begin{itemize}
+\item 3x3 pattern matrix.
+\item ``+'' indicates 1 and blank indicates -1.
+\item I has target 1 and O has target -1.
+\end{itemize}
+
+\textbf{Source-based solution flow}
+\begin{itemize}
+\item Initialize weights and bias to zero.
+\item Present each bipolar pattern with target.
+\item Update weights using Hebb learning statement.
+\item Test final weights on I and O.
+\item Verify sign of output against target class.
+\end{itemize}
+
+\section*{Solved Questions for Module 1}
+
+\subsection*{Part A / 3-Mark Questions (Each Answer Has 6 Scoring Points)}
+
+\textbf{Q1. Differentiate soft computing and hard computing.}
+\begin{enumerate}
+\item Soft computing handles imprecision and uncertainty.
+\item Hard computing requires precise formulation.
+\item Soft computing targets robustness and low solution cost.
+\item Hard computing gives precise guaranteed output.
+\item Soft computing is adaptive and human-mind inspired.
+\item ANN, fuzzy logic, GA are listed soft-computing techniques.
+\end{enumerate}
+
+\textbf{Q2. Role of activation function; explain any two.}
+\begin{enumerate}
+\item Activation is applied over net input to produce output.
+\item It decides whether neuron response should be active.
+\item Linear activation has limited expressive ability.
+\item Nonlinear functions support complex mapping.
+\item Binary sigmoid outputs lie between 0 and 1.
+\item Bipolar sigmoid outputs lie between -1 and 1.
+\end{enumerate}
+
+\textbf{Q3. Draw simple artificial neuron and discuss net input.}
+\begin{enumerate}
+\item Inputs are connected through weighted links.
+\item Yin is treated as net input in source notation.
+\item Output Y is obtained after activation operation.
+\item Weights represent signal strength.
+\item Bias affects Yin magnitude and direction.
+\item Net-input calculation is central to ANN response.
+\end{enumerate}
+
+\textbf{Q4. Compare biological and artificial neuron.}
+\begin{enumerate}
+\item Biological neuron has soma, dendrites, axon, synapse.
+\item ANN neuron is a simplified processing unit.
+\item Dendritic reception maps to ANN input stage.
+\item Synaptic behavior maps to ANN weighted connections.
+\item Biological firing is threshold dependent.
+\item ANN output is activation-function dependent.
+\end{enumerate}
+
+\textbf{Q5. Explain ANN architectures based on connection.}
+\begin{enumerate}
+\item Single layer feedforward network.
+\item Multilayer feedforward network.
+\item Single node with its own feedback.
+\item Single layer recurrent network.
+\item Multilayer recurrent network.
+\item Source also groups as feedforward/recurrent categories.
+\end{enumerate}
+
+\textbf{Q6. ``Hebb rule is more suited for bipolar data.'' Justify.}
+\begin{enumerate}
+\item This point is explicitly stated in source notes.
+\item Hebb rule ties weight change to input-learning-signal relation.
+\item Bipolar coding supports positive/negative correlation learning.
+\item Source examples of Hebb logic are in bipolar form.
+\item XOR/AND/OR Hebb examples all follow bipolar style.
+\item Therefore bipolar representation is preferred in source treatment.
+\end{enumerate}
+
+\textbf{Q7. Explain Hebb training algorithm.}
+\begin{enumerate}
+\item Start with initial weights and bias (source problems use zero start).
+\item Present one input-target pattern.
+\item Apply Hebb weight-change relation.
+\item Carry updated weights to next pattern.
+\item Continue until all training patterns are presented.
+\item Use final weights for testing/classification.
+\end{enumerate}
+
+\textbf{Q8. Types of learning methods in neural networks.}
+\begin{enumerate}
+\item Supervised learning is target-guided.
+\item Unsupervised learning works without teacher targets.
+\item Reinforcement learning uses reward feedback.
+\item Source discusses adaptive learning as ANN property.
+\item Learning modifies synaptic weights over time.
+\item Updated weights determine future classification quality.
+\end{enumerate}
+
+\textbf{Q9. Implement AND using MP neuron (binary).}
+\begin{enumerate}
+\item Source includes dedicated MP-AND problem sequence.
+\item Use binary inputs as MP model requires.
+\item Compute summed input for each truth-table row.
+\item Apply threshold decision in each case.
+\item Output is high only for AND-true case.
+\item Thus MP neuron realizes AND logic.
+\end{enumerate}
+
+\textbf{Q10. Implement ANDNOT using MP neuron.}
+\begin{enumerate}
+\item Source includes explicit MP-ANDNOT problem sequence.
+\item Use binary inputs and threshold activation.
+\item Include inhibitory interpretation for NOT part.
+\item Evaluate truth table through threshold condition.
+\item Only ANDNOT-true case produces high output.
+\item Therefore MP neuron models ANDNOT function.
+\end{enumerate}
+
+\textbf{Q11. Net input calculation question.}
+\begin{enumerate}
+\item Read all inputs and weight values from diagram.
+\item Include bias term and its sign effect.
+\item Aggregate to obtain Yin.
+\item Check if activation function is additionally requested.
+\item Apply requested activation to Yin.
+\item Report final output with proper range.
+\end{enumerate}
+
+\textbf{Q12. Sigmoid-output question.}
+\begin{enumerate}
+\item Source includes binary and bipolar sigmoid examples.
+\item First compute Yin from the given network.
+\item For binary sigmoid, output range is [0,1].
+\item For bipolar sigmoid, output range is [-1,1].
+\item Source numeric example: Yin 0.93 gives binary output 0.72.
+\item Write final answer with requested activation type.
+\end{enumerate}
+
+\subsection*{Part B / 14-Mark Questions (Each Answer Has 14 Scoring Points)}
+
+\textbf{Q1. Explain linear separability and justify XOR non-linearity; include AND/Hebb context.}
+\begin{enumerate}
+\item Linear separability means one line separates two classes in 2D.
+\item Notes describe class points occupying opposite half-spaces.
+\item A single-layer classifier depends on such separability.
+\item AND-like class setting is separable in standard 2D view.
+\item Source includes Hebb logic examples for separable cases.
+\item XOR is listed as classic non-separable pattern.
+\item XOR class points are diagonally distributed.
+\item No single line can split XOR classes correctly.
+\item Therefore single linear boundary is insufficient for XOR.
+\item Source explicitly says XOR cannot be separated by one line.
+\item This explains failure of simple linear classification.
+\item More complex partitioning is required for XOR.
+\item In exam, add a 2D statement about opposite diagonals.
+\item Conclusion: separability criterion explains both AND success and XOR failure.
+\end{enumerate}
+
+\textbf{Q2. Implement ANDNOT using MP neuron with architecture and threshold condition.}
+\begin{enumerate}
+\item MP neuron uses binary input and threshold output.
+\item Source states links may be excitatory/inhibitory.
+\item Build two-input binary ANDNOT truth table.
+\item Compute summed input per row.
+\item Compare each sum with fixed threshold.
+\item If threshold is satisfied, neuron fires.
+\item Otherwise output remains zero.
+\item Input-1 supports the AND term.
+\item Input-2 supports NOT behavior via inhibition.
+\item Verify four input cases one by one.
+\item Exactly one case should produce output 1.
+\item Remaining three cases produce output 0.
+\item This matches ANDNOT functional definition.
+\item Conclusion: MP threshold architecture realizes ANDNOT directly.
+\end{enumerate}
+
+\textbf{Q3. Using Hebb rule, derive classifying weights for I and O pattern and explain testing.}
+\begin{enumerate}
+\item Source problem defines 3x3 pattern classification setup.
+\item Convert symbols to bipolar values (+ as 1, blank as -1).
+\item Assign targets: I as +1 and O as -1.
+\item Initialize all weights and bias to zero.
+\item Present first pattern and apply Hebb update relation.
+\item Carry updated weights into next pattern.
+\item Continue until all patterns are presented.
+\item Maintain bipolar consistency through entire process.
+\item Use final learned weights for testing stage.
+\item Test pattern I and check output sign.
+\item Test pattern O and check output sign.
+\item Compare outputs with assigned targets.
+\item Report classification correctness.
+\item Conclusion: Hebb network performs source-defined class separation for the I/O patterns.
+\end{enumerate}
+
+\textbf{Q4. Solve activation-function output question (binary and bipolar sigmoid) in source style.}
+\begin{enumerate}
+\item Identify given network and calculate net input Yin.
+\item Include bias contribution exactly as shown.
+\item If binary sigmoid is asked, use source binary range [0,1].
+\item If bipolar sigmoid is asked, use source bipolar range [-1,1].
+\item Apply activation over computed Yin.
+\item Present binary output.
+\item Present bipolar output.
+\item Compare ranges and behavior.
+\item State why different activations give different values.
+\item Mention non-linearity role from source activation section.
+\item Keep answer in Given-Find-Method-Final structure.
+\item For source example: Yin 0.93 gives binary output 0.72.
+\item If diagram data is figure-only, retain method and source reporting style.
+\item Conclusion: activation choice controls output scale and response profile.
+\end{enumerate}
+
+\section*{Formula/Method Sheet (Source-Safe)}
+\begin{itemize}
+\item Net input notation in notes: Yin.
+\item Output notation in notes: Y.
+\item MP rule: output 1 if threshold is satisfied, else 0.
+\item Binary sigmoid output range: 0 to 1.
+\item Bipolar sigmoid output range: -1 to 1.
+\item Hebb statement: weight increase is proportional to input and learning signal product.
+\item Linear separability: one line can separate two classes.
+\item XOR: cannot be separated with a single line.
+\end{itemize}
+
+\section*{One-Page Quick Revision}
+\begin{itemize}
+\item Soft computing is uncertainty-tolerant and adaptive.
+\item Hard computing is precise and model-centric.
+\item ANN mirrors biological-network ideas with weighted links.
+\item Bias shifts net input up or down.
+\item Activation maps net input to final output.
+\item MP neuron is binary threshold logic.
+\item Hebb uses local connection strengthening behavior.
+\item XOR is the standard non-separable logic case.
+\end{itemize}
+
+\examtip{When writing fast in exam, anchor each answer with one direct phrase from your notes and then list scoring points.}
+
+\end{document}

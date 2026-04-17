@@ -1,0 +1,600 @@
+
+===== PAGE 1 =====
+@ktunotes.in
+e
+‘Ne p )
+(——__F Bl \\a/
+——_
+Pe
+NOT=S
+i Pe -
+The learning companion.
+KTU STUDY MATERIALS | SYLLABUS | LIVE
+NOTIFICATIONS | SOLVED QUESTION PAPERS
+® Website: www.ktunotes.in
+
+===== PAGE 2 =====
+Haig Tageunce Systions E19) seeesas
+> Fuzgy rule - based syystuw » dy modi, Gnd
+fugiy expert syste cue geneaallg known ay
+nwy ingerenae Sqsteny (FIs).
+
++ The key unit of & duaay logic Sm % FIS.
+
+SFIS wes “IF THEN” Auly along wath connec tory
+<R” on AND’. fos making necessauy decision rules.
+
+The input bo FIs mas be dugsy aa caisp » bet
+to cxdput from Fis is culvacys a desgy set -
+conshuchon 4 working principh_af Fis.
+
++ Knowledge base |
+ce
+caisp) | unit ee
+
+Deciston - Making
+Ryag | unt | Panag |
+
+===== PAGE 3 =====
+% 13
+Aris is contaucted aj tive dunchonl bloevs
+They GU:
+4) A kule bate that contatas numexocs duwy
+IF. THEN Rules.
+
+QA database that degines the membership quocnon:
+a de3gy sek wed in daggq Kules.
+3) Desision - making unit that perform operation ov
+the gulu. :
+4) Fuzgigicadion meron unit that Converts the (2057
+quantities inte quggy quantities
+5) Defuasificahon injerna unit td convert te
+
+: fgg quantities into CAisp quantities
+Taitially, ty the {43g gicahon unit, the CAIs p tepect
+
+| w convertid into duzay tapat. Various 4133 frcecton
+methods aw employed dex this. Adiex tis Prowss ,
+zule based u downed Balubare and Rule beae Qu
+Collec tively called knowledge base Finally,
+defusgiqication prowss bb auied out to produce
+Cxisp output, Mainly, the d 4354 Rules au {einud
+tn the Rule base and Stitable deaston ae made
+tn the deci ston - making unt. meee
+
+===== PAGE 4 =====
+" Theac cue two important types at Fis. ag
+| Mamdant Fis '
+2 Sugeno FIS.
+The dyjertace Any the ten metheds dies in the
+consequent of fugagy Rules. .
+= Fagg sets ae wed as Aule consequesk in
+Mamdant Fis
+~ Kineas gunchon of input veatables ae used 3
+kule consequentk to Sugeno's wathod -
+=Mamdanis rule ind a gpeatlee acceplana ©
+all Univeasal approscimadoas than Sugens's
+meclel |
+Op membership functions ou expected to be
+fuggy sets. Ajtes Aga xeqation prows, cach cudpid »
+variable covilain a duaay see, hen dopuzzificadion
+is cmportant oct the output stage.
+steps to computa ovdped frome this Fis |
+tp- It Deleamia & set ol doa ul .
+pa Make te Up Fgay ing: Ap morbership fuschiony
+
+===== PAGE 5 =====
+es
+A . Combina the duagigied 4p according to the
+duayy bules for establishing . rule srcngth
+step 4 : Delermunr tua _consequant ay the rule by
+combining two Rule strength Gnd Aho Output
+mombers Wp dunchon .
+: slips: Combine ail the consequent to get o» olp
+distaibection.
+stop 6 Finally, 2 defuagiqied output distar bution
+obtained.
+st te 9 wt hs "Sing re an
+' - r
+| A ung
+| Thpud distaibu: on | CY Otetpeck dishiibud |
+7 Are
+| feb) | ie
+
+===== PAGE 6 =====
+‘ Consider a too-input Mamdann Fis cocth too
+zules The model duggifie the hwo inputs by
+gnding the inteasec tion af tus Cusp inpud value
+cocth input mombeaship qurction . The nvudimum
+operation w wed to compucty tho dugay input
+and” or combining the too duaziqred inpud th
+oblas Kule Strength. te oudput mom bership
+duncton % clipped at the Rule strength. Finally,
+the maximum operartoa 3 wed to Compule the
+s433G Output “or” gor Combining the oudpat
+the two aules .
+Statement and “ANo/or” conrachves .[ The Consequence,
+% tre tule (an be oblained in two Stops :
+) by computing He Arle sleengih completely
+a) by clippisy the output membership quscton at |
+The outputs at all the 4334 getter are Combiad
+ty obtain one jeyy oud put distribution. From FL, '
+et desuad to get onlay one Caisp oudput. the ;
+cusp Op Obtained from dopuggificahon ptows. The
+Common techniques of dopazzificahan wed au
+
+===== PAGE 7 =====
+ez Se! I}
+, — Cesiter of, mass oFfand Mean of rnacimm
+. The found of the gugay yuk of & suger}
+Z = fg) & a Crisp functon ot
+consequn —
+J Generally FY) ba polynonsial t far ipod
+variables x and 4:
+J? if fag) u qust- OACOA polyromual we ger
+rast- order Sugeno (UZ34 moda|
+J? if £ uy) 7) constant , We get Jeao- order Sige
+C234 model
+SFuggy nferere proan under Sugeno mocte, W-
+sbps. 2 Faggehyng tee ioputa — mane Fee
+. tre Sim Ge made 4gay .
+stop 2 7 App hog He }u33 operation — Wen
+fuggy operator must be applied by 9% ™
+
+===== PAGE 8 =====
+if a= Gnd 5=y then. oudpul & 2- axrby re
+For Sugeno mode] af aero oxded , the oudpuc lovel og
+Z & a constant
+© Comparison blew Mamdani 4 Sugeno Method.
++ Otc put membership duschon :
+The Main dipersnce blo them is on the baats
+O output membership duocton: The Sugeno ofp
+membership qunctions au. etther linecr o1 constant
+@ Aggugation and Defuggification Prowduu :
+The dupe blw trem alo Liss in the
+Conseauuna af 44334 rules. @od due to the Same
+| Welk agguegation and dle fuga’ gucoction prouduc
+alio digger
+3 Mathomaheal Rule: |
+Moae mathematical ruly exist Jor the
+Sugeno gule than the mamdani kule.
+4 Adjustable Parameters :
+‘The Sugeno controller has mou adywtable ’
+parouee ters thon the Mamdani controle.
+
+===== PAGE 9 =====
+y Tnpeds Tnpd Membership 14
+teh ; / quachon
+ac \. _ Rul tungth |
+Tope a pr io? |
+(al |
+|
+| ‘opt Junction M8 ed Membership L°
+earthy
+| > \ \ 2.
+Fy: eee Na
+Sugeno Model it
+The main advantages al Mamdani Method
+act bas wocdespstad acceptance,
+| ath w Well suitable fox human yp aot
+3tu intuitive ;
+Muantager af Sugeno Methods.
+LT com udochonally ide
+atta compact and works Wal vo Wana =
+tuckrique, oplinigation techaigue on! a
+= ive technique,
+
+===== PAGE 10 =====
+4 Tt best Sutled for mathematical anatysu.
+9 , ‘ eee
+4 Tt hw quaranteed continuity of the Op Surat .-
+
+===== PAGE 11 =====
+‘
+| 14.3 Architecture and Operation of FLC System
+
+i The basic architecture of a fuzzy logic controller is shown in Figure 14-2. The principal components of an
+Hl FLC system are: a fuzzifier, 2 fuzzy cule base, a fuzzy knowledge base, an inference engine and a defuzzifier.
+{ Ir also includes parameters for normalization. When the output from che defuzzifier is not a control action
+i for a plant, then the system is a fuzzy logic decision system. The fuzzifier present converts the crisp quantities
+| into Fuzzy quantities. The fuzzy rule base stores the knowledge about the operation of the process of domain
+| expertise. The fuzzy knowledge base stores the knowledge about all the input-output fuzzy relationships. Ic
+j includes the membership functions defining the input variables to che fuzzy rule base and the output variables
+{ to the plant under control, The inference engine is the kernel of an FLC system, and it possess the capability
+: to simulate human decisions by performing approximate reasoning to achieve a desired control strategy. The
+' defuzzifier converts the fuzzy quantities inco crisp quantities from an inferred fuzzy control action by the
+| inference engine.
+
+ed F
+
+Normalization Ou
+
+| nes | ipa cating. || Fuzziner |#%),] inference |) | netuzziter |) Xz Outputs
+| factors engine slates
+
+|
+
+| Ses |
+
+t factors
+
+| Figure 14-2 Basic architeccure of an FLC system.
+
+===== PAGE 12 =====
+The various steps involved in designing a fuzzy logic controller are as follows: i
+| Step 1: Locate the input, ourput and state variables of the plane under consideration. }
+Step 2: Split che complece universe of discourse spanned by each variable into a number of fuzzy subsets,
+assigning each with a linguistic label. The subsets include all che elements in the universe. .
+Step 3: Obtain the membership function for each fuzzy subset.
+Step 4: Assign the fuzzy relationships between the inputs or states of fuzzy subsets on one side and the
+oucpucs of fuzzy subsets on other side, thereby forming the rule base. 7
+Step 5: Choose appropriate scaling factors for the input and ourput variables for normalizing the variables
+berween (0, 1] and [—1, 1) interval.
+Step 6: Carry out the fuzification process.
+Step 7: Identify the ouput contributed from cach rule using fuzzy approximate reasoning.
+Step 8: Combine che fuzzy outputs obtained from each rule. i
+| Step 9: Finally, apply defuzzification to form a crisp output. | t
+The above steps are performed and executed for a simple FLC system. The following design elements are
+adopted for designing a general FLC system: t
+1, Fuzzification strategies and che interpretation of a fuzzifier.
+2. Fuzzy knowledge base: t
+normalization of the parameters involved; i
+partitioning of input and output spaces; :
+selection of membership functions of a primary fuzzy set. t
+3. Fuzzy rule base: :
+selection of input and output variables; H
+source from which fuzzy control rules are to be derived; ‘
+types of fuzzy control rules; H
+compleceness of fuzzy control rules. }
+4. Decision-making logic: ;
+proper definition of fuzzy implication;
+interpretation of connective “and”;
+interpretation of connective “or”;
+inference engine, |
+5. Defuzzification strategies and the interpretation of a defuzzifier. ;
+When all the above five design parameters are fixed, the FLC system is simple. Based on all this, the features |
+of a simple FLC system are as follows:
+fixed and uniform input and output scaling factors for normalization; |
+fixed and noninteractive rules; °
+fixed membership functions; {
+only limited number of rules, which increases exponentially with the number of input variables; |
+
+===== PAGE 13 =====
+i fixed expertise knowledge;
+no hierarchical rule structure and low-level control.
+
+===== PAGE 14 =====
+C) Creele o Rel ong joi hel Lhe be .
+@) trveluete tilness .
+@) Reproduce ( Makehon’) . 4
+(4) Next genanhrn
+ry try ft
+A)
+cee Seechehrem
+suse
+. fo
+CLEP Gene
+% allele
+\ L Eucode fe) .
+reel 7 | Cempuisbior | |
+/ Lolifato |
+Ber . Crecle 4 vecternTottial ale. AY owal popelatm %s
+Cacalecl Freven a random Slaten & salhag (Whrithore eaveloges
+de domo sowns )+ Thuis ts unlike Ihe Rikuchwo fev lice
+AL taens role Ye inthal ek ine rien ts ta ie
+$lep2 > Kvalidle, Rlners ! Avolue for fitness vs caw, b cant, gds™
+(Chromosome) clopeveling on how cle id ackually ts to galorgcte tol
+Cro arviviry to the auger OF due. clesived proldoun)+ Priicye Weald
+
+===== PAGE 15 =====
+> UU 0 43
+are viok 10 be Gucuusea wilh “avywers'l do the pllm 3 diunk of-
+rom as porn lke Cloaweartey hes thal We ua would employ t9
+oscleg to Acach Tre, amawer-
+
+dep Reproduce Cancl thildvey Mulele) : Thre Chromosomes witha
+Tater Pwd Value are wow i Reproduce obfspri
+taht cam Wulele aber vepabuttort Thi. of pring u i pelt
+of He Leder avd modtor Whog tompertioy Commsts 0&4 Combsrohen
+of eves Pew the dese Ctux prokers vs kupwy eg “Crees ta grover"):
+see: Next genurchoy LAEthe vow gmerahoy Conlaing Aeludioy that
+produces 2 Oly Herat 3 close Cup rgin Ok yal pdtrecdeginel avewe
+den dg Poly hor keey solved YI pus gy not the are, trey te
+wis neta wlll go tng ee proens a> decir Prrends
+did. Aes will Coventee. uh" a seluchty 5 Yeached +
+|
+\
+|
+{
+: Mutehs 4 ,
+a
+Yes
+.
+| Hacc La gent: Metin
+
+===== PAGE 16 =====
+Fidnen vee Re comer ana 74
+2 Lwowmt ome tid Mer}
+4200000110 2.
+Bellona 6 -
+CL O01 0Q0HO6 | YL) ;
+Db: 00110100 3
+a
+Asorrorl lo , 5 ey
+B: 00100000 It v WV
+C: 10110000 2
+Drotlotllo
+Pliner proportionate selerh CRouletbe whoel tanuplig)
++> - Roulette wheel eampling £y
+Ze \ Fidnews —pepertiovade Kelerhioy
+Gre Covyrcdev @-bil-clremorenes wsittuttae. following, Preperhes:-
+C) FA neg tanchoy ex) = a0: of t bs) eluemorome
+@) Popeledim Bize N= 4
+A) medchoy probability Py = 0:00 |
+QFE % 6 abe edleckerl 1 Corsever Dovith- pedmied .
+ey 4 wy ov)
+
+===== PAGE 17 =====
+q BtVIOULO—>BL OlloOILlo 45
+| IE B&D AKe sclecled , crersever performect «
+| BIrlLllOMIOE 10410100 Pp: Oollolwo
+| FE :olloills
+| A 1b & vs mrurkded Arey
+E:lotiotoo-—3e!: LOL\0000
+BalAb shing Bom previous Populchoy % lek bed Hoe.
+aK Crees 17 Genehi wth
+the baste Opercrlows r7 dhe prahe HepAtann age
+| ‘) wane (toding
+| @® selecvo ,
+| eS) cronsovld (Retombinahoy)
+| ~Enewding is aA proay oF Y cxeching, tol ve duck ree
+The precess Gan be roebevoed usieg boils | WA y trees / Arvag?
+Usls or 4 Nor objectg -
+~ the. ali doped mick ore) solving (re ple :
+Ky:- ove. Guy erecta directly real o voles Mog.
+@) Cincy Earoding—
+- le BRL Reprereded eraclly .
+= ar ae of veal VCR © con be vepretevted
+A ~No- of vea\ Mok. ve presendect iotveouer cot, ehicg leugdr -
+
+===== PAGE 18 =====
+So
+Cluomarorn 4 | 1 1OOoOLLOIO zo
+emoiomg, 2 | OFF ELIE) O ©
+This evrtecling user Sbings wode, up oF octal wos: Co-*)
+Cluomeopomre
+Amewactonse 2-| 18422314 |
+Co) Hexaclecienal Raceding: lan. Co-9,h#
+(8) pevudiony Kuvcting (Leal nor ewolig)
+vv clwowogome ta shiag of wor, Sepresenrtcol (7 4 Fequont-
+press Coweehsna lowe to be tone abler qeneke operator} S
+ahiag, & ii vea\ Maes, Whar wor Way .
+Permian entediag ts sell for orelers ews -
+Reve kn tus tea came ees CrOHsoves & Mudedrky Comerfioiys
+Wart be wade ty leave Are Chromosome Wunastenk(tey lave,
+peal kequemte. to ik.),
+Son
+© velue_Buodiog
+kv Clwowfomre ts 4g shi of Volver ag alerts Gan ©
+wv Guverked mM Ws prrodi ty aries
+for Some Special pbs OM Yow otros IL oft to
+sbeley row gues octet peat tote, polo Dreivpluc cul
+Zaucbe, wal Wy tlolns where game, oaipleted valoss) daulrae rol WK,
+
+===== PAGE 19 =====
+Mm Value Onriockié 7 EMR eClromegewen A BA p t+ »
+Values car be ang coaverted 40 plly fer, A aie oper
+tp Some complicate re Value enreding as Vv fot for some
+Seeunh pid » on the Blot lancl, Bettas bntodeg « & oPkey. nev ese
+do develop Bowe, Vew Cvegover 6 Mukchem Bpecetic fer dhe Hin t
+
+[ Cevometenne Ae 1.2324 5.32423 O-4566 23243 24544
+| mewetenu B |AoDJEIFIDH OI ERJSIEDLD FLFEQT 7
+{chen en a np lb
+CA) Tree Kncsding ©
+Fix encoding & woinly wel Re evelvi wy Ex precios fergoreke.
+Pry im menage 43 4 Nee “e fon obbyente Suchag Pn
+(2) Seleck’oy
+_
+Tole
+t_} 5
+Abe bee bak. SS,
+inditdusy
+va New
+¢ pepulahey
+t
+- Scleed wy dhe proceobcheosig 2 parents Rew Hu
+
+Pepeledoy Fer Crossing «
+
+The lidgluy the Phres Ronchi) dhe better Clanto Aah oy declan |
+; ~ We Aclecho premeate oS clePrree| as dhe deqvec fe oie dhe.
+ae ee
+
+===== PAGE 20 =====
+~The “ Mune Acke Qn, prervuveol ! Me Wie, Moe, lather . todline clo
+OK, FAvovect :
+“ls SeLoho™ resume, Anwes dhe GA oa inpreve due Pop: Aladiony
+Binen ove, SALLeMing qprorechiovin ; ;
+— They A 2 deaper oF &clechoy scheme g-
+Mpoportionede -basecl selechay > Filner ver
+~ Rroporhomle —bascal selechovy pets ouk intiv tira |s bared
+up] thee Fines Vela velehvedo the Pres of the otter tahvidew
+in therpopeletou -
+— ovdiad bared selechay slums seleet- todividuels nob apo, the iy
+eRe Fives 1 butt upoy their amie Witlatg toe poprlekm «
+Aue CB hong aclerfioy ewill Rexukh me Gwurtk, evoluchem oT
+Ree} nn! Weak seleetiog will resall 4 slow evalictioy « .
+CO) Kouledte vilheel sclechioy
+The extert| Value of an, lodiv clue | te padi viclusl's Pehners
+Ar veel aWERED Fitsew of die. pope » Biol indi utdee |
+#5 andre A €UCe othe Rouletlevohael ; He, Bie of doe ses
+emg Proportional toahe itividal ts Rtnes «
+~ Role wheel % ead er do weryplemonk lok v3 mntsy .
+-tNe Kale o& erdludion depowds ou Are amemee OF Rhoexs 28 'D
+dhe. popelahioy » -
+This teclwuryre Ranclowly alos a parent Rem dre populehm -
+\Y devwg of clis bap oy oF Gevehe, Code’, ramclem, selechoy VQ
+Wile, wove. doowaphve. tem Roulette Wheel selerhory .
+(@) Rank Select oY
+- Rak slehoy Panes dee popelechay ic) Neve Clncrwinewe Neves
+Phos Fro, Hae Yomletng °
+= The worsl hoy fitnem 1S Ate ie hes Bren N :
+wth Acvulds irslow Grveyeuce lok prevenly doo qrutly Conver gue
+alk also Koons Up aclechioy proms We wey te Fainews Navies Rien
+, =F precerver cinevrity & Vee \ercls te 4 buctesslal Seaver:
+
+===== PAGE 21 =====
+qe
+(a) Touryoment- sclerhoy - aq |
+Ae dourvawre> Sclevtoy Cale qu, proves acledtve prevune.
+v4 hololing & tourmrarent—compebtony aynevg Niu tadivielurals -
+Mc er tadividuial Po the -louvnament asthe one witty ee
+Wyvet— Pitven ; whe & the ustoner of Nu-
+Teurramenle d mpelitiows A dhe winner ave thin innerler| todo the
+Turow nanedt compe bhava iS repealed wall the rocking peel boy
+foty Nees RE pring & Rlledl .
+mang reo| tong Pnist Ag tro. toumamenk wloner hag laghew
+al popukshmy Filner, .
+ata heen Aifevennte provides te sclechom prewume woriel4 drives
+Gr to “Opn Nne. Pex of dre SUttecling genes .
+Ths melted J mone ePrccienk A leads to an oir doy
+(e) Belbzrpon selec
+-'d Bolznwun selethony aiordvenl VC ang de nethwe
+Conhols the Sade selechey ation Sg py eek selod le
+Kedurcec| t wc (iacvally leads to am ioweoue a)
+Aclecho prenwe : ’
+@) Hochnsic anew to
+~ Pov icles. Zovo long SY rAininel eprecc| ,
+Vine pL Wel eos dV rduald Segmmmb- i quel io Size.
+te ik Bile erxactty, a! Roule dle ca aelechiy .
+- Here coral spareel Peidkys ave.laccel ever dele,
+M5 mang sas dteve. Ave. ccdivtdvals to be relectect .
+
+===== PAGE 22 =====
+_ Crossover & the, proces of -lnking 2 spevremls Zdubous
+ewok Producing a cluicl Lom rom -
+—CrOssovler operctor i. ap plvecl Apitre ranking. poo\ cody de
+hope tal teevedles a beter offspring - :
+- Fick Gheeye. terdtoodg come coomolten erie d, copy Nerpting,
+belive ats Retak Berg Ate Lisl pryertin teem Copy eveugine
+abley Me Cross LA Poirk from Kae Olier Povenk . a
+@ Sine ~poick CORONA
+Woo mehag, Clnomertovnes Ae Cab ou al- coneppoeP Pods
+Cross oNles porat- vs selecled erdordey alove tele br oP fixe wateel
+ate, Site % chosen, bLeler cbaldven, cam We dol yg ombning-
+| .
+| fetdafionoiii |
+Leskz|oioloro | .
+(b) Two Poin COKSOVEA :
+eee:
+\
+Fear [Tere ero]
+ela If 1 Vitel ore]
+
+UM wo-poiart (rote Nev? two Gossoves pois ate close & Joe
+| Cockers lous rere petols are cxclamgect byio tuso talked paver
+ys
+—— —
+
+===== PAGE 23 =====
+a ———<—
+a3) Mullipek crossover ( n\--peick- cree over) FI
+A) in the cae cbexey ue. of crows Bikes 5 the Ors eile,
+Le Acdece Rawdon, aoure| ave in Bw metho “Ss
+Lrchonged «
+(a) 1 he cone odd ww. P crovs Sikes pa different Crees part
+Rea
+yo
+aise 1 [ro 88 180]
+facie abr Tie ene
+@) uniform Crowovied
+_ <a as
+th can le, voh tec} dat- colle producing cilek 1, SuenraAhon€
+Ws topied Rom, prevent 2. our producing ill 2, olan tener’
+bin Kae wank cdtre he cs copied from fprveak 2, 4, won flue
+%& O tndve wou Ane gone t& lopved fom que pevent | .
+are oe
+42 [,o 011010
+_ OO
+em [er ove
+ade loo tt ooll
+: :
+
+===== PAGE 24 =====
+(€) “thyee - pavent- CYOSS- OVEN ii
+ti tbus Crescenta tecteriquiny dtmnee, prvenls ave fan”
+Chemen - Each Lib ofthe Fint-perenk ts Cony panech dhe Wik
+Pare B drkeg fev oP pring a , ; :
+LL Ht Yl otrae oO | ‘ ,
+Cf) Kukhle comertey
+Trusts COSeTEH
+RLove, Varicbles are exchamgeas Treg ase, Randorgliy Shriob Rec)
+69 belt pred After Cvessoves » Hre Vavielles indie cfpring/
+) Precedence preseveh ve Crossover Cppx)
+~ Used 19 Vetle Yeeding pues = Aeladuling Palwa rele.
+AB x DE
+Sele pweubno. Ct /2 Weis a |
+“peg Renekhy |A ce 8 DE Ee
+CW) ondewed cron oven _
+— Va--sbaped arrewelbeg- balan ing
+pasa Pantene |
+\
+a Se —
+
+===== PAGE 25 =====
+| e5 |
+child > \2 3.4% \oe
+Cy Risholly Malehed orsover (PO)
+Feet =[ 7 2B 42 ses
+femit \ \ a ase 43 ila
+oma > [3 e ia 4 2517 3
+|
+(4) Mutahoy 7
+Mautechiy plays dhe role of ve Covering Bae lost genet palev es
+ot well ag for Roctlonliy cliskibeting geoete infer oy
+B) eleppi
+. hl 7; 4a muted clwounreure verted
+A Ppawenk covyntdered q& mai
+eaded: tor 424 melahoy chroma geome, te. corves pouding 7)
+eae clyomo sown VS Flizeed (@ ford Ve fo)) % ehilel Cluowasoic
+ys produsd -
+Malay rpo0o Loo)
+Chvowwgomce |
+aa Fee
+6) Subevclowging
+Two ramclon, porhiug of Mue- shay are chen Ge Hee bts
+Cones pouding Jo He posh OE trfevclowgecl:
+retrete)
+Yearly rr \\ 000!
+_ es ——™ |
+
+===== PAGE 26 =====
+SREETHE og,
+@) Reversing
+4 vanclow penhoy b cheewy 4 dhe bik herb to Tonk
+Pevihoy Ave. ve ven eol q Clare Chwomogome, & produced.
+enna. is Wien
+iar otlLouwol|
+ctld [LOtLol to
+SK Shoppin Gudthsy ev Genche 4 dh Flow
+The. Wartous Ado ppiag Grbvhavg ave, \wskecl ax Polloiss:—
+© Merximuc Cenachovy S$ t- The Ga Seps When frre Specif ec}
+ne-e§ Puarshionys bog evalvecl.
+@) Klapced Tire 3 The qevehic preter tail enol asheu_4 efexite
+@] No a m Pbinert ee co proum ewill evr ce Nene
+me Fess rs gues fo Are, popeteh ays Weal
+Piney Cov oo greet Proo| Mo- a mace
+A) él nerahg * - the ale tion if-Hove, & no impale -
+eet mek Metre, jelve beri Poca, Lesprertt
+of orsecetve geneskous oe lewphty “lel
+erachove’
+G) thal Lene lnit-g— The. ahevtany Blops P foove, & hw terprovents
+es thal Sb lee fanehmy during ow, ene]
+HEME setae equal ty Maell dive,
+bagi L 0 4
+Mdiods uaeel Ley Ger eitreddioy Veelaait ies aves =
+(t) Best woedividuel
+@y Wout tock vite |
+(2) Bum of Frtnes
+i A) Mecliay Bneh

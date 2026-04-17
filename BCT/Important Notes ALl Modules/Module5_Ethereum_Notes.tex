@@ -1,0 +1,456 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{setspace}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{listings}
+
+\lstset{basicstyle=\ttfamily\scriptsize,breaklines=true}
+
+\setstretch{1.08}
+\setlength{\parskip}{0.45em}
+\setlength{\parindent}{0pt}
+\setlength{\headheight}{15pt}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{CST428 - Blockchain Technologies}
+\rhead{Module 5 Master Notes}
+\cfoot{\thepage}
+
+\newcommand{\examtip}[1]{%
+\vspace{0.35em}
+\noindent\fcolorbox{black}{gray!12}{\parbox{0.965\linewidth}{\textbf{Exam Tip:} #1}}%
+\vspace{0.35em}
+}
+
+\begin{document}
+
+\section{Module 5 Topic Map From Previous Questions}
+
+From May 2024, June 2023, and October 2023 papers, Module 5 repeatedly asks:
+
+\begin{itemize}
+\item Ethereum transactions: meaning, types, and processing flow.
+\item EVM role and Ethereum account types.
+\item Ethereum blockchain elements and world state concept.
+\item Relationship between transactions, transaction trie, and block header.
+\item Gas, gas limit, gas price, and transaction cost impact.
+\item Solidity basics: datatypes, control structures, and libraries.
+\item Solidity coding questions: bank contract, voting contract, string storage contract.
+\item Compare Bitcoin and Ethereum.
+\end{itemize}
+
+\section{Core Theory (Explained Clearly)}
+
+\subsection{Ethereum in One Line}
+Ethereum is a programmable blockchain where smart contracts execute on a distributed runtime called EVM.
+
+\subsection{EVM (Ethereum Virtual Machine) Made Simple}
+Every Ethereum node runs EVM to execute smart contract bytecode in the same way.
+
+Why EVM matters:
+\begin{itemize}
+\item gives deterministic execution across nodes,
+\item updates blockchain state after valid transactions,
+\item isolates contract execution with gas metering.
+\end{itemize}
+
+\subsection{Ethereum Accounts: Two Types}
+\begin{itemize}
+\item \textbf{EOA (Externally Owned Account):} controlled by private key, can initiate transactions.
+\item \textbf{Contract Account:} controlled by deployed code, executes when called.
+\end{itemize}
+
+Quick difference:
+\begin{itemize}
+\item EOAs have no contract code.
+\item Contract accounts have code and persistent storage.
+\end{itemize}
+
+\subsection{Ethereum Transactions and Their Types}
+A transaction is a signed instruction sent from an EOA to change Ethereum state.
+
+Two major types asked in exams:
+\begin{itemize}
+\item \textbf{Value transfer transaction:} sends ETH from one account to another.
+\item \textbf{Contract interaction/creation transaction:} calls contract function or deploys new contract.
+\end{itemize}
+
+Common transaction fields:
+\begin{itemize}
+\item nonce,
+\item to address,
+\item value,
+\item data payload,
+\item gas limit,
+\item fee parameters and signature.
+\end{itemize}
+
+\subsection{Gas Concept and Formula}
+Gas is the unit for computational effort in EVM.
+
+Main formulas:
+\[
+\text{Transaction Fee} = \text{Gas Used} \times \text{Effective Gas Price}
+\]
+
+In EIP-1559 style networks:
+\[
+\text{Effective Gas Price} = \text{Base Fee} + \text{Priority Fee}
+\]
+
+Meaning:
+\begin{itemize}
+\item More complex function calls consume more gas.
+\item If gas limit is too low, transaction fails (reverts) but fee is still spent for computation done.
+\end{itemize}
+
+\examtip{In gas answers, always write one numerical-style formula and then explain user impact in plain words.}
+
+\subsection{Ethereum Elements and World State}
+Important elements of Ethereum blockchain:
+\begin{itemize}
+\item block header,
+\item transaction list,
+\item receipts,
+\item state root,
+\item transaction root,
+\item receipts root,
+\item logs and events.
+\end{itemize}
+
+World state means a snapshot of all accounts (balances, nonces, contract storage roots, code hashes) at a specific block height.
+
+\begin{center}
+\framebox[0.95\linewidth][c]{
+\begin{minipage}{0.90\linewidth}
+\vspace{0.1cm}
+\centerline{\textbf{Ethereum World State (Concept)}}
+\centerline{Block N executes transactions}
+\centerline{$\Downarrow$}
+\centerline{State transitions account-by-account}
+\centerline{$\Downarrow$}
+\centerline{New state root stored in Block N header}
+\centerline{$\Downarrow$}
+\centerline{This root defines ``world state after Block N''}
+\vspace{0.1cm}
+\end{minipage}}
+\end{center}
+
+\subsection{Transaction Trie and Block Header Relationship}
+Ethereum groups transactions into a Merkle-Patricia Trie.
+Its root hash (transaction root) is saved in the block header.
+
+So if one transaction changes, trie root changes, and block header hash changes.
+This gives tamper evidence.
+
+\begin{center}
+\framebox[0.95\linewidth][c]{
+\begin{minipage}{0.90\linewidth}
+\vspace{0.1cm}
+\centerline{\textbf{Transactions $\rightarrow$ Trie $\rightarrow$ Block Header}}
+\centerline{Transaction List}
+\centerline{$\Downarrow$}
+\centerline{Transaction Trie built from list}
+\centerline{$\Downarrow$}
+\centerline{Transaction Root inserted into Header}
+\centerline{$\Downarrow$}
+\centerline{Header hash secures whole block integrity}
+\vspace{0.1cm}
+\end{minipage}}
+\end{center}
+
+\subsection{Solidity Essentials}
+
+\subsubsection*{Datatypes}
+\begin{itemize}
+\item value types: \texttt{bool}, \texttt{uint}, \texttt{int}, \texttt{address}, \texttt{bytes32}.
+\item reference types: arrays, structs, strings.
+\item mapping type: key-value storage, for example \texttt{mapping(address => uint)}.
+\end{itemize}
+
+\subsubsection*{Control Structures}
+\begin{itemize}
+\item conditionals: \texttt{if}, \texttt{else}, \texttt{else if}.
+\item loops: \texttt{for}, \texttt{while}, \texttt{do-while} (used carefully due to gas risk).
+\item flow controls: \texttt{break}, \texttt{continue}, \texttt{return}.
+\item error controls: \texttt{require}, \texttt{revert}, \texttt{assert}.
+\end{itemize}
+
+\subsubsection*{Libraries in Solidity}
+Libraries are reusable code modules deployed once and reused by many contracts.
+
+Benefits:
+\begin{itemize}
+\item avoids duplicate code,
+\item improves maintainability,
+\item can reduce deployment size for consuming contracts.
+\end{itemize}
+
+\section{Solved Question Papers}
+
+\subsection{Part A: 3-Mark Questions}
+
+\subsubsection*{Q1. Illustrate the role of EVM in Ethereum network.}
+\begin{itemize}
+\item EVM is the runtime that executes smart contract bytecode on all nodes.
+\item It ensures deterministic execution so all honest nodes get same result.
+\item It applies state transitions after valid transactions are executed.
+\item It isolates code execution and enforces gas-based metering.
+\item It is the core reason Ethereum can support programmable contracts.
+\item Without EVM, Ethereum would behave like a simple value-transfer chain.
+\end{itemize}
+
+\subsubsection*{Q2. What are the two account types in Ethereum? Differentiate them.}
+\begin{itemize}
+\item Ethereum has EOAs and Contract Accounts.
+\item EOAs are controlled by private keys and can start transactions.
+\item Contract accounts are controlled by code and cannot self-initiate.
+\item EOAs usually store nonce and balance only.
+\item Contract accounts store nonce, balance, code, and storage.
+\item EOAs call contracts; contracts execute logic when triggered.
+\end{itemize}
+
+\subsubsection*{Q3. Explain different datatypes in Solidity.}
+\begin{itemize}
+\item Value types include \texttt{bool}, \texttt{uint}, \texttt{int}, \texttt{address}, and fixed bytes.
+\item Reference types include arrays, structs, and strings.
+\item Mapping types store key-value pairs efficiently.
+\item Data location matters for references: \texttt{storage}, \texttt{memory}, \texttt{calldata}.
+\item Correct datatype choice affects both safety and gas cost.
+\item Most exam answers score better when examples are added.
+\end{itemize}
+
+\subsubsection*{Q4. Explain how libraries are deployed in Solidity with example idea.}
+\begin{itemize}
+\item Library code is compiled and deployed as a separate bytecode unit.
+\item Contracts can link to the library during deployment.
+\item Internal library functions may be inlined by compiler.
+\item External library calls happen by delegate-style code execution.
+\item Libraries are useful for reusable math and utility operations.
+\item Example idea: a \texttt{MathLib} with safe percentage or average functions.
+\end{itemize}
+
+\subsubsection*{Q5. Show relation between transactions, transaction trie, and block header.}
+\begin{itemize}
+\item Block transactions are inserted into a trie structure.
+\item Trie root hash summarizes full transaction list.
+\item That root hash is written inside block header.
+\item Any transaction change alters trie root immediately.
+\item Changed trie root changes header hash and block identity.
+\item Therefore header indirectly protects all transactions in block.
+\end{itemize}
+
+\subsubsection*{Q6. List various components/elements in Ethereum blockchain.}
+\begin{itemize}
+\item blocks and block headers,
+\item transactions and receipts,
+\item state trie and state root,
+\item transaction trie and transaction root,
+\item receipts trie and receipts root,
+\item logs/events, accounts, and contract bytecode/storage.
+\end{itemize}
+
+\subsection{Part B: 14-Mark Questions}
+
+\subsubsection*{Q1. What is a transaction in Ethereum? Explain two types of transactions in Ethereum.}
+\begin{itemize}
+\item Ethereum transaction is a signed state-change request sent by an EOA.
+\item It is broadcast to the network and validated before inclusion in a block.
+\item A transaction carries nonce, destination, value, data, gas limit, fee fields, and signature.
+\item Nonce ensures ordering and prevents replay from same account.
+\item Value transfer transaction sends ETH between accounts.
+\item Contract call transaction sends data to execute function in deployed contract.
+\item Contract creation transaction has no normal destination and includes init bytecode.
+\item Execution outcome can modify balances, storage, and logs.
+\item Failed execution reverts state changes but still spends gas.
+\item Receipts record status, gas used, and emitted events.
+\end{itemize}
+
+\subsubsection*{Q2. Explain various elements present in Ethereum blockchain.}
+\begin{itemize}
+\item Ethereum block contains header and body.
+\item Header includes parent hash, state root, transaction root, receipts root, timestamp, gas fields.
+\item Transaction list contains user and contract interaction requests.
+\item Receipt list records execution results for each transaction.
+\item State root points to world state snapshot after block execution.
+\item Transaction root binds integrity of all transactions in that block.
+\item Receipts root binds integrity of all transaction results.
+\item Logs and events provide structured outputs from contract execution.
+\item Accounts include EOAs and contract accounts with different control models.
+\item Contract bytecode and storage represent on-chain application backend.
+\end{itemize}
+
+\subsubsection*{Q3. Compare Bitcoin and Ethereum. Explain Ethereum world state with neat diagram.}
+\begin{itemize}
+\item Bitcoin primarily focuses on secure peer-to-peer digital money.
+\item Ethereum focuses on programmable contracts plus value transfer.
+\item Bitcoin scripting is intentionally limited; Ethereum supports richer logic.
+\item Bitcoin commonly uses UTXO accounting model.
+\item Ethereum commonly uses account-state model.
+\item Bitcoin block interval is around 10 minutes; Ethereum has faster block cadence.
+\item Ethereum world state is global mapping of all account states at block height.
+\item Each processed block updates account balances, nonces, and contract storage.
+\item Updated world state is represented by a new state root hash.
+\item That root in block header proves state consistency for that block.
+\item[]
+\vspace{0.25em}
+\noindent\framebox[0.97\linewidth][c]{
+\begin{minipage}{0.93\linewidth}
+\vspace{0.08cm}
+\centerline{\textbf{World State Diagram}}
+\centerline{Pre-State + Transactions}
+\centerline{$\Downarrow$}
+\centerline{EVM Execution}
+\centerline{$\Downarrow$}
+\centerline{Post-State + New State Root in Header}
+\vspace{0.08cm}
+\end{minipage}}
+\end{itemize}
+
+\subsubsection*{Q4. Explain how transactions are processed in Ethereum. Explain gas and its effect on processing.}
+\begin{itemize}
+\item User signs transaction in wallet and sends it to network.
+\item Nodes perform basic checks and place valid transaction in mempool.
+\item Validator/miner selects transactions, usually prioritizing fee incentives.
+\item Transactions are executed by EVM in block order.
+\item Contract calls may read/write storage and emit logs.
+\item Execution consumes gas for each opcode and storage operation.
+\item If gas limit is insufficient, execution reverts.
+\item Reverted transaction still pays for computation already consumed.
+\item Gas protects network from infinite loops and spam.
+\item Higher offered fee generally improves inclusion speed.
+\item[]
+\vspace{0.25em}
+\noindent\framebox[0.97\linewidth][c]{
+\begin{minipage}{0.93\linewidth}
+\vspace{0.08cm}
+\centerline{\textbf{Processing Flow}}
+\centerline{Sign $\rightarrow$ Broadcast $\rightarrow$ Mempool $\rightarrow$ Block Inclusion}
+\centerline{$\Downarrow$}
+\centerline{EVM Execute $\rightarrow$ Receipt + State Update}
+\vspace{0.08cm}
+\end{minipage}}
+\end{itemize}
+
+\subsubsection*{Q5. Explain control structures in Solidity.}
+\begin{itemize}
+\item Solidity supports conditional branches using \texttt{if}, \texttt{else if}, and \texttt{else}.
+\item Loops include \texttt{for}, \texttt{while}, and \texttt{do-while}.
+\item Loop usage should be controlled because gas usage grows with iterations.
+\item \texttt{break} exits loop early and \texttt{continue} skips one iteration.
+\item \texttt{return} exits function and can provide output value.
+\item \texttt{require} validates inputs and reverts with message on failure.
+\item \texttt{revert} manually rolls back state with optional reason.
+\item \texttt{assert} is used for invariants and internal consistency checks.
+\end{itemize}
+
+\subsubsection*{Q6. Write Solidity bank contract (deposit, withdraw, view balance).}
+\begin{itemize}
+\item This contract maps each user address to its stored balance.
+\item Deposit function accepts ETH and increases sender balance.
+\item Withdraw function checks balance and transfers requested amount.
+\item Balance view function returns sender's current stored value.
+\item Guard checks prevent invalid withdraw attempts.
+\item State update before transfer reduces reentrancy risk.
+\end{itemize}
+
+\begin{lstlisting}
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+contract SimpleBank {
+    mapping(address => uint256) private balances;
+
+    function deposit() external payable {
+        require(msg.value > 0, "amount=0");
+        balances[msg.sender] += msg.value;
+    }
+
+    function withdraw(uint256 amount) external {
+        require(amount > 0, "amount=0");
+        require(balances[msg.sender] >= amount, "insufficient");
+
+        balances[msg.sender] -= amount;
+        (bool ok, ) = msg.sender.call{value: amount}("");
+        require(ok, "transfer failed");
+    }
+
+    function viewBalance() external view returns (uint256) {
+        return balances[msg.sender];
+    }
+}
+\end{lstlisting}
+
+\subsubsection*{Q7. Define smart contract. Write Solidity contract to store and retrieve a single string.}
+\begin{itemize}
+\item A smart contract is code on blockchain that executes predefined rules.
+\item It can store data and expose functions to update or read it.
+\item For single string storage, one state variable is enough.
+\item Setter function updates value.
+\item Getter function returns current value.
+\item Access control can be added if only owner should update.
+\end{itemize}
+
+\begin{lstlisting}
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+contract StringStore {
+    string private value;
+
+    function setValue(string calldata newValue) external {
+        value = newValue;
+    }
+
+    function getValue() external view returns (string memory) {
+        return value;
+    }
+}
+\end{lstlisting}
+
+\subsubsection*{Q8. Write Solidity voting contract.}
+\begin{itemize}
+\item A simple voting contract keeps vote count candidate-wise.
+\item It tracks whether an address has already voted.
+\item One-vote-per-address rule prevents duplicate voting.
+\item Constructor can pre-load candidate list.
+\item Vote function validates candidate id and voting status.
+\item Result function returns current votes per candidate.
+\end{itemize}
+
+\begin{lstlisting}
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+contract SimpleVoting {
+    string[] public candidates;
+    mapping(uint256 => uint256) public votes;
+    mapping(address => bool) public hasVoted;
+
+    constructor(string[] memory names) {
+        candidates = names;
+    }
+
+    function vote(uint256 candidateId) external {
+        require(!hasVoted[msg.sender], "already voted");
+        require(candidateId < candidates.length, "invalid candidate");
+
+        hasVoted[msg.sender] = true;
+        votes[candidateId] += 1;
+    }
+
+    function getVotes(uint256 candidateId) external view returns (uint256) {
+        return votes[candidateId];
+    }
+}
+\end{lstlisting}
+
+\end{document}

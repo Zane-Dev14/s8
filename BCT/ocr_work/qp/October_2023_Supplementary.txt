@@ -1,0 +1,224 @@
+
+
+===== PAGE 1 =====
+Reg No.:
+
+0400CST428052302 Pages: 3
+
+Name:
+
+APJ ABDUL KALAM TECHNOLOGICAL UNIVERSITY
+
+Eighth Semester B.Tech Degree Supplementary Examination October 2023 (2019 Scheme)
+
+Max. Marks: 100
+
+10
+
+11 a)
+
+b)
+
+Course Code: CST428
+Course Name: BLOCKCHAIN TECHNOLOGIES
+
+PARTA
+Answer all questions, each carries 3 marks.
+
+List the major differences between symmetric and asymmetric cryptography.
+Describe what distributed hash tables are and how they work.
+
+Define blockchain and elaborate on the different terminologies used in the
+definition.
+
+List and explain the different types of blockchain.
+
+If your blockchain network has 6 Byzantine nodes, what is the minimum number
+of nodes that are required to ensure Byzantine fault tolerance using PBFT
+protocol?
+
+What is the Byzantine generals problem, and how is it relevant to blockchain
+
+design?
+
+What is a Sybil attack, and how does the Bitcoin network prevent it?
+
+What are smart contracts?
+
+What are the two types of accounts used in Ethereum and what are the differences
+between them?
+
+Explain different datatypes in solidity.
+
+PART B
+Answer any one full question from each module, each carries 14 marks.
+
+Module |
+Explain some of the main cryptographic properties of hash functions and how they
+are used in blockchain technology.
+Explain public and private keys. Perform encryption and decryption using RSA
+for p=3; q=11, e=7; M=S.
+
+OR
+
+Page | of 3
+
+Duration: 3 Hours
+
+Marks
+
+(3)
+(3)
+(3)
+(3)
+(3)
+
+(3)
+
+(3)
+(3)
+(3)
+
+(3)
+
+(7)
+
+(7)
+
+
+===== PAGE 2 =====
+12
+
+13
+
+14
+
+15
+
+16
+
+17
+
+a)
+
+b)
+
+a)
+
+b)
+
+a)
+
+b)
+
+a)
+
+b)
+
+a)
+
+b)
+
+a)
+b)
+
+0400CST428052302
+
+Explain Merkle tree with the help of a neat diagram. Explain the use of Merkle (7)
+
+tree in blockchain.
+
+Explain SHA-256 algorithm with a neat diagram. (7)
+Module II
+Explain the layered blockchain architecture with the help of a diagram. (7)
+Illustrate and explain how blockchain works using a neat diagram. (7)
+OR
+Explain the benefits, features and limitations of blockchain. (7)
+What is a consensus mechanism? Explain different types of consensus (7)
+mechanisms.
+Module III
+What are the different tasks of a Bitcoin miner? Explain the mining algorithm (7)
+
+used in Bitcoin with the help of a flowchart.
+Describe the process of achieving consensus through the Paxos protocol, and (7)
+provide an example to illustrate its implementation
+
+OR
+Let us assume, for consensus in Bitcoin, instead of PoW, arandom node is selected (7)
+as the winner who can propose the next block in the blockchain. If the randomly
+chosen node is a malicious (Byzantine) node, then which of the following
+
+statement is true? Justify your answer
+
+1. The malicious node can steal Bitcoin from other addresses
+2. The malicious node can make a denial-of-service attack
+
+3. The malicious node can make a double spend attack
+
+With a neat diagram explain the structure of a transaction in Bitcoin. Explain (7)
+
+Unspent Transaction Output (UTXO) and its use in transaction verification.
+
+Module IV
+Illustrate how blockchain technology can be used in supply chain management. (7)
+Detail the basic architecture of a DApp with the help of a neat diagram. (7)
+OR
+
+Page 2 of 3
+
+
+===== PAGE 3 =====
+18
+
+19
+
+20
+
+a)
+
+b)
+
+a)
+
+b)
+
+a)
+
+b)
+
+0400CST428052302
+
+Elaborate on the concept of an oracle in the context of smart contracts, and
+illustrate the general flow of data between an oracle and a smart contract using a
+neat diagram.
+Explain the benefits and applications of integrating blockchain in cloud
+computing.
+
+Module V
+Create a Solidity bank contract that allows users to deposit, withdraw, and view
+their balance.
+Explain how transactions are processed in Ethereum. Briefly explain the concept
+of gas and how does it affect the transaction processing?
+
+OR
+
+Define Smart Contract. Using Solidity language, create a simple contract that
+allows a user to store and retrieve a single string value.
+
+Explain the various elements present in the Ethereum blockchain.
+
+KReKKEK
+
+Page 3 of 3
+
+(7)
+
+(7)
+
+(7)
+
+(7)
+
+(7)
+
+(7)

@@ -1,0 +1,210 @@
+
+
+===== PAGE 1 =====
+Reg No.:
+
+Max. Marks: 100
+
+Co mWnnN WD Wn BW NY
+
+—
+Oo
+
+11
+
+12
+
+13
+
+a)
+b)
+
+a)
+b)
+
+a)
+b)
+
+Pages: 2
+
+0400CST428052303
+
+Name:
+
+APJ ABDUL KALAM TECHNOLOGICAL UNIVERSITY
+Eighth Semester B.Tech Degree (R,S) Examination May 2024 (2019 Scheme)
+
+Course Code: CST428
+Course Name: BLOCKCHAIN TECHNOLOGIES
+
+PARTA
+Answer all questions, each carries 3 marks.
+
+Differentiate between symmetric and asymmetric cryptography.
+
+What are the benefits of Merkle trees?
+
+Describe the two main categories of consensus mechanisms.
+
+Compare the different features of centralized and decentralized systems.
+How are transactions validated in a Bitcoin network?
+
+Explain the working of PoW consensus mechanism.
+
+Define smart contacts? Mention its properties.
+
+Explain the different types of oracles.
+
+With the help of a figure show the relationship between the transactions,
+transaction trie, and block header in Ethereum.
+
+Explain how libraries are deployed in Solidity language with an example.
+
+PARTB
+Answer any one full question from each module, each carries 14 marks.
+
+Module I
+Outline the concepts to achieve cryptography using RSA algorithm.
+List the properties of a hash function. Discuss the working of distributed hash
+tables.
+
+OR
+
+Explain elliptic curve cryptography algorithm.
+Explain the compression function of SHA-256 algorithm with the help of a neat
+diagram.
+
+Module IT
+Illustrate and explain how blockchain works using a neat diagram.
+
+Explain the methods used to achieve decentralization.
+
+Page | of 2
+
+Duration: 3 Hours
+
+Marks
+(3)
+(3)
+(3)
+(3)
+(3)
+(3)
+(3)
+(3)
+(3)
+
+(3)
+
+(9)
+(5)
+
+(10)
+(4)
+
+(7)
+(7)
+
+
+===== PAGE 2 =====
+14
+
+15
+
+16
+
+17
+
+18
+
+19
+
+20
+
+a)
+b)
+
+a)
+
+b)
+
+a)
+
+b)
+
+a)
+
+b)
+
+a)
+
+b)
+
+a)
+
+b)
+
+a)
+b)
+
+0400CST428052303
+
+OR
+Describe blockchain and full ecosystem decentralization.
+Investigate the benefits, features and limitations of blockchain.
+Module III
+Explain the Paxos algorithm that solve the consensus problem with crash fault
+tolerance.
+Explain the working of PoS with a neat sketch.
+OR
+Explain how a payment is sent using a Bitcoin network in terms of user’s
+perspective.
+What is a wallet? List and explain its various types.
+Module IV
+Discuss oracles in a blockchain ecosystem. Explain the generic data flow from a
+smart contract to an oracle.
+Illustrate the ways blockchain technology can be employed in government
+related services.
+OR
+Illustrate with a use case, the application of blockchain technology in finance
+sector.
+What are DApps? Outline the design of a DApp.
+Module V
+What is a transaction in Ethereum? Explain the two types of transaction in
+Ethereum.
+Explain the various elements present in Ethereum blockchain.
+OR
+What are the various control structures available in Solidity language.
+Using Solidity language, create a simple bank contract that allows a user to
+
+deposit, withdraw and view balance.
+
+REKKKK
+
+Page 2 of 2
+
+(7)
+(7)
+
+(8)
+
+(6)
+
+(7)
+
+(7)
+
+(7)
+
+(7)
+
+(7)
+
+(7)
+
+(9)
+
+(5)
+
+(6)
+(8)

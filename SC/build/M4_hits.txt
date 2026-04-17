@@ -1,0 +1,46 @@
+20:nwy ingerenae Sqsteny (FIs).
+22:+ The key unit of & duaay logic Sm % FIS.
+24:SFIS wes “IF THEN” Auly along wath connec tory
+27:The input bo FIs mas be dugsy aa caisp » bet
+28:to cxdput from Fis is culvacys a desgy set -
+29:conshuchon 4 working principh_af Fis.
+62:tn the Rule base and Stitable deaston ae made
+66:" Theac cue two important types at Fis. ag
+67:| Mamdant Fis '
+68:2 Sugeno FIS.
+72:Mamdant Fis
+74:kule consequentk to Sugeno's wathod -
+75:=Mamdanis rule ind a gpeatlee acceplana ©
+82:steps to computa ovdped frome this Fis |
+105:‘ Consider a too-input Mamdann Fis cocth too
+135:rast- order Sugeno (UZ34 moda|
+138:SFuggy nferere proan under Sugeno mocte, W-
+146:For Sugeno mode] af aero oxded , the oudpuc lovel og
+148:© Comparison blew Mamdani 4 Sugeno Method.
+151:O output membership duocton: The Sugeno ofp
+160:Sugeno gule than the mamdani kule.
+162:‘The Sugeno controller has mou adywtable ’
+163:parouee ters thon the Mamdani controle.
+176:Sugeno Model it
+177:The main advantages al Mamdani Method
+181:Muantager af Sugeno Methods.
+197:Hl FLC system are: a fuzzifier, 2 fuzzy cule base, a fuzzy knowledge base, an inference engine and a defuzzifier.
+200:| into Fuzzy quantities. The fuzzy rule base stores the knowledge about the operation of the process of domain
+202:j includes the membership functions defining the input variables to che fuzzy rule base and the output variables
+203:{ to the plant under control, The inference engine is the kernel of an FLC system, and it possess the capability
+206:| inference engine.
+212:| nes | ipa cating. || Fuzziner |#%),] inference |) | netuzziter |) Xz Outputs
+230:oucpucs of fuzzy subsets on other side, thereby forming the rule base. 7
+236:| Step 9: Finally, apply defuzzification to form a crisp output. | t
+239:1, Fuzzification strategies and che interpretation of a fuzzifier.
+243:selection of membership functions of a primary fuzzy set. t
+244:3. Fuzzy rule base: :
+245:selection of input and output variables; H
+253:inference engine, |
+254:5. Defuzzification strategies and the interpretation of a defuzzifier. ;
+257:fixed and uniform input and output scaling factors for normalization; |
+395:Fix encoding & woinly wel Re evelvi wy Ex precios fergoreke.
+475:_ Crossover & the, proces of -lnking 2 spevremls Zdubous
+502:a3) Mullipek crossover ( n\--peick- cree over) FI
+511:@) uniform Crowovied
+534:) Precedence preseveh ve Crossover Cppx)

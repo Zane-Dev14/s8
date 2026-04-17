@@ -1,0 +1,118 @@
+
+===== PAGE 1 =====
+Reg No.: 2 Name:
+APJ ABDUL KALA EHNOOCICAL UNIVER oe cue
+v~~-*<"G
+Eighth Semester B.Tech Degree (R, S) Examination May 2024 (20 i EF FON
+CSAIL
+w Oar PEN
+——— i
+t \oxr£ KS WA
+¢, »)
+FER GT HUE
+Course Code: CST444 UTE
+Course Name: SOFT COMPUTING
+Max. Marks: 100 Duration: 3 Hours
+- PART A
+Answer all questions, each carries 3 marks. Marks
+1 What is the role of activation function in Artificial Neural Network (ANN)? = (3)
+__ Write and explain any two activation functions of ANN.
+2 Compare and contrast biological neuron and artificial neuron (3)
+‘ 3 Explain the training algorithm of Perceptron Network. (3)
+4 Explain the architecture and the delta rule used for weight updation in Adaline (3)
+network
+5 Using your own intuition, plot the Fuzzy membership function for the “Age of (3)
+people’?
+6 What are the three basic features involved in characterizing a fuzzy membership (3)
+function? Explain.
+7 Explain any 3 mutation techniques with proper examples (3)
+8 Describe the various stopping conditions for genetic algorithm flow? (3)
+9 Explain Dominance in Multi Objective Optimization Problem? (3)
+. , 10 What are the characteristics of Neuro Fuzzy Hybrid systems? (3) :
+PART B
+Answer any one full question from each module, each carries 14 marks.
+. Module I
+_ 11 a) Explain linear separability with an example of AND logic implementation using —_ (6)
+. Hebb network. ss .
+b) Implement AND NOT function using Mc-Culloch Pitts Neuron. Draw the . (8)
+architecture and threshold conditions
+OR
+12 a) Using the Hebb rule, find the weights required to perform the following (8)
+classifications of the given input patterns shown in figure. The “+” symbols
+represent the value “1” and empty space indicate “-1”. Consider “I” belongs to
+Page | of 3 :
+
+===== PAGE 2 =====
+0400CST444052401
+the members of class (so has target value 1) and “O” does not belong to the
+members of class (so has target value -1). Perform testing of these samples also.
++ + + % + +
++ + +
++ + + + + +
+: “yp ; “Q”
+b) Design a two input single output biased artificial neural network for the input (6)
+: X1, value 0.7 and X2, value 0.8 with weight values 0.2 and 0.3 respectively.
+The weight value associated with bias input is 0.9. Find the output Y for binary
+: sigmoidal and bipolar sigmoidal activation functions.
+, Module II
+* 13, a) State the significance of error portions 5, , 5; and how they are calculated in (8)
+BPN algorithm. Explain the architecture of BPN with proper labelling
+b) Implement the logic function OR with binary inputs and bipolar targets using (6)
+Perceptron network up to two epochs.
+OR
+14 a) Explain the Adailne training algorithm for single output class (6)
+b) Implement one epoch of Adaline algorithm for AND logic function with binary (8)
+inputs and bipolar outputs. Initial weights are w1=0.2, w2=0.1 and learning rate
+parameter n=0.2.
+Module III
+, ‘ 15 a) Given two fuzzy sets A and B, compute the following set operations on A (6)
+and B:
+: a) Algebraic sum b) Algebraic product c) Bounded sum d) Bounded
+= difference
+~ 2 a 4 3
+gs, 0
+~ 2 3 4 be
+b) What is defuzzification? Explain different defuzzification methods with (8)
+f examples. .
+OR
+Page 2 of 3 .
+
+===== PAGE 3 =====
+0400CST444052401
+16 a) Consider the fuzzy relation (5)
+1 08 O O01 0.2
+08 1 04 0 09
+R=/0 04 1 ¢ O
+01 0 OO 1 O5
+02 09 0 O05 1
+Perform i-cut operations for the values of A = 0.9, 0+?
+b) Let A be a fuzzy set that tells about a student as shown in figure below. Here, (9)
+. the linguistic variable P represents a Pass student, F stands for a Fair student, G
+represents a Good student and VG represents a Very Good student. Calculate ;
+the defuzzified value for the fuzzy set A with weighted average method and
+center of sums.
+V
+* ia
+OS; <r A
+o2 +/ PSA A,
+— ° é f \ AT an Ss ‘
+a a ee a en
+Module IV
+17 a) What is the Fuzzy Inference System (FIS)? Illustrate Mamdani and Sugeno FIS (8) {
+with examples
+b) Explain any three selection techniques in genetic algorithm (6)
+: , OR ‘
+18 a) Explain i) uniform crossover ii) Three parent crossover iii)shuffle crossover, (8)
+iv) Precedence Preservative crossover of genetic algorithm with proper
+5 examples.
+° b) Explain the various encoding schemes used in genetic algorithm (6)
+Module |
+19 a) Explain convex and non-convex Multi Objective Optimization Problem. How (6)
+to find a non -dominated set?
+b) Explain Genetic neuro Hybrid system in detail? (8)
+OR
+20 a) Whatare the classifications of neuro-fuzzy hybrid systems? Discuss in detail (8)
+b) What is pareto optimality. (6)
+kkKKK
+“" . |
+Page 3 of 3
