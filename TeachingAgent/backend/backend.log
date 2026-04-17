@@ -1,0 +1,265 @@
+INFO:     Will watch for changes in these directories: ['/Users/eric/Documents/StudyCollege/TeachingAgent/backend']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [1959] using StatReload
+INFO:     Started server process [1976]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:50314 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50357 - "GET /api/subjects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50357 - "GET /api/subjects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50357 - "GET /api/subjects/3419b1fc-11e5-432a-b2ab-26c73fe33032/concepts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50357 - "GET /api/subjects/3419b1fc-11e5-432a-b2ab-26c73fe33032/concepts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50357 - "GET /api/subjects/3419b1fc-11e5-432a-b2ab-26c73fe33032/concepts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50357 - "GET /api/subjects/3419b1fc-11e5-432a-b2ab-26c73fe33032/concepts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50368 - "GET /api/subjects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50368 - "GET /api/subjects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50368 - "GET /api/subjects/3419b1fc-11e5-432a-b2ab-26c73fe33032/concepts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50368 - "GET /api/subjects/3419b1fc-11e5-432a-b2ab-26c73fe33032/concepts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50368 - "GET /api/subjects/3419b1fc-11e5-432a-b2ab-26c73fe33032/concepts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50368 - "GET /api/subjects/3419b1fc-11e5-432a-b2ab-26c73fe33032/concepts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50384 - "GET /api/subjects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50384 - "GET /api/subjects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50384 - "GET /api/subjects/3419b1fc-11e5-432a-b2ab-26c73fe33032/concepts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50384 - "GET /api/subjects/3419b1fc-11e5-432a-b2ab-26c73fe33032/concepts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50384 - "GET /api/stream/teach/d33e23ac-1ea8-445c-98cd-99abfffb4243?user_level=beginner HTTP/1.1" 200 OK
+/Users/eric/Documents/StudyCollege/TeachingAgent/backend/.venv/lib/python3.11/site-packages/jieba/_compat.py:18: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+/Users/eric/Documents/StudyCollege/TeachingAgent/backend/.venv/lib/python3.11/site-packages/TTS/tts/layers/xtts/xtts_manager.py:5: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.speakers = torch.load(speaker_file_path)
+/Users/eric/Documents/StudyCollege/TeachingAgent/backend/.venv/lib/python3.11/site-packages/TTS/utils/io.py:54: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  return torch.load(f, map_location=map_location, **kwargs)
+ > tts_models/multilingual/multi-dataset/xtts_v2 is already downloaded.
+ > Using model: xtts
+ > Text splitted to sentences.
+['Alright!', '...', "Imagine a world where computers can think like humans, making decisions even when they don't have all the information - that's Soft Computing!", '...', "On the other hand, there are those super efficient machines that follow strict rules and need everything figured out beforehand - that's Hard Computing.", "Which one would you choose for solving life's mysteries?", '...']
+ > Processing time: 21.50957489013672
+ > Real-time factor: 0.807818037756361
+ > Text splitted to sentences.
+['Explain Soft Computing vs Hard Computing using a simple real-world analogy anyone can understand.', '2-3 sentences, no jargon.']
+ > Text splitted to sentences.
+['Imagine your brain as a computer.', 'Soft computing is like our creative thinking and problem solving, where we use intuition and make approximations to find solutions.', 'Hard computing is like our calculator, performing exact calculations with precise numbers.', 'Both are important, but soft computing helps us think outside the box, while hard computing gives us accurate results.']
+ > Processing time: 17.355041980743408
+ > Real-time factor: 1.6140786360987993
+ > Processing time: 27.499085664749146
+ > Real-time factor: 1.055396497486143
+ > Text splitted to sentences.
+['Explain core for Soft Computing vs Hard Computing in 2-3 simple sentences.']
+ > Text splitted to sentences.
+['In soft computing, the "core" is about using flexible algorithms and models that can adapt to uncertainties and imprecisions, like fuzzy logic and neural networks.', 'In hard computing, the "core" is based on precise mathematical models and algorithms, like those used in traditional engineering and science calculations.']
+ > Processing time: 15.307873964309692
+ > Real-time factor: 0.7268023085187175
+ > Text splitted to sentences.
+['Explain visual for Soft Computing vs Hard Computing in 2-3 simple sentences.']
+ > Text splitted to sentences.
+['Soft computing is like a friendly dog that can adapt to different situations, while hard computing is like a robot that follows strict instructions.', 'In soft computing, we use algorithms and methods that can handle uncertainty and imprecision, making it more flexible.', 'In hard computing, we rely on precise calculations and rules, which makes it less adaptable to changing conditions.']
+INFO:     127.0.0.1:50422 - "GET /api/stream/teach/d33e23ac-1ea8-445c-98cd-99abfffb4243?user_level=beginner HTTP/1.1" 200 OK
+ > tts_models/multilingual/multi-dataset/xtts_v2 is already downloaded.
+ > Using model: xtts
+ > Processing time: 26.327500104904175
+ > Real-time factor: 1.0536543075960814
+ > Text splitted to sentences.
+['Hey there!', '...', 'Did you know that computers come in two main types, like superheroes with unique powers?', '...', "Let's dive into the thrilling world of Soft Computing and Hard Computing to discover how they shape our digital universe!", '...']
+ > Text splitted to sentences.
+['Explain example for Soft Computing vs Hard Computing in 2-3 simple sentences.']
+ > Text splitted to sentences.
+['Soft computing refers to systems that can adapt and learn from new information, like a human brain.', 'It includes fuzzy logic, neural networks, and genetic algorithms.', 'Hard computing, on the other hand, is based on precise rules and calculations, like a calculator.', 'Examples of hard computing are arithmetic operations and Boolean logic gates.']
+ > Processing time: 29.91003108024597
+ > Real-time factor: 1.3671562713918401
+ > Text splitted to sentences.
+['Imagine your body as a computer.', 'Hard computing is like your bones and muscles - rigid, precise, and following strict rules.', 'Soft computing is more like your brain - flexible, adaptable, and able to learn from experience.', 'In the world of computers, hard computing uses exact algorithms and logic gates, while soft computing uses artificial neural networks and fuzzy logic to solve problems.']
+ > Processing time: 34.44376587867737
+ > Real-time factor: 1.3701597636402334
+ > Text splitted to sentences.
+['Explain mistake for Soft Computing vs Hard Computing in 2-3 simple sentences.']
+ > Text splitted to sentences.
+['Soft computing focuses on finding approximate solutions to complex problems, while hard computing seeks exact solutions.', 'In soft computing, we use methods like fuzzy logic and neural networks to handle uncertainty and imprecision, whereas in hard computing, we rely on precise mathematical algorithms.']
+ > Processing time: 26.0854549407959
+ > Real-time factor: 1.250226667256185
+ > Text splitted to sentences.
+['Explain practice for Soft Computing vs Hard Computing in 2-3 simple sentences.']
+ > Text splitted to sentences.
+['In hard computing, we use precise algorithms and mathematical models to solve problems, while in soft computing, we employ more flexible and adaptable methods like fuzzy logic and neural networks to handle complex or uncertain situations with imprecise data.']
+[!] Warning: The text length exceeds the character limit of 250 for language 'en', this might cause truncated audio.
+ > Processing time: 43.36627507209778
+ > Real-time factor: 1.3527421420039556
+ > Text splitted to sentences.
+['Explain core for Soft Computing vs Hard Computing in 2-3 simple sentences.']
+ > Text splitted to sentences.
+['In simple terms, soft computing is about creating computer systems that can handle uncertainty and imprecision, like the human brain, while hard computing relies on precise and exact calculations, like a calculator.', 'Think of soft computing as a flexible thinker and hard computing as a strict rule-follower.']
+ > Processing time: 28.51099705696106
+ > Real-time factor: 1.461691076192272
+ > Text splitted to sentences.
+['End with energetic encouragement about learning Soft Computing vs Hard Computing.', '1 sentence.']
+ > Text splitted to sentences.
+["Alright, let's dive into Soft Computing vs Hard Computing!", '...', 'Imagine Hard Computing as a superhero who can only use precise calculations and logical reasoning, while Soft Computing is like a ninja who can adapt to changing situations with flexible algorithms.', 'Both have their strengths, but learning about Soft Computing can help you become more versatile in solving real-world problems.', "So let's embrace the challenges and unlock our potential by exploring Soft Computing!", '...']
+ > Processing time: 21.75386905670166
+ > Real-time factor: 2.6762677016396155
+ > Processing time: 40.77023005485535
+ > Real-time factor: 1.8298206635298484
+ > Text splitted to sentences.
+['Explain visual for Soft Computing vs Hard Computing in 2-3 simple sentences.']
+ > Text splitted to sentences.
+['Soft computing is like a flexible, adaptable robot that can handle complex tasks with ease, while hard computing is more like a rigid machine that follows strict instructions and struggles with complicated challenges.', 'Both types of computing have their own strengths and weaknesses, but soft computing is better at dealing with uncertainty and making decisions in uncertain situations.']
+ > Processing time: 31.468637943267822
+ > Real-time factor: 1.3030381787622731
+ > Text splitted to sentences.
+['Explain example for Soft Computing vs Hard Computing in 2-3 simple sentences.']
+ > Text splitted to sentences.
+['Soft computing is like using a flexible, easy-to-use pencil to solve problems, while hard computing is more like using a rigid, precise calculator.', 'Both can get the job done, but soft computing allows for more creativity and adaptation in solving complex issues.']
+ > Processing time: 63.7544310092926
+ > Real-time factor: 1.6816899903280897
+INFO:     127.0.0.1:50516 - "GET /api/subjects/3419b1fc-11e5-432a-b2ab-26c73fe33032/concepts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50516 - "GET /api/subjects/3419b1fc-11e5-432a-b2ab-26c73fe33032/concepts HTTP/1.1" 200 OK
+ > Processing time: 15.881875991821289
+ > Real-time factor: 0.8882075461094356
+ > Text splitted to sentences.
+['Explain mistake for Soft Computing vs Hard Computing in 2-3 simple sentences.']
+ > Text splitted to sentences.
+['Soft computing is a type of computing that focuses on solving problems with imprecise or uncertain data, while hard computing deals with exact and precise data.', 'In soft computing, the goal is to find an approximate solution that works well enough, whereas in hard computing, the solution must be exactly correct.']
+ > Processing time: 14.746257781982422
+ > Real-time factor: 0.7155195586858152
+ > Text splitted to sentences.
+['Explain practice for Soft Computing vs Hard Computing in 2-3 simple sentences.']
+ > Text splitted to sentences.
+['In soft computing, we use flexible algorithms that can handle uncertainty and imprecision, like fuzzy logic or neural networks, to solve problems.', 'In hard computing, we use exact mathematical methods and precise data to find solutions.', 'To practice soft computing, learn about these flexible algorithms and experiment with them on real-world problems.', 'For hard computing, focus on mastering mathematical techniques and using them to solve well-defined problems.']
+ > Processing time: 24.708148956298828
+ > Real-time factor: 0.7100449950037393
+ > Text splitted to sentences.
+['Soft computing is like a gentle hug, while hard computing is like a firm handshake.', 'Both have their strengths and weaknesses, but learning both can help you become a well-rounded problem solver!', '...', "Embrace the journey of mastering soft and hard computing, and remember that the more you learn, the better you'll become at solving problems in any situation.", 'Keep exploring and growing your skills, because the world is full of fascinating challenges waiting for you to tackle them with confidence!', '...']
+ > Processing time: 27.1645770072937
+ > Real-time factor: 0.7281320785812547
+INFO:     127.0.0.1:50610 - "GET /api/stream/teach/d33e23ac-1ea8-445c-98cd-99abfffb4243?user_level=beginner HTTP/1.1" 200 OK
+ > tts_models/multilingual/multi-dataset/xtts_v2 is already downloaded.
+ > Using model: xtts
+ > Text splitted to sentences.
+['Hey there!', '...', 'Have you ever wondered how our computers think and solve problems?', '...', "It's like having a superhero team - some members are strong and fast, while others can bend rules to find creative solutions.", "That's the difference between Soft Computing and Hard Computing!", '...', 'Join me in exploring this fascinating world of problem-solving!', '...']
+INFO:     127.0.0.1:50644 - "GET /api/subjects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50638 - "GET /api/subjects/3419b1fc-11e5-432a-b2ab-26c73fe33032/concepts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50644 - "GET /api/subjects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50638 - "GET /api/subjects/3419b1fc-11e5-432a-b2ab-26c73fe33032/concepts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50638 - "GET /api/subjects/3419b1fc-11e5-432a-b2ab-26c73fe33032/concepts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50638 - "GET /api/subjects/3419b1fc-11e5-432a-b2ab-26c73fe33032/concepts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50638 - "GET /api/stream/teach/d33e23ac-1ea8-445c-98cd-99abfffb4243?user_level=beginner HTTP/1.1" 200 OK
+ > tts_models/multilingual/multi-dataset/xtts_v2 is already downloaded.
+ > Using model: xtts
+ > Text splitted to sentences.
+['Hey there, are you ready to dive into the world of computing?', '...', "Let's explore the fascinating difference between Soft Computing and Hard Computing, where we'll uncover how they shape our digital landscape in surprising ways!", '...']
+ > Processing time: 35.1331582069397
+ > Real-time factor: 1.1147718014859385
+ > Processing time: 14.505214929580688
+ > Real-time factor: 0.8526701640005283
+ > Text splitted to sentences.
+['Imagine your brain is like a computer.', 'Hard computing is like following strict rules to solve problems, while soft computing is like using creative thinking and adapting to find solutions.', 'In hard computing, you follow a specific set of instructions; in soft computing, you think outside the box and make adjustments as needed.']
+ > Processing time: 15.46708607673645
+ > Real-time factor: 0.6775669283671578
+ > Text splitted to sentences.
+['Explain core for Soft Computing vs Hard Computing in 2-3 simple sentences.']
+ > Text splitted to sentences.
+['In soft computing, the "core" is about using flexible, approximate methods to solve problems, like fuzzy logic and neural networks.', 'In hard computing, the "core" is based on precise mathematical models and algorithms, like those used in classical physics.']
+ > Processing time: 12.790276288986206
+ > Real-time factor: 0.6897784891116504
+ > Text splitted to sentences.
+['Explain visual for Soft Computing vs Hard Computing in 2-3 simple sentences.']
+ > Text splitted to sentences.
+['Visual for Soft Computing: ...', 'Imagine a flexible, squishy toy that can bend and stretch to adapt to different shapes and situations.', "This is like soft computing, which uses algorithms that can adjust and change based on the problem they're solving.", "It's more forgiving and can handle uncertainties or imprecisions in data.", 'Visual for Hard Computing: ...', 'Imagine a rigid, metal ruler that always has a straight edge and measures things exactly.', 'This is like hard computing, which uses precise algorithms that follow strict rules.', "It's great for tasks where exact calculations are needed, but may struggle with uncertainties or variations in data."]
+ > Processing time: 12.309130907058716
+ > Real-time factor: 1.659024061739882
+ > Processing time: 34.63003993034363
+ > Real-time factor: 0.7690557525300505
+ > Text splitted to sentences.
+['Explain example for Soft Computing vs Hard Computing in 2-3 simple sentences.']
+ > Text splitted to sentences.
+['Soft computing refers to problem-solving techniques that are flexible, adaptive, and can handle uncertainty, like fuzzy logic and genetic algorithms.', "Imagine trying to find the best recipe for a cake when you don't have exact measurements; soft computing helps you make adjustments based on trial and error.", 'Hard computing uses precise mathematical models, like in physics or engineering, where there are clear rules and formulas to follow.', "It's like building a house with blueprints that tell you exactly how many bricks and nails you need."]
+ > Processing time: 28.803385734558105
+ > Real-time factor: 0.8122834158434536
+ > Text splitted to sentences.
+['Explain mistake for Soft Computing vs Hard Computing in 2-3 simple sentences.']
+ > Text splitted to sentences.
+['Soft computing is a type of computing that focuses on dealing with imprecision, uncertainty, and approximation to solve complex problems, while hard computing aims at finding exact solutions using precise calculations.', 'The main difference between soft computing and hard computing lies in their approach to problem-solving: ...  soft computing embraces flexibility and adaptability, whereas hard computing seeks accurate and deterministic results.']
+ > Processing time: 22.13464331626892
+ > Real-time factor: 0.6952706687385035
+ > Text splitted to sentences.
+['Explain practice for Soft Computing vs Hard Computing in 2-3 simple sentences.']
+ > Text splitted to sentences.
+['In soft computing, we focus on creating flexible and adaptable algorithms that can handle uncertainty and imprecision, like a skilled martial artist who can adapt to various situations.', 'In hard computing, we aim for precise and exact solutions, like a chess player who follows strict rules and strategies.']
+ > Processing time: 14.666786909103394
+ > Real-time factor: 0.7148852553267353
+ > Text splitted to sentences.
+['Soft computing is like a gentle, adaptable teacher, while hard computing is like a strict, unbending one.', 'Both have their strengths, but soft computing offers more flexibility and can handle complex situations with ease.', 'So, embrace learning about soft computing, as it will help you navigate the ever-changing world of technology with grace and understanding!', '...']
+ > Processing time: 17.826069116592407
+ > Real-time factor: 0.6841525983430966
+INFO:     127.0.0.1:50719 - "GET /api/subjects/3419b1fc-11e5-432a-b2ab-26c73fe33032/concepts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50719 - "GET /api/subjects/3419b1fc-11e5-432a-b2ab-26c73fe33032/concepts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50733 - "GET /api/stream/teach/d33e23ac-1ea8-445c-98cd-99abfffb4243?user_level=beginner HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'app/services/streaming_service.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [1976]
+INFO:     Started server process [3410]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:50767 - "GET /api/subjects/3419b1fc-11e5-432a-b2ab-26c73fe33032/concepts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50767 - "GET /api/subjects/3419b1fc-11e5-432a-b2ab-26c73fe33032/concepts HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'app/services/streaming_service.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [3410]
+INFO:     Started server process [3445]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/services/streaming_service.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [3445]
+INFO:     Started server process [3488]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app/services/teaching_session_service.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [3488]
+INFO:     Started server process [3514]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:50801 - "GET /api/subjects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50801 - "GET /api/subjects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50801 - "GET /api/subjects/3419b1fc-11e5-432a-b2ab-26c73fe33032/concepts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50801 - "GET /api/subjects/3419b1fc-11e5-432a-b2ab-26c73fe33032/concepts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50801 - "GET /api/stream/teach/d33e23ac-1ea8-445c-98cd-99abfffb4243?user_level=beginner HTTP/1.1" 200 OK
+/Users/eric/Documents/StudyCollege/TeachingAgent/backend/.venv/lib/python3.11/site-packages/jieba/_compat.py:18: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+/Users/eric/Documents/StudyCollege/TeachingAgent/backend/.venv/lib/python3.11/site-packages/TTS/tts/layers/xtts/xtts_manager.py:5: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.speakers = torch.load(speaker_file_path)
+/Users/eric/Documents/StudyCollege/TeachingAgent/backend/.venv/lib/python3.11/site-packages/TTS/utils/io.py:54: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  return torch.load(f, map_location=map_location, **kwargs)
+ > tts_models/multilingual/multi-dataset/xtts_v2 is already downloaded.
+ > Using model: xtts
+ > Text splitted to sentences.
+['Provide a technical comparison for Soft Computing vs Hard Computing with a related concept.', 'Highlight key differences.', '3-4 sentences.']
+ > Text splitted to sentences.
+['Define Soft Computing vs Hard Computing precisely.', 'Include formula/algorithm if applicable.', 'List key characteristics.', '4-5 sentences.', 'Context:', '- Two different approaches to problem-solving.', 'Hard computing requires precise input and gives exact results using binary logic.', 'Soft computing tolerates imprecision and uncertainty, using techniques li', '- Hard: Calculator (exact math).', 'Soft: Human reasoning (approximate but flexible).', '-']
+ > Text splitted to sentences.
+['Describe the architecture/structure of Soft Computing vs Hard Computing.', 'Mention components, data flow, and interactions.', '3-4 sentences.']
+ > Text splitted to sentences.
+['Provide a detailed technical example of Soft Computing vs Hard Computing from the source material.', 'Include steps and outcomes.', '4-5 sentences.', 'Context:', '- Two different approaches to problem-solving.', 'Hard computing requires precise input and gives exact results using binary logic.', 'Soft computing tolerates imprecision and uncertainty, using techniques li', '- Hard: Calculator (exact math).', 'Soft: Human reasoning (approximate but flexible).', '-']
+ > Text splitted to sentences.
+['Explain the most common exam mistake for Soft Computing vs Hard Computing.', 'Provide the correct approach with reasoning.', '3-4 sentences.']
+ > Text splitted to sentences.
+['Give a PYQ-style scenario for Soft Computing vs Hard Computing.', 'Ask what approach to use and why.', '2-3 sentences.']
+ > Text splitted to sentences.
+['Summarize key exam points for Soft Computing vs Hard Computing.', 'Mention what examiners look for.', '2-3 sentences.']
+INFO:     127.0.0.1:50819 - "GET /api/concepts/d33e23ac-1ea8-445c-98cd-99abfffb4243/flashcards HTTP/1.1" 200 OK
+ > Processing time: 57.74697804450989
+ > Real-time factor: 5.324316191716745
+ > Processing time: 45.55462098121643
+ > Real-time factor: 4.561502727584022
+ > Processing time: 49.47844886779785
+ > Real-time factor: 4.58156872579009
+ > Processing time: 87.52959704399109
+ > Real-time factor: 2.1597952753979377
+INFO:     127.0.0.1:50919 - "GET /api/subjects/3419b1fc-11e5-432a-b2ab-26c73fe33032/concepts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50919 - "GET /api/subjects/3419b1fc-11e5-432a-b2ab-26c73fe33032/concepts HTTP/1.1" 200 OK

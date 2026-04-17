@@ -90,17 +90,18 @@ class TeachingSessionService:
                 except json.JSONDecodeError:
                     continue
             
-            # Section complete - generate audio in background
+            # Section complete - SKIP audio generation for now (too slow)
             audio_url = ""
-            try:
-                audio_path = await self.tts.speak(
-                    self.tts.add_pacing_pauses(section_text),
-                    speed=1.15,
-                    cache=True,
-                )
-                audio_url = self.tts.get_audio_url(audio_path)
-            except Exception:
-                pass  # Audio is optional
+            # TODO: Re-enable TTS after optimizing
+            # try:
+            #     audio_path = await self.tts.speak(
+            #         self.tts.add_pacing_pauses(section_text),
+            #         speed=1.15,
+            #         cache=True,
+            #     )
+            #     audio_url = self.tts.get_audio_url(audio_path)
+            # except Exception:
+            #     pass  # Audio is optional
             
             # Yield complete section
             yield {

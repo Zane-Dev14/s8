@@ -162,18 +162,18 @@ class StreamingService:
         )
         
         system_prompt = (
-            "You are Goku, an energetic teacher who explains complex topics "
-            "with simple analogies and plain language. Keep it practical and clear. "
-            "Max 3-4 sentences per section."
+            "You are a technical exam coach. Explain concepts clearly with focus on "
+            "exam patterns, definitions, formulas, and PYQ trends. Be concise and precise. "
+            "Include technical terms with brief explanations. Max 4-5 sentences per section."
         )
         
-        # Stream using fast model
+        # Stream using fast model with more tokens for technical content
         async for chunk in self.stream_chat(
             model=settings.model_fast,
             system_prompt=system_prompt,
             user_prompt=prompt,
-            temperature=0.45,
-            max_tokens=150,
+            temperature=0.3,  # Lower for more precise technical content
+            max_tokens=250,  # More tokens for detailed explanations
         ):
             yield chunk
 
@@ -189,15 +189,14 @@ class StreamingService:
         context = "\n".join(f"- {chunk[:200]}" for chunk in context_chunks[:4])
         
         prompts = {
-            "hook": f"Write an exciting 1-2 sentence hook for {concept_name}. Make them curious! Start with 'Hey!' or 'Alright!'",
-            "analogy": f"Explain {concept_name} using a simple real-world analogy anyone can understand. 2-3 sentences, no jargon.",
-            "core_concept": f"Explain what {concept_name} actually is in simple terms. Break it down step-by-step. 3-4 sentences.\n\nContext:\n{context}",
-            "visual_description": f"Describe a concrete picture for {concept_name}. Include parts, flow direction, and what can go wrong. 2-3 sentences.",
-            "real_example": f"Give one specific example of {concept_name} from the source material. 2-3 sentences.\n\nContext:\n{context}",
-            "why_it_matters": f"Explain why {concept_name} is important and powerful. 2 sentences.",
-            "practice_scenario": f"Give a simple scenario for learners to think about regarding {concept_name}. 1-2 sentences.",
-            "common_mistake": f"Name one realistic mistake people make with {concept_name} and how to avoid it. 1-2 sentences.",
-            "encouragement": f"End with energetic encouragement about learning {concept_name}. 1 sentence.",
+            "hook": f"State why {concept_name} is critical for exams. Mention typical marks allocation and PYQ frequency. 2-3 sentences.",
+            "analogy": f"Provide a technical comparison for {concept_name} with a related concept. Highlight key differences. 3-4 sentences.",
+            "core": f"Define {concept_name} precisely. Include formula/algorithm if applicable. List key characteristics. 4-5 sentences.\n\nContext:\n{context}",
+            "visual": f"Describe the architecture/structure of {concept_name}. Mention components, data flow, and interactions. 3-4 sentences.",
+            "example": f"Provide a detailed technical example of {concept_name} from the source material. Include steps and outcomes. 4-5 sentences.\n\nContext:\n{context}",
+            "mistake": f"Explain the most common exam mistake for {concept_name}. Provide the correct approach with reasoning. 3-4 sentences.",
+            "practice": f"Give a PYQ-style scenario for {concept_name}. Ask what approach to use and why. 2-3 sentences.",
+            "encouragement": f"Summarize key exam points for {concept_name}. Mention what examiners look for. 2-3 sentences.",
         }
         
         return prompts.get(section_name, f"Explain {section_name} for {concept_name} in 2-3 simple sentences.")

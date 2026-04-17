@@ -327,6 +327,7 @@ async def ingest_soft_computing(db: Session):
                 continue
             
             # Create concept
+            import json
             concept = Concept(
                 subject_id=subject.id,
                 name=concept_data["name"],
@@ -335,14 +336,14 @@ async def ingest_soft_computing(db: Session):
                 explanation=concept_data["explanation"],
                 example=concept_data["example"],
                 common_mistake=concept_data["common_mistake"],
-                prerequisites=concept_data["prerequisites"],
-                metadata={
-                    "module": concept_data["module"],
+                module=concept_data["module"],
+                prerequisites_json=json.dumps(concept_data["prerequisites"]),
+                metadata_json=json.dumps({
                     "exam_importance": concept_data["exam_importance"],
                     "pyq_frequency": concept_data["pyq_frequency"],
                     "marks_pattern": concept_data["marks_pattern"],
                     "time_to_learn": concept_data["time_to_learn"]
-                }
+                })
             )
             db.add(concept)
             total_concepts += 1

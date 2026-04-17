@@ -615,6 +615,9 @@ def get_subject_concepts(subject_id: str, db: Session = Depends(get_db_session))
             "plain_name": c.plain_name,
             "difficulty": c.difficulty,
             "explanation": c.explanation,
+            "module": c.module or "Other",
+            "metadata_json": c.metadata_json or "{}",
+            "prerequisites_json": c.prerequisites_json or "[]",
         }
         for c in concepts
     ]

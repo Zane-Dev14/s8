@@ -1,14 +1,16 @@
 /**
- * Teaching Session Component
- * Displays 8-section Goku-style teaching with streaming text and audio
+ * Teaching Session Component - Redesigned
+ * Modern UI with section navigation, progress tracking, and flashcard integration
  */
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { useTeachingStream, useTypewriter } from '@/lib/useStreaming';
-import { Card } from '@/components/ui/card';
+import { useTeachingStream } from '@/lib/useStreaming';
+import { Card, CardTitle, CardText } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
+import { ArrowLeft, ArrowRight, CheckCircle2, Circle, BookOpen, Brain, Zap, Target, Award, Volume2, VolumeX } from 'lucide-react';
+import { FlashcardDeck } from '@/components/FlashcardDeck';
 
 interface TeachingSessionProps {
   conceptId: string;
@@ -17,45 +19,76 @@ interface TeachingSessionProps {
 }
 
 const SECTION_METADATA = {
-  hook: { title: 'Why This Matters', icon: '🎯', color: 'bg-amber-500' },
-  analogy: { title: 'Real-World Comparison', icon: '🌍', color: 'bg-blue-500' },
-  core: { title: 'The Core Concept', icon: '💡', color: 'bg-purple-500' },
-  visual: { title: 'Picture This', icon: '🎨', color: 'bg-pink-500' },
-  example: { title: 'Concrete Example', icon: '📝', color: 'bg-green-500' },
-  mistake: { title: 'Common Pitfall', icon: '⚠️', color: 'bg-red-500' },
-  practice: { title: 'Think About This', icon: '🤔', color: 'bg-indigo-500' },
-  encouragement: { title: 'You Got This!', icon: '💪', color: 'bg-orange-500' },
+  hook: { title: 'Exam Importance', icon: '🎯', color: 'from-amber-500 to-orange-500', description: 'Why this matters for exams' },
+  analogy: { title: 'Technical Comparison', icon: '🔄', color: 'from-blue-500 to-cyan-500', description: 'Compare with related concepts' },
+  core: { title: 'Core Definition', icon: '💡', color: 'from-purple-500 to-pink-500', description: 'Precise technical explanation' },
+  visual: { title: 'Architecture', icon: '🏗️', color: 'from-green-500 to-emerald-500', description: 'Structure and components' },
+  example: { title: 'Technical Example', icon: '📝', color: 'from-indigo-500 to-purple-500', description: 'Detailed walkthrough' },
+  mistake: { title: 'Common Exam Mistake', icon: '⚠️', color: 'from-red-500 to-pink-500', description: 'What to avoid' },
+  practice: { title: 'PYQ Scenario', icon: '🤔', color: 'from-teal-500 to-cyan-500', description: 'Practice question' },
+  encouragement: { title: 'Exam Strategy', icon: '💪', color: 'from-orange-500 to-red-500', description: 'Key points summary' },
 };
+
+type SectionName = keyof typeof SECTION_METADATA;
 
 export function TeachingSession({ conceptId, conceptName, onComplete }: TeachingSessionProps) {
   const { sections, currentSection, audioUrls, progress, done, error, isStreaming } =
     useTeachingStream(conceptId);
 
-  const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [completedSections, setCompletedSections] = useState<Set<string>>(new Set());
+  const [showFlashcards, setShowFlashcards] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [flashcards, setFlashcards] = useState<any[]>([]);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  // Update active section when streaming changes
+  // Fetch flashcards when session completes
   useEffect(() => {
-    if (currentSection && currentSection !== activeSection) {
-      setActiveSection(currentSection);
+    if (done && !flashcards.length) {
+      fetch(`http://localhost:8000/api/concepts/${conceptId}/flashcards`)
+        .then(res => res.json())
+        .then(data => setFlashcards(data || []))
+        .catch(err => console.error('Failed to load flashcards:', err));
     }
-  }, [currentSection, activeSection]);
+  }, [done, conceptId, flashcards.length]);
 
-  // Mark section as complete when it finishes
-  useEffect(() => {
-    if (activeSection && sections[activeSection] && !isStreaming) {
-      setCompletedSections((prev) => new Set(prev).add(activeSection));
-    }
-  }, [activeSection, sections, isStreaming]);
+  const sectionOrder: SectionName[] = ['hook', 'analogy', 'core', 'visual', 'example', 'mistake', 'practice', 'encouragement'];
+  const currentSectionName = sectionOrder[currentIndex];
+  const currentSectionData = sections[currentSectionName] || '';
+  const totalSections = sectionOrder.length;
+  const progressPercent = ((currentIndex + 1) / totalSections) * 100;
 
-  // Handle session completion
+  // Mark section as complete when content arrives
   useEffect(() => {
-    if (done && onComplete) {
-      onComplete();
+    if (currentSectionData && !isStreaming) {
+      setCompletedSections((prev) => new Set(prev).add(currentSectionName));
     }
-  }, [done, onComplete]);
+  }, [currentSectionData, isStreaming, currentSectionName]);
+
+  // Auto-advance when section completes
+  useEffect(() => {
+    if (done && currentIndex < totalSections - 1) {
+      // All sections loaded, can navigate freely
+    }
+  }, [done, currentIndex, totalSections]);
+
+  const nextSection = () => {
+    if (currentIndex < totalSections - 1) {
+      setCurrentIndex(currentIndex + 1);
+    } else if (done) {
+      setShowFlashcards(true);
+    }
+  };
+
+  const prevSection = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+    }
+  };
+
+  const goToSection = (index: number) => {
+    setCurrentIndex(index);
+  };
 
   const playAudio = (sectionName: string) => {
     const audioUrl = audioUrls[sectionName];
@@ -65,7 +98,11 @@ export function TeachingSession({ conceptId, conceptName, onComplete }: Teaching
       audioRef.current.pause();
     }
 
-    audioRef.current = new Audio(audioUrl);
+    const fullAudioUrl = audioUrl.startsWith('http') 
+      ? audioUrl 
+      : `http://localhost:8000${audioUrl}`;
+    
+    audioRef.current = new Audio(fullAudioUrl);
     audioRef.current.play();
     setIsPlaying(true);
 
@@ -81,205 +118,210 @@ export function TeachingSession({ conceptId, conceptName, onComplete }: Teaching
     }
   };
 
-  const nextSection = () => {
-    const sectionOrder = Object.keys(SECTION_METADATA);
-    const currentIndex = activeSection ? sectionOrder.indexOf(activeSection) : -1;
-    if (currentIndex < sectionOrder.length - 1) {
-      const next = sectionOrder[currentIndex + 1];
-      setActiveSection(next);
-    }
-  };
-
-  if (error) {
+  if (showFlashcards) {
     return (
-      <Card className="p-6 border-red-500">
-        <div className="text-red-600">
-          <h3 className="text-lg font-bold mb-2">Error</h3>
-          <p>{error}</p>
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-6">
+        <div className="max-w-4xl mx-auto">
+          <Button
+            onClick={() => setShowFlashcards(false)}
+            variant="ghost"
+            className="mb-4 text-slate-300 hover:text-white"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Teaching
+          </Button>
+          <FlashcardDeck
+            cards={flashcards}
+            onCardReview={(cardId, quality) => {
+              console.log('Card reviewed:', cardId, quality);
+            }}
+            onComplete={onComplete}
+          />
         </div>
-      </Card>
+      </div>
     );
   }
 
-  return (
-    <div className="max-w-4xl mx-auto space-y-6">
-      {/* Header */}
-      <div className="text-center space-y-2">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-          Learning: {conceptName}
-        </h1>
-        <div className="flex items-center justify-center gap-4">
-          <Progress value={parseInt(progress.split('/')[0]) * 12.5} className="w-64" />
-          <span className="text-sm text-gray-600 dark:text-gray-400">{progress}</span>
-        </div>
-      </div>
-
-      {/* Goku Avatar */}
-      <div className="flex justify-center">
-        <div
-          className={`w-24 h-24 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center text-4xl transition-transform ${
-            isStreaming ? 'animate-bounce' : ''
-          }`}
-        >
-          🥋
-        </div>
-      </div>
-
-      {/* Section Cards */}
-      <div className="space-y-4">
-        {Object.entries(SECTION_METADATA).map(([sectionKey, metadata]) => {
-          const sectionText = sections[sectionKey] || '';
-          const isActive = activeSection === sectionKey;
-          const isComplete = completedSections.has(sectionKey);
-          const hasAudio = !!audioUrls[sectionKey];
-
-          if (!sectionText && !isActive) return null;
-
-          return (
-            <SectionCard
-              key={sectionKey}
-              sectionKey={sectionKey}
-              metadata={metadata}
-              text={sectionText}
-              isActive={isActive}
-              isComplete={isComplete}
-              hasAudio={hasAudio}
-              isPlaying={isPlaying && activeSection === sectionKey}
-              onPlayAudio={() => playAudio(sectionKey)}
-              onPauseAudio={pauseAudio}
-            />
-          );
-        })}
-      </div>
-
-      {/* Navigation */}
-      {activeSection && !isStreaming && (
-        <div className="flex justify-center gap-4">
-          <Button onClick={nextSection} size="lg" className="bg-orange-500 hover:bg-orange-600">
-            Next Section →
-          </Button>
-        </div>
-      )}
-
-      {/* Completion */}
-      {done && (
-        <Card className="p-6 bg-gradient-to-r from-green-500 to-emerald-500 text-white">
-          <div className="text-center space-y-2">
-            <div className="text-4xl">🎉</div>
-            <h3 className="text-2xl font-bold">Awesome Work!</h3>
-            <p>You've completed the teaching session. Ready for some practice?</p>
-            <Button
-              onClick={onComplete}
-              size="lg"
-              className="bg-white text-green-600 hover:bg-gray-100"
-            >
-              Start Quiz
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center p-6">
+        <Card className="max-w-md bg-red-900/20 border-red-500/50">
+          <div className="p-6 text-center">
+            <div className="text-4xl mb-4">⚠️</div>
+            <CardTitle className="text-red-400 mb-2">Error Loading Session</CardTitle>
+            <CardText className="text-red-300">{error}</CardText>
+            <Button onClick={onComplete} className="mt-4" variant="danger">
+              Go Back
             </Button>
           </div>
         </Card>
-      )}
-    </div>
-  );
-}
+      </div>
+    );
+  }
 
-interface SectionCardProps {
-  sectionKey: string;
-  metadata: { title: string; icon: string; color: string };
-  text: string;
-  isActive: boolean;
-  isComplete: boolean;
-  hasAudio: boolean;
-  isPlaying: boolean;
-  onPlayAudio: () => void;
-  onPauseAudio: () => void;
-}
-
-function SectionCard({
-  metadata,
-  text,
-  isActive,
-  isComplete,
-  hasAudio,
-  isPlaying,
-  onPlayAudio,
-  onPauseAudio,
-}: SectionCardProps) {
-  const { displayText, isTyping } = useTypewriter(text, 20);
+  const metadata = SECTION_METADATA[currentSectionName];
 
   return (
-    <Card
-      className={`p-6 transition-all duration-300 ${
-        isActive ? 'ring-2 ring-orange-500 shadow-lg scale-105' : ''
-      } ${isComplete ? 'opacity-90' : ''}`}
-    >
-      <div className="space-y-4">
-        {/* Section Header */}
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div
-              className={`w-12 h-12 rounded-full ${metadata.color} flex items-center justify-center text-2xl`}
-            >
-              {metadata.icon}
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-6">
+      <div className="max-w-5xl mx-auto">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-6">
+          <Button
+            onClick={onComplete}
+            variant="ghost"
+            className="text-slate-300 hover:text-white"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Concepts
+          </Button>
+          <div className="text-right">
+            <div className="text-sm text-slate-400">Learning</div>
+            <div className="text-lg font-bold text-white">{conceptName}</div>
+          </div>
+        </div>
+
+        {/* Progress Bar */}
+        <div className="mb-8">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-sm font-medium text-slate-300">
+              Section {currentIndex + 1} of {totalSections}
+            </span>
+            <span className="text-sm font-medium text-purple-400">
+              {Math.round(progressPercent)}% Complete
+            </span>
+          </div>
+          <Progress value={progressPercent} className="h-2 bg-slate-800" />
+        </div>
+
+        {/* Section Navigation Pills */}
+        <div className="flex flex-wrap gap-2 mb-6">
+          {sectionOrder.map((section, idx) => {
+            const meta = SECTION_METADATA[section];
+            const isCompleted = completedSections.has(section);
+            const isCurrent = idx === currentIndex;
+            
+            return (
+              <button
+                key={section}
+                onClick={() => goToSection(idx)}
+                className={`
+                  flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all
+                  ${isCurrent 
+                    ? 'bg-gradient-to-r ' + meta.color + ' text-white shadow-lg scale-105' 
+                    : isCompleted
+                    ? 'bg-slate-700 text-slate-300 hover:bg-slate-600'
+                    : 'bg-slate-800 text-slate-500 cursor-not-allowed'
+                  }
+                `}
+                disabled={!isCompleted && !isCurrent}
+              >
+                {isCompleted ? (
+                  <CheckCircle2 className="w-4 h-4" />
+                ) : (
+                  <Circle className="w-4 h-4" />
+                )}
+                <span>{meta.icon}</span>
+                <span className="hidden sm:inline">{meta.title}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Main Content Card */}
+        <Card className="bg-slate-800/50 backdrop-blur-xl border-slate-700 shadow-2xl mb-6">
+          <div className="p-8">
+            {/* Section Header */}
+            <div className="flex items-start justify-between mb-6">
+              <div>
+                <div className={`inline-block px-4 py-2 rounded-lg bg-gradient-to-r ${metadata.color} text-white font-bold text-lg mb-2`}>
+                  {metadata.icon} {metadata.title}
+                </div>
+                <p className="text-slate-400 text-sm">{metadata.description}</p>
+              </div>
+              {audioUrls[currentSectionName] && (
+                <Button
+                  onClick={() => isPlaying ? pauseAudio() : playAudio(currentSectionName)}
+                  variant="ghost"
+                  className="text-purple-400 hover:text-purple-300"
+                >
+                  {isPlaying ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+                </Button>
+              )}
             </div>
-            <div>
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-                {metadata.title}
-              </h3>
-              {isComplete && (
-                <span className="text-sm text-green-600 dark:text-green-400">✓ Complete</span>
+
+            {/* Content */}
+            <div className="prose prose-invert max-w-none">
+              {currentSectionData ? (
+                <p className="text-slate-200 text-lg leading-relaxed whitespace-pre-wrap">
+                  {currentSectionData}
+                  {isStreaming && currentSection === currentSectionName && (
+                    <span className="inline-block w-2 h-5 bg-purple-500 ml-1 animate-pulse" />
+                  )}
+                </p>
+              ) : (
+                <div className="flex items-center justify-center py-12">
+                  <div className="text-center">
+                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-500 mx-auto mb-4"></div>
+                    <p className="text-slate-400">Loading section...</p>
+                  </div>
+                </div>
               )}
             </div>
           </div>
+        </Card>
 
-          {/* Audio Controls */}
-          {hasAudio && (
-            <Button
-              onClick={isPlaying ? onPauseAudio : onPlayAudio}
-              variant="outline"
-              size="sm"
-              className="gap-2"
-            >
-              {isPlaying ? '⏸️ Pause' : '🔊 Play Audio'}
-            </Button>
-          )}
-        </div>
+        {/* Navigation Buttons */}
+        <div className="flex items-center justify-between">
+          <Button
+            onClick={prevSection}
+            disabled={currentIndex === 0}
+            variant="ghost"
+            className="text-slate-300 hover:text-white disabled:opacity-30"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Previous
+          </Button>
 
-        {/* Section Content */}
-        <div className="prose dark:prose-invert max-w-none">
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-            {displayText}
-            {isTyping && <span className="animate-pulse">▊</span>}
-          </p>
-        </div>
-
-        {/* Key Terms Highlight */}
-        {isActive && (
-          <div className="flex flex-wrap gap-2">
-            {extractKeyTerms(text).map((term, idx) => (
-              <span
-                key={idx}
-                className="px-3 py-1 bg-amber-100 dark:bg-amber-900 text-amber-800 dark:text-amber-200 rounded-full text-sm font-medium animate-pulse"
+          <div className="flex gap-3">
+            {currentIndex === totalSections - 1 && done ? (
+              <Button
+                onClick={() => setShowFlashcards(true)}
+                className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg"
               >
-                {term}
-              </span>
-            ))}
+                <Brain className="w-4 h-4 mr-2" />
+                Practice with Flashcards
+              </Button>
+            ) : (
+              <Button
+                onClick={nextSection}
+                disabled={!currentSectionData || (currentIndex === totalSections - 1 && !done)}
+                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white shadow-lg disabled:opacity-30"
+              >
+                Next Section
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            )}
           </div>
-        )}
+        </div>
+
+        {/* Stats Footer */}
+        <div className="mt-8 grid grid-cols-3 gap-4">
+          <Card className="bg-slate-800/30 border-slate-700 p-4 text-center">
+            <div className="text-2xl font-bold text-purple-400">{completedSections.size}</div>
+            <div className="text-sm text-slate-400">Sections Completed</div>
+          </Card>
+          <Card className="bg-slate-800/30 border-slate-700 p-4 text-center">
+            <div className="text-2xl font-bold text-blue-400">{totalSections - completedSections.size}</div>
+            <div className="text-sm text-slate-400">Remaining</div>
+          </Card>
+          <Card className="bg-slate-800/30 border-slate-700 p-4 text-center">
+            <div className="text-2xl font-bold text-green-400">{Math.round(progressPercent)}%</div>
+            <div className="text-sm text-slate-400">Progress</div>
+          </Card>
+        </div>
       </div>
-    </Card>
+    </div>
   );
-}
-
-function extractKeyTerms(text: string): string[] {
-  // Simple extraction - look for capitalized words or quoted terms
-  const terms: string[] = [];
-  const capitalizedWords = text.match(/\b[A-Z][a-z]+\b/g) || [];
-  const quotedTerms = text.match(/"([^"]+)"/g) || [];
-
-  terms.push(...capitalizedWords.slice(0, 3));
-  terms.push(...quotedTerms.map((t) => t.replace(/"/g, '')).slice(0, 2));
-
-  return [...new Set(terms)].slice(0, 5);
 }
 
 // Made with Bob

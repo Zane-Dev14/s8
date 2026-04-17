@@ -141,8 +141,8 @@ export function useTeachingStream(conceptId: string | null, userLevel: string = 
     setError(null);
     setIsStreaming(true);
 
-    // Create EventSource
-    const url = `/api/stream/teach/${conceptId}?user_level=${userLevel}`;
+    // Create EventSource - connect to backend on port 8000
+    const url = `http://localhost:8000/api/stream/teach/${conceptId}?user_level=${userLevel}`;
     const es = new EventSource(url);
     eventSourceRef.current = es;
 
@@ -263,14 +263,14 @@ export function useQuizEvaluation() {
       setError(null);
       setIsEvaluating(true);
 
-      // Create EventSource
+      // Create EventSource - connect to backend on port 8000
       const params = new URLSearchParams({
         question_id: questionId,
         user_answer: userAnswer,
         confidence: confidence.toString(),
         response_time_ms: responseTimeMs.toString(),
       });
-      const url = `/api/stream/quiz/evaluate?${params}`;
+      const url = `http://localhost:8000/api/stream/quiz/evaluate?${params}`;
       const es = new EventSource(url);
       eventSourceRef.current = es;
 

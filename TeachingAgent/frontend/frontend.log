@@ -1,0 +1,33 @@
+
+> teaching-agent-frontend@0.1.0 dev
+> next dev -p 3000
+
+  ▲ Next.js 14.2.15
+  - Local:        http://localhost:3000
+  - Experiments (use with caution):
+    · typedRoutes
+
+ ✓ Starting...
+ ✓ Ready in 1451ms
+ ○ Compiling / ...
+ ✓ Compiled / in 1257ms (527 modules)
+ GET / 200 in 1351ms
+ GET / 200 in 15ms
+ ✓ Compiled /_not-found in 141ms (530 modules)
+ GET /api/stream/teach/d33e23ac-1ea8-445c-98cd-99abfffb4243?user_level=beginner 404 in 197ms
+ GET / 200 in 18ms
+ GET / 200 in 11ms
+ GET /api/stream/teach/d33e23ac-1ea8-445c-98cd-99abfffb4243?user_level=beginner 404 in 10ms
+ ✓ Compiled in 105ms (516 modules)
+ GET / 200 in 26ms
+ ✓ Compiled in 60ms (516 modules)
+ GET /api/audio/361d25aacd34878de7e6c38a3b43e37d.wav 404 in 39ms
+ GET /api/audio/361d25aacd34878de7e6c38a3b43e37d.wav 404 in 15ms
+ GET /api/audio/361d25aacd34878de7e6c38a3b43e37d.wav 404 in 13ms
+ GET /api/audio/361d25aacd34878de7e6c38a3b43e37d.wav 404 in 13ms
+ GET / 200 in 25ms
+ ✓ Compiled in 554ms (527 modules)
+ ✓ Compiled in 237ms (537 modules)
+ ✓ Compiled in 128ms (537 modules)
+ ✓ Compiled in 95ms (537 modules)
+ GET / 200 in 42ms

@@ -127,6 +127,11 @@ class Concept(Base):
     checkpoint_question: Mapped[str] = mapped_column(Text, default="")
     hard_follow_up: Mapped[str] = mapped_column(Text, default="")
     
+    # Module organization
+    module: Mapped[str] = mapped_column(String(128), default="", index=True)  # e.g., "Module 1", "Module 2"
+    prerequisites_json: Mapped[str] = mapped_column(Text, default="[]")  # JSON array of prerequisite concept names
+    metadata_json: Mapped[str] = mapped_column(Text, default="{}")  # JSON object for exam importance, PYQ frequency, etc.
+    
     source_reference: Mapped[str] = mapped_column(String(1024), default="")
 
     subject: Mapped[Subject] = relationship(back_populates="concepts")
