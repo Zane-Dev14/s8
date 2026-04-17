@@ -1,0 +1,777 @@
+
+===== PAGE 1 =====
+Distributed-Computing-Module-2-
+Important-Topics-PYQs
+©) For more notes visit
+https://rtpnotes.vercel.app
+e Distributed-Computing-Module-2-Important-Topics-PYQs
+e 1. Define Termination Detection.
+e What is Termination Detection?
+e Imagine This Scenario:
+e Rules for Termination Detection:
+e How Does This Help in Detecting Termination?
+e Example of Termination Detection:
+e 2. What are the basic properties of scalar time.
+e Rules to Update Clocks
+e Properties of Scalar Time
+e 1. Consistency Property
+e 2. Total Ordering
+e 3. Event Counting
+e 4. No Strong Consistency
+e 3. What are the rules used to update clocks in scalar time representation?
+e 4. Specify the issues in recording a global state.
+- Issue 1: Which messages should be included in the snapshot?
+- Issue 2: When should each process take its snapshot?
+e 5. Define vector time.
+e How Does It Work?
+e Local event at P1:
+e Pl sends a message to P2:
+e P2 receives the message:
+e Key Properties of Vector Time
+
+===== PAGE 2 =====
+e 1. lsomorphism (Partial Ordering)
+e 2. Strong Consistency
+e 3. Event Counting
+e Applications of Vector Time
+e 6. Illustrate bully algorithm for electing a new leader. Does the algorithm meet liveness
+and safety conditions?
+- How It Works:
+e Bully Algorithm Example
+e Safety and Liveness
+e Safety
+e Liveness
+e 7. Discuss the method of termination detection by weight throwing in detail.
+e Key Characters:
+e Weights (W):
+e How it works — Rules and Flow:
+e 1. Starting the Work (Rule 1):
+e 2. When a Process Gets a Message (Rule 2):
+e 3. Becoming Idle (Rule 3):
+e 4. When the Manager Gets Weight Back (Rule 4):
+e Why this works?
+e Example
+e Setup:
+e Step 1: Controlling agent starts the computation
+e Step 2: P1 does some work and sends a message to P2
+e Step 3: P2 finishes its work
+e Step 4: P1 also finishes
+e 8. Illustrate the working of spanning tree-based termination detection algorithm.
+e Basic Idea:
+e Rules Recap in Simple Terms:
+e Example of the algorithm
+e Step 1
+e Step 2
+e Step 3
+
+===== PAGE 3 =====
+e Step 4
+e Step 5
+e Step 6
+e Time complexitiy
+e 9. Explain in detail about Chandy Lamport algorithm.
+e How It Works (Step-by-Step):
+e Example Scenario:
+e When is This Useful?
+e 10. What is meant by a consistent global state?
+e 11. Explain ring based election algorithm with an example. Does the algorithm meet
+liveness and safety conditions?
+e How It Works:
+e Example
+e Liveness and safety conditions
+e Safety Condition
+e Liveness Condition
+e 12. Explain how logical clock is implemented.
+e 1. Data Structures:
+e 2. Protocol (Rules) for Updating the Clock:
+e R1-—Local Event Rule
+e R2—- Message Rule (Global View Update)
+e 13. Clearly mentioning assumptions, explain the rules of termination detection using
+distributed snapshots.
+e Assumptions
+e Rules of Termination Detection (Using Distributed Snapshots)
+e Rule 1: Unique Last Idle Process
+e Rule 2: Snapshot Request Trigger
+e Rule 3: Granting the Snapshot Request
+e Rule 4: Successful Snapshot
+e Rule 5: Termination Detected via Snapshot
+1. Define Termination Detection.
+
+===== PAGE 4 =====
+What is Termination Detection?
+In a distributed system, multiple computers (or processes) work together to solve a problem.
+Since these processes are running independently and communicating over a network, it's hard
+to tell when the entire system has finished its work.
+Termination detection is the process of figuring out when all processes have finished their
+tasks, and there are no messages still traveling through the network. Only then can we
+say, "The system is done!"
+Imagine This Scenario:
+Let’s say we have three people (Process A, Process B, and Process C) working on solving a
+puzzle. They pass notes to each other when they find clues (these notes are like messages).
+Here’s the problem: how do they all know when the puzzle is completely solved?
+Even if A finishes their part and stops, B might still be working, or a note might be on its way
+from C to B. So, how do we detect that everyone has stopped working and no notes are in
+transit?
+Rules for Termination Detection:
+1. No Freezing the Work (No Interference with Computation):
+e The system should continue solving the puzzle while checking if it's done. We can't
+pause everyone just to ask, "Are you finished?"
+e Example: If Ais working, we shouldn't interrupt them just to ask if they’re done.
+2. No New Ways of Talking (No New Communication Channels):
+e The people can only send notes through the methods they already use. We can’t
+suddenly give them walkie-talkies to check if they’re finished.
+e Example: If A, B, and C usually pass handwritten notes, we can’t introduce phone calls
+to check on them.
+3. Every Note Will Arrive (Reliable Message Delivery):
+e Even if there are delays, every note passed between people will eventually reach its
+destination.
+e Example: If C sends a note to A, even if it takes a long time, it will eventually arrive.
+4. Notes Can Be Late (Finite but Unpredictable Delays):
+e The notes might take different amounts of time to arrive, but they won't get lost forever.
+
+===== PAGE 5 =====
+e Example: A might send a note to B, and it could arrive quickly or take a while, but it will
+get there.
+5. People are Either Working or Waiting (Process States):
+e At any time, a person is either active (working on the puzzle) or idle (waiting, doing
+nothing).
+e Example: A is active when solving clues. A becomes idle when they have no more clues
+to solve.
+6. Rules for Switching Between Working and Waiting (Transition Rules):
+e Active to Idle: A person can stop working when they finish their part.
+e Example: B finishes their clue and stops.
+e Idle to Active: A person can only start working again if they get a note from someone
+else.
+e Example: A was idle but starts working again when they receive a new clue from
+C.
+e Only Active People Can Send Notes: If you’re not working, you can’t send notes.
+e Example: If Ais idle, they can't send any more messages until they become active
+again.
+7. Special "Are You Done?" Notes (Control Messages):
+e To detect if everyone is finished, special notes (control messages) are used to ask, "Are
+you done?" But these should not mess up the regular notes being passed.
+e Example: Besides the puzzle clues, people pass special notes asking, "Have you
+finished your clues?" without mixing them up with puzzle hints.
+8. Notes Don’t Have to Be in Order (No FIFO Requirement):
+e Notes sent between the same people don’t have to arrive in the order they were sent.
+e Example: If A sends two notes to B, the second one might arrive before the first.
+9. Sending and Receiving are Instant (Atomic Actions):
+e When someone sends or receives a note, it happens completely, without half-finished
+actions.
+e Example: You can’t half-send a note; it’s either sent or not. Similarly, you can’t half-
+receive a note.
+How Does This Help in Detecting Termination?
+e Goal: We want to find out when everyone has stopped working and no notes are in
+transit.
+
+===== PAGE 6 =====
+e If everyone is idle and no messages are left to be delivered, we can safely say the work is
+done.
+Example of Termination Detection:
+Let’s say Process A finishes its task and goes idle. But before declaring that everything is done,
+we need to make sure:
+1. B and C have also finished their tasks.
+2. No messages are still traveling between A, B, and C.
+Only when both conditions are true can we detect that the entire system has terminated.
+2. What are the basic properties of scalar time.
+Imagine you have a bunch of computers (or processes) working together but not sharing a
+clock. They need to agree on the order of events (like "who sent a message first?").
+To do this, Lamport came up with the idea of Scalar Time in 1978.
+Each process has its own logical clock — just a simple counter (like C1, C2, etc.).
+Whenever something important happens (like sending or receiving a message), the process
+updates its counter using two simple rules.
+Rules to Update Clocks
+R1. Local Event: When a process does something (like sending a message), it increases its
+counter by 1.
+| E.g., if Cl = 5, and process does something, it becomes C1 = 6.
+R2. Message Received: When a process receives a message, it compares its own clock with
+the timestamp in the message and takes the maximum + 1.
+| If C2 = 3, and it gets a message with time 5, itsets C2 = max(3,5)+1 = 6.
+This way, time always moves forward!
+Properties of Scalar Time
+
+===== PAGE 7 =====
+1. Consistency Property
+If one event happens before another (in real life), scalar time will reflect that.
+2. Total Ordering
+e We can use scalar timestamps to totally order events across the whole system.
+e But sometimes... two events in different processes might have the same timestamp
+e We use process IDs to break ties.
+e Example:
+e If two events have timestamp 5,
+e one happened in Process 1, and the other in Process 2,
+e we write their time as (5,1) and (5,2).
+e Since 1< 2, we say (5,1) happened first.
+e So the final timestamp is atuple: (time, process id)
+3. Event Counting
+Because the clock increases with each event, you can count events using the scalar clock
+values.
+4. No Strong Consistency
+Scalar time is not perfectly accurate. It does not guarantee that if two events have different
+timestamps, one definitely happened before the other. It only helps with a rough, logical
+ordering.
+3. What are the rules used to update clocks in scalar time
+representation?
+R1. Local Event: When a process does something (like sending a message), it increases its
+counter by 1.
+| E.g., if Cl = 5, and process does something, itbecomes C1 = 6.
+R2. Message Received: When a process receives a message, it compares its own clock with
+the timestamp in the message and takes the maximum + 1.
+
+===== PAGE 8 =====
+| If C2 = 3, and it gets a message with time 5, itsets C2 = max(3,5)+1 = 6.
+This way, time always moves forward!
+4. Specify the issues in recording a global state.
+In a distributed system (multiple computers or processes working together), a global state is
+like taking a photo of the whole system at one moment. It includes:
+e Each process's state (what it's doing, local variables, etc.)
+e Each communication channel’s state (messages in transit)
+Issue 1: Which messages should be included in the snapshot?
+e Imagine
+e Process A sends a message to Process B.
+e Process B takes its snapshot before it receives the message.
+e Question: Should that message be part of the snapshot?
+- We need a Clear rule to decide:
+- ls the message already in the process's state?
+- Or is it “in transit" and should be recorded in the channel?
+This is tricky because messages can fly across the network at any time, and we need to
+capture a consistent picture.
+Issue 2: When should each process take its snapshot?
+Without a global clock, processes can't all take snapshots at the same moment.
+So
+e How do we decide when each process should capture its state?
+e If they all do it at random times, the snapshot might not make sense (it might show events
+out of order).
+We need a coordinated way (like a special message or protocol) to tell each process when
+it's the right time to take its snapshot, based on what's happening in the system.
+5. Define vector time.
+
+===== PAGE 9 =====
+Imagine you have several computers (processes) working together in a distributed system.
+These computers send messages, perform actions, and we want to know:
+e Which event happened before another?
+e Did two events happen independently, or were they causally connected?
+That’s where Vector Clocks come in.
+A vector clock is like a special timestamp, but instead of just one number (like in scalar
+clocks), it's a list of numbers — one for each process in the system.
+If there are 3 processes (P1, P2, P3), each process has a vector clock like this:
+[clock_P1, clock_P2, clock_P3]
+Each process keeps track of:
+e Its own actions
+e What it knows about the others
+How Does It Work?
+Let’s say we have 3 processes (P1, P2, P3).
+Each one starts with a clock: [0, 0, 0]
+Local event at P1:
+e P1 does something.
+e It updates its own entry: [1, 0, 0]
+P1 sends a message to P2:
+e It sends the message with its vector clock [1, 0, 0]
+P2 receives the message:
+e It compares the received clock [1, 0, 0] withits ownclock [0, 1, 0]
+e It takes the max of each position and then adds 1 to its own position:
+max([1, 0, 0], [0, 1, 0]) = [1, 1, 0]
+Then increment P2’s own value:
+
+===== PAGE 10 =====
+[1, 2, 0]
+Key Properties of Vector Time
+1. Isomorphism (Partial Ordering)
+If event A |= event B (A happened before B), then A’s vector clock < B’s vector clock
+(we compare them element-by-element).
+This helps us create a partial order of events in the system.
+2. Strong Consistency
+Unlike scalar clocks, vector clocks can tell us exactly if two events are related:
+e If A's vector clock < B's, then A happened before B
+e If Aand B are not comparable, they happened concurrently
+3. Event Counting
+Just like scalar clocks, we can count events because vector entries increase with every action.
+Applications of Vector Time
+Because vector clocks track causality perfectly, they’re super useful:
+e Distributed debugging — trace what happened and in what order
+e Causal message ordering — ensure messages are delivered respecting cause-and-effect
+e Causal shared memory — maintain consistent views of shared data
+e Global breakpoints — pause systems in a stable state
+e Checkpoint consistency — useful in failure recovery
+6. Illustrate bully algorithm for electing a new leader. Does
+the algorithm meet liveness and safety conditions?
+In distributed systems (like a group of computers working together), it's important to have one
+computer in charge—this is called the leader or coordinator. The Leader Election Algorithm
+helps decide which computer becomes the leader.
+
+===== PAGE 11 =====
+Bully Algorihtm is a type of leader election algorithm
+In this algorithm, the computer with the highest ID always wins—that's why it's called the
+Bully Algorithm
+How It Works:
+1. Starting the Election:
+e Aprocess that thinks the leader has failed sends an election message to all
+processes with higher IDs.
+2. Responses:
+e Ifno higher process responds, the process declares itself the leader.
+e Ifahigher process responds, that process takes over the election.
+3. Choosing the Leader:
+e The process with the highest ID becomes the leader and sends a "coordinator"
+message to all others.
+4. If the Leader Fails Again:
+e The process that notices the failure starts a new election.
+Bully Algorithm Example
+e There are processes 0-7
+e a
+e Assume 7th process is down
+
+===== PAGE 12 =====
+e ae
+e Process 4 reports that 7th process is down
+e Asends an election message
+e 4 Sends the election message to the larger numbers
+e Here the numbers larger than 4 are: 5,6,7
+. ;
+e An Election message's response will be an OK Message
+e Since 7 is down, it wont return OK message
+e But 5 and 6 are active, so it will return OK message
+e Since 4 gets OK message, it understands that it cant be coordinator, because there
+are larger numbers
+
+===== PAGE 13 =====
+ce
+e The ones that gave OK message will now conduct election
+e 5 and 6 will now Conduct election
+e When 5 conducts the election
+© i
+— of
+. \ -
+oO —_
+e It gives election message to 6 and 7
+e Since 7 is down. it wont send OK message
+e 6 Sends an OK message
+e 5 understands, theres someone larger so it cant be coordinator
+e Now 6 will conduct election
+e When 6 conducts election
+e The only number greater than 6 is 7, so it sends an election message to it
+
+===== PAGE 14 =====
+2
+e But since 7 is down, there wont be any OK messages
+e Since there are no OK messages, 6 declares itself as the coordinator
+e 6 Sends the coordinator message
+e 6 will now send a coordinator message to all other processes to let them know that 6 is
+the new coordinator
+e Note
+e If 7 comes back up, it notices 6 is the coordinator, and it retakes back its position
+as the coordinator, Making it a bully algorithm
+Safety and Liveness
+Safety
+e Safety means: Nothing bad happens.
+e Inthe context of the Bully Algorithm:
+e Only one process becomes the coordinator (leader) after the election.
+
+===== PAGE 15 =====
+e The elected coordinator is always the highest-priority (i.e., highest-ID) active
+process.
+e No two processes declare themselves as coordinators at the same time after the
+algorithm finishes.
+e Conclusion: The Bully algorithm meets the safety condition.
+Liveness
+e Liveness means: Something good eventually happens.
+e In this case:
+e The algorithm should eventually elect a leader, even if there are failures.
+e The election eventually completes, and a process becomes the coordinator.
+e The Bully Algorithm can suffer delays if many messages are lost or delayed.
+e But under the assumption that:
+e All messages are eventually delivered (i.e., reliable communication), and
+e Crashed processes remain crashed or eventually recover,
+Conclusion: The Bully algorithm meets the liveness condition, under standard
+assumptions (finite time message delivery, failure detection eventually succeeds).
+7. Discuss the method of termination detection by weight
+throwing in detail.
+We want to know when a distributed computation has ended. This can be tricky because
+different processes are working independently and might still be sending messages to each
+other. So we use a technique called Termination Detection by Weight Throwing to figure this
+out.
+Key Characters:
+1. Controlling Agent — like the manager, it monitors everything.
+2. Processes (P1, P2, etc.) — the workers who actually do the job.
+3. Messages — ways to communicate between the controller and processes, and between
+processes.
+Weights (W):
+e Everything starts with a total weight of 1.
+
+===== PAGE 16 =====
+e Initially, the controlling agent has all the weight (W = 1).
+e All other processes start idle with weight 0.
+How it works — Rules and Flow:
+1. Starting the Work (Rule 1):
+e The controlling agent wants a process to do some work.
+e It splits its weight into two parts, say W1 and W2 (W1 + W2 = current W).
+e It keeps W1, and sends W2 in a basic message B(W2) to aprocess P.
+e That process now has W2 weight and is considered active.
+2. When a Process Gets a Message (Rule 2):
+e Suppose a process P receives a basic message B(DW) .
+e It adds DW to its own weight.
+e If it was idle, it becomes active.
+3. Becoming Idle (Rule 3):
+e Ifa process finishes its work and wants to stop, it:
+e Sends acontrol message C(W) to the controlling agent.
+e Sets its own weight to 0 (it's now passive).
+4. When the Manager Gets Weight Back (Rule 4):
+e The controlling agent receives a control message C(DW) .
+e It adds DW to its own weight.
+e If its total weight becomes 1 again, it means:
+e No processes are active.
+e No messages are in transit.
+e Computation has ended!
+Why this works?
+e Weight Conservation: The total weight (across all processes + all messages in transit +
+the controller) is always exactly 1.
+e So if the controller ends up with all of it back, it means:
+
+===== PAGE 17 =====
+e No weight is left anywhere else — No ongoing work = Safe to terminate.
+Example
+Setup:
+e 1 Controlling Agent (let’s call it C)
+e 2 Processes (let’s call them P1 and P2)
+Initially:
+e Chas weight = 1
+e P1 and P2 are idle, weight = 0
+Step 1: Controlling agent starts the computation
+C splits its weight:
+e Keeps 0.4
+e Sends 0.6 to P1 via B(0.6)
+e So now:
+° C=04
+e P1=0.6 (active)
+e P2=0
+Step 2: P1 does some work and sends a message to P2
+P1 splits its 0.6 weight:
+e Keeps 0.3
+e Sends 0.3 to P2 via B(0.3)
+e Now:
+e P1=0.3
+e P2=0.3 (active)
+e C=0.4
+Step 3: P2 finishes its work
+P2 has weight = 0.3
+e Sends acontrol message C(0.3) toC
+
+===== PAGE 18 =====
+e Becomes idle (weight = 0)
+Now:
+
+e C=0.4+0.3=0.7
+
+e P1=0.3
+
+e P2=0
+Step 4: P1 also finishes
+P1 has weight = 0.3
+
+e Sends C(0.3) toC
+
+e Becomes idle
+
+Now:
+
+e C=0.7+0.3=1
+
+e P1=0
+
+e P2=0
+The controlling agent has all the weight (1) again, and everyone else is idle. So it safely
+concludes that the computation is complete.
+8. Illustrate the working of spanning tree-based termination
+detection algorithm.
+Basic Idea:
+
+e There's a root process (PO) and child processes forming a tree.
+
+e Processes do some work and communicate.
+
+e When they finish, they send tokens back to the root to indicate they're done.
+
+e Black = sent a message, White = did not send any message.
+
+e If aprocess is done and hasn't sent messages, it sends a white token.
+
+e If it sent messages, it sends a black token.
+
+e If the root gets only white tokens and is also idle, then the whole system is done.
+Rules Recap in Simple Terms:
+
+1. Leaf processes start with tokens.
+
+===== PAGE 19 =====
+2. Everyone is white at the start (no messages sent).
+3. If a process sends a message, it turns black.
+4. When a process finishes:
+e If it's white, it sends a white token to parent.
+e If it’s black, it sends a black token.
+5. Parent waits for tokens from all its children.
+6. If a parent gets even one black token, it must send black token to its parent (because
+someone in its subtree sent a message).
+7. If root gets a black token, it knows someone was still active — sends Repeat signal to
+restart the check.
+8. Root concludes termination if:
+e Itis idle.
+e Itis white.
+e It has received white tokens from all its children.
+Example of the algorithm
+Step 1
+° a
+e Initially the tokens are given to leaf node
+e All processes are white
+e We also maintain a set called S = {3,4,5,6} which contains the leaf nodes
+e Leaf nodes are: 3,4,5,6
+
+===== PAGE 20 =====
+e Tokens are t3,t4,t5,t6
+Step 2
+e NowAssume that Node 3 and 4 finished their computation and gave their token to their
+parent node 1
+e 3 and 4 now become idle
+e Now the set is S = {1,5,6}
+Step 3
+e Node 1 received tokens from both the children
+e Now node 1 is marked as idle
+e Now the token is passed to 0
+e S={0,5,6}
+Step 4
+
+===== PAGE 21 =====
+e Now suppose, node 5 sends a message to node 1
+e Node 5 is colored black
+e Since node 1 is receiving the message, it changes from idle to active state (But 0 doesnt
+know it)
+e When node 5 finishes execution, it will send a black token to parent(Node 2)
+Step 5
+e BAS
+e When anode sends a black token to its parent node, it becomes white so node becomes
+white
+e S= {0,2}
+Step 6
+
+===== PAGE 22 =====
+| vercelapp
+
+e
+e Suppose the black token now reaches the root node and Node 2 is now idle
+- S={0}
+e When black token reaches the root, it knows that message passing has been done
+e Root will now give a repeat signal
+e The signal will reach leaf nodes
+e When it reaches the leaf, It will restart the algorithm.
+e This process repeats until black token no longer exists in root node
+Time complexitiy
+e Best Case O(N)
+e Worst case O(N * M)
+e N=No of processes
+e M=No of messages exchanged
+
+Mm
+
+===== PAGE 23 =====
+gy ——
+9. Explain in detail about Chandy Lamport algorithm.
+The Chandy-Lamport algorithm is a method to capture a consistent global snapshot of a
+distributed system. It ensures that all processes and communication channels are recorded in a
+way that reflects the true state of the system, even though processes run independently and
+messages arrive at different times.
+How It Works (Step-by-Step):
+1. Starting the Snapshot (Marker Sending Rule):
+e Aprocess (let’s say Process A) decides to start the snapshot.
+e Process A immediately:
+1. Records its own state (its local memory, tasks, etc.).
+2. Sends a special control message called a marker through all its outgoing
+channels before sending any other messages.
+2. Receiving the Marker (Marker Receiving Rule):
+e When another process (Say Process B) receives this marker:
+e If Process B hasn’t recorded its state yet:
+1. It records the incoming channel as empty (no messages counted).
+2. It then records its own state.
+3. Sends markers along all its outgoing channels (just like Process A did).
+e If Process B has already recorded its state:
+e It records the messages received on that channel between recording its state
+and receiving the marker.
+3. Ending the Snapshot:
+e The algorithm ends when all processes have received a marker on every incoming
+channel.
+e Once this happens, the system has enough information to assemble a global
+snapshot.
+Example Scenario:
+1. Process A starts the snapshot:
+e Records its own state.
+
+===== PAGE 24 =====
+e Sends markers to Process B and Process C.
+2. Process B receives the marker:
+e It hasn’t recorded its state yet, so:
+e It records its state.
+e Marks the channel from A to B as empty.
+e Sends markers to its outgoing channels.
+3. Process C receives the marker after it had already recorded its state:
+e It records any messages it received between its snapshot and the marker.
+When is This Useful?
+e Detecting Deadlocks: Check if processes are stuck waiting on each other.
+e Failure Recovery: Save system states (checkpoints) to recover after crashes.
+e Debugging & Analysis: Understand how processes interact in real-time.
+In simple terms, the Chandy-Lamport algorithm is like taking a group photo where everyone
+pauses for a second so the picture accurately reflects who was doing what, even though they
+usually work independently.
+10. What is meant by a consistent global state?
+A consistent global state means:
+e If amessage has been received, the snapshot should also show that it was sent.
+e No message should appear as being received before it was sent (that wouldn’t make
+sense!).
+11. Explain ring based election algorithm with an example.
+Does the algorithm meet liveness and safety conditions?
+Imagine computers arranged in a circle (ring). Each computer can only talk to its next
+neighbor in the circle.
+How It Works:
+
+===== PAGE 25 =====
+1. Starting the Election:
+e Any process can start the election by sending its ID to its neighbor.
+e It marks itself as a participant.
+2. Passing the Message:
+e When a process gets an election message, it compares the ID in the message with its
+own:
+e If the incoming ID is bigger: Forward the message.
+e Ifthe incoming ID is smaller and the receiver is not a participant: Replace the
+message with its own ID and forward it.
+e If already a participant, it just ignores smaller IDs.
+3. Choosing the Leader:
+e When a process receives a message with its own ID, it means it has the highest ID.
+e This process becomes the leader (coordinator).
+4. Announcing the Leader:
+e The new leader sends an "elected" message around the ring to inform everyone.
+Example
+Consider a ring of numbers (8 numbers)
+
+===== PAGE 26 =====
+3->17->24->1->28->15->9->4
+e Suppose 17 notices the leader is down and starts the election
+e 17 sends an election message to 24
+
+===== PAGE 27 =====
+e ~*~
+e Here the identifier will be 17 so that will be also sent
+e The election message reaches 24
+e Now we compare 24 and the number inside the election message (which is 17 )
+e The greater number is 24
+e So we use 24 for the next election message
+
+===== PAGE 28 =====
+>
+e The election message reaches 1
+e We compare 1 and the number inside the election message ( 24 )
+e The greater number is 24
+e Similarly we can repeat until identifier and the election message number matches
+
+===== PAGE 29 =====
+e This we repeat until the process number (Identifier) and the message inside the
+election message matches
+e This happens at 28
+e The process is 28
+e and the incoming election message (Marked in red) is also 28
+e Weill stop the election in such condition
+e Start sending coordinator messages
+e The election stopped at 28
+e So this means 28 is the coordinator (leader)
+e This 28 will now send coordinator messages with content as 28 to everyone (The red
+arrows marked inside)
+So & a
+Liveness and safety conditions
+Safety Condition
+e Definition: Nothing bad happens — e.g., no two coordinators at the same time.
+
+===== PAGE 30 =====
+e Inthe ring algorithm:
+e Only the process with the highest ID is selected as the coordinator.
+e The election result is consistent across the system.
+e Even if multiple elections are started, only one coordinator will be chosen once the
+elections finish.
+e Conclusion: Ring-Based Election satisfies safety — at most one correct leader is
+elected.
+Liveness Condition
+Definition: Something good eventually happens — the system eventually chooses a
+coordinator.
+In this algorithm:
+e If at least one non-failed process starts the election,
+e And messages eventually get delivered (reliable channels),
+e Then the election always completes, and a coordinator is elected.
+e If the ring is broken (e.g., Some processes crash and cut off the ring), or message loss is
+permanent, then liveness can break.
+e But under the assumption of reliable delivery and non-permanent failures, it does meet
+liveness.
+e Conclusion: Ring-Based Election satisfies liveness under standard distributed systems
+assumptions.
+12. Explain how logical clock is implemented.
+In distributed systems, logical clocks are used to track the order of events across different
+processes — even when there's no synchronized global clock.
+1. Data Structures:
+Each process has:
+e Local Logical Clock (1c: ) — keeps track of that process’s internal time.
+e Global Logical Clock (gc: ) > process p: 's view of the overall logical time in the system.
+e lci iS partof gc:i.
+
+===== PAGE 31 =====
+2. Protocol (Rules) for Updating the Clock:
+The protocol ensures that all clocks progress in a consistent and causally correct way.
+R1 - Local Event Rule
+When a process performs an event (Send, receive, or internal), it updates its local clock.
+How?
+e Simply increment 1c: by 1 for every event.
+e Example:
+e If lci = 5 and it sends a message or does some internal operation, then — 1ci =
+6.
+R2 - Message Rule (Global View Update)
+When a process receives a message, it updates its clock based on the timestamp attached to
+the message.
+How?
+e The sender attaches its clock value with the message.
+e The receiver sets:
+lci = max(lci, received timestamp) + 1
+This ensures causality is preserved — the receiver’s clock is always ahead of any
+message it receives.
+Example:
+e If P1 sends a message with timestamp = 10 and P2has lc = 8,
+P2 sets lc = max(8, 10) +1 = 11.
+13. Clearly mentioning assumptions, explain the rules of
+termination detection using distributed snapshots.
+Assumptions
+e Stable Property:
+e Termination is a stable property, meaning once it becomes true (computation
+terminated), it stays true forever.
+
+===== PAGE 32 =====
+e Aconsistent snapshot can capture stable properties like termination.
+e Communication Assumptions:
+e Logical bidirectional communication channels exist between all pairs of processes.
+e Channels are reliable (no messages lost) but non-FIFO (message order may be
+arbitrary).
+e Message delay is arbitrary but finite.
+Rules of Termination Detection (Using Distributed Snapshots)
+Rule 1: Unique Last Idle Process
+e When a distributed computation terminates, there is one process that becomes idle last.
+e This process takes the initiative to check for termination.
+Rule 2: Snapshot Request Trigger
+e When any process becomes idle, it:
+e Sends a snapshot request to all other processes.
+e Also triggers a snapshot of itself.
+Rule 3: Granting the Snapshot Request
+e When a process receives a snapshot request:
+e It checks: "Did the requester become idle before | did?"
+e If yes, it grants the request by taking a local snapshot for that request.
+Rule 4: Successful Snapshot
+e Asnapshot request is called successful if:
+e All processes agree (and take local snapshots) for that request.
+e This means a consistent global snapshot has been formed for that specific request.
+Rule 5: Termination Detected via Snapshot
+e The requester or an external agent collects all the local snapshots.
+e If the collected global snapshot shows:
+e All processes are idle, and
+e No messages are in transit,
+
+===== PAGE 33 =====
+e Then, it confirms that the termination has occurred.

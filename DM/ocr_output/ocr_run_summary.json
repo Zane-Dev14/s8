@@ -1,0 +1,26 @@
+[
+  {
+    "pdf": "/Users/eric/Documents/StudyCollege/DM/Data-Mining-Module-1-Important-Topics-PYQs.pdf",
+    "page_count": 36,
+    "txt_output": "/Users/eric/Documents/StudyCollege/DM/ocr_output/Data-Mining-Module-1-Important-Topics-PYQs.txt",
+    "json_output": "/Users/eric/Documents/StudyCollege/DM/ocr_output/Data-Mining-Module-1-Important-Topics-PYQs.json"
+  },
+  {
+    "pdf": "/Users/eric/Documents/StudyCollege/DM/Data-Mining-Module-2-Important-Topics-PYQs.pdf",
+    "page_count": 35,
+    "txt_output": "/Users/eric/Documents/StudyCollege/DM/ocr_output/Data-Mining-Module-2-Important-Topics-PYQs.txt",
+    "json_output": "/Users/eric/Documents/StudyCollege/DM/ocr_output/Data-Mining-Module-2-Important-Topics-PYQs.json"
+  },
+  {
+    "pdf": "/Users/eric/Documents/StudyCollege/DM/mod3.pdf",
+    "page_count": 43,
+    "txt_output": "/Users/eric/Documents/StudyCollege/DM/ocr_output/mod3.txt",
+    "json_output": "/Users/eric/Documents/StudyCollege/DM/ocr_output/mod3.json"
+  },
+  {
+    "pdf": "/Users/eric/Documents/StudyCollege/DM/series1.pdf",
+    "page_count": 19,
+    "txt_output": "/Users/eric/Documents/StudyCollege/DM/ocr_output/series1.txt",
+    "json_output": "/Users/eric/Documents/StudyCollege/DM/ocr_output/series1.json"
+  }
+]

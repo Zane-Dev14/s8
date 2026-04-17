@@ -1,0 +1,878 @@
+
+===== PAGE 1 =====
+Distributed-Computing-Series-1-
+Important-Topics
+©) For more notes visit
+https://rtpnotes.vercel.app
+e Distributed-Computing-Series-1-Important-Topics
+
+e 1. Difference between distributed systems and distributed programming.
+e 1. Distributed Systems
+e 2. Distributed Programming: Writing Code for Distributed Systems
+
+e 2. Transparency requirements
+e 1. Access Transparency
+e 2. Location Transparency
+e 3. Concurrency Transparency
+e 4. Replication Transparency
+e 5. Failure Transparency
+e 6. Mobility Transparency
+e 7. Performance Transparency
+e 8. Scaling Transparency
+
+e 3. Causal precedence relation
+e What is Causal Precedence?
+e Simple Example:
+e How Does It Work in Distributed Systems?
+e Logical vs. Physical Concurrency
+e Why Does This Matter?
+e Quick Recap:
+
+e 4. Leader election algorithm
+e Why Do We Need a Leader Election Algorithm?
+e How Does It Work?
+e Types of Leader Election Algorithms
+
+===== PAGE 2 =====
+e 1. Ring-Based Election Algorithm
+e How It Works:
+e Example (Ring-Based):
+e 2. Bully Algorithm
+e How It Works:
+e Example (Bully Algorithm):
+e Key Differences Between Ring-Based and Bully Algorithm:
+e 5. Primitives for distributed communication
+e How Send() and Receive() Work:
+e Buffered vs. Unbuffered Communication:
+e Types of Communication Primitives
+e 1. Synchronous vs. Asynchronous Communication
+e 2. Blocking vs. Non-Blocking Communication
+e How Non-Blocking Communication Works (Handles & Waits)
+e Example Scenarios
+e 6. Past and future cones of events.
+e 1. Past Cone of an Event
+e Key Points:
+e Example:
+e Visualizing the Past Cone:
+e 2. Future Cone of an Event
+e Key Points:
+e Example:
+e Visualizing the Future Cone:
+e 7. Design issues of distributed system
+e 1. Communication
+e 2. Managing Processes
+e 3. Naming Things
+e 4. Synchronization (Keeping Things in Sync)
+e 5. Storing and Accessing Data
+e 6. Consistency and Replication
+e 7. Handling Failures (Fault Tolerance)
+e 8. Security
+
+===== PAGE 3 =====
+e 9. Scalability and Modularity
+e 8. Models of communication network
+e How These Models Relate to Each Other:
+e 9. Global state and snapshot recording algorithm
+e What is a Global State?
+e Why Record the Global State?
+e How Does Snapshot Recording Work?
+e What is a Consistent Global State?
+e Challenges in Recording Snapshots:
+e 10.Problem using Leader election algorithm
+e 1. Ring Based Election Algorithm Example
+e 2. Bully Algorithm Example
+e 11. Chandy Lambore algorithm
+e How It Works (Step-by-Step):
+e Example Scenario:
+e When is This Useful?
+e 12. Rules for termination detection
+e What is Termination Detection?
+e Imagine This Scenario:
+e Rules for Termination Detection:
+e How Does This Help in Detecting Termination?
+e Example of Termination Detection:
+1. Difference between distributed systems and distributed
+programming.
+1. Distributed Systems
+Definition:
+A Distributed System is like a group of independent computers working together to appear as
+one single system to the user. Think of it as different stores in a chain acting like one big
+supermarket online. Even though each store (computer) operates on its own, when you shop, it
+feels like you're using a single, unified service.
+Key Features:
+
+===== PAGE 4 =====
+e No Shared Memory: Each computer (or node) has its own memory. They don't directly
+share information but talk to each other by sending messages.
+e No Common Clock: There’s no universal clock keeping time for all the computers,
+meaning they operate at their own pace.
+e Geographical Spread: These systems can be spread out globally (like Google’s servers
+worldwide) or locally (like a cluster of servers in a data center).
+e Autonomy & Diversity: Each computer can run different software, have different speeds,
+and even be used for different purposes, but they all collaborate.
+Why Use Distributed Systems?
+e Resource Sharing: Share data and tools that are too big or expensive to replicate
+everywhere.
+e Reliability: If one computer fails, others can keep things running.
+e Scalability: Easily add more computers to handle more work.
+e Remote Access: Get data from faraway places, like accessing a cloud server.
+2. Distributed Programming: Writing Code for Distributed Systems
+Definition:
+Distributed Programming is the art of writing code that runs on multiple computers in a
+distributed system. It’s about making sure these computers can talk to each other correctly and
+work together efficiently.
+Imagine this:
+You're organizing a group project. Each team member (computer) works on a different part of
+the project (task). Distributed programming is like setting up the communication—emails,
+messages, deadlines—so everyone knows what to do and when.
+Key Concepts in Distributed Programming:
+e Message Passing: Computers don’t share memory directly; instead, they send messages
+to share information.
+e Asynchronous Execution: Computers don’t wait around for each other. They keep
+working independently and process messages when they arrive.
+
+===== PAGE 5 =====
+e Events & State: Each computer goes through events like sending, receiving, or processing
+data, which changes its internal state.
+Challenges in Distributed Programming:
+
+e Coordination: Ensuring computers are in sync when needed, like agreeing on the correct
+
+data (e.g., banking transactions).
+
+e Handling Failures: What if one computer crashes? The program should still work or
+
+recover gracefully.
+
+e Latency & Timing: Messages might get delayed or arrive out of order, so your program
+
+needs to handle that.
+
+Aspect Distributed Systems Distributed Programming
+
+What is it? A group of computers working Writing code that helps those
+together to act like one big computers talk to each other and
+system. work together.
+
+Focus How computers are connected How to write programs that run on
+and how they work as a team. multiple computers at the same time.
+
+Communication Computers send messages to The code handles sending and
+each other because they don’t receiving messages between
+share memory. computers.
+
+Memory Each computer has its own Programs must send data through
+memory. No sharing. messages since memory isn’t shared.
+
+Time No shared clock. Computers Code needs to manage delays and
+don’t run in perfect sync. make sure events happen in the right
+
+order.
+
+Scaling Up You can easily add more The code should handle adding or
+computers to the system. removing computers without breaking.
+
+Handling If one computer fails, the Code must handle failures, like
+
+Failures system keeps running using retrying if a message doesn’t get
+other computers. through.
+
+Examples Google Search servers, Writing a chat app where messages
+Netflix’s streaming system, are sent between servers, or coding
+cloud storage like Google Drive. _ for distributed databases.
+
+Goal To make many computers act To create programs that can run
+like one powerful, reliable across many computers and keep
+system. everything working smoothly.
+
+iN
+
+===== PAGE 6 =====
+4 ——
+*2. Transparency requirements***
+In distributed systems, transparency means hiding the complexity of the system from users
+and developers. Even though multiple computers are working together behind the scenes, it
+should feel like you're interacting with a single, simple system.
+1. Access Transparency
+e What it means: Users shouldn't have to worry about how or where they access resources.
+e Example: Whether you open a file from your computer or from Google Drive, it feels the
+same—you just click and open it.
+2. Location Transparency
+e What it means: You don’t need to know where a resource or service is physically located.
+e Example: When you visit a website, you don’t know (or care) which data center the server
+is in; the website just works.
+3. Concurrency Transparency
+e What it means: Multiple users can use the system at the same time without interfering with
+each other.
+e Example: On Amazon, thousands of people can buy things at once, and no one's orders
+get mixed up.
+4. Replication Transparency
+e What it means: The system might have multiple copies (replicas) of data to improve speed
+or reliability, but you only see one version.
+e Example: When you watch a YouTube video, it might come from a server near you, but you
+don’t notice—it’s seamless.
+5, Failure Transparency
+e What it means: If a part of the system crashes or fails, you shouldn't notice any disruption.
+e Example: If one of Netflix’s servers goes down while you're watching a show, the system
+switches to another server without interrupting your stream.
+
+===== PAGE 7 =====
+6. Mobility Transparency
+e What it means: You can move around and still access the system as if nothing changed.
+e Example: Using WhatsApp on your phone while traveling—you still get your messages no
+matter where you are.
+7. Performance Transparency
+e What it means: The system automatically adjusts to provide the best performance, and you
+don’t need to manage it.
+e Example: Google Search feels fast even when millions of people are searching at the same
+time because it balances the load across servers.
+8. Scaling Transparency
+e What it means: The system can grow (add more resources) or shrink without affecting how
+it works for users.
+e Example: Adding more servers to a cloud service like Dropbox doesn’t change how you
+upload files.
+3. Causal precedence relation
+Imagine you and your friends are texting in a group chat. Sometimes, messages depend on
+each other (like when someone replies to a question), and sometimes they don’t (like when two
+people talk about different things at the same time). Causal precedence helps us understand
+which events (or messages) are connected and which ones are independent.
+What is Causal Precedence?
+Causal precedence tells us which events depend on each other in a distributed system (like
+in a group chat with multiple people sending messages).
+e If Event A happens and causes Event B, we say A = B (Ahappens before B).
+e If Event A and Event B have nothing to do with each other, they are concurrent (they
+happen separately).
+Simple Example:
+
+===== PAGE 8 =====
+e You (Person 1): "Hey, what's up?" (Event A)
+e Your Friend (Person 2): "Not much, you?" (Event B)
+Here, Event B depends on Event A because your friend is replying to you. So, we say:
+e A = B (Ahappens before B because B is a reply to A)
+Now imagine:
+e You (Person 1): "Hey, what's up?" (Event A)
+e Another Friend (Person 3) at the same time: "Anyone watched the game last night?"
+(Event C)
+These two events have nothing to do with each other, so they are concurrent (happen
+independently).
+How Does It Work in Distributed Systems?
+In distributed systems, computers send messages to each other just like people do in a group
+chat. These messages (or events) can be connected or independent.
+1. Same Process (Like talking to yourself):
+e If Event A happens before Event B on the same computer, we say A = B.
+2. Message Between Computers (Like texting a friend):
+e If Computer 1 sends a message (Event A), and Computer 2 receives it (Event B),
+then A | B.
+3. Chain of Events:
+e IfA = BandB | C, thenA | C.
+(If A causes B, and B causes C, then A causes C.)
+Logical vs. Physical Concurrency
+1. Logical Concurrency (No Connection):
+e Two events are logically concurrent if they don’t affect each other.
+e Example: You send a text, and your friend posts on Instagram at the same time. These
+actions don’t affect each other.
+2. Physical Concurrency (Same Time in Real Life):
+e Two events happen at exactly the same time in real life.
+
+===== PAGE 9 =====
+e Example: You and your friend both press "send" on a message at the exact same
+second.
+
+Why Does This Matter?
+In distributed systems (like cloud servers, online games, or databases), knowing which events
+depend on each other is super important. It helps:
+
+e Keep data consistent (no mix-ups in messages or transactions)
+
+e Avoid errors when multiple users are doing things at the same time
+
+e Understand the flow of information in the system
+Quick Recap:
+
+e A = Bmeans A happened before and influenced B.
+
+e Events with no connection are concurrent.
+
+e Logical concurrency means events don’t affect each other, even if they happen at different
+
+times.
+
+e Physical concurrency means events happen at the exact same time in real life.
+4, Leader election algorithm
+In distributed systems (like a group of computers working together), it's important to have one
+computer in charge—this is called the leader or coordinator. The Leader Election Algorithm
+helps decide which computer becomes the leader.
+Why Do We Need a Leader Election Algorithm?
+
+e To choose a unique leader (only one at a time).
+
+e If the leader fails or retires, the system runs the algorithm again to pick a new one.
+
+e All computers must agree on who the leader is.
+How Does It Work?
+
+e Any computer (called a process) can start an election if it thinks the leader is down.
+
+e Aprocess is either:
+
+===== PAGE 10 =====
+e Participant: Actively involved in the election.
+e Non-participant: Not involved in the current election.
+Types of Leader Election Algorithms
+1. Ring-Based Election Algorithm
+2. Bully Algorithm
+1. Ring-Based Election Algorithm
+Imagine computers arranged in a circle (ring). Each computer can only talk to its next
+neighbor in the circle.
+How It Works:
+1. Starting the Election:
+e Any process can start the election by sending its ID to its neighbor.
+e It marks itself as a participant.
+2. Passing the Message:
+e When a process gets an election message, it compares the ID in the message with its
+own:
+e If the incoming ID is bigger: Forward the message.
+e If the incoming ID is smaller and the receiver is not a participant: Replace the
+message with its own ID and forward it.
+e If already a participant, it just ignores smaller IDs.
+3. Choosing the Leader:
+e When a process receives a message with its own ID, it means it has the highest ID.
+e This process becomes the leader (coordinator).
+4. Announcing the Leader:
+e The new leader sends an "elected" message around the ring to inform everyone.
+Example (Ring-Based):
+e Computers in the ring;3 + 7+.9~4-—6
+1. Computer 3 starts the election and sends "3" to 7.
+
+===== PAGE 11 =====
+2. 7 compares IDs. Since 7 > 3, it forwards "7" to 9.
+3.9 > 7, So it forwards "9" to 4.
+4.4<9, so 4 does nothing.
+5. When 9 gets the message back with its own ID, it knows it’s the leader!
+2. Bully Algorithm
+In this algorithm, the computer with the highest ID always wins—that's why it's called the
+Bully Algorithm!
+How It Works:
+1. Starting the Election:
+e Aprocess that thinks the leader has failed sends an election message to all
+processes with higher IDs.
+2. Responses:
+e lIfno higher process responds, the process declares itself the leader.
+e Ifa higher process responds, that process takes over the election.
+3. Choosing the Leader:
+e The process with the highest ID becomes the leader and sends a "coordinator"
+message to all others.
+4. If the Leader Fails Again:
+e The process that notices the failure starts a new election.
+Example (Bully Algorithm):
+e Computers with IDs: 1, 2, 3, 4,5
+1. Computer 3 notices the leader is down and sends election messages to 4 and 5.
+2. Computer 5 responds (because it has a higher ID) and starts its own election.
+3. Since 5 has the highest ID, it wins and sends a "coordinator" message to all others.
+4. If 5 crashes, another process (Say 3 or 4) will start the election again.
+
+===== PAGE 12 =====
+Key Differences Between Ring-Based and Bully Algorithm:
+Feature Ring-Based Algorithm Bully Algorithm
+Structure Processes are arranged in a ring. Any process can talk to any other
+directly.
+Message Messages move clockwise around Messages are sent to higher-ID
+Direction the ring. processes.
+Leader The process with the highest ID in The process with the highest ID
+Selection the ring wins. always wins (hence "bully").
+Message More messages as they go Fewer messages since only higher
+Overhead through every process in the ring. processes are contacted.
+Failure If a process fails, the ring keeps If the highest process fails, a new
+Handling working, but slower. election starts quickly.
+5. Primitives for distributed communication
+In a distributed system (where multiple computers or processes work together),
+communication primitives are the basic building blocks that allow these processes to send
+and receive messages. The two main primitives are:
+e Send() : Used to send data to another process.
+e Receive() : Used to receive data from another process.
+How Send() and Receive() Work:
+e Send(destination, data):
+e destination : Who you are sending the data to.
+e data: The actual message or information you want to send.
+e Receive(source, buffer):
+e source: Who you are expecting data from (can be anyone or a specific process).
+e buffer : The space where the received data will be stored.
+Buffered vs. Unbuffered Communication:
+
+===== PAGE 13 =====
+1. Buffered Communication:
+e Data is first copied from the user's buffer to a temporary system buffer before being
+sent over the network.
+e Safer because if the receiver isn’t ready, the data is still stored temporarily.
+2. Unbuffered Communication:
+e Data goes directly from the user’s buffer to the network.
+e Faster but riskier—if the receiver isn’t ready, the data could be lost.
+Types of Communication Primitives
+Communication primitives can be classified based on how they handle synchronization and
+blocking.
+1. Synchronous vs. Asynchronous Communication
+e Synchronous Primitives:
+e The sender and receiver must "handshake"—both must be ready for the message
+to be sent and received.
+e The Send() only finishes when the Receive() is also called and completed.
+e Good for ensuring messages are properly received but can slow things down.
+e Asynchronous Primitives:
+e The Send() returns control immediately after copying the data out of the user
+buffer, even if the receiver hasn't received it yet.
+e Receiver doesn't need to be ready immediately.
+e Faster, but there’s a risk the message might not be delivered right away.
+ee & —___
+2. Blocking vs. Non-Blocking Communication
+e Blocking Primitives:
+e The process waits (or blocks) until the operation (Sending or receiving) is fully done.
+e Example: In a blocking Send() , the process won't continue until it knows the data
+has been sent.
+e Non-Blocking Primitives:
+e The process immediately continues after starting the send or receive operation, even
+if it’s not finished.
+
+===== PAGE 14 =====
+e It gets a handle (like a ticket) that it can use later to check if the message was
+successfully sent or received.
+e Useful for doing other work while waiting for communication to finish.
+How Non-Blocking Communication Works (Handles & Waits)
+When you use non-blocking communication, the system gives you a handle (like a reference
+number) to check if the operation is complete.
+1. Polling: You can keep checking in a loop to see if the operation is done.
+2. Wait Operation: You can use a Wait() function with the handle, and it will block until the
+communication is complete.
+Example Scenarios
+1. Blocking Synchronous Send Example:
+e You send a file and wait until the receiver confirms they've received it before doing
+anything else.
+2. Non-Blocking Asynchronous Send Example:
+e You send an email and immediately start working on something else, trusting that
+the system will handle sending it in the background.
+3. Blocking Receive Example:
+e You wait by the phone until your friend calls—you won't do anything else until you get
+the call.
+4. Non-Blocking Receive Example:
+e You keep your phone nearby while you do other tasks, checking occasionally to see if
+you've missed a call.
+6. Past and future cones of events.
+In distributed systems and relativity theory, the concept of past and future cones helps
+explain how events are connected over time and space. Here's a breakdown:
+
+===== PAGE 15 =====
+1. Past Cone of an Event
+e The past cone of an event ej includes all events that could have influenced it.
+e In other words, any event ei that happened before ej and could have sent information or
+had an effect on ej is part of its past cone.
+Key Points:
+e Causal Relationship (ei - ej ):
+If ei + ej , it means event ei happened before event ej and could have influenced it.
+e Information Accessibility:
+All the information present at ei could have potentially been accessible to ej.
+Example:
+Imagine you're sending a message in a chat.
+e Event ei: You type the message.
+e Event ej: Your friend receives the message.
+Since your friend receiving the message (ej) could only happen after you typed it (ei), ei is in
+the past cone of ej.
+Visualizing the Past Cone:
+If you plot events on a timeline, the past cone of an event looks like this:
+|
+| ej (event)
+/\
+J \
+ei  ei' (events that could influence ej)
+Everything inside the cone represents events that could have influenced ej.
+2. Future Cone of an Event
+Just like the past cone shows events that could have influenced a particular event, the future
+cone represents all events that could be influenced by a given event.
+
+===== PAGE 16 =====
+e The future cone of an event ei includes all events that can be affected by it.
+e In other words, if event ei happens, any event ej that occurs after it and can be influenced
+by ei belongs to the future cone of ei.
+Key Points:
+e Causal Relationship (ei - ej ):
+If ei + ej , it means event ej happens after ei and could be influenced by ei.
+e Information Flow:
+All the information available at ei could potentially reach ej.
+Example:
+Imagine you're in a virtual meeting.
+e Event ei: You speak into your microphone.
+e Event ej: Other participants hear your voice.
+Since your speaking (ei) can directly influence others hearing you (ej), ej is in the future cone
+of ei.
+Visualizing the Future Cone:
+When plotted on a timeline, the future cone looks like this:
+ei (event)
+/\
+/ \
+ej ej' (events influenced by ei)
+|
+Everything inside the cone represents events that can be affected by ei.
+
+===== PAGE 17 =====
+maxt( Past. (@,)) mint Future .(e.))
+; aie ait il
+> e =
+PAST(e; ) . = FUTURE, €;)
+ba °
+7. Design issues of distributed system
+When building a distributed system (a system where different computers work together over a
+network), you face several important challenges.
+1. Communication
+e What’s the problem?
+Computers in different places need to talk to each other clearly and quickly.
+e What to think about:
+e Remote Procedure Call (RPC): Calling a function on another computer as if it's on
+your own.
+e Remote Object Invocation (ROI): Using objects from another computer like they’re
+local.
+e Messages vs. Streams: Should you send single messages or a continuous flow of
+data?
+2. Managing Processes
+e What’s the problem?
+You need to handle running programs (processes) across many machines.
+e What to think about:
+e Starting and Stopping Processes: How do you manage programs running on
+different computers?
+
+===== PAGE 18 =====
+e Moving Code Around: Sometimes it’s better to move the program to where the data
+is.
+e Smart Agents: Programs that can move and act on their own across different
+systems.
+3. Naming Things
+e What’s the problem?
+You need a simple way to find computers, files, or services on the network.
+e What to think about:
+e User-Friendly Names: Easy-to-use names instead of complicated addresses.
+e Moving Devices: How to keep track of mobile devices that change location.
+4. Synchronization (Keeping Things in Sync)
+e What’s the problem?
+Making sure computers work together in a coordinated way.
+e What to think about:
+e Preventing Conflicts: Stopping two computers from accessing the same resource at
+the same time.
+e Choosing a Leader: Picking one computer to be in charge when needed.
+e Matching Clocks: Making sure all computers agree on the time.
+5. Storing and Accessing Data
+e What’s the problem?
+You need to store data in a way that’s fast and easy to access from anywhere.
+e What to think about:
+e Distributed File Systems: Storing files across multiple machines.
+e Fast Access: Making sure data can be accessed quickly, even as the system grows.
+6. Consistency and Replication
+e What’s the problem?
+When you copy data to multiple places (replication), you need to keep it consistent.
+e What to think about:
+e Keeping Data in Sync: Making sure all copies of the data are up-to-date.
+
+===== PAGE 19 =====
+e When to Update: Do you need instant updates or is it okay if they happen later?
+7. Handling Failures (Fault Tolerance)
+e What’s the problem?
+Systems need to keep working even when something goes wrong.
+e What to think about:
+e Reliable Messaging: Making sure messages don't get lost.
+e Recovering from Crashes: Saving progress so you can pick up where you left off if a
+computer fails.
+e Detecting Failures: Knowing when a computer or connection goes down.
+8. Security
+e What’s the problem?
+Keeping data safe from hackers and unauthorized access.
+e What to think about:
+e Encryption: Protecting data by turning it into unreadable code unless you have the
+key.
+e Access Control: Making sure only the right people or systems can access resources.
+e Secure Connections: Ensuring data sent over the network is safe from spying.
+9. Scalability and Modularity
+e What’s the problem?
+The system should handle more users and data as it grows.
+e What to think about:
+e Spreading Workload: Distribute tasks across multiple machines.
+e Using Caches: Storing frequently accessed data temporarily to speed things up.
+e Breaking Things into Parts: Designing the system in small, manageable pieces that
+can be updated separately.
+8. Models of communication network
+
+===== PAGE 20 =====
+When computers in a distributed system talk to each other, they send messages over netwo—
+The way these messages are sent and received can follow different models:
+1. FIFO (First-In, First-Out)
+e What it means: Messages are delivered in the same order they were sent.
+e Example: Imagine you're standing in a line at a coffee shop. The first person to order is
+the first to get their coffee.
+e Why it’s useful: It’s predictable—messages don’t get mixed up.
+2. Non-FIFO (Non-First-In, First-Out)
+e What it means: Messages can arrive in any order, not necessarily the order they were
+sent.
+e Example: Think of tossing several letters into a mailbox. When the mailman delivers
+them, they might come out in a different order than you sent them.
+e Why it’s useful: It can be faster in some situations, but it’s harder to manage since the
+order isn’t guaranteed.
+3. Causal Ordering (CO)
+e What it means: Messages are delivered in an order that respects cause-and-effect
+relationships. If one message depends on another, it will be delivered afterward.
+e Example: If you ask a question in an email and someone replies, causal ordering
+makes sure you receive the reply after your question.
+e Why it’s useful: It helps keep the logic of conversations or processes intact, which
+simplifies how distributed systems work.
+How These Models Relate to Each Other:
+e Causal Ordering ¢ FIFO c Non-FIFO
+e Causal Ordering is the strictest—it always respects cause and effect.
+e FIFO ensures the order is correct but doesn’t always track cause and effect.
+e Non-FIFO is the most flexible—messages can arrive in any order.
+a & a
+9. Global state and snapshot recording algorithm
+In distributed systems, multiple computers (or processes) work together but don’t share
+memory or a common clock. This makes it tricky to understand the whole system's current
+
+===== PAGE 21 =====
+state at any given time. That’s where global state and snapshot recording come in.
+What is a Global State?
+e Global State = The combined information about what’s happening in a// processes and
+communication channels in the system at a specific time.
+e Local State: Each process (computer) has its own local state, which includes its
+memory, tasks it's working on, and the messages it has sent/received.
+e Channel State: Each communication channel (the connection between processes)
+has its state, which includes messages that have been sent but not yet received.
+Why Record the Global State?
+Recording the global state is important for:
+1. Detecting Problems: Like finding deadlocks (when processes are stuck waiting for each
+other) or checking if tasks have finished.
+2. Failure Recovery: Saving the system’s state (called a checkpoint) helps restore it after a
+crash.
+3. System Analysis: Understanding how the system behaves for testing and verifying
+correctness.
+How Does Snapshot Recording Work?
+To get a meaningful global snapshot, processes need to record their local states in a way that
+makes sense together. Here’s how it's modeled:
+1. Processes and Channels:
+e Processes (p1, p2, ... pn): These are the computers or tasks in the system.
+e Channels (Cij): The connections where messages are passed from process pi to
+process pj.
+2. Events in the System:
+e Internal Events: Actions happening inside a process (like updating a variable).
+e Send Events: When a process sends a message.
+e Receive Events: When a process receives a message.
+3. Recording a Global Snapshot:
+
+===== PAGE 22 =====
+e The goal is to capture the states of all processes and channels consistently, even
+though messages are flying around at different times.
+What is a Consistent Global State?
+A consistent global state means:
+e If amessage has been received, the snapshot should also show that it was sent.
+e No message should appear as being received before it was sent (that wouldn’t make
+sense!).
+Challenges in Recording Snapshots:
+1. No Global Clock: You can't tell all processes to take a snapshot at the exact same time.
+2. Message Confusion: It’s hard to decide which messages should be included in the
+snapshot—messages that are in transit can cause inconsistency.
+10.Problem using Leader election algorithm
+1. Ring Based Election Algorithm Example
+Consider a ring of numbers (8 numbers)
+
+===== PAGE 23 =====
+3->17->24->1->28->15->9->4
+e Suppose 17 notices the leader is down and starts the election
+e 17 sends an election message to 24
+
+===== PAGE 24 =====
+e ~*~
+e Here the identifier will be 17 so that will be also sent
+e The election message reaches 24
+e Now we compare 24 and the number inside the election message (which is 17 )
+e The greater number is 24
+e So we use 24 for the next election message
+
+===== PAGE 25 =====
+% .
+e The election message reaches 1
+e We compare 1 and the number inside the election message ( 24 )
+e The greater number is 24
+e Similarly we can repeat until identifier and the election message number matches
+e fy
+
+===== PAGE 26 =====
+e This we repeat until the process number (Identifier) and the message inside the
+election message matches
+e This happens at 28
+e The process is 28
+e and the incoming election message (Marked in red) is also 28
+e We will stop the election in such condition
+e Start sending coordinator messages
+e The election stopped at 28
+e So this means 28 is the coordinator (leader)
+e This 28 will now send coordinator messages with content as 28 to everyone (The red
+arrows marked inside)
+2. Bully Algorithm Example
+e There are processes 0-7
+
+===== PAGE 27 =====
+e Assume 7th process is down
+
+e Process 4 reports that 7th process is down
+
+e 4sends an election message
+e 4 Sends the election message to the larger numbers
+e Here the numbers larger than 4 are: 5,6,7
+
+===== PAGE 28 =====
+e An Election message's response will be an OK Message
+e Since 7 is down, it wont return OK message
+e But 5 and 6 are active, so it will return OK message
+e Since 4 gets OK message, it understands that it cant be coordinator, because there
+are larger numbers
+e The ones that gave OK message will now conduct election
+e 5 and 6 will now Conduct election
+e When 5 conducts the election
+lo) ve
+yaa vy ©
+e It gives election message to 6 and 7
+e Since 7 is down. it wont send OK message
+
+===== PAGE 29 =====
+e 6 Sends an OK message
+° pe
+e 5 understands, theres someone larger so it cant be coordinator
+e Now 6 will conduct election
+e When 6 conducts election
+e The only number greater than 6 is 7, so it sends an election message to it
+° pee
+e But since 7 is down, there wont be any OK messages
+e Since there are no OK messages, 6 declares itself as the coordinator
+e 6 Sends the coordinator message
+e 6 will now send a coordinator message to all other processes to let them know that 6 is
+the new coordinator
+° Ae
+
+===== PAGE 30 =====
+e Note
+e If 7 comes back up, it notices 6 is the coordinator, and it retakes back its position
+as the coordinator, Making it a bully algorithm
+ee & a
+11. Chandy Lambore algorithm
+The Chandy-Lamport algorithm is a method to capture a consistent global snapshot of a
+distributed system. It ensures that all processes and communication channels are recorded in a
+way that reflects the true state of the system, even though processes run independently and
+messages arrive at different times.
+How It Works (Step-by-Step):
+1. Starting the Snapshot (Marker Sending Rule):
+e Aprocess (let’s say Process A) decides to start the snapshot.
+e Process A immediately:
+1. Records its own state (its local memory, tasks, etc.).
+2. Sends a special control message called a marker through all its outgoing
+channels before sending any other messages.
+2. Receiving the Marker (Marker Receiving Rule):
+e When another process (Say Process B) receives this marker:
+e If Process B hasn’t recorded its state yet:
+1. It records the incoming channel as empty (no messages counted).
+2. It then records its own state.
+3. Sends markers along all its outgoing channels (just like Process A did).
+e If Process B has already recorded its state:
+e It records the messages received on that channel between recording its state
+and receiving the marker.
+3. Ending the Snapshot:
+e The algorithm ends when all processes have received a marker on every incoming
+channel.
+e Once this happens, the system has enough information to assemble a global
+snapshot.
+
+===== PAGE 31 =====
+Example Scenario:
+1. Process A starts the snapshot:
+e Records its own state.
+e Sends markers to Process B and Process C.
+2. Process B receives the marker:
+e It hasn’t recorded its state yet, so:
+e Itrecords its state.
+e Marks the channel from A to B as empty.
+e Sends markers to its outgoing channels.
+3. Process C receives the marker after it had already recorded its state:
+e It records any messages it received between its snapshot and the marker.
+When is This Useful?
+e Detecting Deadlocks: Check if processes are stuck waiting on each other.
+e Failure Recovery: Save system states (checkpoints) to recover after crashes.
+e Debugging & Analysis: Understand how processes interact in real-time.
+In simple terms, the Chandy-Lamport algorithm is like taking a group photo where everyone
+pauses for a second so the picture accurately reflects who was doing what, even though they
+usually work independently.
+12. Rules for termination detection
+What is Termination Detection?
+In a distributed system, multiple computers (or processes) work together to solve a problem.
+Since these processes are running independently and communicating over a network, it's hard
+to tell when the entire system has finished its work.
+Termination detection is the process of figuring out when all processes have finished their
+tasks, and there are no messages still traveling through the network. Only then can we
+say, "The system is done!"
+Imagine This Scenario:
+
+===== PAGE 32 =====
+Let’s say we have three people (Process A, Process B, and Process C) working on solving a
+puzzle. They pass notes to each other when they find clues (these notes are like messages).
+Here’s the problem: how do they all know when the puzzle is completely solved?
+Even if A finishes their part and stops, B might still be working, or a note might be on its way
+from C to B. So, how do we detect that everyone has stopped working and no notes are in
+transit?
+Rules for Termination Detection:
+1. No Freezing the Work (No Interference with Computation):
+e The system should continue solving the puzzle while checking if it's done. We can't
+pause everyone just to ask, "Are you finished?"
+e Example: If Ais working, we shouldn't interrupt them just to ask if they’re done.
+2. No New Ways of Talking (No New Communication Channels):
+e The people can only send notes through the methods they already use. We can’t
+suddenly give them walkie-talkies to check if they’re finished.
+e Example: If A, B, and C usually pass handwritten notes, we can’t introduce phone calls
+to check on them.
+3. Every Note Will Arrive (Reliable Message Delivery):
+e Even if there are delays, every note passed between people will eventually reach its
+destination.
+e Example: If C sends a note to A, even if it takes a long time, it will eventually arrive.
+4. Notes Can Be Late (Finite but Unpredictable Delays):
+e The notes might take different amounts of time to arrive, but they won't get lost forever.
+e Example: A might send a note to B, and it could arrive quickly or take a while, but it will
+get there.
+5. People are Either Working or Waiting (Process States):
+e At any time, a person is either active (working on the puzzle) or idle (waiting, doing
+nothing).
+e Example: Ais active when solving clues. A becomes idle when they have no more clues
+to solve.
+6. Rules for Switching Between Working and Waiting (Transition Rules):
+e Active to Idle: A person can stop working when they finish their part.
+e Example: B finishes their clue and stops.
+
+===== PAGE 33 =====
+e Idle to Active: A person can only start working again if they get a note from someone
+else.
+e Example: A was idle but starts working again when they receive a new clue from
+C.
+e Only Active People Can Send Notes: If you’re not working, you can’t send notes.
+e Example: If Ais idle, they can't send any more messages until they become active
+again.
+7. Special "Are You Done?" Notes (Control Messages):
+e To detect if everyone is finished, special notes (control messages) are used to ask, "Are
+you done?" But these should not mess up the regular notes being passed.
+e Example: Besides the puzzle clues, people pass special notes asking, "Have you
+finished your clues?" without mixing them up with puzzle hints.
+8. Notes Don’t Have to Be in Order (No FIFO Requirement):
+e Notes sent between the same people don’t have to arrive in the order they were sent.
+e Example: If A sends two notes to B, the second one might arrive before the first.
+9. Sending and Receiving are Instant (Atomic Actions):
+e When someone sends or receives a note, it happens completely, without half-finished
+actions.
+e Example: You can’t half-send a note; it’s either sent or not. Similarly, you can’t half-
+receive a note.
+How Does This Help in Detecting Termination?
+e Goal: We want to find out when everyone has stopped working and no notes are in
+transit.
+e If everyone is idle and no messages are left to be delivered, we can safely say the work is
+done.
+Example of Termination Detection:
+Let’s say Process A finishes its task and goes idle. But before declaring that everything is done,
+we need to make sure:
+1. B and C have also finished their tasks.
+2. No messages are still traveling between A, B, and C.
+
+===== PAGE 34 =====
+Only when both conditions are true can we detect that the entire system has terminated.

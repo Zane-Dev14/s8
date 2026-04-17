@@ -1,0 +1,1033 @@
+
+===== PAGE 1 =====
+Data-Mining-Module-2-Ilmportant-Topics-
+PYQs
+©) For more notes visit
+https://rtpnotes.vercel.app
+e Data-Mining-Module-2-Important-Topics-PYQs
+e 1. Perform data smoothing by bin means on 3 equi-width bins.Data:
+[24,27 ,29,16,17,31,33,29,36,37,35,44]
+
+e Step 1: Given Data
+e Step 2: Sort the Data
+e Step 3: Find the Range and Width of Each Bin
+e Step 4: Create 3 Bins
+e Step 5: Find Mean of Each Bin
+e Step 6: Replace Each Value by Bin Mean
+e Final Smoothed Data:
+
+e 2. Explain concept hierarchy with an example.
+e Example 1: Age Concept Hierarchy
+e Example 2: Month to Quarter
+e How Concept Hierarchies Are Formed:
+e Example 3: Location Concept Hierarchy
+
+e 3. What is the purpose of data discretization? List any two data discretization
+
+strategies
+
+e Two Data Discretization Strategies
+
+e 4. Justify the significance of pre-processing the data before mining.
+e Why Data Preprocessing is Crucial?
+e Simple Example:
+
+e 5. Explain the two sampling methods used in data reduction.
+e 1. Simple Random Sample Without Replacement (SRSWOR)
+e 2. Simple Random Sample With Replacement (SRSWR)
+
+===== PAGE 2 =====
+e 3. Cluster Sampling
+e 4. Stratified Sampling
+e 6. Suppose a group of 12 sales price records has been sorted as follows: 5, 10, 11, 13,
+15,35,50, 55,72,92,204,215. Sketch examples of each of the following sampling
+techniques: SRSWOR, SRSWR, cluster sampling, stratified sampling. Use samples of
+size 5 and the strata "youth," "middle-aged," and "senior."
+e 1. SRSWOR (Simple Random Sampling Without Replacement)
+e 2. SRSWR (Simple Random Sampling With Replacement)
+e 3. Cluster Sampling
+e 4. Stratified Sampling
+e 7. Real-world data tend to be incomplete, noisy and inconsistent. What are the various
+approaches adopted to clean the data?
+e 1. Handling Missing Values
+e (a) Ignore the Tuple
+e (b) Fill Missing Value Manually
+e (c) Use a Global Constant
+e (d) Use Attribute Mean
+e (e) Use Class-specific Mean
+e (f) Use Most Probable Value
+e 2. Handling Noisy Data
+e (a) Binning
+e (b) Clustering
+e (c) Regression
+e 3. Handling Inconsistent Data
+e 8. Describe the various techniques for numerosity reduction in data mining.
+e 1. Parametric Methods
+e (a) Regression
+e (b) Log-Linear Model
+e 2. Non-Parametric Methods
+e (a) Histograms
+e (b) Clustering
+e (c) Sampling
+
+===== PAGE 3 =====
+e 9. Why do we need data transformation? What are the different ways of data
+transformation?
+e Different Ways of Data Transformation
+e 10. Suppose that the data for analysis includes the attribute cost price and the values
+for the data tuples are: 100,150,140,115,190,120,130,125,135,145,140,150,
+165,160,170
+e (i) Use min-max normalization to transform the value of 145 for cost price onto the
+range [0,1].
+e (ii) Use Z-Score normalization to transform the value 145 for cost price where the
+standard deviation of cost price is 120.
+e Data:
+e (i) Min-Max Normalization for the value 145
+e (ii) Z-Score Normalization
+e 11. Discuss the significance of data discretization in data mining. List and explain any
+four data discretization strategies.
+e Significance of Data Discretization in Data Mining
+e 1. Discretization by Binning
+e 2. Discretization by Histogram Analysis
+e 3. Discretization by Clustering, Decision Tree, and Correlation Analysis
+e a. Discretization by Clustering
+e b. Discretization by Decision Tree
+e c. Discretization by Correlation Analysis (ChiMerge)
+e 12. Illustrate PCA for dimensionality reduction with an example.
+e What is PCA?
+e PCA Step-by-Step
+e Step 1: Normalize the data
+e Step 2: Find principal components
+e Step 3: Sort components by importance
+e Step 4: Reduce dimensions
+e 13. Explain data normalization methods with necessary equations. Calculate the
+normalized value for 550 in the set of the data points 50, 150, 250, 350,450, 550, 650,
+700, 850, 950, 1000 using
+e (a) Min-Max Normalization
+e (b) Z-Score Normalization
+
+===== PAGE 4 =====
+e Find each data point - mean
+e Square each deviation
+e Find the sum of all squared deviations
+e Divide by number of data points (n)
+e Find z-score
+e (c) Normalization by Decimal Scaling
+e 14. Explain Attribute Subset Selection
+e What is Attribute Subset Selection?
+e How Does Attribute Subset Selection Work?
+e Example Dataset:
+e Stepwise Forward Selection:
+e Step 1: Start with no attributes
+e Step 2: Evaluate the best attribute to start with
+e Step 3: Add the best attribute to the model
+e Step 4: Evaluate the next best attribute to add
+e Step 5: Add the best combination of attributes
+e Step 6: Continue until no significant improvement
+e Final Selected Attributes:
+e 15. Explain Data Integration and Data Transformation
+e 1. Data Integration
+e Key Considerations in Data Integration:
+e Example
+e 2. Data Transformation
+e Key Data Transformation Methods:
+1. Perform data smoothing by bin means on 3 equi-width
+bins.Data: [24,27,29,16,17,31,33,29,36,37,35,44]
+Step 1: Given Data
+Data: [24, 27, 29, 16, 17, 31, 33, 29, 36, 37, 35, 44]
+The question also says that 3-equi width bins are needed
+
+===== PAGE 5 =====
+Step 2: Sort the Data
+First, sort the data (if not already sorted):
+Sorted Data: [16, 17, 24, 27, 29, 29, 31, 33, 35, 36, 37, 44]
+Step 3: Find the Range and Width of Each Bin
+e Minimum = 16
+e Maximum = 44
+e Range = 44 - 16 = 28
+e Since we need 3 bins,
+- Bin Width = Range + Number of bins
+- Bin Width = 28 + 3 = 9.33 — Let's round it to 10 for easy bins.
+Thus, each bin will cover ~10 units.
+Step 4: Create 3 Bins
+Bin No. Bin Range Values in Bin
+1 16-25 16, 17, 24
+2 26 — 35 27, 29, 29, 31, 33, 35
+3 36-45 36, 37, 44
+Step 5: Find Mean of Each Bin
+Bin 1:
+e Values: 16, 17, 24
+e Mean = (16 + 17 + 24)+3=57+3=19
+Bin 2:
+e Values: 27, 29, 29, 31, 33, 35
+e Mean = (27 + 29 + 29 + 31+ 33 + 35) +6 = 184+ 6 = 30.67
+Bin 3:
+e Values: 36, 37, 44
+e Mean = (36 + 37 + 44)+3=117+3=39
+
+===== PAGE 6 =====
+Step 6: Replace Each Value by Bin Mean
+Original Value Bin Smoothed Value
+16 1 19
+17 1 19
+24 1 19
+27 2 30.67
+29 2 30.67
+29 2 30.67
+31 2 30.67
+33 2 30.67
+35 2 30.67
+36 3 39
+37 3 39
+44 3 39
+
+Final Smoothed Data:
+
+[19, 19, 19, 30.67, 30.67, 30.67, 30.67, 30.67, 30.67, 39, 39, 39]
+2. Explain concept hierarchy with an example.
+Concept Hierarchy means replacing specific low-level data (like exact numbers) with higher-
+level, more general concepts to reduce the data size and make patterns easier to find.
+Purpose:
+
+e To simplify the data.
+e To generalize detailed values into broader categories.
+
+Example 1: Age Concept Hierarchy
+
+Suppose you have exact ages like:
+
+===== PAGE 7 =====
+16, 24, 35, 43, 60, 70
+You can replace them by high-level age groups:
+Age Value Concept (Generalized)
+16 Young
+24 Young
+35 Middle-aged
+43 Middle-aged
+60 Senior
+70 Senior
+This reduces the complexity by removing exact ages and replacing them with categories like
+Young, Middle-aged, and Senior.
+Example 2: Month to Quarter
+Jan, Feb, Mar > Ql
+Apr, May, Jun > Q2
+Jul, Aug, Sep > Q3
+Oct, Nov, Dec > Q4
+Here, 12 months are grouped into 4 quarters, making the data much simpler.
+How Concept Hierarchies Are Formed:
+There are different methods:
+Method Description Example
+Binning Splitting data into bins. 0-20, 21-40, etc.
+Histogram Analysis Group values into buckets. Grouping 0—25, 26-50, etc.
+Clustering Group similar data points together. Similar income ranges grouped.
+Manual Hierarchy Define by hand at schema level. street < city < state < country
+
+===== PAGE 8 =====
+Example 3: Location Concept Hierarchy
+Suppose you have address data:
+Street + City + State > Country
+You can generalize:
+e Instead of storing each street, store just the city or state when needed.
+Example
+e "221B Baker Street" becomes "London" (City level)
+e "London" becomes "United Kingdom" (Country level)
+3. What is the purpose of data discretization? List any two
+data discretization strategies
+Data Discretization is the process of converting continuous data into a small number of
+intervals (bins or categories).
+Main Purpose:
+e To reduce the number of distinct values in continuous attributes.
+e To simplify the data and make data mining more efficient.
+e Helps algorithms (especially decision trees) to work better on the data.
+Example:
+Instead of having many different age values like 16, 17, 18, 19, 20, etc.,
+we group them as:
+e 15-20 = "Teen"
+e 21-30 = "Young Adult"
+e etc
+Two Data Discretization Strategies
+
+===== PAGE 9 =====
+Strategy Description
+Top-Down Start with the whole range and split it into intervals step-by-step.
+Discretization Also called splitting.
+Bottom-Up Start with all individual data points and merge neighboring values
+Discretization into bigger intervals.
+4, Justify the significance of pre-processing the data before
+mining.
+Data preprocessing is a very important step before applying any data mining techniques
+because:
+e Databases come from multiple heterogeneous sources, meaning the data can be
+inconsistent, incomplete, or noisy.
+e Low-quality data will result in poor mining outcomes, leading to incorrect patterns and
+wrong decisions.
+Why Data Preprocessing is Crucial?
+e Ensures high-quality, consistent, and reliable data.
+e Improves accuracy, efficiency, and interpretability of mining results.
+e Prevents wrong patterns and misleading conclusions.
+e Makes the data ready and optimized for further analysis.
+Simple Example:
+e Imagine trying to mine customer behavior data with missing age or incorrect income values
+— the mining algorithm will give wrong insights.
+e After cleaning and transforming the data, the mining will produce meaningful patterns
+like "young customers prefer online shopping".
+5. Explain the two sampling methods used in data reduction.
+
+===== PAGE 10 =====
+Sampling is a technique in data reduction where we select a small representative subset of a
+large dataset, so that the analysis becomes faster and easier without much loss of information.
+important sampling methods are:
+1. Simple Random Sample Without Replacement (SRSWOR)
+e We randomly select s tuples (records) from the dataset D, where s < N (N is the total
+number of tuples).
+e Important Point: Once a tuple is selected, it is not put back into the dataset.
+e So, each tuple can be selected only once.
+e Probability of picking any tuple = 1/N (all are equally likely).
+e Example:
+e If you have 1000 customer records and want a sample of 100, you randomly pick 100
+different customers without repeating anyone.
+2. Simple Random Sample With Replacement (SRSWR)
+e We randomly select s tuples from dataset D , but after selecting a tuple, it is put back
+into the dataset.
+e So, the same tuple can be selected more than once.
+e Every time, the probability of selecting any tuple stays 1/N.
+e Example:
+e If you randomly pick a customer record, you put it back into the pool after selection, so
+the same customer might get picked multiple times in your sample of 100.
+Method Replacement? Same tuple selected twice?
+SRSWOR_ No No
+SRSWR Yes Yes
+3. Cluster Sampling
+e Definition:
+In cluster sampling, the entire data set (Say, dataset D) is divided into mutually disjoint
+groups called clusters.
+
+===== PAGE 11 =====
+e Process:
+Instead of selecting individual tuples (records) randomly, you randomly select entire
+clusters.
+e Example:
+Suppose you have a database of 10,000 students from 100 schools.
+Instead of sampling individual students, you randomly select, say, 10 schools (clusters)
+and collect all students from these 10 schools.
+e Key Points:
+e Reduces effort because entire groups are selected at once.
+e Objects within a cluster are usually similar.
+e It is useful when it is difficult or expensive to create a complete list of individuals but
+easy to list groups.
+4. Stratified Sampling
+e Definition:
+In stratified sampling, the data set D is divided into strata (groups) based on some
+important attribute.
+Then, a simple random sample is drawn separately from each stratum.
+e Process:
+1. Divide the dataset into strata based on an attribute (like gender, age group, region, etc.).
+2. Perform random sampling within each stratum.
+e Example:
+Suppose you have a database of employees where 60% are male and 40% are female.
+To maintain this proportion, you separately sample males and females — ensuring that
+your sample also reflects 60%-40% gender ratio.
+e Key Points:
+e Helps ensure that each subgroup is properly represented.
+e Increases the accuracy and reliability of the sample.
+e It is useful when the population is heterogeneous (diverse).
+ee & a
+6. Suppose a group of 12 sales price records has been
+sorted as follows: 5, 10, 11, 13, 15,35,50, 55,72,92,204,215.
+
+===== PAGE 12 =====
+Sketch examples of each of the following sampling
+techniques: SRSWOR, SRSWR, cluster sampling, stratified
+sampling. Use samples of size 5 and the strata "youth,"
+"middle-aged," and "senior."
+We have 12 sorted records:
+5, 10, 11, 13, 15, 35, 50, 55, 72, 92, 204, 215
+We are asked to sketch examples of these sampling techniques:
+e SRSWOR (Simple Random Sampling Without Replacement)
+e SRSWR (Simple Random Sampling With Replacement)
+e Cluster Sampling
+e Stratified Sampling (with strata: "youth," "middle-aged," "senior")
+We need samples of size 5.
+1. SRSWOR (Simple Random Sampling Without Replacement)
+e Randomly pick 5 different records — no repetition allowed.
+e Example sample (randomly chosen):
+e > {11, 15, 35, 55, 204}
+e No repetition, each selected only once.
+2. SRSWR (Simple Random Sampling With Replacement)
+e Randomly pick 5 records, allowing repetition.
+e Example sample (randomly chosen):
+e + {10, 15, 15, 204, 5}
+e Notice here 15 was selected twice.
+3. Cluster Sampling
+e First, divide records into clusters (groups).
+(We can group nearby numbers together.)
+Example clusters
+
+===== PAGE 13 =====
+e Cluster1: {5, 10, 11, 13}
+e Cluster 2: {15, 35, 50, 55}
+e Cluster 3: {72, 92, 204, 215}
+Now, randomly pick 1 cluster (or more depending on how big you want the sample).
+Suppose we randomly pick Cluster 2:
+> {15, 35, 50, 55}
+But Cluster 2 only has 4 records — since we want 5 samples, maybe pick another cluster
+randomly.
+Suppose pick Cluster 1 too:
+—~ {5, 10, 11, 13}
+Now from the union of these two clusters {5, 10, 11, 13, 15, 35, 50, 55}, randomly pick
+5 records.
+Example:
+> {5, 15, 35, 50, 55}
+4. Stratified Sampling
+Given strata:
+e Youth: Lower prices (Say 5-50)
+e Middle-aged: Medium prices (51-100)
+e Senior: High prices (>100)
+So, divide the 12 records:
+e Youth: {5, 10, 11, 13, 15, 35, 50} (7 records)
+e Middle-aged: {55, 72, 92} (3 records)
+e Senior: {204, 215} (2 records)
+Now sample separately from each stratum:
+Suppose we select
+e 2records from Youth = {10, 35}
+e 2 records from Middle-aged — {55, 92}
+e 1record from Senior — {204}
+
+===== PAGE 14 =====
+Final stratified sample:
+> {10, 35, 55, 92, 204}
+Each group is represented properly.
+7. Real-world data tend to be incomplete, noisy and
+inconsistent. What are the various approaches adopted to
+clean the data?
+Real-world data is often:
+
+e Incomplete (missing values)
+
+e Noisy (random errors)
+
+e Inconsistent (contradictory values)
+
+Data cleaning aims to fill missing values, remove noise, and fix inconsistencies.
+
+1. Handling Missing Values
+If some data (like customer income) is missing, we can:
+(a) Ignore the Tuple
+
+e Just skip the record if too much information is missing.
+
+e Useful only if missing data is rare.
+(b) Fill Missing Value Manually
+
+e Human experts fill in missing info.
+
+e Not practical for large datasets.
+(c) Use a Global Constant
+
+e Replace missing values with a label like "Unknown" .
+
+e Can mislead analysis because "Unknown" looks like a real value.
+(d) Use Attribute Mean
+
+e Fill missing value with the average of that attribute.
+
+e E.g., if average income = $56,000, use $56,000.
+
+===== PAGE 15 =====
+(e) Use Class-specific Mean
+e If data is classified (like credit risk), fill missing value with mean for that class.
+e E.g., average income for "high-risk" customers.
+(f) Use Most Probable Value
+e Use techniques like regression, Bayesian methods, or decision trees to predict missing
+values.
+2. Handling Noisy Data
+Noise = random errors or variability in data.
+Methods to smooth noisy data:
+(a) Binning
+e Sort data first.
+e Divide into small groups ("bins").
+e Then smooth:
+e Bin mean: Replace each value with the bin’s average.
+e Bin median: Replace with bin's median.
+e Bin boundaries: Replace each value with nearest boundary (min or max).
+(b) Clustering
+e Group similar data points into clusters.
+e Values far from any cluster are treated as outliers.
+(c) Regression
+e Fit a line (or curve) to the data.
+e Predict missing or noisy values using this line.
+e Linear regression (2 variables) or multiple regression (many variables).
+3. Handling Inconsistent Data
+Inconsistent data = data that conflicts or breaks rules.
+How to handle:
+
+===== PAGE 16 =====
+e Manual correction: Cross-check with papers or trusted sources.
+e Code standardization: Fix different code usages (e.g., USA vs US).
+e Use knowledge rules: Apply known rules or constraints.
+e Example: If state depends on ZIP code, mismatch indicates inconsistency.
+8. Describe the various techniques for numerosity reduction
+in data mining.
+Numerosity Reduction = Reducing the size of the data without losing important information.
+Instead of keeping all the original data, we keep
+e Only a smaller version
+e Ora model that summarizes the data.
+1. Parametric Methods
+e Assume that the data follows a certain model (like a line or curve).
+e Store only the parameters of the model (not the full data).
+(a) Regression
+e Find a line or equation that fits the data.
+e Simple linear regression:
+e Multiple linear regression:
+e Good for predicting values using other variables.
+(b) Log-Linear Model
+e Used for categorical (discrete) data.
+e Studies the probability of different combinations in multi-dimensional space.
+e Useful for sparse and skewed datasets.
+2. Non-Parametric Methods
+e No assumption about data’s distribution.
+e Directly compress or transform the data.
+
+===== PAGE 17 =====
+(a) Histograms
+e Divide the range of data into buckets (bins).
+e Two main types:
+e Equal-width: Buckets have the same size range.
+e Equal-frequency: Each bucket has the same number of data points.
+e Instead of storing all values, store only:
+- Range of bucket
+- Count of values
+Example:
+If prices are between $0-$50, buckets could be: $0-$10, $10-$20, etc.
+(b) Clustering
+e Group similar data points into clusters.
+e Only store cluster centers (centroids) and cluster size.
+e Outliers can also be detected.
+Example:
+Customers living close to each other are grouped into clusters.
+(c) Sampling
+e Select only a small part (Sample) of the data.
+e Types of Sampling:
+e SRSWOR (Simple Random Sample Without Replacement):
+e Pick randomly without putting the data back.
+e SRSWR (Simple Random Sample With Replacement):
+e Pick randomly, but allow repetition.
+e Cluster Sampling:
+e Divide data into clusters and sample a few clusters.
+e Stratified Sampling:
+e Divide data into strata (groups like age groups) and sample from each group.
+ee & a
+
+===== PAGE 18 =====
+9. Why do we need data transformation? What are the
+different ways of data transformation?
+e Raw data is often noisy, inconsistent, or unsuitable for mining.
+e Data Transformation helps to prepare and improve data for better mining results.
+e It makes data:
+e Cleaner
+e Simpler
+e Easier to analyze
+e More accurate in results
+Different Ways of Data Transformation
+1. Smoothing
+e Removes noise (errors/randomness) from data.
+e Methods:
+e Binning: Grouping values into bins.
+e Regression: Fitting data to a function.
+e Clustering: Grouping similar items.
+2. Aggregation
+e Summarizing data.
+e Example:
+Daily sales = Monthly sales — Annual sales.
+e Used for building data cubes (multi-level data analysis).
+3. Generalization
+e Replace detailed data with higher-level concepts.
+e Example:
+"Street" — "City" = "Country".
+e Helps to view bigger patterns.
+4. Normalization
+e Rescales data into a specific range like [0,1] or [-1,1].
+e Needed because different measurement units (like meters vs inches) can mess up
+analysis.
+e Three types:
+
+===== PAGE 19 =====
+e Min-max normalization:
+e Scales between a minimum and maximum.
+e Z-score normalization:
+e Based on mean and standard deviation.
+e Decimal scaling:
+e Move the decimal point to normalize.
+5. Attribute Construction (Feature Construction)
+e Create new attributes using existing ones.
+e Helps the model understand better and improve mining results.
+Technique Purpose Example
+Smoothing Remove noise Binning, regression
+Aggregation Summarize data Daily = Monthly sales
+Generalization Higher-level concepts Street = City
+Normalization Scale data to a range Min-max, z-score, decimal scaling
+Attribute Create new helpful Combine 'height' and 'weight' to make
+Construction attributes ‘BMI'
+Normalization types
+Method How It Works When to Use
+Min-max Linear scaling between [new_min, Data has known min/max
+normalization new_max]
+Z-score Center data to mean = 0, std dev Data has unknown min/max or
+normalization =1 has outliers
+Decimal scaling Shift decimal point based on max Simple datasets
+value
+a & a
+10. Suppose that the data for analysis includes the attribute
+cost price and the values for the data tuples are:
+100,150,140,115,190,120,130,125,135,145,140,150, 165,160,170
+
+===== PAGE 20 =====
+(i) Use min-max normalization to transform the value of 145 for cost price
+onto the range [0,1].
+(ii) Use Z-Score normalization to transform the value 145 for cost price
+where the standard deviation of cost price is 120.
+Data:
+100,150,140,115,190,120,130,125,135,145,140,150, 165,160,170
+The value to normalize is 145.
+(i) Min-Max Normalization for the value 145
+Formula for Min-Max Normalization:
+' (v _ min) : :
+v = ————__ x (new_max, — new_min,) + new_min,
+(max4 — mina)
+Where:
+e vis the original value (145).
+e ming is the minimum value in the dataset.
+e maxy is the maximum value in the dataset.
+° new_min , and new_max , are the target range, which in this case is [0, 1].
+
+===== PAGE 21 =====
+Steps:
+1. Find min and max values:
+e Min value ming = 100
+e Max value maxy = 190
+2. Substitute values into the formula:
+= +____—__ x (1-0) + 0
+’ = (90100) * 1-9) +
+45
+‘’—-—x1=0.5
+° 90
+So, the Min-Max normalized value for 145 is 0.5.
+(ii) Z-Score Normalization
+Formula for Z-Score Normalization:
+v= (v _ Ht)
+o
+Where:
+e vis the original value (145).
+e wis the mean of the data.
+e o is the standard deviation of the data, which is given as 120.
+
+===== PAGE 22 =====
+Steps:
+1. Find the mean (i) of the dataset:
+Yodata values 100+ 150 + 140 + 115 + 190 + 120 + 130 + 125 + 135 + 145 + 140 + 150 + 165 + 160 + 170
+a
+2, 005
+w= = = 133.67
+2. Apply the Z-score formula:
+,_ (145 — 133.67) 11.33 |
+v= S59 = ag = 0.0944
+So, the Z-Score normalized value for 145 is approximately 0.0944.
+11. Discuss the significance of data discretization in data
+mining. List and explain any four data discretization
+strategies.
+Significance of Data Discretization in Data Mining
+e Data Discretization is the process of converting a large set of continuous attribute values
+into a smaller set of discrete intervals.
+e It simplifies the data, making it easier to analyze, manage, and mine.
+e Discretization reduces data size and helps in improving the performance of data mining
+algorithms.
+e It also helps in building concept hierarchies for further analysis.
+e Example: Instead of handling hundreds of exact Age values, we can create intervals like
+"Young", "Middle-aged", "Old".
+1. Discretization by Binning
+e Think of binning like putting data into small boxes.
+e We divide the whole range into small parts (bins) — either all bins have the same size,
+or each bin has the same number of values.
+e Inside each bin, we can replace all the values with the average (mean) or middle value
+(median) to make it even simpler.
+e Example: If we have ages like 5, 7, 8, 9, 12, 13, 18 — we can group them into bins like:
+e Bin 1: 0-10 — (5,7,8,9)
+
+===== PAGE 23 =====
+e Bin 2: 11-20 — (12,13,18)
+2. Discretization by Histogram Analysis
+e Imagine drawing a bar chart (histogram) of the data.
+e Here also, data is grouped into bins (small ranges).
+e Two ways to do it:
+e Equi-width: Each bin has same width (like 0-10, 10-20, etc.).
+e Equal-frequency: Each bin has same number of data points (like 5 values in each
+bin).
+e This helps see the data pattern and simplify it.
+3. Discretization by Clustering, Decision Tree, and Correlation Analysis
+a. Discretization by Clustering
+e Clustering means grouping similar things together.
+e Data points that are close or similar are put into one group (cluster).
+e Each group acts like one interval (bin) for the data.
+e It's like putting students into groups based on similar marks!
+b. Discretization by Decision Tree
+e Decision trees divide data step-by-step based on some conditions.
+e It uses class labels (extra information) to decide where to cut the data.
+e Example: In medical data, a tree can split patient records based on symptoms to predict a
+disease.
+e It tries to make groups as pure as possible (mostly same class inside a group).
+c. Discretization by Correlation Analysis (ChiMerge)
+e This method starts with each value as its own bin.
+e Then, it merges bins that are similar based on a special test called Chi-square (x?) test.
+e It keeps merging until the groups are good enough.
+e It's like combining small groups into bigger ones when they look similar.
+
+===== PAGE 24 =====
+12. Illustrate PCA for dimensionality reduction with an
+example.
+What is PCA?
+e PCAis a method to reduce the number of attributes (features) in your data.
+e It finds new directions (principal components) along which the data varies the most.
+e Then it replaces the original data with these few important directions.
+e Goal: Keep the important patterns, remove extra dimensions.
+PCA Step-by-Step
+Suppose you have the following simple data of students:
+Height (cm) Weight (kg)
+150 50
+160 55
+165 58
+170 62
+175 65
+You have 2 attributes: Height and Weight.
+Now, let's apply PCA:
+Step 1: Normalize the data
+e Make sure height and weight are on the same scale.
+Step 2: Find principal components
+e PCA.will find new axes (directions) along which the data varies the most.
+e Here, Height and Weight are strongly related (when height increases, weight increases).
+e So PCA finds:
+e 1st Principal Component (Y:): The direction where data varies the most (Height and
+Weight together).
+
+===== PAGE 25 =====
+e 2nd Principal Component (Y2): A smaller variation direction (tiny differences not
+captured by Y;).
+
+Step 3: Sort components by importance
+
+e Y, captures most of the pattern (Height + Weight relationship).
+
+e Y2 Captures very little (random noise).
+Step 4: Reduce dimensions
+
+e We keep only Y: and discard Y2.
+
+e Now instead of recording 2 things (height and weight), we just record one value along Y:.
+
+e Dimension reduced from 2D to 1D
+13. Explain data normalization methods with necessary
+equations. Calculate the normalized value for 550 in the set
+of the data points 50, 150, 250, 350,450, 550, 650, 700, 850,
+950, 1000 using
+
+e (a) min-max normalization by setting min=0 and max=l
+
+e (b) z-score normalization
+
+e (c) Normalization by decimal scaling
+Normalization means scaling the data values into a small, specified range (like [0,1]) so that
+no feature dominates others.
+(a) Min-Max Normalization
+Idea:
+
+e Scale the data value between a new minimum and new maximum (usually [0,1]).
+
+===== PAGE 26 =====
+Formula:
+v= __ (va mindata) x (new_max — new_min) + new_min
+(maxdata ~~ mMindata)
+Given:
+e min = 0, max = 1 (so range = [0,1])
+e data points: 50, 150, 250, 350, 450, 550, 650, 700, 850, 950, 1000
+* miNgata = 50
+e MaXdata = 1000
+e v=550
+Substitute into the formula:
+, (550 — 50)
+= —~—_——_ x (1-0 0
+’ = (000 — 50) * 4-9) +
+' 500
+v= —
+950
+v' = 0.5263
+Answer: 0.5263
+(b) Z-Score Normalization
+
+===== PAGE 27 =====
+Idea:
+e Convert the value to how many standard deviations it is from the mean.
+Formula:
+v—
+where:
+° «= mean
+e o = Standard deviation
+Find each data point - mean
+Data Point (x) (xp)
+50 50 - 540.91 = -490.91
+150 150 - 540.91 = -390.91
+250 250 - 540.91 = -290.91
+350 350 - 540.91 = -190.91
+450 450 - 540.91 = -90.91
+550 550 - 540.91 = 9.09
+650 650 - 540.91 = 109.09
+700 700 - 540.91 = 159.09
+850 850 - 540.91 = 309.09
+950 950 - 540.91 = 409.09
+1000 1000 - 540.91 = 459.09
+Square each deviation
+Deviation (x-y) Square (x—y)42
+-490.91 240,991.63
+-390.91 152,810.63
+-290.91 84,628.63
+-190.91 36,446.63
+
+===== PAGE 28 =====
+Deviation (x-y) Square (x—y)42
+
+-90.91 8,264.63
+
+9.09 82.64
+
+109.09 11,901.64
+
+159.09 25,280.64
+
+309.09 95,528.64
+
+409.09 167,776.64
+
+459.09 210,195.64
+Find the sum of all squared deviations
+Sum = 1,033,907.4
+Divide by number of data points (n)
+
+/sum of squared deviations
+oz —_ rere
+n
+Thus:
+/ 1033907.4
+o= ———_—_—_——
+11
+a = V94082.49
+a ~ 306.74
+Standard Deviation = 306.74
+
+Find z-score
+
+===== PAGE 29 =====
+550 — 540.91
+ee
+306.74
+9.09
+z=.
+306.74
+z = 0.0296
+(c) Normalization by Decimal Scaling
+Idea:
+e Move the decimal point of values to make all data values fall between -1 and 1.
+Formula:
+yaw
+109
+where j is the smallest integer such that max(|v'|) < 1.
+You have to shift the decimal point (by dividing by 10’j) to make all data values between -1
+and 1.
+So:
+e Find the maximum absolute value (biggest value ignoring + or - sign).
+
+===== PAGE 30 =====
+e Choose the smallest j so that after dividing by 10’j the maximum value becomes < 1.
+Your numbers:
+50, 150, 250, 350, 450, 550, 650, 700, 850, 950, 1000
+Max value = 1000
+Now, how much should we divide 1000 by to make it less than 1?
+» 10! = 10- 1000/10 = 100 (still > 1)
++ 10? = 100 + 1000/100 = 10 > (Still > 1)
+* 10° = 1000 + 1000/1000 = 1 & (Not < 1, just equal)
+¢ 104 = 10000 > 1000/10000 = 0.1 {J (Now < 1!)
+But here standard method says:
+We allow "1" — equal to 1 is acceptable in most cases when doing decimal scaling.
+Thus, j = 3 is usually considered correct, because:
+¢ 1000/1000 = 1 is fine.
+e No need to go up to j = 4.
+Conclusion: 7 = 3
+v= po — 59 _ O55
+10 1000
+14, Explain Attribute Subset Selection
+What is Attribute Subset Selection?
+Attribute Subset Selection is a process used to select the most important attributes (or
+features) from a dataset, and discard the irrelevant or redundant ones. The goal is to reduce the
+complexity of the model by focusing on the most relevant attributes.
+In simpler terms, instead of using every single piece of data in a dataset, we pick only the ones
+that matter the most for making predictions. This helps in:
+e Reducing complexity: We don't have to deal with too many variables.
+e Improving performance: The model becomes faster and may perform better.
+
+===== PAGE 31 =====
+e Easier interpretation: It becomes easier to understand which attributes are most important.
+How Does Attribute Subset Selection Work?
+The process typically follows these steps
+1. Start with all attributes: Initially, you have all the attributes (or features) from the dataset.
+2. Evaluate the importance of each attribute: Look at how much each attribute contributes
+to the prediction or classification task.
+3. Remove unnecessary or redundant attributes: Eliminate the attributes that don’t help
+much in making predictions.
+4. Repeat: Keep selecting the best attributes until you have a small, efficient set.
+There are different methods for selecting attributes:
+e Stepwise Forward Selection
+e Stepwise Backward Elimination
+e Decision Tree Induction (which we'll cover in this example)
+Example Dataset:
+Let's say we have a small dataset of people with the following attributes:
+Age’ Income Education Level Health Buy Product?
+25 30,000 = High School Good Yes
+40 50,000 Bachelor's Average No
+35 45,000 Master's Good Yes
+50 70,000 = Bachelor's Poor No
+28 40,000 = High School Good Yes
+The task is to predict whether a person buys a product based on their Age, Income, Education
+Level, and Health.
+The target variable is Buy Product? (Yes/No).
+Stepwise Forward Selection:
+
+===== PAGE 32 =====
+In Stepwise Forward Selection, we start with no attributes, and then add the most useful
+attributes one at a time.
+Step 1: Start with no attributes
+At the beginning, we have no selected attributes.
+Step 2: Evaluate the best attribute to start with
+Now we evaluate the individual attributes (Age, Income, Education Level, Health) to see
+which one has the most significant impact on predicting whether someone buys the product.
+e We test each attribute independently and calculate how well each one predicts Buy
+Product?. We might use a measure like accuracy or information gain to see how well
+each attribute splits the data.
+Let's say that Income gives the best result, so we choose Income as the first attribute.
+Step 3: Add the best attribute to the model
+Now, Income is our first chosen attribute, so the selected attributes are:
+e Income
+Step 4: Evaluate the next best attribute to add
+Next, we evaluate which additional attribute works best with Income. We now have to evaluate
+the combinations of Income and the remaining attributes (Age, Education Level, Health)
+e Let’s say after testing combinations, Income + Age performs best.
+Step 5: Add the best combination of attributes
+Now, the selected attributes are:
+e Income, Age
+Step 6: Continue until no significant improvement
+We keep adding attributes until we see no significant improvement in performance. For
+example, adding Education Level and Health might not improve the prediction much, so we
+stop.
+Final Selected Attributes:
+
+===== PAGE 33 =====
+e Income, Age
+These are the attributes that give us the best prediction of whether someone will buy the
+product.
+ee & a
+15. Explain Data Integration and Data Transformation
+In data mining, data integration and data transformation are two important preprocessing
+steps that help prepare data for analysis
+1. Data Integration
+Data Integration refers to the process of merging data from multiple sources into a unified
+dataset. This step is important because data often resides in various places: different
+databases, files, or systems. Integrating this data ensures that all relevant information is
+brought together for analysis.
+Key Considerations in Data Integration:
+1. Entity Identification Problem:
+
+e When merging data from different sources, it’s important to ensure that equivalent
+entities from various data stores are correctly matched. For example, a customer ID in
+one database might be represented as customer_id, and in another database, it might
+be cust_number . The system must recognize that these two fields refer to the same
+entity.
+
+e Solution: Use metadata (descriptive data about data) to help identify and match these
+entities correctly.
+
+2. Redundancy and Correlation Analysis:
+
+e Redundancy occurs when the same information is stored in multiple places. For
+instance, if two attributes (e.g., annual_income and yearly_salary ) provide the
+same information, one can be removed to avoid redundancy.
+
+e Correlation Analysis can be used to identify redundancies between attributes. For
+instance, if two attributes show a high positive correlation (close to +1), it suggests that
+one attribute might be redundant and can be removed.
+
+3. Data Value Conflicts:
+
+e Sometimes, data values from different sources may conflict. For example, one database
+
+may store weights in kilograms, while another stores them in pounds. To handle this,
+
+===== PAGE 34 =====
+data needs to be standardized to a common format.
+e Example: One database might record price in USD, while another records it in EUR.
+These need to be normalized to the same currency for accurate analysis.
+
+Example
+Suppose we have customer data from two sources:
+
+e Source 1: customer_id, name, age, address
+
+e Source 2: cust_number, full_name, age, location
+When integrating the data, we need to handle issues like matching customer_id with
+cust_number and name with full_name . Additionally, we would handle potential
+redundancies and conflicts in fields like address and location.
+2. Data Transformation
+Data Transformation involves converting data into a format suitable for mining. This could
+mean scaling values, aggregating data, or simplifying complex data into more useful forms.
+Key Data Transformation Methods:
+
+1. Smoothing:
+
+e Smoothing helps to remove noise from the data (i.e., inconsistencies or outliers).
+Techniques like binning, regression, or clustering can be used to smooth the data
+and make it more reliable for analysis.
+
+e Example: If we have sales data with fluctuations due to occasional outliers, we might
+smooth the data to get a clearer trend.
+
+2. Aggregation:
+
+e Aggregation involves summarizing data at a higher level. For example, instead of
+tracking daily sales, you might aggregate the data to show monthly or yearly sales.
+
+e Example: If the dataset contains daily sales data, aggregation could provide the total
+sales for each month.
+
+3. Generalization:
+
+e Generalization replaces detailed data with higher-level concepts. For example, instead
+of having a specific street address, we could generalize to a city or country.
+
+e Example: Instead of tracking individual products, we might generalize the data to
+product categories like "Electronics" or "Clothing."
+
+===== PAGE 35 =====
+4. Normalization:
+
+e Normalization is the process of scaling data to fit within a specific range (like O to 1 or
+-1 to 1). This is particularly important when attributes have different units or scales.
+Common methods include min-max normalization and z-score normalization.
+
+e Example: If we have data about income (ranging from $12,000 to $98,000) and age
+(ranging from 18 to 70), normalization ensures that these attributes are on the same
+scale for comparison.
+
+5. Attribute Construction:
+
+e In some cases, new attributes (or features) are created from existing ones to help
+improve the analysis. This process is known as feature construction.
+
+e Example: If we have data about height and weight, we might construct a new attribute
+called BMI (Body Mass Index).
+
+a & a

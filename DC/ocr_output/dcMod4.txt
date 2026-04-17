@@ -1,0 +1,786 @@
+
+===== PAGE 1 =====
+Distributed-Computing-Module-4-
+Important-Topics-PYQs
+©) For more notes visit
+https://rtpnotes.vercel.app
+e Distributed-Computing-Module-4-Important-Topics-PYQs
+
+e 1. Explain no orphans consistency condition.
+e No-Orphans Consistency in Distributed Systems
+
+e 2. List any three advantages of using Distriouted Shared Memory.
+e Advantages of DSM
+e 1. Easy Communication Between Computers
+e 2. Single Address Space (No Need to Move Data)
+e 3. Faster Access Using Locality of Reference
+e 4. Cost-Effective (Cheaper Than Multiprocessor Systems)
+e 5. No Single Memory Bottleneck
+e 6. Virtually Unlimited Memory
+e 7. Portable Across Different Systems
+
+e 3. Differentiate between coordinated checkpointing and uncoordinated checkpointing
+
+- A. Uncoordinated Checkpointing (Independent Checkpoints)
+- B. Coordinated Checkpointing (Planned Checkpoints)
+
+e 4. List the different types of Messages in Rollback Recovery.
+e What is Rollback Recovery?
+e Message Handling in Rollback Recovery
+
+e 5. Discuss about the issues in implementing distributed shared memory software.
+e 1. How should sharing work?
+e 2. How to make sharing happen?
+e 3. Where to keep the data copies?
+e 4. How to find the data?
+e 5. Too much back-and-forth!
+
+===== PAGE 2 =====
+e 6. Differentiate between deterministic and non-deterministic events in log based
+rollback recovery.
+e 1. Deterministic Events
+e 2. Non-Deterministic Events
+e 7. Show that Lamport's Bakery algorithm for shared memory mutual exclusion, satisfy
+the three requirements of critical section problem.
+e What is lamports bakery algorithm?
+e Steps in the Bakery Algorithm
+e Step 1: Choose a ticket number
+e Step 2: Wait for your turn
+e Step 3: Enter the critical section
+e Step 4: Leave the critical section
+e The three requirements of critical section problem
+e 1. Mutual Exclusion
+e 2. Bounded Waiting
+e 3. Progress
+e 8. What are the issues in failure recovery? Illustrate with suitable examples.
+e Example
+e 9. Differentiate consistent and inconsistent state with example.
+e 1. Consistent State
+e Example of a Consistent State
+e 2. Inconsistent State
+e Example of an Inconsistent State
+e 10. Explain log based roll back recovery
+e Key Concepts
+e How Log-based Rollback Recovery Works
+e Types of Log-based Rollback Recovery
+e 11. Explain Checkpointing and Rollback Recovery in Detail.
+e What is Checkpointing?
+e What is Rollback Recovery?
+e Types of Checkpointing (How to Save Progress)
+e A. Uncoordinated Checkpointing (Independent Checkpoints)
+e B. Coordinated Checkpointing (Planned Checkpoints)
+
+===== PAGE 3 =====
+e C. Communication-Induced Checkpointing (Smart Checkpointing)
+e Message Handling in Rollback Recovery
+e 12. Explain the disadvantages of distributed shared memory.
+e 1. Programmers Need to Learn Special Rules
+e 2. DSM Uses a Lot of Resources (Slow Communication)
+e 3. Not as Fast as Custom Solutions
+1. Explain no orphans consistency condition.
+Imagine you and your friends are building a LEGO tower together. One friend, let’s say Alex,
+adds a special block that changes how the tower should look.
+But here’s the catch:
+e The block is random — it’s different each time.
+e So, you must remember exactly what block Alex added in case the tower falls and you
+need to rebuild it.
+Now imagine the tower falls (like a system crash), and you're trying to rebuild it:
+e But Alex is gone (Alex’s process crashed),
+e And no one remembers what block Alex added,
+e Yet your part of the tower was built based on that block.
+Now you're stuck. You can’t rebuild your part correctly. You're like an orphan—left behind with
+no way to move forward.
+To avoid this problem, there’s a simple rule:
+If you’re going to depend on a random block someone added, then either:
+e They must write it down safely (like saving it to stable storage), or
+e You must remember it yourself (store it in your memory).
+That way, even if someone disappears, the group can still rebuild the entire tower correctly. No
+one is left behind.
+e Random block = Non-deterministic event
+e Remembering it = Logging the event
+
+===== PAGE 4 =====
+e Notebook = Stable storage
+
+e Rebuilding = System recovery
+
+e Orphan =A process depending on something we can’t replay
+No-Orphans Consistency in Distributed Systems
+In distributed systems, non-deterministic events are unpredictable things like receiving a
+message or user input. These events must be logged so the system can replay them during
+recovery.
+An orphan process is:
+
+e Aprocess that did not crash,
+
+e But depends on a non-deterministic event,
+
+e And that event's determinant is lost (not saved in stable storage or memory of any surviving
+
+process).
+
+Such a process can’t be recovered properly and ends up in an inconsistent state.
+To prevent this, the No-Orphans Consistency Condition says:
+If a process depends on a non-deterministic event, then the event’s determinant must be:
+
+e Saved in stable storage, or
+
+e Available in the memory of a surviving process.
+This ensures that no process is left with missing information after a failure, and the system
+can always recover to a consistent state.
+2. List any three advantages of using Distributed Shared
+Memory.
+Imagine DSM as a giant shared whiteboard that multiple computers can read and write on at
+the same time. Instead of sending messages back and forth, they can directly access shared
+memory, making everything faster and simpler.
+Advantages of DSM
+1. Easy Communication Between Computers
+
+===== PAGE 5 =====
+v Computers can share data just by reading and writing in memory.
+
+v No need for complex message passing between machines.
+
+2. Single Address Space (No Need to Move Data)
+
+v All computers see the same memory instead of handling multiple copies.
+
+v No need to move data back and forth between systems.
+
+3. Faster Access Using Locality of Reference
+
+v When a system needs data, it keeps it close for faster access.
+
+v Reduces network traffic and improves performance.
+
+“SX Example: If you frequently use a book, you keep it on your desk instead of going to the
+library every time.
+
+4. Cost-Effective (Cheaper Than Multiprocessor Systems)
+
+v Uses regular computers instead of expensive special hardware.
+
+Y Can be built with off-the-shelf components.
+
+“SX Example: Instead of buying a supercomputer, DSM allows you to connect normal
+computers to work together.
+
+5. No Single Memory Bottleneck
+
+v Traditional systems can get slowed down by a single memory bus.
+
+v DSM removes this issue by distributing memory across multiple computers.
+
+“X Example: Instead of one cashier handling all customers, multiple cashiers serve
+different people at once.
+
+6. Virtually Unlimited Memory
+
+v¥ DSM combines memory from multiple computers into one large memory space.
+
+v Programs can run as if they have huge memory available.
+
+“X Example: Instead of one water tank, DSM connects multiple tanks to store more water.
+7. Portable Across Different Systems
+
+===== PAGE 6 =====
+v DSM programs work on different operating systems without modification.
+v The interface remains the same, making it easy to develop applications.
+“X Example: Just like Google Docs works on Windows, Mac, and Mobile, DSM works
+across different computers without changes.
+3. Differentiate between coordinated checkpointing and
+uncoordinated checkpointing
+A. Uncoordinated Checkpointing (Independent Checkpoints)
+
+e Each process saves its own state independently.
+
+e Problem: It may lead to a Domino Effect (rolling back too far).
+
+e SX Example:
+
+e If process P1 rolls back, but it has sent data to P2, then P2 must also roll back, and
+so on. This can cause the system to restart from a very old state.
+
+B. Coordinated Checkpointing (Planned Checkpoints)
+
+e All processes coordinate and save a consistent global state.
+
+e Prevents the Domino Effect and ensures all processes are in sync.
+
+e Uses a coordinator process to signal all processes to take checkpoints together.
+
+e SX Example:
+
+e An online shopping system saves a checkpoint every hour across all servers. If one
+server crashes, it restores all servers to the last saved state to maintain consistency.
+
+4, List the different types of Messages in Rollback Recovery.
+What is Rollback Recovery?
+Rollback Recovery is the process of restoring a system to a previous consistent
+checkpoint after a failure.
+Steps in Rollback Recovery:
+
+===== PAGE 7 =====
+1. Detect Failure
+e The system notices that a process has failed.
+2. Restore Checkpoint
+e The system reloads the last saved checkpoint for that process.
+3. Re-execute
+e The process continues from where it left off, avoiding major data loss.
+Example:
+If an airline booking system crashes after booking 50 tickets, it restores the last saved
+checkpoint (e.g., after booking 40 tickets) and reprocesses the last 10 tickets.
+Message Handling in Rollback Recovery
+When recovering from a failure, messages between processes can be affected:
+Types of Messages:
+1. In-Transit Messages
+e These messages were sent but not yet received at the time of failure.
+e Think of them as messages "on the way" when the system crashed.
+e They don’t cause inconsistency and are expected to be delivered eventually.
+e Example: Message m1 is sent but not yet received.
+2. Lost Messages
+e These were sent by a process, but the receiving process rolled back to a state
+before receiving them.
+e The sender remembers the message, but the receiver doesn’t — like someone saying
+something, but you forgot it after fainting.
+e Example: Message m1 after rollback.
+3. Delayed Messages
+e These messages were sent, but arrived too late — either the receiver was down or
+already rolled back.
+e The message shows up after the rollback point, so the system can’t use it directly.
+e Example: Messages m2 and m5.
+4. Orphan Messages
+e These are received messages for which the send event was rolled back.
+
+===== PAGE 8 =====
+e It looks like a message was received without anyone sending it, which breaks
+consistency.
+e Example: Message H becomes orphan when sender Pi rolls back, but receiver Pj
+doesn't.
+5. Duplicate Messages
+e These happen when messages are logged and then replayed after rollback, causing
+the receiver to receive them again.
+e Re-sending is fine, but re-receiving without checking can cause duplicates.
+5. Discuss about the issues in implementing distributed
+shared memory software.
+Imagine a group of computers working together, sharing data like they’re using a common
+notebook. That’s what DSM tries to do — it makes different computers feel like they are using
+one big memory together. But doing this isn't easy. Let’s look at the main problems
+1. How should sharing work?
+When many computers access the same data, we need clear rules.
+For example:
+e If two computers try to change the same data at the same time, what should happen?
+e Should one wait? Should both be allowed?
+e Ifthe rules aren't clear, programs might behave weirdly or incorrectly. So the first
+challenge is just deciding how sharing will actually work.
+2. How to make sharing happen?
+Let’s say you and 3 friends are working on a group project. You have one shared notebook. If
+every time someone wants to read or write something, they have to come all the way to you to
+look at the notebook — it’s going to be:
+e Very slow
+e Annoying if you're busy
+e Everyone has to wait in line!
+
+===== PAGE 9 =====
+A solution would be
+
+e Make copies of the notebook and give one to each friend. That way:
+
+e Everyone can read from their own copy whenever they want.
+e Things become faster and more convenient.
+That’s exactly what replication (copying) does in DSM.
+
+But this brings questions like:
+
+e Should we keep a copy on every computer or just a few?
+
+e Should we make copies only when someone wants to read the data?
+
+e Or also when they want to change it?
+
+The system has to figure out what kind of copying is the best.
+
+3. Where to keep the data copies?
+If we’re not copying everything everywhere (because that’s slow), we need to decide:
+
+e Which computers should hold the copies?
+
+This matters because it can affect how fast we get the data.
+
+For example:
+If you always use data that’s stored far away, everything becomes slow. So we want to keep
+data closer to where it's needed most.
+4. How to find the data?
+Sometimes, a computer needs data that it doesn’t have.
+Now the system must figure out where the data is and fetch it.
+If there are multiple copies in different places, it gets tricky to know which one is correct or up-
+to-date.
+5. Too much back-and-forth!
+If computers keep asking each other for data all the time, it leads to:
+
+e Slower performance
+
+e Alot of messages flying around
+
+===== PAGE 10 =====
+So the system needs to be smart and try to reduce how much they talk to each other. It
+should make sharing smooth, without everyone shouting over the network all the time.
+ee & a
+
+6. Differentiate between deterministic and non-deterministic
+events in log based rollback recovery.
+In log-based rollback recovery, deterministic and non-deterministic events are essential to
+understanding how processes recover from failures by using logs.
+1. Deterministic Events
+
+e Definition: A deterministic event is an event whose outcome can be fully predicted or
+
+reproduced given the prior state of the system.
+
+e Characteristics:
+
+e Deterministic events do not involve any uncertainty or external factors beyond the
+initial state.
+
+e The sequence and result of these events are solely dependent on prior state
+information, and they are predictable as long as you know the state of the system
+before the event.
+
+e Role in Recovery
+
+e During recovery, deterministic events can be replayed because they are based on the
+state and sequence of prior events. They are simply a result of previous deterministic
+logic.
+
+2. Non-Deterministic Events
+e Definition: A non-deterministic event is an event whose outcome is not fully determined by
+the system's prior state alone and may depend on external factors, like inputs from other
+processes or sources outside the system.
+e Characteristics:
+
+e Non-deterministic events can’t be predicted or exactly replicated solely from the state
+of the system before the event occurred.
+
+e These events introduce uncertainty, and the exact outcome can vary each time it
+happens, depending on external inputs.
+
+e Role in Recovery:
+
+===== PAGE 11 =====
+e Non-deterministic events must be logged with their determinants (information
+necessary to replay the event). For example, the arrival of message m0 may require
+logging the sender and timestamp to correctly replay the event after a failure.
+
+e During failure recovery, processes rely on the logged determinants of non-deterministic
+events to correctly replay or reconstruct the system’s state and events that occurred
+before the failure. The process cannot proceed from a failed state without knowing the
+exact sequence and conditions of the non-deterministic events.
+
+7. Show that Lamport's Bakery algorithm for shared memory
+mutual exclusion, satisfy the three requirements of critical
+section problem.
+What is lamports bakery algorithm?
+Lamport's Bakery Algorithm is a mutual exclusion algorithm designed to solve the critical
+section problem in distributed systems, particularly in systems with shared memory. It works
+by ensuring that only one process can access the critical section (CS) at a time while respecting
+the rules of mutual exclusion, bounded waiting, and progress.
+The name "Bakery" comes from the analogy of a bakery where customers take a number
+when they enter and are served in the order of the numbers.
+Steps in the Bakery Algorithm
+In this algorithm, each process follows a set of steps to enter the critical section.
+Step 1: Choose a ticket number
+e When a process wants to enter the critical section, it picks a ticket number.
+e This ticket number is assigned based on the maximum ticket number from all other
+processes, plus one.
+e Essentially, the ticket number for a process i is the highest number of tickets currently
+assigned + 1.
+e Choosing a ticket number ensures an orderly sequence, meaning the process with the
+smallest number gets to enter the CS(Critical Section) first.
+Step 2: Wait for your turn
+
+===== PAGE 12 =====
+e Once a process has its ticket number, it waits for all other processes with smaller ticket
+numbers (or those with the same ticket number but a smaller process ID) to finish their work
+in the critical section.
+
+e If another process has a smaller ticket number, it is given priority to enter the CS first.
+
+Step 3: Enter the critical section
+
+e Once a process has the smallest ticket number, it enters the critical section and performs its
+work.
+
+Step 4: Leave the critical section
+
+e After completing its work in the critical section, the process resets its ticket number to 0.
+This step is critical because it signals that the process is no longer requesting access to the
+CS.
+
+The three requirements of critical section problem
+
+1. Mutual Exclusion
+
+Mutual exclusion means that only one process can be inside the critical section at a time.
+How the Bakery Algorithm Ensures Mutual Exclusion:
+
+e Each process picks a unique ticket number.
+
+e Aprocess can only enter the critical section once its ticket number is the smallest among all
+the processes.
+
+e When multiple processes pick the same ticket, the algorithm uses lexicographic order
+(i.e., a combination of ticket number and process ID) to decide which process goes first.
+
+e The algorithm ensures that no two processes can be in the critical section at the same time
+because one process will always have a smaller ticket number or lexicographically smaller
+combination of ticket number and process ID.
+
+Steps in the Bakery Algorithm Ensuring Mutual Exclusion:
+
+e Aprocess picks a ticket number greater than the current maximum ticket number.
+
+e If two processes pick the same number, the one with the smaller process ID will proceed
+first. This guarantees no conflicts in entry to the critical section.
+
+2. Bounded Waiting
+
+===== PAGE 13 =====
+Bounded waiting means that there is a limit on the number of times other processes can
+enter the critical section before the requesting process.
+How the Bakery Algorithm Ensures Bounded Waiting:
+
+e When a process picks a ticket, it waits until its ticket number is the smallest. If multiple
+processes have the same ticket, the one with the lower process ID will proceed first.
+
+e After a process picks a ticket, the only way a process can get ahead of it is if another
+process (with a larger ticket number) goes first.
+
+e Since each process can only overtake another process at most once (if two processes pick
+the same ticket number), the waiting time is bounded.
+
+Explanation of Bounded Waiting in Action:
+
+e Suppose process i picks a ticket, and process j picks the same ticket. The next time j
+picks a ticket, its value will definitely be greater than i’s ticket, thus i can eventually
+enter the critical section.
+
+3. Progress
+
+Progress means that if no process is in the critical section, then a process wishing to enter
+the critical section should be able to do so, provided it follows the rules.
+
+How the Bakery Algorithm Ensures Progress:
+
+e The algorithm guarantees that, at any point in time, the process with the smallest ticket
+number will eventually enter the critical section.
+
+e This is because the ticket numbers are assigned in a way that no two processes can have
+conflicting orders.
+
+e Lexicographic ordering (first by ticket number and then by process ID) ensures that the
+process with the smallest ticket or lexicographically smallest combination of ticket number
+and process ID will always proceed first.
+
+Steps Ensuring Progress:
+
+e As soon as a process’s ticket number becomes the smallest, it enters the critical section.
+
+e Since the ticket number is always updated based on the max ticket number across all
+processes, the system ensures that the next process in line will always be able to proceed
+to the CS.
+
+la
+
+===== PAGE 14 =====
+yy
+8. What are the issues in failure recovery? Illustrate with
+suitable examples.
+Failure recovery involves restoring the system to a consistent state after a failure. The following
+issues arise during this process:
+1. Orphan Messages: These occur when a process receives a message, but the sender's
+state is rolled back and it no longer has a record of sending that message.
+2. Cascading Rollbacks: To remove orphan messages, other processes may also need to roll
+back to earlier checkpoints, leading to a chain reaction of rollbacks.
+3. Lost Messages: A message is considered lost if the sender remembers sending it (after
+recovery), but the receiver has no record of receiving it due to rollback.
+4. Delayed Messages: Messages that are still in transit during failure can arrive at
+unpredictable times—before, during, or after recovery—causing inconsistency.
+5. Delayed Orphan Messages: These messages arrive at the receiver even though their
+send event has been undone due to rollback. Such messages must be discarded.
+6. Duplicate Messages: If message logging is used, messages may be replayed during
+recovery, which can result in duplicates if not handled properly.
+7. Overlapping Failures: If multiple processes fail around the same time, it leads to
+complications like amnesia and makes consistent recovery more difficult.
+Example
+Cio Cis Failure
+P;
+A
+; G
+c kO
+Py
+Cy Cy2
+
+===== PAGE 15 =====
+e Imagine 3 processes: Pi, Pj, and Pk.
+e They talk to each other by sending messages over a FIFO (First In First Out) network.
+e Each process takes checkpoints to save their progress:
+e Pi: {Ci,O, Ci,1}
+e Pj: {Cj,0, Cj,1, Cj,2}
+e Pk: {Ck,0, Ck,1}
+e Let’s say they exchange messages A to J.
+e Now, Pi fails suddenly.
+e When the process fails, it rollbacks to the last checkpoint, which is Ci,1
+e Pj also needs to be rolled back, this is because
+Cis Failure
+H
+e After rollback to Ci,1 there is an orphan message called H going to P2
+e Orphan message means
+e Receive is recorded, but send is not recorded
+e So we rollback Pj to Cj,1
+e Pk also needs to be rolled back
+
+===== PAGE 16 =====
+Ci. Cj2
+J
+I F
+Cc
+Cy C2
+e Orphan message | is there
+e Send is not recorded, only receive recorded
+e Rolled back to Ck,1
+e So this is an example of cascading rollback
+e Message C is a delayed message
+e Itcan reach Pi before, during, or after recovery
+e Message D is a Lost Message
+Ci Failure
+D
+= \ ‘a
+e This is because send is done
+e But the receive has been rolled back to Ci,1
+e Message E and F are Delayed orphan messages
+
+===== PAGE 17 =====
+9. Differentiate consistent and inconsistent state with
+example.
+1. Consistent State
+e Aconsistent state is a state where:
+e Ifa process has received a message, then the corresponding send event must have
+happened.
+e The system is in a state that could have naturally occurred during failure-free
+execution
+Example of a Consistent State
+e Process A sends message m1 to Process B.
+e Process B receives m1 before a failure occurs.
+e After recovery, the system still shows that A sent m1 and B received it.
+Since both the send and receive events are recorded, this state is consistent.
+2. Inconsistent State
+An inconsistent state is a state where:
+e Aprocess shows that it received a message, but the corresponding send event is
+missing.
+e This situation is impossible in a correct failure-free execution.
+Example of an Inconsistent State
+e Process A sends message m2 to Process B.
+e Process B records that it received m2, but Process A rolls back to a checkpoint before
+sending m2.
+e Now, the system shows B received m2, but A never sent it.
+Since this state cannot occur in normal execution, it is inconsistent
+10. Explain log based roll back recovery
+
+===== PAGE 18 =====
+Log-based rollback recovery is a technique used to recover a system after a failure by
+leveraging logs that track the non-deterministic events that happen during the system's
+execution. This method helps bring back the system to its last known consistent state, ensuring
+that processes can continue their execution as smoothly as possible after a failure.
+Key Concepts
+1. Deterministic and Non-Deterministic Events
+
+e Deterministic events are those that always occur in the same way and are predictable.
+For example, the calculation of a number or the execution of a function where the output
+is always the same for the same input.
+
+e Non-deterministic events are those that may vary depending on external factors or
+interactions, like receiving a message from another process or user input. These events
+can't always be predicted, and the system must handle them carefully.
+
+2. Modeling Execution with Intervals
+
+e Aprocess's execution can be divided into intervals, where each interval starts with a
+non-deterministic event (like receiving a message). The rest of the interval depends on
+the events that occurred before it and is deterministic. This means that once a process
+has passed through a non-deterministic event, the sequence of operations that follow it
+can be predicted and repeated exactly in case of a failure.
+
+3. Role of Logs
+
+e The key idea in log-based recovery is to log the determinants (the factors or conditions
+that determine the outcome) of non-deterministic events. These logs are stored ina
+safe, stable storage so that, in case of a failure, the process can roll back to the state it
+was in before the failure and "replay" the non-deterministic events exactly as they
+happened before.
+
+How Log-based Rollback Recovery Works
+1. Logging Non-Deterministic Events
+
+e During normal operation (i.e., when there are no failures), the system logs every non-
+deterministic event it observes. For example, if a process receives a message, it will log
+the details of that message so that it can be recreated if needed. The logs are saved in
+stable storage, meaning they are protected and won't be lost even if the system
+crashes.
+
+2. Checkpoints
+
+===== PAGE 19 =====
+e To reduce the work needed for recovery, processes take checkpoints at regular
+intervals. A checkpoint records the current state of a process. If a failure occurs, the
+system can recover from the most recent checkpoint and then use the logs to replay the
+events that happened after that checkpoint.
+
+3. Recovery After Failure
+e When a failure occurs, the process will recover by:
+e Returning to its last checkpoint.
+e Using the logged events to re-execute the non-deterministic events (like receiving
+messages).
+e This ensures that the process's execution will be identical to the pre-failure
+execution, avoiding any inconsistencies.
+4. No-Orphans Consistency
+
+e Acritical condition in rollback recovery is the no-orphans consistency condition. This
+condition ensures that after a failure, no process is left in an inconsistent state, also
+known as an “orphan.”
+
+e Every process must have the correct log information or a stable checkpoint to avoid
+such inconsistencies.
+
+Types of Log-based Rollback Recovery
+1. Pessimistic Logging
+
+e Pessimistic logging assumes that failures can happen at any time. Therefore, it logs
+each non-deterministic event before it happens. This ensures that if a failure occurs, the
+system can always roll back to a known consistent state.
+
+e Synchronous logging is a feature of pessimistic logging, where logs are immediately
+written to stable storage before proceeding. While safe, this can introduce overhead
+since the system must wait for the log to be saved before continuing.
+
+e Checkpointing is also used to minimize recovery time.
+
+2. Optimistic Logging
+
+e Optimistic logging is based on the assumption that failures are rare. It logs events
+asynchronously, meaning the system doesn't immediately save the logs but does so
+periodically.
+
+e This reduces overhead but allows temporary inconsistencies (orphans) to appear, which
+will eventually be fixed during recovery.
+
+===== PAGE 20 =====
+e The system tracks dependencies between processes to ensure proper recovery in case
+of failure.
+3. Causal Logging
+e Causal logging combines the strengths of both pessimistic and optimistic logging. It
+allows processes to log asynchronously but still ensures no orphan processes are
+created. It tracks causal dependencies (the relationship between events) to ensure that
+recovery can be done efficiently without losing consistency.
+e This method provides a balanced approach, reducing overhead while maintaining
+consistency.
+11. Explain Checkpointing and Rollback Recovery in Detail.
+Imagine you are playing a video game, and you reach an important level. To avoid losing
+progress if something goes wrong, you save the game at certain points. If you fail later, you
+can reload the saved checkpoint instead of starting from scratch.
+This is exactly how Checkpointing and Rollback Recovery work in distributed systems to
+handle failures!
+What is Checkpointing?
+Checkpointing is the process of saving the state of a process at a certain point so that ifa
+failure occurs, it can restart from that point instead of starting over.
+Why Use Checkpoints?
+e Reduces the amount of lost work after a failure.
+e Helps systems recover quickly instead of re-executing everything.
+e Saves CPU time and network resources.
+“SX Example:
+A bank transaction system saves its progress after every 100 transactions. If the system
+crashes after 150 transactions, it restores the last saved state (100 transactions) and
+reprocesses the last 50 instead of all 150.
+What is Rollback Recovery?
+
+===== PAGE 21 =====
+Rollback Recovery is the process of restoring a system to a previous consistent
+checkpoint after a failure.
+Steps in Rollback Recovery:
+1. Detect Failure &
+e The system notices that a process has failed.
+2. Restore Checkpoint &)
+e The system reloads the last saved checkpoint for that process.
+3. Re-execute
+e The process continues from where it left off, avoiding major data loss.
+“\ Example:
+If an airline booking system crashes after booking 50 tickets, it restores the last saved
+checkpoint (e.g., after booking 40 tickets) and reprocesses the last 10 tickets.
+Types of Checkpointing (How to Save Progress)
+There are three main ways to implement checkpointing:
+A. Uncoordinated Checkpointing (Independent Checkpoints)
+e Each process saves its own state independently.
+e Problem: It may lead to a Domino Effect (rolling back too far).
+“\ Example:
+If process P1 rolls back, but it has sent data to P2, then P2 must also roll back, and so on.
+This can cause the system to restart from a very old state.
+B. Coordinated Checkpointing (Planned Checkpoints)
+e All processes coordinate and save a consistent global state.
+e Prevents the Domino Effect and ensures all processes are in sync.
+e Uses a coordinator process to signal all processes to take checkpoints together.
+“\ Example:
+An online shopping system saves a checkpoint every hour across all servers. If one server
+crashes, it restores all servers to the last saved state to maintain consistency.
+C. Communication-Induced Checkpointing (Smart Checkpointing)
+
+===== PAGE 22 =====
+e Checkpoints are automatically triggered when needed.
+
+e Prevents unnecessary rollbacks and reduces overhead.
+
+e Uses extra information in messages to decide when to save a checkpoint.
+
+“SX Example:
+
+A cloud storage service automatically saves checkpoints when many files are being
+uploaded, ensuring smooth recovery if a failure occurs.
+
+Message Handling in Rollback Recovery
+
+When recovering from a failure, messages between processes can be affected:
+Types of Messages:
+
+1. In-Transit Messages — Sent but not yet received.
+
+2. Lost Messages — Sent before a crash but not delivered.
+
+3. Orphan Messages — Received but the sender’s checkpoint doesn’t show that it was sent.
+12. Explain the disadvantages of distributed shared memory.
+Imagine Distributed Shared Memory (DSM) as a giant shared notebook that many people
+(computers) can write and read from. It makes sharing data easy, but it has some problems
+too.
+
+1. Programmers Need to Learn Special Rules
+
+e Just like different schools have different rules for writing assignments, DSM has
+
+different consistency rules for how data is shared.
+
+e Programmers must understand these rules to avoid errors.
+“X Example: If two people write on the same notebook at the same time, how do we decide
+whose writing is correct? DSM needs rules for such cases.
+2. DSM Uses a Lot of Resources (Slow Communication)
+
+e DSM works by sending messages between computers to keep data updated.
+
+e These messages take time and slow things down.
+
+===== PAGE 23 =====
+“SX Example: Imagine you and your friend are writing in a shared online document, but updates
+take 5 seconds to appear. It would be frustrating!
+3. Not as Fast as Custom Solutions
+
+e DSM is one-size-fits-all, but some applications need faster, custom solutions.
+
+e Custom-built systems can be optimized for speed and efficiency.
+“X Example: Buying a ready-made suit vs. getting a tailor-made suit. DSM is like the ready-
+made suit—it works, but not always a perfect fit.

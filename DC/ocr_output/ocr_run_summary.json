@@ -1,0 +1,38 @@
+[
+  {
+    "pdf": "/Users/eric/Documents/StudyCollege/DC/DCSeries1.pdf",
+    "page_count": 34,
+    "txt_output": "/Users/eric/Documents/StudyCollege/DC/ocr_output/DCSeries1.txt",
+    "json_output": "/Users/eric/Documents/StudyCollege/DC/ocr_output/DCSeries1.json"
+  },
+  {
+    "pdf": "/Users/eric/Documents/StudyCollege/DC/DCSeries2.pdf",
+    "page_count": 24,
+    "txt_output": "/Users/eric/Documents/StudyCollege/DC/ocr_output/DCSeries2.txt",
+    "json_output": "/Users/eric/Documents/StudyCollege/DC/ocr_output/DCSeries2.json"
+  },
+  {
+    "pdf": "/Users/eric/Documents/StudyCollege/DC/DCmod3.pdf",
+    "page_count": 18,
+    "txt_output": "/Users/eric/Documents/StudyCollege/DC/ocr_output/DCmod3.txt",
+    "json_output": "/Users/eric/Documents/StudyCollege/DC/ocr_output/DCmod3.json"
+  },
+  {
+    "pdf": "/Users/eric/Documents/StudyCollege/DC/Dcmod2.pdf",
+    "page_count": 33,
+    "txt_output": "/Users/eric/Documents/StudyCollege/DC/ocr_output/Dcmod2.txt",
+    "json_output": "/Users/eric/Documents/StudyCollege/DC/ocr_output/Dcmod2.json"
+  },
+  {
+    "pdf": "/Users/eric/Documents/StudyCollege/DC/Model QP Solved.pdf",
+    "page_count": 26,
+    "txt_output": "/Users/eric/Documents/StudyCollege/DC/ocr_output/Model_QP_Solved.txt",
+    "json_output": "/Users/eric/Documents/StudyCollege/DC/ocr_output/Model_QP_Solved.json"
+  },
+  {
+    "pdf": "/Users/eric/Documents/StudyCollege/DC/dcMod4.pdf",
+    "page_count": 23,
+    "txt_output": "/Users/eric/Documents/StudyCollege/DC/ocr_output/dcMod4.txt",
+    "json_output": "/Users/eric/Documents/StudyCollege/DC/ocr_output/dcMod4.json"
+  }
+]

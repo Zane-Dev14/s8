@@ -1,0 +1,521 @@
+
+===== PAGE 1 =====
+Data-Mining-Series-1-lmportant-Topics
+@) For more notes visit
+https://rtpnotes.vercel.app
+e Data-Mining-Series-1-Important-Topics
+e 1. Data mining and application
+e What is Data Mining?
+e Applications of Data Mining
+e Where is Data Mining Used?
+e 2. OLAP and OLTP
+e Difference Between OLTP and OLAP
+e 3. Data Preprocessing
+e What is Data Preprocessing?
+e Why is Data Preprocessing Important?
+e Key Steps in Data Preprocessing
+e 4. Three tier architecture with figure
+e 1. Bottom Tier — Data Storage & Management
+e 2. Middle Tier — OLAP Server (Processing & Analysis)
+e 3. Top Tier — User Interaction (Front-End Tools)
+e 5.KDD
+e What is KDD?
+e KDD vs. Data Mining
+e Steps in KDD
+e Alternative Names for KDD
+e 6. SRSWOR & SRSWR
+e What is Sampling in Data Reduction?
+e Two Main Types of Simple Random Sampling
+e 7. Min-Max and Z-score normalization (problem)
+e Example
+
+===== PAGE 2 =====
+e Min-Max Normalization
+e Z-Score Normalization
+e 8. Smoothing by means (problem)
+e Data Smoothing by Equal Frequency Bins
+e Data Smoothing by Bin Means
+e 9. Problem related to schema.
+e Problem 1
+e Problem 2
+e Star Schema
+e Snowflake Schema
+e 10. Missing data dealing method
+1. Data mining and application
+What is Data Mining?
+Data mining is the process of extracting useful information or patterns from large sets of data.
+Think of it like searching for valuable nuggets of gold in a huge pile of rocks.
+It is also known as:
+e Knowledge Discovery in Databases (KDD)
+e Data analysis
+e Business intelligence
+e Information harvesting
+Applications of Data Mining
+1. Classification — Sorting data into categories.
+e Example: In a loan database, classifying applicants as eligible or risky based on their
+credit history, income, and other details.
+2. Estimation — Predicting an unknown value based on existing data.
+e Example: Estimating a student's future grades based on their past performance.
+3. Prediction — Forecasting future outcomes using data.
+e Example: Predicting next week's stock price based on previous trends.
+
+===== PAGE 3 =====
+4. Market Basket Analysis (Association Rule Mining) — Identifying patterns in shopping
+behavior.
+
+e Example: If a customer buys a pen and a pencil, they are likely to buy a notebook too.
+
+5. Clustering — Grouping similar data points together when the categories are unknown.
+
+e Example: Grouping customers with similar buying habits for targeted marketing.
+Where is Data Mining Used?
+
+e Business intelligence
+
+e Data analytics
+
+e Bioinformatics (€.g., analyzing genetic data)
+
+e Web mining (e.g., improving search engines)
+
+e Text mining (€.g., summarizing large documents)
+
+e Social network analysis (e.g., understanding user interactions)
+
+ee & a
+2. OLAP and OLTP
+
+1. OLTP (Online Transaction Processing): A system that handles daily transactions like
+banking, online shopping, or airline bookings. It is designed for fast and frequent updates
+to data, ensuring accuracy and quick responses.
+
+2. OLAP (Online Analytical Processing): A system that is used for analyzing large
+amounts of historical data to help businesses make decisions. It focuses on data trends,
+summaries, and complex queries rather than quick updates. Examples include sales
+forecasting and business intelligence reports.
+
+Difference Between OLTP and OLAP
+Feature OLTP (Online Transaction OLAP (Online Analytical
+Processing) Processing)
+
+1. Users & Used by clerks, clients, IT Used by managers, executives,
+
+Purpose professionals for day-to-day analysts for decision-making and
+
+transactions and queries. data analysis.
+
+2.Data Type Stores current and frequently Stores historical data for analysis,
+
+updated data. summaries, and trends.
+
+===== PAGE 4 =====
+Feature OLTP (Online Transaction OLAP (Online Analytical
+Processing) Processing)
+3. Database — Uses Entity-Relationship (ER) Uses Star or Snowflake schema
+Design models with an application- with a subject-oriented design.
+oriented design.
+4. Data Focuses on real-time data for an Includes historical data from multiple
+Scope enterprise or department. versions and organizations.
+5. Storage & Small-sized transactions, needs Large, complex queries that are
+Access fast processing, concurrency mostly read-only and analyzed ina
+control, and recovery. multidimensional way.
+e OLTP is for quick transactions (e.g., banking, order processing).
+e OLAP is for analyzing large amounts of data (e.g., sales trends, business intelligence).
+3. Data Preprocessing
+What is Data Preprocessing?
+Data preprocessing is the process of preparing raw data for analysis by cleaning,
+transforming, and organizing it. Since real-world data is often incomplete, inconsistent, or
+contains errors, preprocessing helps improve data quality and ensures better results in data
+mining.
+Why is Data Preprocessing Important?
+Good data leads to accurate insights. Poor-quality data can result in incorrect conclusions.
+High-quality data should be:
+e Accurate (free from errors)
+e Complete (no missing values)
+e Consistent (data format is uniform)
+e Timely (up-to-date)
+e Believable (trustworthy)
+e Interpretable (easy to understand)
+Key Steps in Data Preprocessing
+
+===== PAGE 5 =====
+1. Data Cleaning — Fixing errors and removing noise.
+e Example: Filling in missing values or correcting typos in names and dates.
+2. Data Integration — Combining data from multiple sources into a single dataset.
+e Example: Merging customer data from an online store and a physical store into one
+system.
+3. Data Reduction — Making data smaller without losing important information.
+e Example: Removing duplicate records or summarizing data to reduce its size.
+4. Data Transformation — Converting data into a format suitable for analysis.
+e Example: Normalization, which scales data values to fit within a range (e.g., 0 to 1) to
+improve the performance of machine learning models.
+These steps often work together to improve the quality and efficiency of data mining. For
+example, data cleaning may also involve transformation, like converting all date formats to a
+single standard.
+a & a
+4. Three tier architecture with figure
+
+===== PAGE 6 =====
+A Three-Tier Data Warehouse Architecture
+Query/report Analysis Data mining
+Top tier:
+front-end tools
+OLAP server OLAP server
+* TE AE ET a A a
+a ET EE
+nat 5 mammal s Middle tier:
+seeeir PEA
+ceo mts
+ian [| | | | i
+“Monitoring Administration \. Datawarehouse —“‘Datamarts
+al data warehouse
+Metadata = ll —
+a oe a hs
+Clean
+Transform
+Load Data
+Refresh
+Operational databases External sources
+A three-tier data warehouse organizes data processing into three levels: Bottom Tier
+(Storage), Middle Tier (Processing), and Top Tier (User Interaction).
+1. Bottom Tier — Data Storage & Management
+e This is the database layer, usually a relational database (RDBMS).
+e It collects data from different sources (e.g., operational databases, external systems).
+e Tasks performed:
+e Data extraction: Pulling data from multiple sources.
+e Data cleaning & transformation: Merging and formatting data.
+e Loading & refreshing: Keeping the warehouse up-to-date.
+
+===== PAGE 7 =====
+e Tools used:
+e Gateways (connects applications to databases) — Examples:
+e ODBC (Open Database Connection)
+e JDBC (Java Database Connection)
+e OLEDB (Microsoft's database linking tool)
+e Metadata repository (stores details about data and structure).
+2. Middle Tier - OLAP Server (Processing & Analysis)
+e This layer processes and organizes data for fast retrieval.
+e Uses OLAP (Online Analytical Processing) Servers, which come in two types:
+1. ROLAP (Relational OLAP): Uses relational databases to store and process
+multidimensional data.
+2. MOLAP (Multidimensional OLAP): Uses a specialized database that directly handles
+multidimensional data for faster processing.
+3. Top Tier — User Interaction (Front-End Tools)
+e This is the interface layer, where users access and analyze data.
+e Includes query tools, reporting tools, and data mining tools to identify trends, patterns,
+and predictions.
+e Examples of tasks:
+e Running reports (e.g., sales performance summaries).
+e Performing trend analysis (e.g., predicting next quarter’s sales).
+sf Bottom Tier — Stores and manages raw data (RDBMS).
+sf Middle Tier — Processes data using OLAP (ROLAP or MOLAP).
+s® Top Tier — Provides user-friendly tools for data analysis and decision-making.
+5. KDD
+What is KDD?
+KDD (Knowledge Discovery in Databases) is a step-by-step process of finding useful
+insights and patterns in large datasets. Data Mining is just one step in this process.
+
+===== PAGE 8 =====
+KDD vs. Data Mining
+e KDD is the entire process of discovering patterns and knowledge.
+e Data Mining is a step within KDD that applies algorithms to extract meaningful patterns.
+Steps in KDD
+1. Data Cleaning — Remove errors, noise, and inconsistencies.
+2. Data Integration — Combine data from different sources.
+3. Data Selection — Pick relevant data for analysis.
+4. Data Transformation — Convert data into a suitable format (e.g., summarizing or normalizing
+values).
+5. Data Mining — Use algorithms to find patterns and trends.
+6. Pattern Evaluation — Identify the most useful patterns.
+7. Knowledge Presentation — Show results using charts, graphs, and reports.
+Alternative Names for KDD
+e Data mining
+e Knowledge extraction
+e Data analysis
+e Information harvesting
+e Business intelligence
+6. SRSWOR & SRSWR
+What is Sampling in Data Reduction?
+Sampling helps reduce the size of a large dataset by selecting a smaller representative
+subset. This makes data processing faster while still Keeping important patterns intact.
+Two Main Types of Simple Random Sampling
+SRSWOR (Simple Random Sampling Without Replacement)
+
+===== PAGE 9 =====
+e Each selected data point is NOT returned after being picked.
+
+e Once a data point is chosen, it cannot appear again in the sample.
+
+e Example: Drawing lottery numbers where each number is unique.
+
+SRSWR (Simple Random Sampling With Replacement)
+
+e Each selected data point is returned to the dataset after being picked.
+
+e Adata point can appear multiple times in the sample.
+
+e Example: Rolling a die multiple times—each roll is independent of the previous one.
+7. Min-Max and Z-score normalization (problem)
+Example
+
+e Use the two methods below to normalise the following group of data
+
+e 1000, 2000, 3000, 5000, 9000
+
+e Min-Max Normalization by setting Min=0 and Max=1
+
+e Z-Score Normalization
+Min-Max Normalization
+Normalization formula
+
+V x — min
+max-min
+
+e Here x is the value to be normalized
+
+e Min is the minimum value
+
+e Max is the maximum value
+For example:
+
+We have the following data as per the question
+
+===== PAGE 10 =====
+1000
+2000
+3000
+5000
+$$.
+9000
+For each, 1000,2000,3000,5000,9000 we will apply this formula
+Let min and max be 1000 and 9000
+ez x-min :
+Pe aeamntic min = 1000 and Max= 9000
+1000 -1000
+Vv = ——___= 0
+9000-1000
+2000-1000
+v= 9000-1000 0.125
+3000 —1000
+V = ——= 0.25
+9000-1000
+5000 —1000
+V = —m— = 05
+9000-1000
+9000 —1000
+V = — —e=1
+9000-1000
+
+===== PAGE 11 =====
+So we get our normalized data as ~
+Data(v) Normalized Data(v)
+1000 | 0
+2000 | 0.125
+——— ee
+3000 | 0.25
+5000 | 0.5
+9000 1
+Z-Score Normalization
+Normalization formula
+T= Hp
+7
+Kyo
+[UL — Mean
+OQ = Standard Deviation
+e Lets take the previous example
+
+===== PAGE 12 =====
+1000
+2000
+3000
+5000
+9000
+
+Calculating mean, we get
+oe (1000 + 2000 + = +5000 + 9000 ) = 4000
+
+e Formula for Standard Deviation
+
+omega le
+Standard Deviation = | 2B)"
+n-1
+5-1
+. = 2489.97 .
+Applying the values in the formula and getting all the normalized values
+
+===== PAGE 13 =====
+7 = EY
+ao
+yi x 1000-4000 _ 1.204
+2489.97
+2000 —4000
+Ye “naer = ea
+oo 3000 -4000 _ 0.4016
+2489.97
+i = S000 4000 __ 6.4016
+2489,97
+9000 —4000
+y = = 2.008
+2489.97
+Normalized Data(v)
+1000 -1.204
+2000 -0.803
+3000 -0.4016
+5000 0.4016
+9000 2.008
+8. Smoothing by means (problem)
+e The binning method can be used for smoothing the data
+e Mostly data is full of noise
+e Data smoothing is a data preprocessing technique used to remove the noise from the data
+set
+Data Smoothing by Equal Frequency Bins
+
+===== PAGE 14 =====
+e Example
+e Unsorted data for price in dollars
+e Before sorting
+e 8,16,9,15,21,21,24,30,26,27,30,34
+e After Sorting
+e 8,9,15,16,21,21,24,26,27,30,30,34
+e Suppose Bin size = 4
+e The number of data points is 12 (there are 12 numbers)
+e 12/4=3 bins
+e So we divide into 3 equal pieces
+Sorted Data: 8, 9, 15, 16, 21, 21, 24, 26, 27, 30, 30, 34
+¢ Bin 1: 8, 9, 15, 16
+¢ Bin 2: 21, 21, 24, 26,
+¢ Bin 3: 27, 30, 30, 34
+Data Smoothing by Bin Means
+e We will do the same steps as earlier
+e After we get the bins, we will calculate the mean of each bin
+e Assign the mean to all the data points in the bin
+
+===== PAGE 15 =====
+Sorted Data: 8, 9, 15, 16, 21, 21, 24, 26, 27, 30, 30, 34
+* Bin 1: 8, 9, 15, 16
+* Mean of Bin 1: (8+ 9+ 15 +16 / 4) = 12_
+¢ Bin 1 = 12, 12, 12, 12
+¢ Bin 2: 21, 21, 24, 26,
+* Mean of Bin 2: (21+ 21+24+26/ 4)= aS
+° Bin 2 = 23, 23, 23, 23
+¢ Bin 3: 27, 30, 30, 34
+* Mean of Bin 3: (27 + 30 + 30+ 34/4) =30
+* Bin 3 = 30, 30, 30, 30
+a & OO
+9. Problem related to schema.
+Problem 1
+Suppose that a data warehouse consists of 3 dimensions, time, doctor and patient
+and 2 measure count and charges, where charge is the fee that a doctor charges a patient for a
+visit
+
+===== PAGE 16 =====
+a) Draw a schema diagram for the above data warehouse using one of the schema (Star,
+snowflake, constellation)
+time . r faced lable doc tet 7
+me. - ke 7 ic
+tvme -¥ey Lime Key Ards \
+a ;
+Day doctor -icl coctoy name
+a of. \ne week | = ' |
+day patient \d adcliess
+month fl h
+coun ove
+quarter i
+pchorge } email
+| Year .
+\ pakient
+/ 4 pal gents
+Measures Patient_name
+adelyess
+Phone
+b) Starting with the base cuboid [ day, doctor, patient |] What specific OLAP operations should
+be performed in order to list the total fee collected by each doctor in 2004?
+First we should use rollup operation to get the year 2004 (rolling up from day then month to
+year). After getting that, we need to use slice operation to select one need to use slice operation
+to sellect call. Finally we get list the total collected by each dcotor in 2004.
+1. Roll up from day to month to year
+2. Slice for year = "2004"
+3. Roll upon patient from individual patient to all
+4. Slice for patient = "all"
+5. Get the list of total fee collected by each doctor in 2004
+
+===== PAGE 17 =====
+Problem 2
+Suppose a data warehouse consists of 3 dimensions: Customer, account, branch, and two
+measures, count (no of customers on the branch and balance) draw the schema diagram using
+snowflake schema and star-schema
+Star Schema
+|
+customer
+| customet—id |
+| customey_name
+| custmer _ age
+i = ———
+Customer —add ress
+\
+TA
+Branch / Fact table
+5 —— Accoun
+acwunt-ie
+‘ account id aul
+&runch-name f
+7 f branchial aciownt
+=| cerns " : - type |
+branch _lecahun Count
+ra ascent open_cdale
+haluni. ee
+Snowflake Schema
+
+===== PAGE 18 =====
+gnow Hake Schima
+a Faet- table |
+a
+acecweticl__|
+——$—————— |
+branch—tel_ 4
+| Count. —
+|_baleng __.
+Bench ai
+recon m |
+customet__ = ‘d branch-1d___|
+[ —— account 1 pa
+_ branch-hame
+| customer—id | account tyre _—__——x
+} ee hee =
+| eusheres-rare]|
+nt |
+ym LC ban
+nceountle tails _Bxcench — |
+custmens reel ress ary td _branch- red
+|| customn-iq _| eoencale ree n
+adden } sta {
+city
+stale
+10. Missing data dealing method
+1 Ignore the Tuple
+e Skip rows with missing values.
+e Works only if the missing data is small and random.
+e Not ideal if missing data is common.
+2 Fill Missing Values Manually
+e Aperson manually fills in missing data.
+e Very time-consuming and not practical for large datasets.
+
+===== PAGE 19 =====
+3 Use a Global Constant
+e Replace missing values with a fixed value like "Unknown" or -.
+e Problem: The model may treat "Unknown" as a meaningful category.
+4 Use Mean (Average) or Median
+e Replace missing values with the mean or median of that attribute.
+e Example: If the average income is $56,000, missing values for income are replaced with
+$56,000.
+e Good when data is normally distributed.
+5 Use Class-Specific Mean or Median
+e Instead of the global mean, use the mean of similar groups.
+e Example: If classifying customers by credit risk, use the average income of people in the
+same credit category.
+e More accurate than using the global mean.
+6 Use the Most Probable Value (Prediction-Based)
+e Predict missing values using regression, Bayesian models, or decision trees.
+e Example: A decision tree predicts missing income based on other factors like age,
+education, and job title.
+e Best accuracy but requires more computation.

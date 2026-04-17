@@ -1,0 +1,577 @@
+
+===== PAGE 1 =====
+Distributed-Computing-Module-3-
+Important-Topics-PYQs
+©) For more notes visit
+https://rtpnotes.vercel.app
+e Distributed-Computing-Module-3-Important-Topics-PYQs
+e 1. Explain the issues in Deadlock Detection.
+e 1. Detection of Deadlocks
+e Correctness Conditions for Deadlock Detection
+e 2. Resolution of a Detected Deadlock
+e 2. List the requirements of Mutual Exclusion Algorithm.
+e 1. Safety Property
+e 2. Liveness Property
+e 3. Fairness
+e 3. Calculate the rate at which a system can execute the critical section requests if the
+synchronization delay and average critical section execution times are 3 and 1 second
+respectively.
+e Given:
+e 4. List any three performance metrics of mutual exclusion algorithms.
+e 5. Compare Token based approach and Non-token based approach.
+e Token-based Approach
+e Non-token-based Approach
+e 6. Explain how wait for graph can be used in Deadlock Detection.
+e What is a Wait-For Graph (WFG)?
+e How is WFG Used for Deadlock Detection?
+e Example: Detecting Deadlock Using WFG
+e Scenario:
+e WEG Representation:
+e 7. Explain and Illustrate Ricart-Agrawala algorithm for achieving mutual exclusion.
+
+===== PAGE 2 =====
+e How It Works (Step-by-Step)
+¢ @ Step 1: Asking for Permission
+¢ @ Step 2: Receiving a Request
+e ©) Step 3: Using the Resource
+¢ @ Step 4: Releasing the Resource
+e 8. Compare various models of deadlock.
+e 1. Single-Resource Model
+e 2.AND Model
+e 3. OR Model
+e 4. AND-OR Model
+e 5. P-out-of-Q Model (Subset of AND-OR Model)
+e 9. Illustrate Suzuki- Kasami's Algorithm.
+e Design Challenges (and How It Solves Them)
+e Correctness
+e Example
+e 10. Describe how quorum-based mutual exclusion algorithms differ from the other
+categories of mutual exclusion algorithms.
+e How Quorum-Based Mutual Exclusion Works
+e How Quorum-Based Algorithm Differs from Other Algorithms
+e Why Quorum-Based Algorithms Are Better in Some Cases
+e 11. Explain Maekawa's algorithm for mutual exclusion in detail with example
+e Key Idea
+e How It Works (Steps)
+e Example
+e 12. Explain Lamport's Algorithm for Mutual Exclusion.
+e Main Idea
+e How It Works (Steps)
+e 13. Explain in Detail about Deadlock handling Strategies in a Distributed environment.
+e 1. Deadlock Prevention
+e 2. Deadlock Avoidance
+e 3. Deadlock Detection
+1. Explain the issues in Deadlock Detection.
+
+===== PAGE 3 =====
+1. Detection of Deadlocks
+To detect a deadlock, the system needs to:
+
+e Maintain a Wait-For Graph (WFG): This graph shows which process is waiting for which
+other process.
+
+e Search for Cycles in the WFG: A cycle means a deadlock. But in a distributed system
+(with multiple machines), the WFG is spread across many sites, so detecting cycles
+becomes tricky.
+
+Correctness Conditions for Deadlock Detection
+Any good deadlock detection algorithm must follow two rules:
+
+1. Progress:
+
+e It must detect real deadlocks in finite time (not keep waiting).
+
+e Once a deadlock happens, detection should keep moving and not pause.
+
+2. Safety:
+
+e It must not report false deadlocks (also called phantom deadlocks).
+
+e In distributed systems, machines don’t share a global memory or clock, so sometimes
+they see outdated or incomplete info. This can make them think there’s a deadlock
+when there isn’t one.
+
+2. Resolution of a Detected Deadlock
+Once a deadlock is found, we need to fix it:
+
+e Break the cycle by rolling back one or more processes.
+
+e This frees up the resources and lets other blocked processes continue.
+
+Also, remove old wait-for information from the system immediately after breaking the
+deadlock. If we don’t, the system might wrongly detect deadlocks that no longer exist (again,
+false deadlocks).
+
+2. List the requirements of Mutual Exclusion Algorithm.
+
+===== PAGE 4 =====
+Mutual exclusion means only one process can be in the Critical Section (CS) at a time. To
+make sure this works smoothly, a mutual exclusion algorithm must follow three main rules:
+1. Safety Property
+e Only one process can be in the Critical Section at any moment.
+e This avoids conflicts when multiple processes try to access shared resources (like files or
+variables).
+2. Liveness Property
+e Ensures the system doesn’t get stuck.
+e No deadlock: Processes don’t wait forever for each other.
+e No starvation: Every process will eventually get its turn — no one is ignored forever.
+» Imagine you're waiting in line. Liveness ensures the line keeps moving and no one
+gets stuck or skipped forever.
+3. Fairness
+e Every process should get a fair chance to enter the CS.
+e Requests should be handled in the order they arrive, often tracked using a logical clock
+(a way to order events in distributed systems).
+| » Like a ticket system at a bakery — whoever takes a ticket first gets served first.
+3. Calculate the rate at which a system can execute the
+critical section requests if the synchronization delay and
+average critical section execution times are 3 and 1 second
+respectively.
+To calculate the rate at which a system can execute critical section (CS) requests, we
+consider two key components:
+e Synchronization delay: Time needed to coordinate entry and exit into the critical section
+(e.g., acquiring and releasing locks, waiting for other processes, etc.)
+
+===== PAGE 5 =====
+e Critical Section execution time: Actual time a process spends inside the CS.
+Given:
+e Synchronization delay = 3 seconds
+e Critical Section execution time = 1 second
+Total time per CS request=Synchronization delay+CS execution time=3+1=4 seconds
+Or, in requests per minute:
+60/4 = 15 requests per minute
+4, List any three performance metrics of mutual exclusion
+algorithms.
+e Message Complexity
+e The number of messages needed for one process to enter the Critical Section (CS).
+e Lower message count = better efficiency.
+e Synchronization Delay
+e The time gap between one process leaving the CS and the next one entering it.
+e Smaller delay = faster switching between processes.
+e Response Time
+e The waiting time for a process after it has sent its request to enter the CS until it
+actually gets in.
+e Shorter response time = quicker access to the CS.
+5. Compare Token based approach and Non-token based
+approach.
+Token-based Approach
+e Aspecial token (like a VIP pass) is passed between processes.
+e Only the process with the token can enter the Critical Section (CS).
+
+===== PAGE 6 =====
+e It's fast and uses fewer messages, but if the token is lost, it must be recreated.
+Non-token-based Approach
+
+e No token is used.
+
+e Aprocess asks permission from all other processes before entering CS.
+
+e Uses more messages, but there’s no risk of token loss.
+
+Feature Token-based Approach Non-token-based Approach
+
+vy? Main Idea A unique token (privilege) is Permission messages are
+passed around. exchanged among all sites.
+
+&“) How Access is A process enters CS only if it A process enters CS if it
+
+Given has the token. receives permission from all
+
+others.
+
+M@ Message Lower (usually ~1 to N Higher (typically 2N —1
+
+Complexity messages per request). messages or more).
+
+Failure Impact If the token is lost, special If a process crashes, it might
+handling is required to block others waiting for replies.
+regenerate it.
+
+if) Fairness Can be made fair by passing Fairness depends on algorithm
+token in a logical order. logic and may need extra care.
+
+Speed Often faster, especially under Slower, due to more message
+
+(Efficiency) high load. exchanges.
+{4 Mutual Ensured by having only one Ensured because only one site’s
+Exclusion token. condition becomes true.
+Guarantee
+6. Explain how wait for graph can be used in Deadlock
+Detection.
+Imagine you and your friends are passing around books. You can only borrow a book if the
+person who has it is done with it and returns it. But what if everyone is waiting for someone
+else to return a book? No one can proceed—tthis is a deadlock!
+In a distributed system, processes (computers) request resources (like files, memory, or
+database access). If a process is waiting for another process to release a resource, we can
+
+===== PAGE 7 =====
+represent this situation using a Wait-For Graph (WFG).
+What is a Wait-For Graph (WFG)?
+A Wait-For Graph (WEG) is a visual way to check for deadlocks in a system. It is a directed
+graph where:
+e Nodes represent processes (P1, P2, P3, etc.).
+e Edges (arrows) represent waiting relationships (e.g., P1 — P2 means P1 is waiting for
+P2 to release a resource).
+How is WFG Used for Deadlock Detection?
+1. Build the Graph:
+e Each process that is waiting for a resource is connected to the process holding that
+resource.
+2. Check for Cycles ©:
+e If there is a cycle (loop) in the graph, it means a deadlock has occurred.
+e Example of a cycle:
+e “Pl | P2 | P3 | P1 (Deadlock! &)
+e If no cycle is found, the system is deadlock-free.
+Example: Detecting Deadlock Using WFG
+Scenario:
+e P1is waiting for a resource held by P2
+e P2 is waiting for a resource held by P3
+e P3 is waiting for a resource held by P1
+WEG Representation:
+e Pl + P2 = P3 = Pl (Cycle detected! Deadlock ><)
+e Since there's a cycle, no process can proceed, confirming a deadlock.
+7. Explain and Illustrate Ricart-Agrawala algorithm for
+achieving mutual exclusion.
+
+===== PAGE 8 =====
+Think of mutual exclusion like waiting in line to use an ATM. Only one person can use it ata
+time. Similarly, in a distributed system, multiple computers (processes) may need to access a
+shared resource (like a file or a database), but only one should access it at a time.
+The Ricart-Agrawala Algorithm helps computers take turns fairly and efficiently. Here's how
+it works:
+How It Works (Step-by-Step)
+® Step 1: Asking for Permission
+e Ifa process (computer) wants to use a resource, it sends a "REQUEST" message to all
+other processes.
+e This message has a timestamp (like writing down the time you arrived in line).
+Step 2: Receiving a Request
+e When another process receives a REQUEST, it checks:
+e "Am | using the resource?"
+e If No — It sends back "REPLY" (Yes, you can use it) immediately.
+e If Yes — It waits and sends REPLY later after it's done.
+e If it's also waiting for the resource, it compares timestamps:
+e Smaller timestamp (arrived first) . That process gets priority.
+e Larger timestamp (arrived later) — It waits.
+Step 3: Using the Resource
+e The process enters the critical section (CS) (uses the resource) only after receiving
+REPLYs from all other processes.
+e This ensures only one process uses it at a time.
+@ Step 4: Releasing the Resource
+e Once it's done, it sends REPLYs to any waiting processes.
+e The next process in line can now enter the CS.
+8. Compare various models of deadlock.
+
+===== PAGE 9 =====
+Deadlock occurs when processes wait indefinitely for resources that are held by other
+processes. Distributed systems allow different ways to request resources, leading to different
+models of deadlock.
+1. Single-Resource Model
+e Aprocess can request only one resource at a time.
+e The system grants the resource only if it is available.
+e Ifa process is already holding a resource, it must release it before requesting another.
+Deadlock Detection:
+e Ina Wait-For Graph (WFG), each node can have at most one outgoing edge.
+e If acycle is present, a deadlock has occurred.
+Example:
+e Process A requests Resource 1.
+e Process B requests Resource 2.
+e If Ais waiting for B and B is waiting for A, a cycle forms — Deadlock!
+2. AND Model
+e Aprocess can request multiple resources at the same time.
+e The request is granted only if all requested resources are available.
+e The requested resources can be on different locations (Servers).
+Deadlock Detection:
+e Ina WEG, each node can have multiple outgoing edges.
+e If acycle exists, a deadlock has occurred.
+Example:
+e Aprocess requests Printer AND Disk Space.
+e If one is available but the other is not, the process waits indefinitely.
+3. OR Model
+e Aprocess requests multiple resources, but it only needs any one of them to proceed.
+
+===== PAGE 10 =====
+e If at least one resource is granted, the process continues execution.
+Deadlock Detection:
+e Acycle in the WFG does not always mean a deadlock because a process may still
+proceed if one of the requested resources is available.
+Example:
+e Aprocess requests "Printer OR Scanner".
+e If at least one is available, the request is satisfied.
+e If neither is available, the process waits until one is free.
+4. AND-OR Model
+e Acombination of the AND model and OR model.
+e Aprocess can request some resources together (AND) while having options for others
+(OR).
+Example:
+e Aprocess requests "Disk AND (Printer OR Scanner)".
+e It must get Disk, but it can proceed with either a Printer or a Scanner.
+e Deadlock depends on the specific resource combinations and availability.
+5, P-out-of-Q Model (Subset of AND-OR Model)
+e Aprocess requests any P resources out of Q available resources.
+e If at least P resources are available, the request is granted.
+Example:
+e Acloud server needs any 2 out of 5 available CPU cores to process a request.
+e If atleast 2 cores are available, execution proceeds.
+e If fewer than 2 cores are available, the process waits.
+9. Illustrate Suzuki- Kasami's Algorithm.
+
+===== PAGE 11 =====
+Requesting the critical section:
+
+(a) If requesting site S, does not have the token, then it increments its
+sequence number, RN,[/], and sends a REQUEST(, sn) message to all
+other sites. (““sn™ is the updated value of RN,[/].)
+
+(b) When a site S, receives this message, it sets RN,[i] to max(RN,[i]. sr).
+If S, has the idle token, then it sends the token to S, if RN,[i] = LN[i] + 1-
+
+Executing the critical section:
+
+(c) Site S, executes the CS after it has received the token.
+
+Releasing the critical section: Having finished the execution of the CS, site
+
+S, takes the following actions:
+
+(d) It sets LN[i] clement of the token array equal to RN,[/].
+
+(ec) For every site S, whose i.d. is not in the token queue, it appends its i.d.
+to the token queue if RN,[/] = LN[L/] + 1.
+
+(ft) If the token queue is nonempty after the above update, S, deletes the top
+site i.d. from the token queue and sends the token to the site indicated
+by the i.d.
+
+e Requesting the Token
+e If aprocess wants to enter the CS and doesn’t have the token, it broadcasts a
+REQUEST to all other processes.
+e Receiving the Token
+e The process holding the token checks the request.
+e If it's not using the CS — it sends the token immediately.
+e Ifittsin CS = it sends the token after finishing.
+e Entering the CS
+e Once the requesting process gets the token, it enters the CS.
+e After CS Execution
+e The process checks which other processes have requested the token and sends it
+to the next one in line.
+Design Challenges (and How It Solves Them)
+1. Outdated Requests
+e Each REQUEST has a sequence number to tell if it's new or old.
+e This avoids sending the token to a process that no longer needs it.
+2. Tracking Requests
+e Arequest queue or table is used to track which processes have asked for the token
+and whether their request is still pending.
+Correctness
+
+===== PAGE 12 =====
+e Mutual Exclusion is guaranteed because:
+e Only one token exists.
+e Only the token holder can enter the CS.
+
+Example
+Let’s say we have 4 sites: P1, P2, P3, P4
+
+e P2 wants to enter CS = it doesn’t have the token
+
+e P2 sends REQUEST to P1, P3, and P4
+
+e P4has the token and is not in CS — it sends the token to P2
+
+e P2 enters CS
+10. Describe how quorum-based mutual exclusion
+algorithms differ from the other categories of mutual
+exclusion algorithms.
+Mutual exclusion ensures that only one process can enter the critical section (CS) ata
+time. Different algorithms achieve this in different ways.
+How Quorum-Based Mutual Exclusion Works
+
+e Instead of asking all sites for permission (like in Lamport or Ricart-Agrawala algorithms), a
+
+process only asks a subset of sites called a quorum.
+e Quorums are designed to overlap, so at least one site knows about both requests and
+ensures only one process enters the CS at a time.
+
+e Asite locks its quorum members before executing the CS.
+
+e It must receive a RELEASE message before granting permission to another process.
+
+¢ Example:
+Imagine you need approval from a group of teachers to submit an assignment. Instead of
+asking all teachers, you ask only a small group, ensuring at least one teacher is in multiple
+groups to avoid conflicts.
+How Quorum-Based Algorithm Differs from Other Algorithms
+
+===== PAGE 13 =====
+Feature Lamport’s & Ricart- Quorum-Based Algorithm
+Agrawala
+Requesting Requests from all sites Requests from a subset (quorum)
+Permission
+Conflict Resolution All sites participate Only quorum members
+participate
+Message High (all sites exchange Lower (fewer messages sent)
+Complexity messages)
+Reply Mechanism Can send multiple replies One reply at a time (locks quorum)
+Efficiency More messages = More Less communication = Faster
+delay execution
+Why Quorum-Based Algorithms Are Better in Some Cases
+{4 Reduces Message Complexity — Instead of contacting all sites, only a subset is involved.
+{J Faster Execution — Since fewer messages are exchanged, CS is accessed quicker.
+{4 Scalable — Works better in large distributed systems compared to Lamport’s or Ricart-
+Agrawala.
+11. Explain Maekawa's algorithm for mutual exclusion in
+detail with example
+
+===== PAGE 14 =====
+Requesting the critical section:
+(a) A site S, requests access to the CS by sending REQUEST(/) messages
+to all sites in its request set R,.
+(b) When a site S, receives the REQUEST(/) message, it sends a REPLY(/)
+message to S, provided it hasn't sent a REPLY message to a site since
+its receipt of the last RELEASE message. Otherwise, it queues up the
+REQUEST(?) for later consideration.
+Executing the critical section:
+(c) Site S; executes the CS only after it has received a REPLY message from
+every site in R,.
+Releasing the critical section:
+(d) After the execution of the CS is over, site S,; sends a RELEASE(/)
+message to every site in R,.
+(ec) When a site S, receives a RELEASE(/) message from site S,, it sends
+a REPLY message to the next site waiting in the queue and deletes that
+entry from the queue. If the queue is empty, then the site updates its state
+to reflect that it has not sent out any REPLY message since the receipt
+of the last RELEASE message.
+Maekawa’s algorithm is a quorum-based approach where each process doesn’t need to get
+permission from all processes, but only from a selected group (called a request set). This
+makes it more efficient.
+Key Idea
+e Each site (process) needs to get permission from only a subset of sites before entering
+the Critical Section (CS).
+e These subsets (called request sets, Ri) are designed so that any two request sets share
+at least one common site.
+e This shared site ensures no two processes can enter CS at the same time.
+How It Works (Steps)
+1. Request Phase
+e Aprocess sends a REQUEST message to all sites in its request set (Ri).
+2. Grant Phase
+e Each site can grant REPLY to only one request at a time.
+e If it has already granted a REPLY, it queues the new request.
+3. Execution Phase
+
+===== PAGE 15 =====
+e When a process gets all REPLYs from its request set, it enters the CS.
+4. Release Phase
+e After leaving the CS, the process sends RELEASE messages to all sites in Ri.
+e These sites then grant REPLY to any pending requests in their queues.
+Example
+Let's say we have 4 processes (P1, P2, P3, P4).
+Suppose their request sets are:
+e R1 = {P1, P2}
+e R2={P2, P3}
+e R3={P3, P4}
+° R4={P4, P1}
+Now, if P1 wants to enter CS:
+e It sends REQUEST to P1 and P2.
+e If both grant REPLY — P1 enters CS.
+Meanwhile, if P3 tries to enter CS:
+e It sends REQUEST to P3 and P4.
+e If P2 has already replied to P1 and is still waiting for RELEASE, P3 can’t proceed — this
+ensures mutual exclusion.
+a & a
+12. Explain Lamport's Algorithm for Mutual Exclusion.
+
+===== PAGE 16 =====
+Requesting the critical section
+
+e When a site S$; wants to enter the CS, it broadcasts a REQUEST(ts,, i)
+message to all other sites and places the request on request_queue;,. ((ts;,
+i) denotes the timestamp of the request.)
+
+e When a site S; receives the REQUEST(fs,, i) message from site S;, it places
+site S,"s request on request_queue, and returns a timestamped REPLY
+message to S;.
+
+Executing the critical section
+
+Site S, enters the CS when the following two conditions hold:
+
+L1: S, has received a message with timestamp larger than (fs,, i) from all
+other sites.
+
+L2: S,’s request is at the top of request_queue,.
+
+Releasing the critical section
+
+e Site S;, upon exiting the CS, removes its request from the top of its request
+queue and broadcasts a timestamped RELEASE message to all other sites.
+
+e When a site S; receives a RELEASE message from site S,, it removes S;’s
+request from its request queue.
+
+Main Idea
+
+e Each request is assigned a timestamp using a logical clock.
+
+e All requests are stored in a queue, sorted by timestamp.
+
+e The process at the top of the queue is allowed to enter the CS.
+
+How It Works (Steps)
+
+1. Requesting CS
+e Aprocess sends a REQUEST(timestamp, processID) to all other processes.
+
+e It also adds this request to its own local queue.
+
+2. Receiving a REQUEST
+e Each process adds the request to its queue.
+
+e Then it sends back a REPLY to the sender.
+
+3. Entering CS
+e Aprocess enters the CS only when:
+
+e Its request is at the top of its local queue, AND
+
+===== PAGE 17 =====
+e It has received REPLY messages from all other processes.
+4. Releasing CS
+e After CS execution, the process:
+e Removes its request from the queue.
+e Sends a RELEASE message to all.
+5. Receiving RELEASE
+e Each process removes the released request from its local queue.
+13. Explain in Detail about Deadlock handling Strategies in a
+Distributed environment.
+In distributed systems, deadlock means that processes are stuck forever, waiting for
+resources held by each other.
+There are three main strategies to handle deadlocks:
+1. Deadlock Prevention
+e Idea: Stop deadlocks from even happening.
+e How?
+e Force processes to request all resources at once before starting.
+e Or, take away resources from other processes if needed.
+e Problem: Too strict and inefficient in distributed systems.
+e Not practical because:
+e You may not know all resources a process will need.
+e Taking resources back from a running process is hard.
+e Itwastes system resources
+2. Deadlock Avoidance
+e Idea: Allow resource requests only if it’s safe (i.e., won’t lead to a deadlock).
+e How?
+e Before granting a resource, the system checks if the global state is safe.
+e If granting the request might cause deadlock — don't give the resource.
+
+===== PAGE 18 =====
+e Problem:
+e Needs complete knowledge of the system’s current state (which is hard in distributed
+systems).
+e Messages may arrive late, and the system state can change quickly
+e So this is also impractical in distributed systems.
+3. Deadlock Detection
+e Idea: Let deadlocks happen, but detect and fix them.
+e How?
+e The system analyzes the process-resource graph to check for cycles (which mean
+deadlock).
+e If found, it kills or rolls back one or more processes to fix it.
+e Why Best?
+e Works well in distributed systems.
+e No need for full knowledge of future requests.
+e Practical, even with message delays and distributed state.
