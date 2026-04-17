@@ -263,3 +263,62 @@ INFO:     127.0.0.1:50819 - "GET /api/concepts/d33e23ac-1ea8-445c-98cd-99abfffb4
  > Real-time factor: 2.1597952753979377
 INFO:     127.0.0.1:50919 - "GET /api/subjects/3419b1fc-11e5-432a-b2ab-26c73fe33032/concepts HTTP/1.1" 200 OK
 INFO:     127.0.0.1:50919 - "GET /api/subjects/3419b1fc-11e5-432a-b2ab-26c73fe33032/concepts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51249 - "GET /api/stream/teach/de1cb214-565a-422f-a4af-31c0ea60a1a2?user_level=beginner HTTP/1.1" 200 OK
+ > tts_models/multilingual/multi-dataset/xtts_v2 is already downloaded.
+ > Using model: xtts
+ > Text splitted to sentences.
+['Provide a technical comparison for McCulloch-Pitts Neuron with a related concept.', 'Highlight key differences.', '3-4 sentences.']
+ > Text splitted to sentences.
+['Define McCulloch-Pitts Neuron precisely.', 'Include formula/algorithm if applicable.', 'List key characteristics.', '4-5 sentences.', 'Context:', '- First mathematical neuron model (1943).', 'Uses binary inputs, threshold logic.', 'Can implement AND, OR, NOT gates.', 'Formula: y=1 if Σ(xi)≥θ, else 0.', 'Weights can be excitatory (+) or inhibitory (-).', '- AND gate: w1=1, w2=1, θ=2.', 'Only (1,1) gives sum≥2, output=1.', '-']
+ > Text splitted to sentences.
+['Describe the architecture/structure of McCulloch-Pitts Neuron.', 'Mention components, data flow, and interactions.', '3-4 sentences.']
+ > Text splitted to sentences.
+['Provide a detailed technical example of McCulloch-Pitts Neuron from the source material.', 'Include steps and outcomes.', '4-5 sentences.', 'Context:', '- First mathematical neuron model (1943).', 'Uses binary inputs, threshold logic.', 'Can implement AND, OR, NOT gates.', 'Formula: y=1 if Σ(xi)≥θ, else 0.', 'Weights can be excitatory (+) or inhibitory (-).', '- AND gate: w1=1, w2=1, θ=2.', 'Only (1,1) gives sum≥2, output=1.', '-']
+ > Text splitted to sentences.
+['Explain the most common exam mistake for McCulloch-Pitts Neuron.', 'Provide the correct approach with reasoning.', '3-4 sentences.']
+ > Text splitted to sentences.
+['Give a PYQ-style scenario for McCulloch-Pitts Neuron.', 'Ask what approach to use and why.', '2-3 sentences.']
+ > Text splitted to sentences.
+['Summarize key exam points for McCulloch-Pitts Neuron.', 'Mention what examiners look for.', '2-3 sentences.']
+INFO:     127.0.0.1:51283 - "GET /api/concepts/de1cb214-565a-422f-a4af-31c0ea60a1a2/flashcards HTTP/1.1" 200 OK
+ > Processing time: 54.985345125198364
+ > Real-time factor: 5.32027513520073
+ > Processing time: 28.88696599006653
+ > Real-time factor: 3.1133064835426945
+ > Processing time: 34.30477809906006
+ > Real-time factor: 3.36461976498236
+INFO:     127.0.0.1:51299 - "GET /api/subjects/3419b1fc-11e5-432a-b2ab-26c73fe33032/concepts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51299 - "GET /api/subjects/3419b1fc-11e5-432a-b2ab-26c73fe33032/concepts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51301 - "GET /api/stream/teach/35971add-9d75-4386-8189-2c4f0f84d83b?user_level=beginner HTTP/1.1" 200 OK
+ > tts_models/multilingual/multi-dataset/xtts_v2 is already downloaded.
+ > Using model: xtts
+ > Text splitted to sentences.
+['Provide a technical comparison for Adaline and Delta Rule with a related concept.', 'Highlight key differences.', '3-4 sentences.']
+ > Text splitted to sentences.
+['Define Adaline and Delta Rule precisely.', 'Include formula/algorithm if applicable.', 'List key characteristics.', '4-5 sentences.', 'Context:', '- Uses continuous activation (linear) and minimizes mean squared error.', 'Delta rule: Δw = α(t-y)x where y is continuous.', 'More stable than perceptron.', 'Learns optimal weights through gradient descent.', '- For regression: predict continuous values.', 'Updates based on error magnitude, not just sign.', '-']
+ > Text splitted to sentences.
+['Describe the architecture/structure of Adaline and Delta Rule.', 'Mention components, data flow, and interactions.', '3-4 sentences.']
+ > Text splitted to sentences.
+['Provide a detailed technical example of Adaline and Delta Rule from the source material.', 'Include steps and outcomes.', '4-5 sentences.', 'Context:', '- Uses continuous activation (linear) and minimizes mean squared error.', 'Delta rule: Δw = α(t-y)x where y is continuous.', 'More stable than perceptron.', 'Learns optimal weights through gradient descent.', '- For regression: predict continuous values.', 'Updates based on error magnitude, not just sign.', '-']
+ > Text splitted to sentences.
+['Explain the most common exam mistake for Adaline and Delta Rule.', 'Provide the correct approach with reasoning.', '3-4 sentences.']
+ > Text splitted to sentences.
+['Give a PYQ-style scenario for Adaline and Delta Rule.', 'Ask what approach to use and why.', '2-3 sentences.']
+ > Text splitted to sentences.
+['Summarize key exam points for Adaline and Delta Rule.', 'Mention what examiners look for.', '2-3 sentences.']
+INFO:     127.0.0.1:51329 - "GET /api/concepts/35971add-9d75-4386-8189-2c4f0f84d83b/flashcards HTTP/1.1" 200 OK
+ > Processing time: 37.990710973739624
+ > Real-time factor: 3.655375868231859
+ > Processing time: 42.50257587432861
+ > Real-time factor: 4.362393861384459
+ > Processing time: 92.74918103218079
+ > Real-time factor: 2.231065352498196
+ > Processing time: 106.27393817901611
+ > Real-time factor: 2.4352971575150746
+INFO:     127.0.0.1:51339 - "GET /api/subjects/3419b1fc-11e5-432a-b2ab-26c73fe33032/concepts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51339 - "GET /api/subjects/3419b1fc-11e5-432a-b2ab-26c73fe33032/concepts HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [3514]
+INFO:     Stopping reloader process [1959]

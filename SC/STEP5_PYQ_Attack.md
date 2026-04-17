@@ -4,6 +4,14 @@
 
 Based on May 2024, June 2023, and previous papers analysis.
 
+## ✅ NEW COMPLETION UPDATE (SC FULL)
+
+To keep this file focused on pattern attack, the fully detailed solved content is now split as:
+
+- [STEP8_Module4_CrashGuide.md](STEP8_Module4_CrashGuide.md)
+- [STEP9_Module5_CrashGuide.md](STEP9_Module5_CrashGuide.md)
+- [PYQ_Solved_Master_SC.md](PYQ_Solved_Master_SC.md) (all modules, solved, with step-by-step numericals and diagram-ready answers)
+
 ---
 
 ## 🔥 MODULE 1: MOST REPEATED QUESTIONS
