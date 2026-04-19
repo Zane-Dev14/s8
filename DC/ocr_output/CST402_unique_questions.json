@@ -1,0 +1,114 @@
+{
+  "Module 1": {
+    "Part A": [
+      "List the characteristics of distributed system.",
+      "Define Causal precedence relation",
+      "What are the Transparency requirements of Distributed System. (3) . ) What are the basic properties of scalar time.",
+      "Explain different forms of load balancing.",
+      "List the various features of distributed system?",
+      "Discuss about the transparency requirements of distributed system.",
+      "What do you mean by load balancing in a distributed environment. (3) \u2018 3 Define Termination Detection."
+    ],
+    "Part B": [
+      "a) Explain the algorithmic challenges of designing a distributed system. (7) b) Compare and contrast physical and logical concurrency (7) OR",
+      "a) Explain in detail about the past and future cones of an event. (6) b) Explain the applications of distributed computing",
+      "a) Explain in Detail about the Design issues of a Distributed System. (8) . b) What are the applications of Distributed Computing. (6) . \u2019 OR .",
+      "a) Explain about the Models of communication networks. (8) b) Compare logical and physical concurrency.",
+      "a) Explain about the different versions of send and receive primitives for distributed (8) communication. b) Compare logical and physical concurrency. (6) OR",
+      "a) Explain in detail about the design issues of a Distributed System (8) b) Discuss about the global state of distributed systems.",
+      "a) Explain the design issues of a distributed system. (8) \u2018 b) Discuss about various primitives for distributed communication. (6) - OR \u2018 \u00bb 12 a) Explain the applications of distributed computing. . (8) b) Explain the models of communication networks. :",
+      "a) Explain design issues and challenges of distributed computing. (8) b) Discuss about the global state of a distributed system. (6) OR",
+      "a) Which are the different versions of send and receive primitives for distributed (7) communication? Explain. i b) Explain the three different models of service provided by communication (7) , networks. \u00b0 . Generate? agmnlofeHuB By SHR ===== PAGE 10 ===== 0400CST402102302 2 . Module I!",
+      "a) Illustrate ring algorithm for electing a new leader. Does the algorithm meet (7) liveness and safety conditions? b) Discuss in detail about chandy lamport algorithm. (7) OR",
+      "a) Discuss the implementation of logical clock. (8) b) Clearly mentioning assumptions, explain the rules of termination detection using (6) distributed snapshots. \u2018 Module Ill",
+      "a) Explain and Illustrate Lamport\u2019s mutual exclusion algorithm. (8) . b) Compare various models of deadlock. (6) OR",
+      "a) Explain deadlock handling strategies in a distributed environment. (7) : b) Explain and Illustrate Ricart-Agrawala algorithm for achieving mutual (7) , exclusion.",
+      "a) Relate a computer system to a distributed system with the aid of neat sketches (8) b) Discuss about various primitives for distributed communication (6) . OR",
+      "a) Explain the applications of distributed computing. (7) b) Discuss about the global state of distributed systems",
+      "a) What is meant by a consistent global state? (4) b) Explain ring based election algorithm with an example. (10) OR",
+      "a) What are the properties of vector time (4) ; b) Discuss the method of termination detection using weight throwing in detail"
+    ]
+  },
+  "Module 2": {
+    "Part A": [
+      "What are leader election algorithms? Name any two",
+      "Define logical clock",
+      "Explain about Termination Detection.",
+      "What are the basic properties of scalar time?",
+      "Specify the issues in recording a global state."
+    ],
+    "Part B": [
+      "a) What are the basic properties of scalar time? (6) b) Illustrate bully algorithm for electing a new leader. (8) OR",
+      "a) Discuss in detail about chandy lamport algorithm. (8) b) Illustrate the working of spanning tree based termination detection algorithm",
+      "a) Illustrate the Working of Spanning Tree based Termination Detection (10) Algorithm. b) Define properties of Vector time. (4) : OR , 14 a) Explain Ring based Election Algorithm in Detail.",
+      "a) Explain Lamport\u2019s Algorithm for Mutual Exclusion. (8) - | b) Explain in Detail about Deadlock handling Strategies in a Distributed environment. (6) OR",
+      "a) Illustrate Suzuki-Kasami\u2019s Algorithm. (8) b) Explain how Wait for Graph can be used in Deadlock Detection.",
+      "a) Illustrate bully algorithm for electing a new leader with example. (8) b) Explain the rules that are defined to detect termination using distributed (6) snapshots? OR",
+      "a) Illustrate Ricart- Agrawala algorithm for achieving mutual exclusion.",
+      "a) Illustrate bully algorithm for electing a new leader. Does the algorithm meet (7) liveness and safety conditions? b) Discuss the method of termination detection by weight throwing in detail. (7) OR",
+      "a) Illustrate the working of spanning tree-based termination detection algorithm. (8) , b) Explain in detail about Chandy Lamport algorithm."
+    ]
+  },
+  "Module 3": {
+    "Part A": [
+      "What are the performance evaluation metrics of a mutual exclusion algorithm?",
+      "List out the strategies for handling deadlocks in a distributed environment",
+      "Explain the issues in Deadlock detection.",
+      "List the requirements of Mutual Exclusion Algorithms.",
+      "Describe how quorum-based mutual exclusion algorithms differ from the other (3) categories of mutual exclusion algorithms."
+    ],
+    "Part B": [
+      "a) Explain Lamport\u2019s algorithm for mutual exclusion (8) b) Explain in detail about deadlock handling strategies in a distributed environment (6) OR",
+      "a) Explain with example, how wait-for-graphs can be used in deadlock detection. (8) b) Explain Ricart-Agrawala algorithm with example",
+      "a) Discuss in detail about spanning-tree-based termination detection algorithm with (9) example b) Compare various models of deadlocks. (5) OR",
+      "a) Illustrate Suzuki-Kasami\u2019s broadcast algorithm. (8) b) Explain Lamport\u2019s mutual exclusion algorithm in detail.",
+      "a) Compare various models of deadlock. (7) b) Illustrate Suzuki \u2014 Kasami\u2019s Algorithm. (7) . Module IV ;",
+      "a) Show that Lamport\u2019s Bakery algorithm for shared memory mutual exclusion, (8) satisfy the three requirements of critical section problem. - b) What are the issues in failure recovery? iiasirete with suitable examples. (6) OR",
+      "a) Differentiate consistent and inconsistent state with example. (4) b) Explain check point based rollback recovery.",
+      "a) Explain various models of deadlocks (6) b) Illustrate Suzuki kasami\u2019s broadcast algorithm (8) OR",
+      "a) Describe how quorum-based mutual exclusion algorithms differ from the other (6) categories of mutual exclusion algorithms. b) Explain Maekawa\u2019s algorithm for mutual exclusion in detail with example"
+    ]
+  },
+  "Module 4": {
+    "Part A": [
+      "State the disadvantages of distributed shared memory",
+      "What are checkpoints?",
+      "List the different types of Messages in Rollback Recovery.",
+      "Explain no orphans consistency condition.",
+      "List any three advantages of using Distributed Shared Memory."
+    ],
+    "Part B": [
+      "a) Explain pessimistic and optimistic logging (6) b) Show Lamport\u2019s Bakery algorithm for shared memory mutual exclusion, satisfy (8) the three requirements of critical section problem OR",
+      "a) Differentiate consistent and inconsistent state with example. (6) b) Explain check point based rollback recovery",
+      "a) Explain about Lamport\u2019s Bakery Algorithm. (8) b) Explain Checkpointing and Rollback Recovery in Detail. (6) \u2018 OR",
+      "a) Explain the disadvantages of distributed shared memory. (8) b) Differentiate Consistent and Inconsistent State with example. (6) ; Module V",
+      "a) Which are the assumptions made in Consensus and Agreement Algorithm (8) b) Explain about the file service architecture (6) OR",
+      "a) Explain SUN NFS architecture (8) | b) Explain about Google File System. (6) keKK 5",
+      "a) Explain about Lamport\u2019s Bakery Algorithm. (8) b) What are the issues in failure recovery? Illustrate with suitable examples. (6) OR",
+      "a) Explain about uncoordinated checkpointing and coordinated checkpointing, (8) b) Explain different types of messages in roll back recovery",
+      "a) Explain the advantages of distributed shared memory. (8) b) Differentiate consistent and inconsistent state with suitable example. (6) OR *18 a) Explain Lamport\u2019s Bakery algorithm for shared memory mutual exclusion. (5) b) Explain log based rollback recovery. (9) . Module V . 1 9 a) Write in detail about distributed file system characteristics. . (8) b) Discuss the architecture of Andrew file s\u00a5stem. (6) OR",
+      "a) Explain the assumptions made in Consensus and Agreement algorithm. (7) b) Explain google file system and its implementation. (7) . KKK Generated Pap 40h fup By SHR ===== PAGE 11 ===== A 0400CST402082401 j {ics dnote \u2018 Reg No.: Name: EIS N Naa 24) APJ ABDUL KALAM TECHNOLOGICAL UNIVERSITY, \\* | es) hii B.Tech Degree S8 (S) / S8 (PT) (S) Examination August 2024 (2019 - ee Course Code: CST402 Course Name: DISTRIBUTED COMPUTING Max. Marks: 100 Duration: 3 Hours PARTA Answer all questions, each carries 3 marks. Marks \u201c 1 What do you mean by a distributed system? (3) 2 What are the various features of distributed system? (3) 3 Define termination detection. (3) 4 What are the rules used to update clocks in scalar time representation? (3) 5 What are the requirements of mutual exclusion algorithm? (3) . 6 Calculate the rate at which a system can execute the critical section requests ifthe (3) synchronization delay and average critical section execution times are 3 and | second respectively. 7 State the advantages of distributed shared memory (3) ; 8 Differentiate between coordinated checkpointing and uncoordinated (3) , checkpointing 9 Explain the components of Google File System (3) . . ; _ 10 List distributed file system requirements (3) . . PART B . Answer any one full question from eae module, each carries 14 marks.",
+      "a) Explain log based roll back recovery (10) : b) What is meant by no orphan\u2019s consistency condition? (4) OR",
+      "a) Explain different types of messages in roll back recovery (7) b) What are the issues in failure recovery? (7) ; Module V , 19 a) Explain Andrew File System in detail (8) b) Differentiate whole file serving and whole file caching (6) ~ : OR",
+      "a) Explain in detail Network File System Architecture (8) , b) Which are the assumptions made in \u20aconsensus and Agreement Algorithm , (6) KKKK"
+    ]
+  },
+  "Module 5": {
+    "Part A": [
+      "Define Byzantine agreement problem.",
+      "Write the features of Google File System.",
+      "Summarize Distributed File System Requirements.",
+      "Differentiate between whole file serving and whole file caching in Andrew file (3) System.",
+      "Define flat file service and directory service components.",
+      "List distributed file system requirements.",
+      "Write the features of SUN Network File System."
+    ],
+    "Part B": [
+      "a) Explain consensus algorithm for crash failures under synchronous systems. (7) b) Explain SUN -NFS Architecture (7) OR",
+      "a) Explain file service architecture in detail (8) b) Discuss the requirements of a distributed file system.",
+      "a) Explore the key assumptions made in consensus algorithms. (7) b) Discuss the architecture of Andrew file system. (7) OR",
+      "a) Explain SUN NFS architecture. (8) b) Discuss about the requirements of a distributed file system.",
+      "a) Explain google file system architecture. (7) b) Explain SUN -NFS Architecture. (7) ; KeEK s Page 20f2 ~ Generated from KTUHUB By. SHR ===== PAGE 9 ===== ao be A 0400CST402102302 ZO Pago ary : ( \u201c4 O YASS ON Reg No.: Name: ESS & Oe \\ APJ ABDUL KALAM TECHNOLOGICAL UNIV Katee: 1s = B.Tech Degree S8 (PT) (R) / S8 (R, S) Examination May 2024\\RA@N\u00a7 shettie):.2. By rie O - Course Code: CST402 Course Name: DISTRIBUTED COMPUTING Max. Marks: 100 Duration: 3 Hours . PART A . Answer all questions, each carries 3 marks. Marks 1 Explain the advantages of distributed system. (3) 2 Define causal precedence relation in distributed executions. (3) 3 Specify the issues in recording a global state. (3) 4 Define vector time. (3) 5 Compare Token based approach and Non-token based approach. (3) 6 List any three performance metrics of mutual exclusion algorithms. (3) 7 Discuss about the issues in implementing distributed shared memory software. (3) 8 Differentiate between deterministic and non-deterministic events in log based (3) ; rollback recovery. 9 Define flat file service and directory service components. (3) . 10 What are the advantages of Google File System. (3) - PART B , . Answer any one full question from each module, each carries 14 marks. ,"
+    ]
+  }
+}

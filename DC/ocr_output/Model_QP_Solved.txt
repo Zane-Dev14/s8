@@ -11,7 +11,7 @@ Course Code: CST402
 Course Name: Distributed Computing
 Max.Marks:100
 Duration: 3 Hours
-PARTA
+PART A
 Answer All Questions. Each Question Carries 3 Marks
 1. Identify any three distributed applications and for each application, determine
 which all motivating factors are important for building an application over a
@@ -78,14 +78,14 @@ OR
 
 ===== PAGE 3 =====
 ANSWER KEY
-!)
+1)
 e Mobile systems
 e Sensor networks
 e Ubiquitous or pervasive computing
 2)
 “In the space-time diagram of a distributed computation, a cut is a
 zigzag line joining one arbitrary point on each process line.”
-2 A cut slices the space-time diagram, and thus the set of events in the
+@ A cut slices the space-time diagram, and thus the set of events in the
 distributed computation, into a PAST and a FUTURE.
 @ The PAST contains all the events to the left of the cut and the FUTURE
 contains all the events to the right of the cut.
@@ -96,32 +96,35 @@ graphically represented as a cut in the computation's space-time diagram.
 @ Cuts in a space-time diagram provide a powerful graphical aid in representing
 and reasoning about global states of a computation.
 Figure 2.3: Illustration of cuts in a distributed execution.
-C¢. C.
-Py ~
+ate <2 3 ef
+: 1
+Py T
+P2 :
 1
-it ¢| ¢ ,
-time ———>
+el ae * f
+P4 4 + ‘ ‘
+time ———>—
 Past Cone of an Event
-@ An event e could have been affected only by all events e; such that e; — e .
+@ An event e could have been affected only by all events e; such that e; — e; .
 @ In this situtaion, all the information available at e; could be made accessible
 at 6.
-@ All such events e belong to the past of e.
+@ All such events e belong to the past of e;.
 
 ===== PAGE 4 =====
 Figure 2.4: Illustration of past and future cones.
-eax (Past 4%? min(Future Grid
-as ce _
-~~
-PAST(¢) FUTURE( op
+man (Past , (e,)) min(Futare , (e,))
+“S _
+>>
+PAST(¢) » FUTURE( e;)
 7
 Future Cone of an Event
 
-@ The future of an event e, denoted by Future(e), contains all events e; that
-are causally affected by e (see Figure 2.4).
+@ The future of an event e;, denoted by Future(e;), contains all events e; that
+are causally affected by ej (see Figure 2.4).
 
 @ In a computation (H, —), Future(e;) is defined as:
 
-Future(e;) = {e;|\Ve; € H, ej — ej}.
+Future(e;) = {e|\Ve; € H, e; — @;}.
 3)
 “A collection of the local states of its components, namely,
 the processes and the communication channels.”
@@ -135,7 +138,7 @@ distributed application.
 @ The occurrence of events changes the states of respective processes and
 channels.
 
-2 An internal event changes the state of the process at which it occurs.
+@ An internal event changes the state of the process at which it occurs.
 
 @ A send event changes the state of the process that sends the message and
 the state of the channel on which the message is sent.
@@ -146,42 +149,42 @@ and the state of the channel on which the message is received.
 ===== PAGE 5 =====
 A Channel State
 @ The state of a channel depends upon the states of the processes it connects.
-@ Let SG” denote the state of a channel Cj.
+@ Let SC” denote the state of a channel Cj.
 
 The state of a channel is defined as follows:
 
-SC” ={mj\ send(mj) < ef A rec(my) £ ef}
+SG” ={mjj| send(mj) < e* A rec(mj) £ ef}
 
 Thus, channel state SG” denotes all messages that p; sent upto event e* and
 
-which process pj; had not received until event e.
+which process p; had not received until event ej.
 
 Global State
 @ The global state of a distributed system is a collection of the local states of
 
 the processes and the channels.
 @ Notationally, global state GS is defined as,
-i Yj
-GS = {UjLS;", Up SGe™ }
+_ x; Vj Zh
+GS = {UjLS;", Uj SG |
 
 4)
 
 Rules R1 and R2 to update the clocks are as follows:
 
-e RI Before executing an event (send, receive, or internal), process p,
+e RI Before executing an event (send, receive, or internal), process p;
 executes the following:
 
-C,:=C+d (d>0).
+C;:=C,+d (d>0).
 In general, every time R1 is executed, d can have a different value, and
 this value may be application-dependent. However, typically d is kept at
 1 because this is able to identify the time of each event uniquely at a
 process, while keeping the rate of increase of d to its lowest level.
 
 e R2 Each message piggybacks the clock value of its sender at sending
-time. When a process p; receives a message with timestamp C.,,,., it
+time. When a process p,; receives a message with timestamp C,,,., it
 executes the following actions:
 
-1. C,:= max(C;, Curse);
+1. C; = max(C;, Crise):
 2. execute R1;
 3. deliver the message.
 
@@ -199,14 +202,11 @@ graph, called a wait-for graph (WFG).
 to node P2 if P1 is blocked and is waiting for P2 to release some resource.
 = A system is deadlocked if and only if there exists a directed cycle or knot
 in the WFG
-Figure 10.1 Example of a eins Sued
+Figure 10.1. Example of a | sacs sa
 WEG. —
-. i. |. aS
-+ on _— ay —— — all fe)
-t Pu )
-|
-(P54 ne. = &
-— ae t ( Py, )
+Py ig
+| Py )
+—_—— Site 4
 7) Advantages:
 e Shields programmer from Send/Receive primitives
 e Single address space; simplififies passing-by-reference and passing complex data
@@ -219,19 +219,19 @@ e Large virtual memory space
 e DSM programs portable as they use common DSM programming interface
 8)
 * Let e be a non-deterministic event that occurs at process p
-* Depend(e)
+¢ Depend(e)
 — the set of processes that are affected by a non-deterministic event e. This
 set consists of p, and any process whose state depends on the event e
 
 ===== PAGE 7 =====
 according to Lamport’ s happened before relation
-* Log(e)
+» Loge)
 — the set of processes that have logged a copy of e’s determinant in their
 volatile memory
-* Stable(e)
-—a predicate that is true if e’s determinant is logged on the stable storage
+¢ Stable(e)
+— a predicate that is true if e’s determinant is logged on the stable storage
 * always-no-orphans condition
-— V(e) :Stable(e) > Depend(e) & Log(e)
+— V(e) : Stable(e) > Depend(e) © Log(e)
 9) Byzantine Agreement (single source has an initial value)
 Agreement: All non-faulty processes must agree on the same value.
 Validity: If the source process is non-faulty, then the agreed upon value by all the
@@ -243,9 +243,9 @@ PART-B
 @ There are several models of the service provided by communication networks,
 namely, FIFO, Non-FIFO, and causal ordering.
 @ In the FIFO model, each channel acts as a first-in first-out message queue
-and thus, message ordering is preserved by a channel.
+and thus, message ordering Is preserved by a channel.
 @ In the non-FIFO model, a channel acts like a set in which the sender process
-adds messages and the receiver process removes messages from it in a
+adds messages and the receiver Process removes messages from it in a
 random order.
 
 ===== PAGE 8 =====
@@ -255,15 +255,15 @@ relation.
 @ A system that supports the causal ordering model satisfies the following
 property:
 
-CO: For any two messages mj and mj, if send(mj) —
-send(my), then rec(mj) — rec( m4).
+CO: For any two messages mj and m4, if send(mj) —
+send(my), then rec(my) — rec(m4).
 
 @ This property ensures that causally related messages destined to the same
 destination are delivered in an order that is consistent with their causality
 relation.
 
 @ Causally ordered delivery of messages implies FIFO message delivery. (Note
-that CO c FIFO © Non-FlFO.)
+that CO c FIFO © Non-FIFO.)
 
 @ Causal ordering model considerably simplifies the design of distributed
 algorithms because it provides a built-in synchronization.
@@ -277,7 +277,7 @@ e After a site has recorded its snapshot, it sends a marker along all of its
 outgoing channels before sending out any more messages.
 
 e Since channels are FIFO, a marker separates the messages in the channel
-into those to be included in the snapshot (i.e., channel state or process state)
+into those to be included in the snapshot (1.e., channel state or process state)
 from those not to be recorded in the snapshot.
 
 The algorithm
@@ -300,14 +300,14 @@ e The algorithm terminates after each process has received a marker on all of
 its incoming channels.
 e The recorded local snapshots can be put together to create the global
 snapshot
-Marker sending rule for process p,
+Marker sending rule for process p;
 (1) Process p; records its state.
 (2) For each outgoing channel C on which a marker
 has not been sent, p; sends a marker along C
-before p, sends further messages along C.
+before p,; sends further messages along C.
 Marker receiving rule for process p;
 On receiving a marker along channel C:
-if p; has not recorded its state then
+if p, has not recorded its state then
 Record the state of C as the empty set
 Execute the “‘marker sending rule”
 else
@@ -354,6 +354,9 @@ and that the receive operation has been completed
 Asynchronous primitives
 A Send primitive is said to be asynchronous if control returns back to the invoking
 process after the data item to be sent has been copied out of the user-specified buffer
+
+process 8 | Call for ll |
+
 13) (a)
 The bully algorithm
 
@@ -361,7 +364,7 @@ e Process with highest id will be the coordinator
 
 e There are three types of message in this algorithm:
 
-e An election message is sent to announce an election;
+e Anelection message is sent to announce an election;
 
 e An answer message is sent in response to an election message
 
@@ -376,7 +379,7 @@ e On the other hand, a process with a lower identifier can begin an election
 by sending an election message to those processes that have a higher
 identifier and awaiting answer messages in response.
 
-e Ifnone arrives within time T, the process considers itself the coordinator
+e If none arrives within time T, the process considers itself the coordinator
 and sends a coordinator message to all processes with lower identifiers
 announcing this.
 
@@ -387,7 +390,7 @@ to arrive from the new coordinator.
 e Ifa process p i receives a coordinator message, it sets its variable elected
 1 to the identifier of the coordinator contained within it and treats that
 process as the coordinator.
-e Ifaprocess receives an election message, it sends back an answer
+e Ifa process receives an election message, it sends back an answer
 message and begins another election — unless it has begun one already.
 e When a process, P, notices that the coordinator is no longer responding to
 requests, it initiates an election.
@@ -396,15 +399,15 @@ e If no one responds, P wins the election and becomes a coordinator.
 e If one of the higher-ups answers, it takes over.
 e P’ s job is done. When a process gets an ELECTION message from one
 of its lower-numbered colleagues:
-e Receiver sends an OK message back to the sender to indicate that he is
+e@ Receiver sends an OK message back to the sender to indicate that he is
 alive and will take over.
-@ Receiver holds an election, unless it is already holding one.
+e Receiver holds an election, unless it is already holding one.
 e Eventually, all processes give up but one, and that one is the new
 coordinator.
 e The new coordinator announces its victory by sending all processes a
 message telling them that starting immediately it is the new coordinator.
 If a process that was previously down comes back:
-e It holds an election.
+@ It holds an election.
 e If it happens to be the highest process currently running, it will win the
 election and take over the coordinator’ s job.
 e Biggest guy” always wins and hence the name “bully” algorithm.
@@ -412,45 +415,61 @@ e Biggest guy” always wins and hence the name “bully” algorithm.
 ===== PAGE 12 =====
 The bully algorithm
 election
-1. The process begins an election by —_T nN -
-sending an election message to these s..4¢; section <
-processes that have a higher ID and P ——_ p
-awaits an answer in response. ' ae ° 4
-2. If none arrives within time T, the election
-process considers itself the coordinator tomate %
-and sends coordinator message to all Stage2 snc 4
-processes with lower identifiers. FA 2, pe
+
+1. The process begins an election by —_. L
+sending an election message to these 5..,., aici <
+processes that have a higher ID and p ———2 p
+awaits an answer in response. —T ° :
+
+| 2. If none arrives within time T, the election
+process considers itself the coordinator Oat WS c
+and sends coordinatormessageto all 9° ‘aaa x<
+processes with lower identifiers. A _———. B
+
 3. Otherwise, it waits a further time T’ for
-coordinator message to arrive. If none timeout
-begins another election. stages 4 _
-4. Ifa process receives a coordinator us P, P, P,
-Lie a ef dia elected;to —— ——
-e the coordinator ID. i
-5. If a process receives an election — . x »«
-message, it sends back an answer p p 5 5
-message and begins another election i 7 3 4
+coordinator message to arrive. If none, timeout
+begins another election. siages y 4 y 4
+
+4. |f a process receives a coordinator ip P. P, P
+‘a = . aioe elected; to Eventual...
+
+e the coordinator ID.
+
+5. If a process receives an election — . , 4 ><
+message, it sends back an answer p - ,
+message and begins another election : 3 4
 unless it has begun one already.
+
 (b)
+
 = The algorithm uses the fact that a consistent snapshot of a distributed
 system captures stable properties.
+
 = Termination of a distributed computation is a stable property.
+
 = Thus, if a consistent snapshot of a distributed computation is taken after
 the distributed computation has terminated, the snapshot will capture the
 termination of the computation.
+
 = The algorithm assumes that there is a logical bidirectional communication
 channel between every pair of processes.
+
 =" Communication channels are reliable but non-FIFO. Message delay is
 arbitrary but finite.
+
 Informal description
+
 = The main idea behind the algorithm is as follows:
-=" when a computation terminates, there must exist a unique process which
+
+= when a computation terminates, there must exist a unique process which
 became idle last.
-= When a process goes from active to idle, it issues a request to all other
+
+=» When a process goes from active to idle, it issues a request to all other
 processes to take a local snapshot, and also requests itself to take a local
 snapshot.
 
 ===== PAGE 13 =====
-= When a process receives the request, if it agrees that the requester became
+=» When a process receives the request, if it agrees that the requester became
 idle before itself, it grants the request by taking a local snapshot for the
 request.
 
@@ -469,7 +488,7 @@ computation, viz.,
 message in transit to any of the processes
 OR
 14) (a)
-Chandy-Lamport algorithm
+Chandy—Lamport algorithm
 
 e The Chandy-Lamport algorithm uses a control message, called a marker.
 
@@ -508,7 +527,7 @@ Marker sending rule for process p;
 (1) Process p; records its state.
 
 (2) For each outgoing channel C on which a marker
-has not been sent, p,; sends a marker along C
+has not been sent, p; sends a marker along C
 before p; sends further messages along C.
 
 Marker receiving rule for process p;
@@ -517,34 +536,34 @@ On receiving a marker along channel C:
 
 if p,; has not recorded its state then
 Record the state of C as the empty set
-Execute the “marker sending rule”
+Execute the “‘marker sending rule”
 
 else
 Record the state of C as the set of messages
-received along C after p;., state was recorded
-and before p; received the marker along C
+received along C after p,;., state was recorded
+and before p,; received the marker along C
 
-Algorithm 4.1 The Chandy-Lamport algorithm.
+Algorithm 4.1 The Chandy—-Lamport algorithm.
 
 (b)
 
-"The algorithm assumes there are N processes Pi, 0 <1<N,
-which are modelled as the nodes i, 0 <i<N, ofa fixed
+= The algorithm assumes there are N processes Pi, 0 <1<N,
+which are modelled as the nodes 1, 0 <1<N, ofa fixed
 connected undirected graph.
 
-« The edges of the graph represent the communication channels,
+" The edges of the graph represent the communication channels,
 through which a process sends messages to neighbouring
 processes in the graph.
 
-« The algorithm uses a fixed spanning tree of the graph with
+# The algorithm uses a fixed spanning tree of the graph with
 process PO at its root which is responsible for termination
 detection
 
-" Process PO communicates with other processes to determine
+= Process PO communicates with other processes to determine
 their states and the messages used for this purpose are called
 signals.
 
-= All leaf nodes report to their parents, if they have terminated.
+» All leaf nodes report to their parents, if they have terminated.
 
 = A parent node will similarly report to its parent when it has
 completed processing and all of its immediate children have
@@ -556,44 +575,43 @@ terminated, and so on.
 terminated and all of its immediate children have also
 terminated.
 
-« The termination detection algorithm generates two waves of
+» The termination detection algorithm generates two waves of
 signals moving inward and outward through the spanning tree.
 
-« Initially, a contracting wave of signals, called tokens, moves
+# Initially, a contracting wave of signals, called tokens, moves
 inward from leaves to the root.
 
-« If this token wave reaches the root without discovering that
+= If this token wave reaches the root without discovering that
 termination has occurred, the root initiates a second outward
 wave of repeat signals.
 
-« As this repeat wave reaches leaves, the token wave gradually
+= As this repeat wave reaches leaves, the token wave gradually
 forms and starts moving inward again.
 
-= This sequence of events is repeated until the termination is
+» This sequence of events is repeated until the termination is
 detected
 
 Definitions
 
 |. Tokens: a contracting wave of signals that move inward from the leaves
-to the root.
+to the root,
 
-2. Repeat signal: if a token wave fails to detect termination, node PQ initiates
+2. Repeat signal: if a token wave fails to detect termination, node PO initiates
 another round of termination detection by sending a signal called Repeat,
 to the leaves.
 
 3. The nodes which have one or more tokens at any instant form a set S.
 
 4, A node j is said to be outside of set S if j does not belong to § and the
-path (in the tree) from the root to j contains an element of §. Every path
+path (in the tree) from the root to j contains an element of §, Every path
 from the root to a leaf may not contain a node of S,
 
-5. Note that all nodes outside S are idle. This is because, any node that
+5. Note that all nodes outside § are idle. This is because, any node that
 terminates, transmits a token to its parent. When a node transmits the
 token, it goes out of the set J.
 
-* Initially, each leaf process is given a token.
-
-* Each leaf process, after it has terminated, sends its token to its
+° Initially, each leaf process is given a token.
+¢ Each leaf process, after it has terminated, sends its token to its
 
 ===== PAGE 16 =====
 arent.
@@ -601,10 +619,10 @@ arent.
 ° When a parent process terminates and after it has received a
 token from each of its children, it sends a token to its parent.
 
-* This way, each process indicates to its parent process that the
+¢ This way, each process indicates to its parent process that the
 subtree below it has become idle.
 
-* In a similar manner, the tokens get propagated to the root.
+¢ In a similar manner, the tokens get propagated to the root.
 
 ¢ The root of the tree concludes that termination has occurred,
 after it has become idle and has received a token from each of
@@ -614,73 +632,77 @@ The algorithm description
 
 The algorithm works as follows:
 
-|. Initially, each leaf process is provided with a token. The set S is used for
-book-keeping to know which processes have the token. Hence S will be
+|. Initially, each leaf process is provided with a token. The set § is used for
+book-keeping to know which processes have the token. Hence § will be
 the set of all leaves in the tree.
 
 2. Initially, all processes and tokens are white. As explained above, coloring
 helps the root know if a message-passing was involved in one of the
-subtrees.
+subtrees,
 
 3. When a leaf node terminates, it sends the token it holds to its parent
-process.
+process,
 
 4. A parent process will collect the token sent by each of its children. After
 it has received a token from all of its children and after it has terminated,
 the parent process sends a token to its parent.
 
 5. A process turns black when it sends a message to some other process.
-This coloring scheme helps a process remember that it has sent a message.
-When a process terminates, if its is black, it sends a black token to its
+This coloring scheme helps a process remember that it has sent a message,
+When a process terminates, if its 1s black, it sends a black token to its
 parent.
 
 ===== PAGE 17 =====
 6. A black process turns back to white after it has sent a black token to its
 parent.
+
 7. A parent process holding a black token (from one of its children), sends
 only a black token to its parent, to indicate that a message-passing was
 involved in its subtree.
-8. Tokens are propagated to the root in this fashion. The root, upon receiving
+
+8. Tokens are propagated to the root in this fashion, The root, upon receiving
 a black token, will know that a process in the tree had sent a message to
 some other process. Hence, it restarts the algorithm by sending a Repeat
 signal to all its children.
+
 9. Each child of the root propagates the Repeat signal to each of its children
 and so on, until the signal reaches the leaves.
+
 10, The leaf nodes restart the algorithm on receiving the Repeat signal.
 11. The root concludes that termination has occurred, if:
-
 (a) it is white;
-
 (b) it is idle; and
-
 (c) it has received a white token from each of its children.
-
-.2 All leaf nodes h
-Hosea (3. ie 5 ae pide
-Figure 7.3 Nodes 3 and 4
-become idle. S$ ~ Os 6}. Co)
-@& (2)
+& ca
+& c+ Gs) >
+bean tes =O. 5 6 Co)
+< ee
+CO Cay fa) ce)
 
 ===== PAGE 18 =====
-Figure 7.4 Node 1 be > =:
-1 2
-Figure 7.5 Node 5 sends a ]
-message to node 1. Ss Co)
+Figure 7.4 Node 1 becomes = =
+
+i 2
+Figure 7.5 Node 5 sends a 7
+message to node 1. a 0
+
+; — 2
 Figure 7.6 Nodes 5 and 6
-become idle. 5 = {0, 2}. (0)
-ae:
-OO) (2)
-Figure 7.7 Node 2 becomes 2
-idle. S = {0}. Node 0 initiates = Co) lid
+become idle. 5 = {0, 2}. (0 )
+
+a:
+) ds
+Figure 7.7 Node 2 becomes [| T2
+idle. S = {0}. Node 0 initiates cS
 a repeat signal.
-C22
+! C22
 
 ===== PAGE 19 =====
-Pk ne ey pete cee Sen eenep ee beeen eee Gee ry eaneeeg Ue tune Meeggu anaes
+bee nek ey pre nnee aes Weneneenpree: Gtr ceeee ee eeee ceee ry nanan Ge teen: eeaguee seeaeees
 
 1. Initially, all nodes 0 to 6 are white (Figure 7.2). Leaf nodes 3, 4, 5,
 and 6 are each given a token. Node 3 has token T3, node 4 has token
-T4, node 5 has token 75, and node 6 has token T6. Hence, S is {3, 4,
+T4, node 5 has token 75, and node 6 has token 76. Hence, S is {3, 4,
 5, 6}.
 
 2. When node 3 terminates, it transmits T3 to node 1. Now S changes to 1,
@@ -693,7 +715,7 @@ terminates, it transmits a token 71 to its parent (Figure 7.4). S changes to
 
 4. After this, suppose node 5 sends a message to node 1, causing node |
 to again become active (Figure 7.5). Since node 5 had already sent a
-token to its parent node 0 (thereby making node 0 assume that node 5
+token to its parent node 0 (thereby making node O assume that node 5
 had terminated), the new message makes the system inconsistent as far
 as termination detection is concerned. To deal with this, the algorithm
 executes the following steps.
@@ -724,27 +746,27 @@ Requesting the critical section
 
 e When a site S,; wants to enter the CS, it broadcasts a REQUEST(ts,, /)
 message to all other sites and places the request on request_queue,. ((ts;,
-‘) denotes the timestamp of the request.)
+i) denotes the timestamp of the request.)
 
-e When a site S; receives the REQUEST(1s;, i) message from site S,, it places
-site S;’s request on reques!_queue, and returns a timestamped REPLY
+e When a site S; receives the REQUEST(ts,, i) message from site S,, it places
+site S;’s request on request_queue, and returns a timestamped REPLY
 message to S,.
 
 Executing the critical section
 
 Site S, enters the CS when the following two conditions hold:
 
-L1: S, has received a message with timestamp larger than (ts;, 7) from all
+L1: S; has received a message with timestamp larger than (fs;, 7) from all
 other sites.
 
-L2: S,’s request is at the top of request_queue,.
+L2: S;’s request is at the top of request_queue,.
 
 Releasing the critical section
 
-e Site S,, upon exiting the CS, removes its request from the top of its request
+e Site S;, upon exiting the CS, removes its request from the top of its request
 queue and broadcasts a timestamped RELEASE message to all other sites.
 
-e When a site S; receives a RELEASE message from site S;, it removes S;,’s
+e When a site S; receives a RELEASE message from site S;, it removes S,’s
 request from its request queue.
 
 Algorithm 9.1 Lamport’s algorithm.
@@ -756,11 +778,11 @@ between every pair of sites
 
 Requesting the critical section:
 
-(a) A site S; requests access to the CS by sending REQUEST(i) messages
+(a) A site S$; requests access to the CS by sending REQUEST(i) messages
 to all sites in its request set R;.
 
 (b) When a site S; receives the REQUEST(i) message, it sends a REPLY(j)
-message to S, provided it hasn’t sent a REPLY message to a site since
+message to S; provided it hasn’t sent a REPLY message to a site since
 its receipt of the last RELEASE message. Otherwise, it queues up the
 REQUEST(i) for later consideration.
 
@@ -771,10 +793,10 @@ every site in R;.
 
 Releasing the critical section:
 
-(d) After the execution of the CS is over, site S; sends a RELEASE(i)
+(d) After the execution of the CS is over, site $; sends a RELEASE(i)
 message to every site in R;.
 
-(e) When a site S; receives a RELEASE(i) message from site S;, it sends
+(ce) When a site S; receives a RELEASE(i) message from site S;, it sends
 a REPLY message to the next site waiting in the queue and deletes that
 entry from the queue. If the queue is empty, then the site updates its state
 to reflect that it has not sent out any REPLY message since the receipt
@@ -786,7 +808,7 @@ Algorithm 9.5 Maekawa’s algorithm.
 OR
 16) (a)
 The Ricart—Agrawala algorithm
-e The Ricart-Agrawala algorithm assumes that the communication channels are
+e The Ricart—Agrawala algorithm assumes that the communication channels are
 FIFO.
 e The algorithm uses two types of messages: REQUEST and REPLY.
 e A process sends a REQUEST message to all other processes to request their
@@ -804,22 +826,22 @@ e Otherwise, pi sends a REPLY message to pj immediately, provided it is
 currently not executing the CS.
 e Each process pi maintains the request-deferred array, RDi, the size of which is
 the same as the number of processes in the system.
-e Initially, Vi Vj: Rdifj] = 0.
+e Initially, Vi Vj: Rdi[j] = 0.
 Requesting the critical section
-(a) When a site S; wants to enter the CS, it broadcasts a timestamped
+(a) When a site §; wants to enter the CS, it broadcasts a timestamped
 REQUEST message to all other sites.
 (b) When site S; receives a REQUEST message from site S;, it sends a
-REPLY message to site S; if site S; is neither requesting nor executing
-the CS, or if the site S; is requesting and S;’s request’s timestamp is
+REPLY message to site S; if site S$; is neither requesting nor executing
+the CS, or if the site S$; is requesting and S;’s request’s timestamp is
 smaller than site S;’s own request’s timestamp. Otherwise, the reply is
 deferred and S; sets RD,{i] := 1.
 Executing the critical section
-(c) Site S; enters the CS after it has received a REPLY message from every
+(c) Site S$; enters the CS after it has received a REPLY message from every
 site it sent a REQUEST message to.
 Releasing the critical section
 (d) When site S; exits the CS, it sends all the deferred REPLY mes-
-sages: Vj if RD,[j] = 1, then sends a REPLY message to S; and sets
-RD, j] :=0.
+sages: Vj if RD,[{j] = 1, then sends a REPLY message to S; and sets
+RD,[j] :=0.
 Algorithm 9.2 The Ricart-Agrawala algorithm.
 
 ===== PAGE 22 =====
@@ -852,42 +874,50 @@ e If all requests in the WFG are OR requests, then the nodes are called OR nodes
 e Presence of a cycle in the WFG of an OR model does not imply a deadlock in the
 OR model.
 17) (a)
-Cio Cia Failure
-Pj 4
-G
-CK 0
-al ENA N TZ
-CK Cx2
+Cio Cit Failure
+P;
+/\ 27
+P, ,
+J ; E
+Ck.0 c © °
+Pe >
+Cx, Cx,2
 
 ===== PAGE 23 =====
-* Checkpoints : {Ci,0, Ci,1}, {C7,0, Cj,1, Cj,2}, and {Ck,0, Ck,1, Ck,2}
+* Checkpoints : {Ci,0, Ci,1}, {Cj,0, Cj,1, Cj,2}, and {Ck,0, Ck,1, Ck,2}
 
-* Messages : A - J
+° Messages: A - J
 
-¢ The restored global consistent state : {Ci,1, Cj,1, Ck,1}
+* The restored global consistent state : {Ci,1, Cj,1, Ck,1}
 
-¢ The rollback of process Pi to checkpoint Ci,1 created an orphan
+* The rollback of process Pi to checkpoint Ci,1 created an orphan
 
 message H
 
-¢ Orphan message I is created due to the roll back of process Pj to
+* Orphan message I is created due to the roll back of process Pj to
 
 checkpoint Cj,1
 
 ¢ Messages C, D, E, and F are potentially problematic
 
 — Message C: a delayed message
+
 — Message D: a lost message since the send event for D is recorded in the
-restored state for Pj , but the receive event has been undone at process Pi.
+restored state for Pj , but the recetve event has been undone at process Pi.
+
 — Lost messages can be handled by having processes keep a message log
 of all the sent messages
+
 — Messages E, F: delayed orphan messages. After resuming execution
 from their checkpoints, processes will generate both of these messages
-(b) So
+
+(b)
+
 Mutual Exclusion:- we know that when no process is executing in its critical section, a
 process with the lowest number is allowed to enter its critical
 section. Suppose two processes have the same token number. In that
 case, the process with the lower process ID among these is selected
+
 as the process ID of each process is distinct, so at a particular time,
 there will be only one process executing in its critical section. Thus
 the requirement of mutual Exclusion is met.
@@ -916,7 +946,7 @@ is external to the system.
 ¢ A log-based rollback recovery makes use of deterministic and
 nondeterministic events in a computation.
 ¢ Deterministic and Non-deterministic events
-—Non-deterministic events can be the receipt of a message from another
+— Non-deterministic events can be the receipt of a message from another
 process or an event internal to the process
 — a message send event is not a non-deterministic event.
 — the execution of process PO is a sequence of four deterministic intervals
@@ -926,15 +956,15 @@ into the stable storage
 — During failure-free operation, each process logs the determinants of all
 non-deterministic events that it observes onto the stable storage
 Po
-A p> fF
-Pi
-P,
+A A A
+P
+Py
 19) (a)
-e Uptof(< xn) crash failures possible.
+e Up tof (<n) crash failures possible.
 e Inf+ 1 rounds, at least one round has no failures.
 e Now justify: agreement, validity, termination conditions are satisfified.
 e Complexity: O(f+ 1)n2 messages
-e f+1 is lower bound on number of rounds
+e f+ 1 1s lower bound on number of rounds
 (global constants)
 integer: f; // maximum number of crash failures tolerated
 
@@ -951,30 +981,30 @@ integer: x <—— local value;
 
 (1c) broadcast(x);
 
-(1d) yj <— value (if any) received from process / in this round;
+(1d) = yj<— value (if any) received from process / in this round;
 
-(le) x —— min(x, yi);
+(le) x <—— min(x, ys);
 
 (1f)output x as the consensus value.
 
 (b) There are various features to a DFS, such as the following:
 
-° Transparency. Transparency is a security mechanism that shields details of one
+e Transparency. Transparency is a security mechanism that shields details of one
 file system from other file systems and users. ...
 
 ° Performance. ...
 
-° Scalability. ...
+e Scalability. ...
 
-° High availability. ...
+e High availability. ...
 
-° Data integrity. ...
+e Data integrity. ...
 
-° High reliability. ...
+e High reliability. ...
 
-. Security. ...
+° Security. ...
 
-° User mobility.
+e User mobility.
 
 20 a) in AFS, the server keeps track of which files are opened by which clients (as
 was not in the case of NFS). In other words, AFS has stateful servers,
@@ -982,7 +1012,10 @@ whereas NFS has stateless servers.
 
 b)
 NFS Architecture
-¢ Sun’s Network File System (NFS) — widely used
+e Sun’s Network File System (NFS) — widely used
+| cent layer | oem layer
+* ¥ t ¥ file
+4. CS4ATT- Nictrihnted Tacture IN
 
 ===== PAGE 26 =====
 
