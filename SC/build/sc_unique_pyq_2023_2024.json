@@ -1,0 +1,56 @@
+{
+  "Module 1": {
+    "Part A": [
+      "Draw a simple Artificial Neuron and discuss the calculation of net input. (3) . 2. Compare and contrast biological neuron and artificial neuron. (3)"
+    ],
+    "Part B": [
+      "_ a) Implement ANDNOT function using Mc-Culloch Pitts Neuron. . 8 b) Define linear separability. Justify -XOR fuff\u00e9tion is non-linearly separable bya 6 single decision boundary line. OR",
+      "a) Calculate the output of the neuron y for the following network using 6 . 1. binary sigmoidal activation function 2. bipolar sigmoidal activation function",
+      "a) Explain linear separability with an example of AND logic implementation using \u2014_ (6) . Hebb network. ss . b) Implement AND NOT function using Mc-Culloch Pitts Neuron. Draw the . (8) architecture and threshold conditions OR",
+      "a) Using the Hebb rule, find the weights required to perform the following (8) classifications of the given input patterns shown in figure. The \u201c+\u201d symbols represent the value \u201c1\u201d and empty space indicate \u201c-1\u201d. Consider \u201cI\u201d belongs to"
+    ]
+  },
+  "Module 2": {
+    "Part A": [
+      "State the testing algorithm used in Perceptron Network. (3)",
+      "List the stages involved in Backpropagation Network. 3)"
+    ],
+    "Part B": [
+      "a) Implement AND function with binary inputs and bipolar targets using perceptron 8 training algorithm. 7 b) Draw the architecture of Back propagation Network and explain the training 6 algorithm. OR",
+      "a) What is Adaline? Draw the model of an Adaline Network. 4 . b) Use Adaline to train OR function with bipolar inputs and targets. Perform 2 epoclts 10 of training",
+      "a) Explain the Adailne training algorithm for single output class (6) b) Implement one epoch of Adaline algorithm for AND logic function with binary (8) inputs and bipolar outputs. Initial weights are w1=0.2, w2=0.1 and learning rate parameter n=0.2"
+    ]
+  },
+  "Module 3": {
+    "Part A": [
+      "Using your own intuition, plot the Fuzzy membership function for the \u201cAge of (3) people\u201d",
+      "Let A={(x1,0.5), (x2,0.1), (x3,0.9)} and B={(x1,0.4), (x2,0.4), (x3,0.5)} (3) Find intersection, union and complement of both the fuzzy sets"
+    ],
+    "Part B": [
+      "a) Using intuition and your own definition of the universe of discourse, plot fuzzy 5 membership functions to the following variables: ~ Liquid level in the tank (a)Very small (b) Small (c) Empty (d) Full (e) Very full b) Define defuzzification. With the help of examples, explain various defuzzification 9 methods. . \u00b0",
+      "a) Consider the discrete fuzzy set defined on the universe X= {a, b, c, d, e} as 5 A= { =+ = + as + = + a}, Using Zadeh\u2019s notation, find the 4- cut sets for 4 = 1, 0.9, 0.6, 0+ and 0. : b) Given two universes X= {x1, x2, x3, x4, x5} and Y= {yl, y2, y3, y4, y5}, the 9 fuzzy sets A defined on X and fuzzy set B defined on Y are given below. . An (et O74 1 08 , 06, xl x20 x3 x40 x5 pa 240541, 09, 07 yl y2 y3 y4 y5 i) Find the relation R=A XB \u2018 Consider another fuzzy set C defined on the universe V = {vl, v2, v3} cu Cty 4 vl v2 v3 ii) Find P=B xC. iii) Using max-min composition find RoP",
+      "a) Consider the fuzzy relation (5) 1 08 O O01 0.2 08 1 04 0 09 R=/0 04 1 \u00a2 O 01 0 OO 1 O5 02 09 0 O05 1 Perform i-cut operations for the values of A = 0.9, 0+? b) Let A be a fuzzy set that tells about a student as shown in figure below. Here, (9) . the linguistic variable P represents a Pass student, F stands for a Fair student, G represents a Good student and VG represents a Very Good student. Calculate ; the defuzzified value for the fuzzy set A with weighted average method and center of sums. V * ia OS; <r A o2 +/ PSA A, \u2014 \u00b0 \u00e9 f \\ AT an Ss \u2018 a a ee a en"
+    ]
+  },
+  "Module 4": {
+    "Part A": [
+      "Draw the flow chart and explain the steps of Genetic Algorithm. (3)",
+      "Explain any 3 mutation techniques with example. (3)"
+    ],
+    "Part B": [
+      "a) What is the Fuzzy Inference System (FIS)? Illustrate Mamdani FIS with an 7 example. b) Explain the different methods of encoding that are possible in genetic algorithms. 7 OR , 18 a) What is the concept of crossover in Genetic Algorithm? Explain the different 7 methods of cross over that are possible in genetic algorithms. : b) Explain any 4 Genetic Algorithm selection operators. T",
+      "a) What are the properties of dominance relation? 7 b) What are the classifications of neuro-fuzzy hybrid systems? Discuss in detail. 7 seketek",
+      "a) What is the Fuzzy Inference System (FIS)? Illustrate Mamdani and Sugeno FIS (8) { with examples b) Explain any three selection techniques in genetic algorithm (6) : , OR \u2018",
+      "a) Explain i) uniform crossover ii) Three parent crossover iii)shuffle crossover, (8) iv) Precedence Preservative crossover of genetic algorithm with proper 5 examples. \u00b0 b) Explain the various encoding schemes used in genetic algorithm (6) Module |",
+      "a) Explain convex and non-convex Multi Objective Optimization Problem. How (6) to find a non -dominated set? b) Explain Genetic neuro Hybrid system in detail? (8) OR",
+      "a) Whatare the classifications of neuro-fuzzy hybrid systems? Discuss in detail (8) b) What is pareto optimality. (6) kkKKK \u201c\" . |"
+    ]
+  },
+  "Module 5": {
+    "Part A": [
+      "Differentiate between linear and nonlinear Multi Objective Optimization Problem. (3)",
+      "Explain the processes of tuning in genetic-fuzzy rule-based systems. (3)"
+    ],
+    "Part B": []
+  }
+}

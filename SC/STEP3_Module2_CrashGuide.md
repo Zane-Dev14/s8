@@ -1,575 +1,335 @@
-# 📚 STEP 3: MODULE 2 CRASH GUIDE (From Zero to Exam-Ready)
+## STEP 3: MODULE 2 CRASH GUIDE (HIGH-QUALITY VERSION)
 
-## 🎯 Module 2 Topics: Perceptron, Adaline, and Backpropagation
+Module focus:
+- Perceptron training and testing
+- Adaline and delta rule
+- Perceptron vs Adaline differences
+- Backpropagation network (BPN) architecture and full step flow
+- Worked numericals with every step shown
 
----
-
-## 🔥 TOPIC 1: PERCEPTRON NETWORK
-
-### **What is it?** (1 line)
-A single-layer neural network that learns to classify patterns using error correction.
-
-### **Why is it used?**
-To classify linearly separable patterns (like AND, OR gates) through supervised learning.
-
-### **Key Idea (Intuition)**
-Like a student learning from mistakes - when it gets wrong answer, it adjusts its understanding (weights).
-
-### **Perceptron Architecture**
-
-```
-PERCEPTRON STRUCTURE:
-
-Input Layer → Associator Layer → Response Layer
-
-x₁ ──w₁──┐
-         ├──→ [Σ] → [f] → y
-x₂ ──w₂──┘    ↑
-             bias
-
-Three Units:
-1. Sensory Unit: Receives inputs
-2. Associator Unit: Weighted connections
-3. Response Unit: Produces output
-```
-
-### **Perceptron Learning Rule (MEMORIZE)**
-
-```
-Weight Update Formula:
-w_new = w_old + η × (t - y) × x
-
-Where:
-η = learning rate (controls step size)
-t = target output (desired)
-y = actual output (calculated)
-x = input value
-
-Update happens ONLY when (t ≠ y)
-```
-
-### **Perceptron Training Algorithm (STEP-BY-STEP)**
-
-```
-Step 0: Initialize
-   - Set weights to 0 (or small random values)
-   - Set bias to 0
-   - Set learning rate η (usually 0.1 to 1)
-
-Step 1: For each training pattern:
-   a) Calculate net input: Yin = Σ(wi × xi) + b
-   b) Apply activation: y = f(Yin)
-   c) Compare with target: error = (t - y)
-   d) If error ≠ 0:
-      - Update weights: wi = wi + η × error × xi
-      - Update bias: b = b + η × error
-
-Step 2: Repeat Step 1 for all patterns (= 1 epoch)
-
-Step 3: Stop when:
-   - No weight changes in current epoch, OR
-   - Maximum epochs reached
-```
-
-### **Perceptron Testing Algorithm**
-
-```
-Step 1: Use trained weights (don't change them!)
-Step 2: For each test pattern:
-   a) Calculate: Yin = Σ(wi × xi) + b
-   b) Apply activation: y = f(Yin)
-   c) Compare y with expected class
-Step 3: Report accuracy
-```
-
-### **Example: OR Gate with Perceptron**
-
-**Setup:**
-```
-Truth Table (Binary inputs, Bipolar targets):
-x₁  x₂  | Target (t)
-0   0   |   -1
-0   1   |   +1
-1   0   |   +1
-1   1   |   +1
-
-Initial: w₁=0, w₂=0, b=0, η=1
-Activation: Sign function (output +1 or -1)
-```
-
-**Epoch 1:**
-
-| Pattern | x₁ | x₂ | t | Yin | y | Error | w₁_new | w₂_new | b_new |
-|---------|----|----|---|-----|---|-------|--------|--------|-------|
-| 1 | 0 | 0 | -1 | 0 | +1 | -2 | 0 | 0 | -2 |
-| 2 | 0 | 1 | +1 | -2 | -1 | +2 | 0 | 2 | 0 |
-| 3 | 1 | 0 | +1 | 0 | +1 | 0 | 0 | 2 | 0 |
-| 4 | 1 | 1 | +1 | 2 | +1 | 0 | 0 | 2 | 0 |
-
-**Epoch 2:**
-Test all patterns - if all correct, STOP!
-
-### **Perfect Exam Answer (6 marks - Training Algorithm)**
-1. Initialize weights, bias, and learning rate
-2. Present one training pattern at a time
-3. Compute net input and output using activation rule
-4. Compare calculated output with target output
-5. If error occurs, adjust trainable weights
-6. Repeat pattern loop across epochs until stop condition
-
-### **Perfect Exam Answer (4 marks - Testing Algorithm)**
-1. Testing evaluates trained network performance
-2. Use weights obtained from training phase
-3. Apply each test input to the network
-4. Compute net input and corresponding output class
-5. Compare predicted class with expected class
-6. Report classification result or accuracy
-
-### **Memory Trick**
-**PERCEPTRON** = **P**attern **E**rror **R**ule **C**orrects **E**ach **P**arameter **T**ill **R**ight **O**utput **N**ow
+How to use this file:
+1. For theory: write definition -> formula -> algorithm -> key difference.
+2. For numericals: reproduce the row-by-row tables exactly.
+3. For 14-mark answers: use the long-answer template at the end of each topic.
 
 ---
 
-## 🔥 TOPIC 2: ADALINE (Adaptive Linear Neuron)
+## Topic 1: Perceptron Network (Training + Testing)
 
-### **What is it?** (1 line)
-A single-layer network that uses continuous error correction (not just binary).
+### Definition
+Perceptron is a single-layer supervised classifier for linearly separable data.
 
-### **Why is it used?**
-Better learning than Perceptron because it minimizes mean squared error continuously.
+### Core formula set (first use with term meaning)
 
-### **Key Idea (Intuition)**
-Instead of just "right or wrong", Adaline measures "how wrong" and adjusts proportionally.
+$$
+Y_{in} = \sum_{i=1}^{n} w_i x_i + b
+$$
 
-### **Adaline vs Perceptron**
+$$
+y = \operatorname{sign}(Y_{in}) =
+\begin{cases}
++1, & Y_{in} \ge 0 \\
+-1, & Y_{in} < 0
+\end{cases}
+$$
 
-| Feature | Perceptron | Adaline |
-|---------|------------|---------|
-| **Activation** | Applied before learning | Applied after learning |
-| **Error** | Based on output | Based on net input |
-| **Learning** | Binary correction | Continuous correction |
-| **Rule** | Perceptron rule | Delta rule (LMS) |
-| **Developer** | Rosenblatt | Widrow & Hoff |
+$$
+\Delta w_i = \eta (t-y) x_i,
+\quad
+w_i^{new} = w_i^{old} + \Delta w_i,
+\quad
+b^{new} = b^{old} + \eta (t-y)
+$$
 
-### **Adaline Architecture**
+Term meaning:
+- x_i: i-th input
+- w_i: i-th weight
+- b: bias
+- Yin: net input before activation
+- y: predicted class
+- t: target class
+- eta: learning rate
 
-```
-ADALINE STRUCTURE:
+### Training algorithm (strict step order)
+1. Initialize weights and bias.
+2. Choose eta.
+3. For each training pattern:
+4. Compute Yin.
+5. Compute y using sign function.
+6. Compute error term e = t-y.
+7. If e != 0, update w_i and b.
+8. Repeat for all patterns (one epoch).
+9. Continue epochs until no updates or max epoch reached.
 
-x₁ ──w₁──┐
-         ├──→ [Σ] → Yin → [f] → y
-x₂ ──w₂──┘    ↑
-             bias
+### Testing algorithm
+1. Freeze trained weights and bias.
+2. For each test sample, compute Yin.
+3. Compute y via sign(Yin).
+4. Compare with expected class.
+5. Report correctness/accuracy.
 
-Key: Learning uses Yin (before activation)
-     Output uses y (after activation)
-```
+### Worked numerical: Perceptron OR gate (2 epochs)
 
-### **Delta Rule (Widrow-Hoff Rule)**
+Given:
+- Inputs are binary, targets are bipolar
+- Patterns: (0,0)->-1, (0,1)->+1, (1,0)->+1, (1,1)->+1
+- Initial w1=0, w2=0, b=0, eta=1
 
-```
-Weight Update Formula:
-Δw = η × (t - Yin) × x
+Epoch 1 calculation table:
 
-Where:
-η = learning rate
-t = target output
-Yin = net input (NOT activated output!)
-x = input value
+| Pattern | x1 | x2 | t | Yin=w1x1+w2x2+b | y | e=t-y | w1(new) | w2(new) | b(new) |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| P1 | 0 | 0 | -1 | 0 | +1 | -2 | 0 | 0 | -2 |
+| P2 | 0 | 1 | +1 | -2 | -1 | +2 | 0 | 2 | 0 |
+| P3 | 1 | 0 | +1 | 0 | +1 | 0 | 0 | 2 | 0 |
+| P4 | 1 | 1 | +1 | 2 | +1 | 0 | 0 | 2 | 0 |
 
-Objective: Minimize Mean Squared Error (MSE)
-MSE = Σ(t - Yin)² / n
-```
+Epoch 2 quick check:
+- P1: Yin=0*0+2*0+0=0 => y=+1 (wrong for t=-1)
+- Update: e=-2 -> b=-2
+- P2: Yin=0*0+2*1-2=0 => y=+1 (correct)
+- P3: Yin=0*1+2*0-2=-2 => y=-1 (wrong for t=+1)
+- Update: e=+2 -> w1=2, b=0
+- P4: Yin=2*1+2*1+0=4 => y=+1 (correct)
 
-### **Adaline Training Algorithm (STEP-BY-STEP)**
+Continue epochs similarly until all rows are correct.
 
-```
-Step 0: Initialize
-   - Set weights to small random values (NOT zero)
-   - Set bias to random value
-   - Set learning rate η (0.1 to 0.5)
-   - Set tolerance ε (stopping criterion)
-
-Step 1: For each training pattern:
-   a) Calculate net input: Yin = Σ(wi × xi) + b
-   b) Calculate error: δ = t - Yin
-   c) Update weights: wi = wi + η × δ × xi
-   d) Update bias: b = b + η × δ
-
-Step 2: Calculate max weight change in epoch
-
-Step 3: If max change < tolerance:
-   STOP (converged)
-   Else:
-   Go to Step 1 (next epoch)
-```
-
-### **Adaline Testing Algorithm**
-
-```
-Step 1: Use trained weights
-Step 2: For each test pattern:
-   a) Calculate: Yin = Σ(wi × xi) + b
-   b) Apply activation: y = f(Yin)
-   c) Report class based on y
-```
-
-### **Example: AND Gate with Adaline**
-
-**Setup:**
-```
-Truth Table (Binary inputs, Bipolar targets):
-x₁  x₂  | Target (t)
-0   0   |   -1
-0   1   |   -1
-1   0   |   -1
-1   1   |   +1
-
-Initial: w₁=0.2, w₂=0.1, b=0, η=0.2
-```
-
-**Epoch 1:**
-
-| Pattern | x₁ | x₂ | t | Yin | δ=(t-Yin) | w₁_new | w₂_new | b_new |
-|---------|----|----|---|-----|-----------|--------|--------|-------|
-| 1 | 0 | 0 | -1 | 0 | -1 | 0.2 | 0.1 | -0.2 |
-| 2 | 0 | 1 | -1 | -0.1 | -0.9 | 0.2 | -0.08 | -0.38 |
-| 3 | 1 | 0 | -1 | -0.18 | -0.82 | 0.036 | -0.08 | -0.544 |
-| 4 | 1 | 1 | +1 | -0.624 | 1.624 | 0.361 | 0.245 | -0.219 |
-
-Continue until convergence...
-
-### **Perfect Exam Answer (6 marks - Adaline Algorithm)**
-1. Initialize random non-zero weights and bias
-2. Set learning-rate parameter in recommended range
-3. Present each bipolar training pair
-4. Compute net input to output unit
-5. Compute error with respect to target
-6. Apply delta-rule correction to each weight
-7. Update bias along with weights
-8. Repeat for all patterns in one epoch
-9. Monitor highest weight change in epoch
-10. Compare with tolerance condition
-11. Stop when change is below tolerance
-12. Otherwise continue epochs
-13. Use final trained parameters for testing
-14. Conclusion: Adaline learns by continuous error minimization
-
-### **Memory Trick**
-**ADALINE** = **A**daptive **D**elta **A**djusts **L**earning **I**n **N**et **E**rror
+### Perceptron convergence note
+- Converges for linearly separable classes.
+- Does not converge for XOR-like non-separable classes.
 
 ---
 
-## 🔥 TOPIC 3: BACKPROPAGATION NETWORK (BPN)
+## Topic 2: Adaline and Delta Rule
 
-### **What is it?** (1 line)
-A multi-layer neural network that learns by propagating errors backward from output to hidden layers.
+### Definition
+Adaline (Adaptive Linear Neuron) uses net-input error for continuous correction.
 
-### **Why is it used?**
-To solve non-linearly separable problems (like XOR) that single-layer networks can't handle.
+### Why Adaline differs from Perceptron
 
-### **Key Idea (Intuition)**
-Like a team project - when final result is wrong, blame is distributed backward to find who needs to improve.
+| Point | Perceptron | Adaline |
+|---|---|---|
+| Error source | t-y (class error) | t-Yin (net error) |
+| Learning style | Discrete correction | Continuous correction |
+| Objective | Classification correctness | MSE reduction |
+| Common rule name | Perceptron update | Delta/LMS rule |
 
-### **BPN Architecture**
+### Adaline core formulas (with term explanation)
 
-```
-BACKPROPAGATION NETWORK:
+$$
+Y_{in}=\sum_i w_i x_i + b
+$$
 
-Input Layer → Hidden Layer → Output Layer
+$$
+\delta = t - Y_{in}
+$$
 
-x₁ ──┐
-     ├──→ [h₁] ──┐
-x₂ ──┤           ├──→ [o₁] → y₁
-     ├──→ [h₂] ──┤
-x₃ ──┘           └──→ [o₂] → y₂
-     
-     Weights:      Weights:
-     v (input→hidden)  w (hidden→output)
-     
-Forward: Input → Hidden → Output
-Backward: Output Error ← Hidden Error ← Adjust Weights
-```
+$$
+\Delta w_i = \eta \delta x_i,
+\quad
+w_i^{new}=w_i^{old}+\Delta w_i,
+\quad
+b^{new}=b^{old}+\eta\delta
+$$
 
-### **BPN Requirements**
-1. **Activation**: Must be differentiable (sigmoid, tanh)
-2. **Layers**: At least 3 (input, hidden, output)
-3. **Learning**: Supervised (needs target outputs)
-4. **Data**: Can be binary or bipolar
+$$
+MSE = \frac{1}{N}\sum_{p=1}^{N}(t_p-Y_{in,p})^2
+$$
 
-### **Three Stages of BPN Training (MEMORIZE THIS!)**
+Term meaning:
+- delta: instantaneous net error
+- N: number of patterns
+- MSE: average squared error over set
 
-```
-STAGE 1: FEED-FORWARD
-   - Input pattern flows forward
-   - Calculate hidden layer outputs
-   - Calculate output layer outputs
+### Adaline training algorithm
+1. Initialize weights and bias (small values).
+2. Choose eta and stopping rule.
+3. For each pattern, compute Yin.
+4. Compute delta=t-Yin.
+5. Update all weights and bias.
+6. Complete epoch and compute error trend.
+7. Stop at tolerance or max epoch.
 
-STAGE 2: ERROR BACKPROPAGATION
-   - Calculate output layer error
-   - Propagate error back to hidden layer
-   - Calculate hidden layer error
+### Worked numerical: one epoch Adaline for AND
 
-STAGE 3: WEIGHT UPDATION
-   - Update output layer weights
-   - Update hidden layer weights
-   - Update all biases
-```
+Given:
+- Patterns: (0,0)->-1, (0,1)->-1, (1,0)->-1, (1,1)->+1
+- Initial w1=0.2, w2=0.1, b=0, eta=0.2
 
-### **BPN Training Algorithm (Detailed)**
+Row-by-row epoch table:
 
-```
-INITIALIZATION:
-- Initialize all weights to small random values
-- Set learning rate η
-- Set momentum α (optional)
+| Pattern | x1 | x2 | t | Yin | delta=t-Yin | w1(new)=w1+eta*delta*x1 | w2(new)=w2+eta*delta*x2 | b(new)=b+eta*delta |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| P1 | 0 | 0 | -1 | 0.000 | -1.000 | 0.200 | 0.100 | -0.200 |
+| P2 | 0 | 1 | -1 | -0.100 | -0.900 | 0.200 | -0.080 | -0.380 |
+| P3 | 1 | 0 | -1 | -0.180 | -0.820 | 0.036 | -0.080 | -0.544 |
+| P4 | 1 | 1 | +1 | -0.588 | +1.588 | 0.354 | 0.238 | -0.226 |
 
-FOR EACH EPOCH:
-  FOR EACH TRAINING PATTERN:
-  
-    === STAGE 1: FEED-FORWARD ===
-    1. Set input layer activations
-    2. For each hidden unit j:
-       Zinj = Σ(vij × xi) + bj
-       Zj = f(Zinj)
-    3. For each output unit k:
-       Yink = Σ(wjk × Zj) + ck
-       Yk = f(Yink)
-    
-    === STAGE 2: BACKPROPAGATION ===
-    4. For each output unit k:
-       δk = (tk - Yk) × f'(Yink)
-    5. For each hidden unit j:
-       δj = f'(Zinj) × Σ(δk × wjk)
-    
-    === STAGE 3: WEIGHT UPDATE ===
-    6. Update output weights:
-       wjk = wjk + η × δk × Zj
-    7. Update hidden weights:
-       vij = vij + η × δj × xi
-    8. Update biases similarly
-  
-  END FOR (patterns)
-  
-  Check stopping criterion
-  
-END FOR (epochs)
-```
-
-### **Error Propagation Significance**
-
-**Why is it needed?**
-- Output layer error is directly calculable: δ_output = (target - actual)
-- Hidden layer error is NOT directly available (no target for hidden units)
-- Backpropagation estimates hidden layer contribution to output error
-- This allows hidden layer weights to be adjusted
-
-**Formula:**
-```
-Output error: δk = (tk - yk) × f'(yk)
-Hidden error: δj = f'(zj) × Σ(δk × wjk)
-                   ↑
-                   Error flows backward!
-```
-
-### **Perfect Exam Answer (8 marks - BPN Architecture & Significance)**
-1. BPN is a multilayer feedforward network
-2. It contains input, hidden, and output layers
-3. Hidden and output layers include bias terms
-4. Training objective is reducing target-output mismatch
-5. Output-layer error is directly computed
-6. Hidden-layer error is inferred by backward propagation
-7. This is required for hidden-layer weight tuning
-8. Stage 1 is feed-forward computation
-9. Stage 2 is error calculation and backpropagation
-10. Stage 3 is weight updation
-11. This process repeats for all training patterns
-12. Repeated epochs reduce overall output error
-13. Differentiable activation is required in BPN
-14. Conclusion: error terms guide all layer-wise weight corrections
-
-### **Perfect Exam Answer (6 marks - Three Stages)**
-1. Feed-forward of training input
-2. Calculation of output error
-3. Back-propagation of error to hidden layer
-4. Weight updation based on propagated error
-5. Repeat for all patterns
-6. Continue epochs until stopping criterion
-
-### **BPN vs Perceptron**
-
-| Feature | Perceptron | BPN |
-|---------|------------|-----|
-| **Layers** | Single | Multiple |
-| **Problems** | Linear only | Non-linear |
-| **Error** | Direct | Backpropagated |
-| **Activation** | Any | Must be differentiable |
-| **XOR** | Cannot solve | Can solve |
-
-### **Memory Trick**
-**BPN 3 Stages** = **F**eed-forward, **B**ackpropagate, **U**pdate
-**FBU** = **F**orward **B**ackward **U**pdate
+After one epoch:
+- w1=0.354, w2=0.238, b=-0.226
+- Continue more epochs for convergence.
 
 ---
 
-## 🔥 TOPIC 4: PERCEPTRON CONVERGENCE & XOR
+## Topic 3: Backpropagation Network (BPN)
 
-### **What is it?** (1 line)
-Perceptron convergence theorem states that perceptron will learn any linearly separable pattern in finite steps.
+### Architecture
+A typical BPN has three layers:
+1. Input layer
+2. Hidden layer
+3. Output layer
 
-### **Why is it important?**
-Explains why Perceptron works for AND/OR but fails for XOR.
+Diagram:
 
-### **Key Idea (Intuition)**
-Perceptron is like a student who can only draw straight lines - great for simple problems, but can't handle complex patterns.
+```text
+Input layer        Hidden layer         Output layer
+x1 ----\          h1 ----\
+x2 ----- >-------- h2 ----- >---------- o1
+x3 ----/          h3 ----/
 
-### **Convergence Conditions**
-1. **Pattern must be linearly separable**
-2. **Learning rate must be positive**
-3. **Finite number of iterations guaranteed**
-
-### **Why Perceptron Fails on XOR**
-
-```
-XOR Truth Table:
-x₁  x₂  | Output
-0   0   |   0
-0   1   |   1
-1   0   |   1
-1   1   |   0
-
-Plot:
-  x₂
-  1 |  [1]   [0]
-    |
-  0 |  [0]   [1]
-    |_________
-      0   1   x₁
-
-Problem: No single line can separate!
-- Need to separate (0,0) & (1,1) from (0,1) & (1,0)
-- They're on opposite diagonals
-- Requires non-linear boundary
+Forward pass: x -> h -> o
+Backward pass: error o -> h
 ```
 
-### **Solution: Use BPN**
-- BPN with hidden layer creates non-linear decision boundary
-- Can solve XOR and other non-linear problems
-- Hidden layer creates intermediate representations
+### Symbol table (must define in exam when first used)
 
-### **Perfect Exam Answer (14 marks - Convergence & XOR)**
-1. Perceptron is connected with linear separability concept
-2. Training update continues when errors occur
-3. Stopping can occur when no updates are needed in epoch
-4. This behavior corresponds to separable-pattern convergence
-5. XOR is used as nonlinearly separable example
-6. Non-separable patterns cannot be separated by single linear boundary
-7. Therefore simple perceptron is insufficient for XOR-type separation
-8. Multilayer methods are introduced to address this gap
-9. BPN is one such multilayer method
-10. BPN uses backpropagated error for hidden-layer adjustment
-11. Differentiable units enable gradient correction
-12. This allows non-linear decision mapping
-13. Exam sketch of XOR point layout strengthens justification
-14. Conclusion: perceptron convergence is separability-dependent; XOR motivates multilayer learning
+| Symbol | Meaning |
+|---|---|
+| x_i | i-th input |
+| v_ij | weight from input i to hidden j |
+| z_j | hidden neuron output |
+| w_jk | weight from hidden j to output k |
+| y_k | output neuron output |
+| t_k | target at output k |
+| eta | learning rate |
+| delta_k | output layer error term |
+| delta_j | hidden layer error term |
 
-### **Memory Trick**
-**XOR = X-tra OR-dinary** → Needs X-tra layers (BPN)
+### BPN equations
+
+Forward pass:
+
+$$
+zin_j = \sum_i v_{ij}x_i + b_j,\quad z_j = f(zin_j)
+$$
+
+$$
+yin_k = \sum_j w_{jk}z_j + b_k,\quad y_k = f(yin_k)
+$$
+
+Output error term:
+
+$$
+\delta_k=(t_k-y_k)f'(yin_k)
+$$
+
+Hidden error term:
+
+$$
+\delta_j=f'(zin_j)\sum_k\delta_k w_{jk}
+$$
+
+Weight updates:
+
+$$
+\Delta w_{jk}=\eta\delta_k z_j,
+\quad
+\Delta v_{ij}=\eta\delta_j x_i
+$$
+
+### Complete BPN training sequence
+1. Initialize all v_ij, w_jk, and biases.
+2. Feedforward input to hidden and output layers.
+3. Compute output error terms delta_k.
+4. Backpropagate to hidden and compute delta_j.
+5. Update output-layer weights and biases.
+6. Update hidden-layer weights and biases.
+7. Repeat per pattern and per epoch.
+
+### Worked numerical: one full BPN iteration (2-2-1 network)
+
+Given:
+- Inputs: x1=0.05, x2=0.10
+- Target: t1=0.01
+- Learning rate eta=0.5
+- Activation: sigmoid f(a)=1/(1+e^-a)
+- Initial weights:
+  - Input->Hidden: v11=0.15, v21=0.20, v12=0.25, v22=0.30
+  - Hidden->Output: w11=0.40, w21=0.45
+- Biases: b_h1=0.35, b_h2=0.35, b_o1=0.60
+
+Step A: Hidden layer forward pass
+1. zin1 = 0.05*0.15 + 0.10*0.20 + 0.35 = 0.3775
+2. z1 = sigmoid(0.3775) = 0.59327
+3. zin2 = 0.05*0.25 + 0.10*0.30 + 0.35 = 0.3925
+4. z2 = sigmoid(0.3925) = 0.59688
+
+Step B: Output layer forward pass
+1. yin1 = z1*0.40 + z2*0.45 + 0.60
+2. yin1 = 0.59327*0.40 + 0.59688*0.45 + 0.60 = 1.10591
+3. y1 = sigmoid(1.10591) = 0.75137
+
+Step C: Output error term
+1. f'(yin1) = y1*(1-y1) = 0.75137*(0.24863) = 0.18682
+2. delta1 = (t1-y1)*f'(yin1)
+3. delta1 = (0.01-0.75137)*0.18682 = -0.13850
+
+Step D: Hidden error terms
+1. f'(zin1) = z1*(1-z1) = 0.59327*0.40673 = 0.24130
+2. f'(zin2) = z2*(1-z2) = 0.59688*0.40312 = 0.24061
+3. delta_h1 = f'(zin1)*(delta1*w11)
+4. delta_h1 = 0.24130*(-0.13850*0.40) = -0.01337
+5. delta_h2 = f'(zin2)*(delta1*w21)
+6. delta_h2 = 0.24061*(-0.13850*0.45) = -0.01500
+
+Step E: Update hidden->output weights
+1. Delta w11 = eta*delta1*z1 = 0.5*(-0.13850)*0.59327 = -0.04110
+2. Delta w21 = eta*delta1*z2 = 0.5*(-0.13850)*0.59688 = -0.04134
+3. w11(new)=0.40-0.04110=0.35890
+4. w21(new)=0.45-0.04134=0.40866
+
+Step F: Update input->hidden weights
+1. Delta v11 = eta*delta_h1*x1 = 0.5*(-0.01337)*0.05 = -0.00033
+2. Delta v21 = eta*delta_h1*x2 = 0.5*(-0.01337)*0.10 = -0.00067
+3. Delta v12 = eta*delta_h2*x1 = 0.5*(-0.01500)*0.05 = -0.00038
+4. Delta v22 = eta*delta_h2*x2 = 0.5*(-0.01500)*0.10 = -0.00075
+5. v11(new)=0.14967, v21(new)=0.19933
+6. v12(new)=0.24962, v22(new)=0.29925
+
+That completes one full forward + backward + update cycle.
 
 ---
 
-## 📝 NUMERICAL PROBLEM TEMPLATES
+## Topic 4: Significance of Error Terms in BPN
 
-### **Template 1: Perceptron Training (2 epochs)**
-
-```
-GIVEN:
-- Logic function (AND/OR/etc.)
-- Initial weights and bias
-- Learning rate
-- Activation function
-
-SOLUTION FORMAT:
-
-Table for Epoch 1:
-| Pattern | x₁ | x₂ | t | Yin | y | Error | Δw₁ | Δw₂ | Δb | w₁ | w₂ | b |
-|---------|----|----|---|-----|---|-------|-----|-----|----|----|----|----|
-| 1       |    |    |   |     |   |       |     |     |    |    |    |    |
-| 2       |    |    |   |     |   |       |     |     |    |    |    |    |
-| 3       |    |    |   |     |   |       |     |     |    |    |    |    |
-| 4       |    |    |   |     |   |       |     |     |    |    |    |    |
-
-Repeat for Epoch 2
-
-CONCLUSION: State if converged or needs more epochs
-```
-
-### **Template 2: Adaline Training (1 epoch)**
-
-```
-GIVEN:
-- Logic function
-- Initial weights and bias
-- Learning rate
-
-SOLUTION FORMAT:
-
-Table:
-| Pattern | x₁ | x₂ | t | Yin | δ | Δw₁ | Δw₂ | Δb | w₁ | w₂ | b |
-|---------|----|----|---|-----|---|-----|-----|----|----|----|----|
-| 1       |    |    |   |     |   |     |     |    |    |    |    |
-| 2       |    |    |   |     |   |     |     |    |    |    |    |
-| 3       |    |    |   |     |   |     |     |    |    |    |    |
-| 4       |    |    |   |     |   |     |     |    |    |    |    |
-
-Max weight change = ?
-Compare with tolerance
-
-CONCLUSION: State convergence status
-```
+1. delta_k measures output-layer responsibility for total error.
+2. delta_j transfers responsibility to hidden units.
+3. Without delta_j, hidden-layer weights cannot learn.
+4. Magnitude of delta controls update size.
+5. Sign of delta controls update direction.
+6. Correct delta computation ensures gradient-descent movement.
 
 ---
 
-## 📝 QUICK REVISION CHECKLIST
+## PYQ Bottom Section (deduplicated answer drill)
 
-### **Can you answer these in 30 seconds each?**
-- [ ] What's the difference between Perceptron and Adaline?
-- [ ] What are the 3 stages of BPN?
-- [ ] Why does Perceptron fail on XOR?
-- [ ] What is delta rule?
-- [ ] When does Perceptron stop training?
-- [ ] Why is backpropagation needed?
+### Part A quick set
+1. Explain training algorithm of perceptron network.
+2. State testing algorithm used in perceptron network.
+3. Explain Adaline architecture and delta rule.
+4. List stages involved in BPN.
 
-### **Can you solve these in 3 minutes?**
-- [ ] One epoch of Perceptron for OR gate
-- [ ] Calculate error for one pattern in Adaline
-- [ ] Draw BPN architecture with labels
+### Part B long set
+1. Implement OR/AND using perceptron for given epochs.
+2. Train Adaline for given gate data and report updated weights.
+3. Draw BPN architecture and explain full training algorithm.
+4. Explain significance and calculation of BPN error terms.
 
----
-
-## 🎯 EXAM STRATEGY FOR MODULE 2
-
-### **Part A Questions (3 marks each)**
-- Perceptron training: List 6 steps
-- BPN stages: List 6 points about 3 stages
-- Testing algorithm: 6 points
-
-### **Part B Questions (14 marks)**
-- **High Scoring**: Perceptron/Adaline numerical (8) + BPN architecture (6)
-- **Alternative**: BPN full explanation (8) + Perceptron algorithm (6)
-
-### **Time Management**
-- Part A (2-3 questions): 6-9 minutes
-- Part B (1 question): 20 minutes
-  - Numerical: 12 minutes (show all steps!)
-  - Theory: 8 minutes
-
-### **Scoring Tips**
-1. **For numericals**: Show table format clearly
-2. **For algorithms**: Number each step
-3. **For BPN**: Always mention 3 stages explicitly
-4. **For diagrams**: Label everything
-
----
-
-**✅ MODULE 2 COMPLETE! Now go to STEP 4 → Module 3 Crash Guide** 🚀
+14-mark answer sequence:
+1. Definition
+2. Formula with term definitions
+3. Initial values/assumptions
+4. Row-by-row numerical table
+5. Final parameter values
+6. Verification output
+7. Conclusion

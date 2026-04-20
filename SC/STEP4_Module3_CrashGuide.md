@@ -1,763 +1,319 @@
-# 📚 STEP 4: MODULE 3 CRASH GUIDE (From Zero to Exam-Ready)
+## STEP 4: MODULE 3 CRASH GUIDE (HIGH-QUALITY VERSION)
 
-## 🎯 Module 3 Topics: Fuzzy Logic & Fuzzy Sets
+Module focus:
+- Fuzzy sets and membership functions
+- Core/support/boundary
+- Basic and extended fuzzy operations
+- Fuzzy relations and compositions (max-min, max-product)
+- Alpha-cut/lambda-cut
+- Defuzzification with full numericals
 
----
-
-## 🔥 TOPIC 1: FUZZY SETS & MEMBERSHIP FUNCTIONS
-
-### **What is it?** (1 line)
-A fuzzy set allows partial membership - an element can belong to a set with a degree between 0 and 1.
-
-### **Why is it used?**
-Real-world concepts are not black-and-white. "Tall", "hot", "young" are fuzzy - they have degrees.
-
-### **Key Idea (Intuition)**
-Traditional set: "You're either tall or not tall" (binary)
-Fuzzy set: "You're 70% tall" (gradual)
-
-### **Formal Definition**
-
-```
-Fuzzy Set A on universe U:
-A = {(x, μA(x)) | x ∈ U}
-
-Where:
-μA(x) = membership function
-μA(x) ∈ [0, 1]
-
-Example:
-A = {(x₁, 0.5), (x₂, 0.8), (x₃, 0.2)}
-```
-
-### **Discrete Representation**
-
-```
-A = μ₁/x₁ + μ₂/x₂ + μ₃/x₃ + ...
-
-Example:
-A = 0.5/x₁ + 0.8/x₂ + 0.2/x₃
-
-Note: "/" means "membership of", not division!
-      "+" means "and", not addition!
-```
-
-### **Three Basic Features (MEMORIZE!)**
-
-```
-1. CORE: Region where μA(x) = 1
-   - Full membership
-   - Complete belonging
-   
-2. SUPPORT: Region where μA(x) > 0
-   - Possible membership
-   - Any degree of belonging
-   
-3. BOUNDARY: Region where 0 < μA(x) < 1
-   - Partial membership
-   - Gradual transition
-```
-
-### **Diagram to Draw**
-
-```
-MEMBERSHIP FUNCTION:
-
-μ(x)
-1.0 |    ___________  ← CORE (μ = 1)
-    |   /           \
-0.5 |  /             \ ← BOUNDARY (0 < μ < 1)
-    | /               \
-0.0 |/                 \_____ ← SUPPORT (μ > 0)
-    |___________________
-         Age (years)
-    
-    Young → Middle → Old
-```
-
-### **Perfect Exam Answer (3 marks - Core/Support/Boundary)**
-1. Core(A) = {x | μA(x) = 1}
-2. Support(A) = {x | μA(x) > 0}
-3. Boundary(A) = {x | 0 < μA(x) < 1}
-4. Core may be empty for some fuzzy sets
-5. Support can be finite or continuous interval
-6. Boundary region is most important for soft transitions
-
-### **Memory Trick**
-**CSB** = **C**ore (1), **S**upport (>0), **B**oundary (between)
+How to use this file:
+1. Write formula first, then define each symbol.
+2. For numericals, compute in a table and show each intermediate value.
+3. For long answers, follow definition -> formula -> procedure -> worked result -> conclusion.
 
 ---
 
-## 🔥 TOPIC 2: PLOTTING MEMBERSHIP FUNCTIONS
+## Topic 1: Fuzzy Set Basics and Membership Functions
 
-### **Common Shapes**
+### Definition
+A fuzzy set assigns each element a membership value between 0 and 1.
 
-#### **1. Triangular**
-```
-μ(x)
-1.0 |     /\
-    |    /  \
-    |   /    \
-0.0 |__/______\__
-    a   b    c
-```
+$$
+A = \{(x,\mu_A(x))\mid x\in U,\;\mu_A(x)\in[0,1]\}
+$$
 
-#### **2. Trapezoidal**
-```
-μ(x)
-1.0 |    ____
-    |   /    \
-    |  /      \
-0.0 |_/________\__
-    a  b    c  d
-```
+Term meaning:
+- U: universe of discourse
+- x: element in universe
+- mu_A(x): degree of belonging of x in set A
 
-#### **3. Gaussian**
-```
-μ(x)
-1.0 |     ___
-    |   /     \
-    |  /       \
-0.0 |_/         \__
-```
+### Core, support, boundary
 
-### **Example: Age of People**
+| Feature | Mathematical condition | Meaning |
+|---|---|---|
+| Core(A) | mu_A(x)=1 | Full membership |
+| Support(A) | mu_A(x)>0 | Belongs at least partially |
+| Boundary(A) | 0<mu_A(x)<1 | Transition region |
 
-**Universe**: [0, 100] years
+### Diagram (draw-ready)
 
-**Five Categories:**
-1. Very Young: 0-20 years
-2. Young: 15-35 years
-3. Middle-aged: 30-55 years
-4. Old: 50-75 years
-5. Very Old: 70-100 years
-
-**Diagram to Draw:**
-
-```
-μ(x)
-1.0 |  /\    /\    /\    /\    /\
-    | /  \  /  \  /  \  /  \  /  \
-0.5 |/    \/    \/    \/    \/    \
-    |                                \
-0.0 |__________________________________
-    0   20  35  55  75  100 (years)
-    VY   Y   M   O   VO
-
-VY = Very Young
-Y = Young
-M = Middle-aged
-O = Old
-VO = Very Old
+```text
+mu(x)
+1.0 |        _________  <- Core
+    |       /         \
+    |      /           \ <- Boundary
+0.0 +-----/-------------\---------------> x
+         <----- Support ----->
 ```
 
-### **Example: Liquid Level in Tank**
-
-**Universe**: [0, 100] units
-
-**Five Categories:**
-1. Very Small: 0-15
-2. Small: 10-35
-3. Empty: 0-20
-4. Full: 70-100
-5. Very Full: 85-100
-
-**Key Points:**
-- Overlapping regions show gradual transition
-- Peak = maximum membership (1.0)
-- Edges = zero membership (0.0)
-
-### **Perfect Exam Answer (5 marks - Plotting)**
-1. Define universe, for example U=[0,80] years
-2. Choose five overlapping fuzzy labels
-3. Use triangular/trapezoidal shapes for smooth transition
-4. Ensure neighboring sets overlap to model gradual change
-5. Peak points represent strongest membership for each label
-6. Final plot must cover whole universe without large gaps
-7. Label all axes and regions clearly
-
-### **Memory Trick**
-**PLOT** = **P**eaks at 1, **L**abels clear, **O**verlap smooth, **T**ransitions gradual
-
----
-
-## 🔥 TOPIC 3: FUZZY SET OPERATIONS
-
-### **Basic Operations (MEMORIZE FORMULAS!)**
-
-#### **1. Union (OR)**
-```
-μA∪B(x) = max(μA(x), μB(x))
-
-Example:
-A = {0.5, 0.3, 0.8}
-B = {0.4, 0.6, 0.5}
-A∪B = {0.5, 0.6, 0.8}
-      ↑    ↑    ↑
-     max  max  max
-```
-
-#### **2. Intersection (AND)**
-```
-μA∩B(x) = min(μA(x), μB(x))
-
-Example:
-A = {0.5, 0.3, 0.8}
-B = {0.4, 0.6, 0.5}
-A∩B = {0.4, 0.3, 0.5}
-      ↑    ↑    ↑
-     min  min  min
-```
-
-#### **3. Complement (NOT)**
-```
-μĀ(x) = 1 - μA(x)
-
-Example:
-A = {0.5, 0.3, 0.8}
-Ā = {0.5, 0.7, 0.2}
-     ↑    ↑    ↑
-   1-0.5 1-0.3 1-0.8
-```
-
-### **Advanced Operations (HIGH SCORING!)**
-
-#### **4. Algebraic Sum**
-```
-μA⊕B(x) = μA(x) + μB(x) - μA(x)×μB(x)
-
-Example:
-A = 0.5, B = 0.4
-A⊕B = 0.5 + 0.4 - (0.5×0.4)
-    = 0.9 - 0.2
-    = 0.7
-```
-
-#### **5. Algebraic Product**
-```
-μA⊙B(x) = μA(x) × μB(x)
-
-Example:
-A = 0.5, B = 0.4
-A⊙B = 0.5 × 0.4 = 0.2
-```
-
-#### **6. Bounded Sum**
-```
-μA⊞B(x) = min(1, μA(x) + μB(x))
-
-Example:
-A = 0.7, B = 0.6
-A⊞B = min(1, 0.7+0.6)
-    = min(1, 1.3)
-    = 1.0
-```
-
-#### **7. Bounded Difference**
-```
-μA⊟B(x) = max(0, μA(x) - μB(x))
-
-Example:
-A = 0.5, B = 0.7
-A⊟B = max(0, 0.5-0.7)
-    = max(0, -0.2)
-    = 0
-```
-
-### **Complete Example (EXAM PATTERN)**
-
-**Given:**
-```
-A = 1/1 + 0.5/2 + 0.3/3 + 0.2/4
-B = 0.5/1 + 0.7/2 + 0.2/3 + 0.4/4
-```
-
-**Find:** All operations
-
-**Solution Table:**
-
-| Element | μA | μB | Union | Intersect | Alg Sum | Alg Prod | Bound Sum | Bound Diff |
-|---------|----|----|-------|-----------|---------|----------|-----------|------------|
-| 1 | 1.0 | 0.5 | 1.0 | 0.5 | 1.0 | 0.5 | 1.0 | 0.5 |
-| 2 | 0.5 | 0.7 | 0.7 | 0.5 | 0.85 | 0.35 | 1.0 | 0.0 |
-| 3 | 0.3 | 0.2 | 0.3 | 0.2 | 0.44 | 0.06 | 0.5 | 0.1 |
-| 4 | 0.2 | 0.4 | 0.4 | 0.2 | 0.52 | 0.08 | 0.6 | 0.0 |
-
-**Calculations for element 2:**
-- Union: max(0.5, 0.7) = 0.7
-- Intersection: min(0.5, 0.7) = 0.5
-- Algebraic Sum: 0.5 + 0.7 - (0.5×0.7) = 1.2 - 0.35 = 0.85
-- Algebraic Product: 0.5 × 0.7 = 0.35
-- Bounded Sum: min(1, 0.5+0.7) = min(1, 1.2) = 1.0
-- Bounded Difference: max(0, 0.5-0.7) = max(0, -0.2) = 0.0
-
-### **Perfect Exam Answer (6 marks - Operations)**
-1. Write all given membership values in tabular form
-2. State algebraic sum formula a+b-ab
-3. Compute algebraic sum element by element
-4. State algebraic product formula ab
-5. Compute algebraic product element by element
-6. State bounded sum formula min(1,a+b)
-7. Compute bounded sum element by element
-8. State bounded difference formula max(0,a-b)
-9. Compute bounded difference element by element
-10. Present final four resulting fuzzy sets clearly
-
-### **Memory Trick**
-**Operations**: **U**nion=**MAX**, **I**ntersection=**MIN**, **C**omplement=**1-x**
-**ASAP**: **A**lgebraic **S**um (a+b-ab), **A**lgebraic **P**roduct (ab)
-**BB**: **B**ounded sum (min), **B**ounded diff (max)
-
----
-
-## 🔥 TOPIC 4: FUZZY RELATIONS & COMPOSITION
-
-### **What is it?** (1 line)
-A fuzzy relation shows the degree of association between elements of two sets.
-
-### **Cartesian Product**
-
-```
-For fuzzy sets A on X and B on Y:
-R = A × B
-
-μR(x,y) = min(μA(x), μB(y))
-```
-
-**Example:**
-```
-A = 0.6/x₁ + 0.8/x₂
-B = 0.5/y₁ + 0.7/y₂
-
-R = A × B:
-       y₁   y₂
-x₁  | 0.5  0.6 |  ← min(0.6, 0.5) and min(0.6, 0.7)
-x₂  | 0.5  0.7 |  ← min(0.8, 0.5) and min(0.8, 0.7)
-```
-
-### **Composition Operations**
-
-#### **1. Max-Min Composition**
-
-```
-For R(X×Y) and S(Y×Z):
-T = R ∘ S
-
-μT(x,z) = max[min(μR(x,y), μS(y,z))]
-          y∈Y
-
-Process:
-1. For each (x,z) pair
-2. Take min of R and S for each y
-3. Take max of all those mins
-```
-
-**Example:**
-```
-R (2×2):          S (2×3):
-    y₁  y₂           z₁  z₂  z₃
-x₁ [0.6 0.3]     y₁ [1.0 0.5 0.3]
-x₂ [0.2 0.4]     y₂ [0.8 0.4 0.7]
-
-T = R ∘ S (2×3):
-
-T₁₁ (x₁,z₁):
-  y₁: min(0.6, 1.0) = 0.6
-  y₂: min(0.3, 0.8) = 0.3
-  max(0.6, 0.3) = 0.6 ✓
-
-T₁₂ (x₁,z₂):
-  y₁: min(0.6, 0.5) = 0.5
-  y₂: min(0.3, 0.4) = 0.3
-  max(0.5, 0.3) = 0.5 ✓
-
-Continue for all cells...
-
-Final T:
-    z₁  z₂  z₃
-x₁ [0.6 0.5 0.3]
-x₂ [0.4 0.4 0.4]
-```
-
-#### **2. Max-Product Composition**
-
-```
-μT(x,z) = max[μR(x,y) × μS(y,z)]
-          y∈Y
-
-Process:
-1. For each (x,z) pair
-2. Multiply R and S for each y
-3. Take max of all products
-```
-
-**Example (same R and S):**
-```
-T₁₁ (x₁,z₁):
-  y₁: 0.6 × 1.0 = 0.6
-  y₂: 0.3 × 0.8 = 0.24
-  max(0.6, 0.24) = 0.6 ✓
-
-T₁₂ (x₁,z₂):
-  y₁: 0.6 × 0.5 = 0.3
-  y₂: 0.3 × 0.4 = 0.12
-  max(0.3, 0.12) = 0.3 ✓
-
-Final T:
-    z₁   z₂   z₃
-x₁ [0.6  0.3  0.21]
-x₂ [0.32 0.16 0.28]
-```
-
-### **Perfect Exam Answer (9 marks - Composition)**
-1. Write given relation matrices R and S
-2. Verify compatibility of inner dimension
-3. State max-min formula explicitly
-4. Compute one cell of max-min step by step
-5. Compute remaining max-min cells and form matrix
-6. State max-product formula explicitly
-7. Compute one cell of max-product step by step
-8. Compute remaining max-product cells and form matrix
-9. Compare values from both methods
-10. Note: max-product reduces values more when memberships are small
-11. Verify all output memberships lie in [0,1]
-12. Mention computational flow as matrix operations
-13. Provide final two matrices clearly labeled
-14. Conclusion: choice affects relation strength in inference
-
-### **Memory Trick**
-**Max-Min**: **M**aximum of **M**inimums
-**Max-Product**: **M**aximum of **P**roducts
-
----
-
-## 🔥 TOPIC 5: α-CUTS (LAMBDA CUTS)
-
-### **What is it?** (1 line)
-An α-cut is a crisp set containing all elements whose membership is at least α.
-
-### **Definition**
-
-```
-Aα = {x ∈ U | μA(x) ≥ α}
-
-Strong α-cut: μA(x) > α (strict inequality)
-Weak α-cut: μA(x) ≥ α (includes equality)
-```
-
-### **Example**
-
-**Given:**
-```
-A = 1/a + 0.9/b + 0.6/c + 0.3/d + 0.1/e
-```
-
-**Find α-cuts:**
-
-```
-α = 1:    A₁ = {a}           (only μ = 1)
-α = 0.9:  A₀.₉ = {a, b}      (μ ≥ 0.9)
-α = 0.6:  A₀.₆ = {a, b, c}   (μ ≥ 0.6)
-α = 0⁺:   A₀₊ = {a,b,c,d,e}  (μ > 0, all positive)
-α = 0:    A₀ = {a,b,c,d,e}   (entire universe)
-```
-
-### **Properties of α-cuts**
-1. If α₁ < α₂, then Aα₂ ⊆ Aα₁ (smaller as α increases)
-2. A₀ = Support of A
-3. A₁ = Core of A
-4. (A ∪ B)α = Aα ∪ Bα
-5. (A ∩ B)α = Aα ∩ Bα
-
-### **Perfect Exam Answer (5 marks - α-cuts)**
-1. Write membership values in table form
-2. Use cut rule Aα = {x | μA(x) ≥ α}
-3. Find set at α=1 (fully belonging elements)
-4. Find set at α=0.9
-5. Find set at α=0.6
-6. Find weak positive cut 0⁺ (all with membership >0)
-7. Find α=0 cut (entire universe)
-8. Present each cut set clearly
-
-### **Memory Trick**
-**α-cut** = **α**bove the **cut** threshold
-
----
-
-## 🔥 TOPIC 6: DEFUZZIFICATION (VERY IMPORTANT!)
-
-### **What is it?** (1 line)
-Converting fuzzy output back to a single crisp value for decision-making.
-
-### **Why is it needed?**
-Fuzzy systems give fuzzy outputs, but real-world actions need crisp values (e.g., "set temperature to 25°C", not "somewhat warm").
-
-### **Common Methods (MEMORIZE ALL!)**
-
-#### **1. Max-Membership (Height Method)**
-
-```
-Select the value with highest membership
-
-Example:
-Output = {0.3/20, 0.8/40, 0.5/60}
-Crisp value = 40 (highest μ = 0.8)
-
-Problem: Ignores other values
-```
-
-#### **2. Centroid (Center of Area)**
-
-```
-Formula:
-z* = ∫ z·μ(z) dz / ∫ μ(z) dz
-
-Discrete version:
-z* = Σ(zi × μi) / Σμi
-
-Example:
-Output = {0.2/20, 0.5/40, 0.3/60}
-z* = (20×0.2 + 40×0.5 + 60×0.3) / (0.2+0.5+0.3)
-   = (4 + 20 + 18) / 1.0
-   = 42
-
-Most commonly used method!
-```
-
-#### **3. Weighted Average**
-
-```
-Formula (for singleton outputs):
-z* = Σ(μi × zi) / Σμi
-
-Example:
-Rule outputs: z₁=20, z₂=40, z₃=60
-Firing strengths: μ₁=0.2, μ₂=0.5, μ₃=0.3
-
-z* = (0.2×20 + 0.5×40 + 0.3×60) / (0.2+0.5+0.3)
-   = 42
-
-Similar to centroid but for discrete singletons
-```
-
-#### **4. Center of Sums (COS)**
-
-```
-For multiple overlapping output sets:
-z* = Σ(Ai × ci) / ΣAi
-
-Where:
-Ai = area of output set i
-ci = centroid of output set i
-
-Example:
-Set 1: Area=10, Center=20
-Set 2: Area=15, Center=40
-Set 3: Area=8, Center=60
-
-z* = (10×20 + 15×40 + 8×60) / (10+15+8)
-   = (200 + 600 + 480) / 33
-   = 1280 / 33
-   = 38.8
-```
-
-#### **5. First of Maxima (FOM)**
-
-```
-When multiple points have max membership:
-Select the smallest value
-
-Example:
-Output = {0.5/20, 0.8/40, 0.8/50, 0.3/60}
-Max μ = 0.8 at both 40 and 50
-FOM = 40 (first/smallest)
-```
-
-### **Comparison Table**
-
-| Method | When to Use | Advantage | Disadvantage |
-|--------|-------------|-----------|--------------|
-| **Max-Membership** | Quick decisions | Fast | Ignores shape |
-| **Centroid** | General use | Balanced | Computationally heavy |
-| **Weighted Average** | Singleton outputs | Simple | Only for singletons |
-| **Center of Sums** | Multiple sets | Considers all | Complex calculation |
-| **First of Maxima** | Multiple peaks | Consistent | Arbitrary choice |
-
-### **Complete Example (EXAM PATTERN)**
-
-**Given:**
-```
-Fuzzy output from FIS:
-P (Pass): μ=0.2, center=40
-F (Fair): μ=0.5, center=60
-G (Good): μ=0.3, center=80
-```
-
-**Find:** Defuzzified value using Weighted Average
-
-**Solution:**
-```
-z* = Σ(μi × zi) / Σμi
-   = (0.2×40 + 0.5×60 + 0.3×80) / (0.2+0.5+0.3)
-   = (8 + 30 + 24) / 1.0
-   = 62
-
-Answer: 62 marks (crisp value)
-```
-
-### **Perfect Exam Answer (8 marks - Defuzzification Methods)**
-1. Define defuzzification as fuzzy-to-crisp transformation
-2. Explain max-membership principle and when it is used
-3. Explain centroid method with integral formula
-4. Explain weighted average with discrete formula
-5. Explain center of sums using area and centroid
-6. Mention first-of-maxima if multiple peaks exist
-7. State practical preference: centroid is smooth and common
-8. Relate method choice to control precision and cost
-9. Provide example calculation for at least one method
-10. Conclude with one crisp-value extraction workflow
-
-### **Memory Trick**
-**DEFUZZ** = **D**ecide **E**xact **F**rom **U**ncertain **Z**one **Z**one
-**5 Methods**: **M**ax, **C**entroid, **W**eighted, **C**OS, **F**OM
-
----
-
-## 📝 NUMERICAL PROBLEM TEMPLATES
-
-### **Template 1: Fuzzy Operations**
-
-```
-GIVEN: Two fuzzy sets A and B
-
-SOLUTION FORMAT:
-
-Table:
-| Element | μA | μB | Union | Intersect | Ā | B̄ | Alg Sum | Alg Prod | Bound Sum | Bound Diff |
-|---------|----|----|-------|-----------|---|---|---------|----------|-----------|------------|
-| x₁      |    |    |       |           |   |   |         |          |           |            |
-| x₂      |    |    |       |           |   |   |         |          |           |            |
-
-Show one complete calculation for each operation
-Present final sets clearly
-```
-
-### **Template 2: Composition**
-
-```
-GIVEN: R (m×n) and S (n×p)
-
-SOLUTION FORMAT:
-
-Max-Min Composition:
-Show calculation for T₁₁:
-  For each y: min(R₁y, Sy₁)
-  Take max of all mins
-  
-Complete matrix T (m×p)
-
-Max-Product Composition:
-Show calculation for T₁₁:
-  For each y: R₁y × Sy₁
-  Take max of all products
-  
-Complete matrix T (m×p)
-```
-
-### **Template 3: Defuzzification**
-
-```
-GIVEN: Fuzzy output set or rule outputs
-
-SOLUTION FORMAT:
-
-Method: Weighted Average (or Centroid)
-
-Formula: z* = Σ(μi × zi) / Σμi
-
-Calculation:
-Numerator = μ₁×z₁ + μ₂×z₂ + ... = ?
-Denominator = μ₁ + μ₂ + ... = ?
-z* = Numerator / Denominator = ?
-
-Answer: Crisp value = ?
+### Membership function shapes
+1. Triangular
+2. Trapezoidal
+3. Gaussian
+
+```text
+Triangular:         Trapezoidal:
+mu                  mu
+1.0   /\            1.0   ____
+     /  \                /    \
+0.0_/____\__        0.0_/______\__
+     a b c              a b  c d
 ```
 
 ---
 
-## 📝 QUICK REVISION CHECKLIST
+## Topic 2: Fuzzy Operations (Basic + Extended)
 
-### **Can you answer these in 30 seconds each?**
-- [ ] What are core, support, and boundary?
-- [ ] Formula for union and intersection?
-- [ ] What is algebraic sum formula?
-- [ ] What is max-min composition?
-- [ ] What is α-cut?
-- [ ] Name 3 defuzzification methods
+### Basic operations
 
-### **Can you solve these in 3 minutes?**
-- [ ] Union and intersection of two fuzzy sets
-- [ ] One cell of max-min composition
-- [ ] Weighted average defuzzification
+$$
+\mu_{A\cup B}(x)=\max(\mu_A(x),\mu_B(x))
+$$
 
-### **Can you draw these in 2 minutes?**
-- [ ] Membership function for "Age"
-- [ ] Triangular membership function
-- [ ] Core/Support/Boundary diagram
+$$
+\mu_{A\cap B}(x)=\min(\mu_A(x),\mu_B(x))
+$$
 
----
+$$
+\mu_{\bar A}(x)=1-\mu_A(x)
+$$
 
-## 🎯 EXAM STRATEGY FOR MODULE 3
+### Extended operations
 
-### **Part A Questions (3 marks each)**
-- Core/Support/Boundary: Define all 3 (6 points)
-- Plot membership: Draw + label (6 points)
-- Operations: List formulas (6 points)
+$$
+\text{Algebraic Sum}=a+b-ab
+$$
 
-### **Part B Questions (14 marks)**
-- **High Scoring**: Operations (6) + Defuzzification (8)
-- **Alternative**: Composition (9) + α-cuts (5)
+$$
+\text{Algebraic Product}=ab
+$$
 
-### **Time Management**
-- Part A (2-3 questions): 6-9 minutes
-- Part B (1 question): 20 minutes
-  - Numerical: 15 minutes (show table!)
-  - Theory: 5 minutes
+$$
+\text{Bounded Sum}=\min(1,a+b)
+$$
 
-### **Scoring Tips**
-1. **For operations**: Show formula first, then calculate
-2. **For composition**: Show one complete cell calculation
-3. **For defuzzification**: Always show numerator and denominator separately
-4. **For plots**: Label axes, peaks, and regions
+$$
+\text{Bounded Difference}=\max(0,a-b)
+$$
 
----
+### Full worked numerical (all operations shown)
 
-## 🎓 FORMULA SHEET (WRITE ON EXAM PAPER FIRST!)
+Given:
+- A = {0.2/x1, 0.7/x2, 0.9/x3}
+- B = {0.6/x1, 0.4/x2, 0.5/x3}
 
-```
-BASIC OPERATIONS:
-Union: max(μA, μB)
-Intersection: min(μA, μB)
-Complement: 1 - μA
+Step table:
 
-ADVANCED OPERATIONS:
-Algebraic Sum: a + b - ab
-Algebraic Product: ab
-Bounded Sum: min(1, a+b)
-Bounded Difference: max(0, a-b)
+| x | a=mu_A | b=mu_B | max(a,b) | min(a,b) | 1-a | a+b-ab | ab | min(1,a+b) | max(0,a-b) |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| x1 | 0.2 | 0.6 | 0.6 | 0.2 | 0.8 | 0.68 | 0.12 | 0.8 | 0.0 |
+| x2 | 0.7 | 0.4 | 0.7 | 0.4 | 0.3 | 0.82 | 0.28 | 1.0 | 0.3 |
+| x3 | 0.9 | 0.5 | 0.9 | 0.5 | 0.1 | 0.95 | 0.45 | 1.0 | 0.4 |
 
-COMPOSITION:
-Max-Min: max[min(R, S)]
-Max-Product: max[R × S]
-
-DEFUZZIFICATION:
-Weighted Average: Σ(μi×zi) / Σμi
-Centroid: ∫z·μ(z)dz / ∫μ(z)dz
-
-α-CUT:
-Aα = {x | μA(x) ≥ α}
-```
+Final sets:
+1. A union B = {0.6/x1, 0.7/x2, 0.9/x3}
+2. A intersection B = {0.2/x1, 0.4/x2, 0.5/x3}
+3. A' = {0.8/x1, 0.3/x2, 0.1/x3}
+4. Algebraic sum = {0.68/x1, 0.82/x2, 0.95/x3}
+5. Algebraic product = {0.12/x1, 0.28/x2, 0.45/x3}
+6. Bounded sum = {0.8/x1, 1.0/x2, 1.0/x3}
+7. Bounded difference A-B = {0.0/x1, 0.3/x2, 0.4/x3}
 
 ---
 
-**✅ MODULE 3 COMPLETE! Now go to STEP 5 → PYQ Attack Mode** 🚀
+## Topic 3: Fuzzy Relations and Composition
+
+### Relation definition
+A fuzzy relation R on XxY assigns a membership degree to each ordered pair (x,y).
+
+### Composition formulas
+
+Max-min composition:
+
+$$
+(R\circ P)_{ik}=\max_j\min(R_{ij},P_{jk})
+$$
+
+Max-product composition:
+
+$$
+(R\circ P)_{ik}=\max_j(R_{ij}P_{jk})
+$$
+
+### Worked max-min composition (every step)
+
+Given:
+
+$$
+R=
+\begin{bmatrix}
+0.2 & 0.7 \\
+0.9 & 0.4
+\end{bmatrix},
+\quad
+P=
+\begin{bmatrix}
+0.6 & 0.5 \\
+0.3 & 0.8
+\end{bmatrix}
+$$
+
+Compute each cell of Q=R o P:
+
+1. Q11 = max(min(0.2,0.6), min(0.7,0.3))
+2. Q11 = max(0.2,0.3) = 0.3
+
+3. Q12 = max(min(0.2,0.5), min(0.7,0.8))
+4. Q12 = max(0.2,0.7) = 0.7
+
+5. Q21 = max(min(0.9,0.6), min(0.4,0.3))
+6. Q21 = max(0.6,0.3) = 0.6
+
+7. Q22 = max(min(0.9,0.5), min(0.4,0.8))
+8. Q22 = max(0.5,0.4) = 0.5
+
+Final composition matrix:
+
+$$
+Q=
+\begin{bmatrix}
+0.3 & 0.7 \\
+0.6 & 0.5
+\end{bmatrix}
+$$
+
+---
+
+## Topic 4: Alpha-cut and Lambda-cut
+
+### Definitions
+- Alpha-cut A_alpha = {x | mu_A(x) >= alpha}
+- Strong alpha-cut A_alpha+ = {x | mu_A(x) > alpha}
+- Lambda-cut on relation matrix converts to crisp 0/1 matrix by threshold.
+
+### Worked alpha-cut example
+
+Given:
+A = {0.2/x1, 0.6/x2, 0.9/x3, 1.0/x4}
+
+1. A_1.0 = {x4}
+2. A_0.9 = {x3, x4}
+3. A_0.6 = {x2, x3, x4}
+4. A_0+ = {x1, x2, x3, x4}
+5. A_0 = {x1, x2, x3, x4}
+
+### Worked lambda-cut on matrix
+
+Given relation:
+
+$$
+M=
+\begin{bmatrix}
+0.2 & 0.9 & 0.0 \\
+0.6 & 0.4 & 0.1
+\end{bmatrix}
+$$
+
+For lambda=0.9:
+
+$$
+M_{0.9}=
+\begin{bmatrix}
+0 & 1 & 0 \\
+0 & 0 & 0
+\end{bmatrix}
+$$
+
+For lambda=0+:
+
+$$
+M_{0+}=
+\begin{bmatrix}
+1 & 1 & 0 \\
+1 & 1 & 1
+\end{bmatrix}
+$$
+
+---
+
+## Topic 5: Defuzzification (full numerical)
+
+### Purpose
+Convert fuzzy output into one crisp value for final decision/control.
+
+### Common methods
+1. Max-membership
+2. Centroid
+3. Weighted average
+4. Center of sums
+5. First of maxima
+
+### Weighted average formula
+
+$$
+z^*=\frac{\sum_i \mu_i z_i}{\sum_i \mu_i}
+$$
+
+Term meaning:
+- z_i: representative crisp value for rule/output set i
+- mu_i: firing strength or membership weight
+
+### Center of sums formula
+
+$$
+z^*=\frac{\sum_i A_i c_i}{\sum_i A_i}
+$$
+
+Term meaning:
+- A_i: area of i-th output fuzzy set
+- c_i: center of i-th output fuzzy set area
+
+### Worked numerical
+
+Given output terms:
+- Poor(P): z1=30, mu1=0.2
+- Fair(F): z2=50, mu2=0.5
+- Good(G): z3=70, mu3=0.7
+- VeryGood(VG): z4=90, mu4=0.4
+
+Weighted average steps:
+1. Numerator = 0.2*30 + 0.5*50 + 0.7*70 + 0.4*90
+2. Numerator = 6 + 25 + 49 + 36 = 116
+3. Denominator = 0.2 + 0.5 + 0.7 + 0.4 = 1.8
+4. z* = 116/1.8 = 64.44
+
+Center of sums example (assume areas/centers):
+- A1=2, c1=30
+- A2=5, c2=50
+- A3=7, c3=70
+- A4=4, c4=90
+
+1. Numerator = 2*30 + 5*50 + 7*70 + 4*90
+2. Numerator = 60 + 250 + 490 + 360 = 1160
+3. Denominator = 2 + 5 + 7 + 4 = 18
+4. z* = 1160/18 = 64.44
+
+---
+
+## PYQ Bottom Section (deduplicated answer drill)
+
+### Part A quick set
+1. Plot membership function for age of people.
+2. Explain core, support, boundary.
+3. Find union/intersection/complement for given sets.
+
+### Part B long set
+1. Compute algebraic sum/product and bounded operations.
+2. Find alpha-cuts/lambda-cuts for given data.
+3. Build relations and compute max-min composition.
+4. Defuzzify using weighted average and center of sums.
+
+14-mark answer sequence:
+1. Definition
+2. Formula with symbol meanings
+3. Given data table/matrix
+4. Row/element-wise calculations
+5. Final set/matrix/crisp value
+6. One-line interpretation
