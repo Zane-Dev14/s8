@@ -1,0 +1,192 @@
+{
+  "Module 1": [
+    {
+      "topic": "data warehouse",
+      "count": 10
+    },
+    {
+      "topic": "olap",
+      "count": 10
+    },
+    {
+      "topic": "oltp",
+      "count": 5
+    },
+    {
+      "topic": "snowflake",
+      "count": 4
+    },
+    {
+      "topic": "multidimensional",
+      "count": 4
+    },
+    {
+      "topic": "star schema",
+      "count": 3
+    },
+    {
+      "topic": "rolap",
+      "count": 2
+    },
+    {
+      "topic": "molap",
+      "count": 2
+    },
+    {
+      "topic": "holap",
+      "count": 2
+    }
+  ],
+  "Module 2": [
+    {
+      "topic": "normalization",
+      "count": 6
+    },
+    {
+      "topic": "sampling",
+      "count": 4
+    },
+    {
+      "topic": "discretization",
+      "count": 4
+    },
+    {
+      "topic": "numerosity",
+      "count": 4
+    },
+    {
+      "topic": "bin",
+      "count": 1
+    },
+    {
+      "topic": "preprocessing",
+      "count": 1
+    },
+    {
+      "topic": "pca",
+      "count": 1
+    },
+    {
+      "topic": "missing data",
+      "count": 1
+    }
+  ],
+  "Module 3": [
+    {
+      "topic": "sliq",
+      "count": 6
+    },
+    {
+      "topic": "clustering",
+      "count": 6
+    },
+    {
+      "topic": "decision tree",
+      "count": 4
+    },
+    {
+      "topic": "gain ratio",
+      "count": 3
+    },
+    {
+      "topic": "confusion matrix",
+      "count": 3
+    },
+    {
+      "topic": "precision",
+      "count": 3
+    },
+    {
+      "topic": "recall",
+      "count": 3
+    },
+    {
+      "topic": "dbscan",
+      "count": 3
+    },
+    {
+      "topic": "pam",
+      "count": 2
+    },
+    {
+      "topic": "id3",
+      "count": 1
+    }
+  ],
+  "Module 4": [
+    {
+      "topic": "apriori",
+      "count": 9
+    },
+    {
+      "topic": "association rule",
+      "count": 5
+    },
+    {
+      "topic": "pincer",
+      "count": 3
+    },
+    {
+      "topic": "fp growth",
+      "count": 3
+    },
+    {
+      "topic": "dynamic itemset",
+      "count": 3
+    },
+    {
+      "topic": "support",
+      "count": 2
+    },
+    {
+      "topic": "confidence",
+      "count": 1
+    },
+    {
+      "topic": "partition algorithm",
+      "count": 1
+    },
+    {
+      "topic": "market basket",
+      "count": 1
+    }
+  ],
+  "Module 5": [
+    {
+      "topic": "web usage",
+      "count": 11
+    },
+    {
+      "topic": "web structure",
+      "count": 9
+    },
+    {
+      "topic": "web content",
+      "count": 7
+    },
+    {
+      "topic": "text retrieval",
+      "count": 6
+    },
+    {
+      "topic": "focused crawling",
+      "count": 3
+    },
+    {
+      "topic": "text mining",
+      "count": 3
+    },
+    {
+      "topic": "clever",
+      "count": 2
+    },
+    {
+      "topic": "web mining",
+      "count": 1
+    },
+    {
+      "topic": "hits",
+      "count": 1
+    }
+  ]
+}

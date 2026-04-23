@@ -1,543 +1,281 @@
-# Blockchain Technologies PYQ Solved Master (All Modules)
+# Blockchain Technologies PYQ Master (Strict Exam Writing Edition)
 
 Subject: CST428 Blockchain Technologies
 
-Built from:
+Source mapping:
 - BCT/ocr_work/qp/questions_extracted.json
-- BCT/STEP2_Module1_CrashGuide.md
-- BCT/STEP3_Module2_CrashGuide.md
-- BCT/STEP4_Module3_CrashGuide.md
-- BCT/STEP5_Module4_CrashGuide.md
-- BCT/STEP6_Module5_CrashGuide.md
-
-Goal:
-- Complete high-quality answer bank for the hardest subject
-- 3-mark rapid answers + 14-mark structured answers
-- Diagrams/formulas/code where required
+- BCT/ocr_work/qp/CST428-QP_May_2024.txt
+- BCT/ocr_work/qp/June_2023_Regular.txt
+- BCT/ocr_work/qp/October_2023_Supplementary.txt
 
 ---
 
-## How To Score with This File
+## SECTION 1: Unique Questions Module-Wise (No Answers)
 
-For every 14-mark answer use:
-1. Definition/context
-2. Core architecture or formula
-3. Ordered steps
-4. Neat diagram
-5. Use-case/security note
-6. Conclusion
+## Module 1
+1. Differentiate symmetric and asymmetric cryptography.
+2. Compare symmetric and asymmetric key cryptography.
+3. Explain how secure hash functions strengthen blockchain.
+4. What are the benefits of Merkle trees?
+5. Describe distributed hash tables and how they work.
+6. What are the major components of block header?
 
-For coding questions:
-1. State variables
-2. Constructor/setup (if needed)
-3. Required functions only
-4. require-based checks
-5. Event or getter for visibility
+## Module 2
+1. Define blockchain and elaborate key terminologies.
+2. Explain ecosystem of decentralization in blockchain.
+3. Compare centralized and decentralized systems.
+4. Explain methods to achieve decentralization.
+5. Explain layered architecture of blockchain with neat diagram.
+6. Explain benefits, features, and limitations of blockchain.
 
----
+## Module 3
+1. Describe two main categories of consensus mechanisms.
+2. Explain need for consensus algorithms in blockchain.
+3. Explain Paxos for crash fault tolerance.
+4. Compare PoW and PoS.
+5. Explain working of PoW consensus mechanism.
+6. Explain steps in mining and role of miner.
+7. Explain Bitcoin transaction validation process.
+8. Explain payment flow in Bitcoin from user perspective.
+9. Explain transaction structure, UTXO, and its verification role.
+10. If Byzantine nodes f=6, find minimum PBFT node count.
+11. What is Byzantine Generals problem and relevance?
+12. What is Sybil attack and how Bitcoin mitigates it?
+13. What is a wallet? Explain wallet types.
 
-## Module 1 Solved Answers
+## Module 4
+1. Define smart contract and list its properties.
+2. Explain different types of oracles.
+3. Explain generic data flow from smart contract to oracle.
+4. Explain DApp design and architecture.
+5. Explain blockchain use-cases in government.
+6. Explain blockchain use-case in finance sector.
+7. Explain impact of blockchain on healthcare.
+8. Explain blockchain in supply chain management.
+9. Explain impact of blockchain on AI and cloud ecosystems.
 
-### M1-Q1: Differentiate symmetric and asymmetric cryptography (3 marks)
-
-Answer:
-1. Symmetric uses one shared key; asymmetric uses public/private key pair.
-2. Symmetric is faster; asymmetric is computationally heavier.
-3. Symmetric has key-distribution challenge; asymmetric solves easier public distribution.
-4. Symmetric examples: AES; asymmetric examples: RSA, ECC.
-5. Blockchain systems use both together for practical security-performance balance.
-
----
-
-### M1-Q2: Benefits of Merkle trees (3 marks)
-
-Answer:
-1. Efficient transaction inclusion proof (logarithmic proof size).
-2. Fast integrity verification without downloading full block data.
-3. Tamper evidence: leaf change propagates to root hash change.
-4. Scalable for large transaction sets.
-5. Essential for lightweight/SPV-style verification.
-
----
-
-### M1-Q3: How secure hash functions strengthen blockchain
-
-Answer:
-1. They bind block contents to compact digest values.
-2. They make tampering detectable because changed data changes hash.
-3. They link blocks through previous-hash pointers.
-4. They support Merkle roots for transaction integrity.
-5. Security relies on pre-image and collision resistance.
-
----
-
-### M1-Q4: RSA workflow (short long-answer form)
-
-Steps:
-1. Select primes $p,q$.
-2. Compute $n=pq$.
-3. Compute $\phi(n)=(p-1)(q-1)$.
-4. Select $e$ with $gcd(e,\phi(n))=1$.
-5. Compute $d$ such that $ed\equiv1\ (mod\ \phi(n))$.
-6. Public key $(e,n)$, private key $(d,n)$.
-7. Encrypt: $C=M^e\ mod\ n$.
-8. Decrypt: $M=C^d\ mod\ n$.
+## Module 5
+1. Illustrate role of EVM in Ethereum network.
+2. Explain account types in Ethereum.
+3. Explain Ethereum transaction types.
+4. Explain transaction processing flow in Ethereum.
+5. Explain concept of gas and transaction processing effect.
+6. Show relation between transaction, transaction trie, and block header.
+7. Explain elements present in Ethereum blockchain.
+8. Explain concept of Ethereum world state.
+9. Explain control structures and datatypes in Solidity.
+10. Explain library deployment in Solidity with example.
+11. Write Solidity bank contract (deposit, withdraw, balance).
+12. Write Solidity voting contract.
+13. Write Solidity single string storage contract.
+14. Compare Bitcoin and Ethereum.
 
 ---
 
-## Module 2 Solved Answers
+## SECTION 2: Part A Answers (Exactly 5 Points Each)
 
-### M2-Q1: Define blockchain and key terminologies (3 marks)
+## Q1) Symmetric vs asymmetric cryptography
+1. Symmetric uses one secret key; asymmetric uses public/private key pair.
+2. Symmetric is faster for bulk encryption; asymmetric is slower.
+3. Symmetric has key-distribution challenge; asymmetric simplifies public sharing.
+4. Symmetric is used for data confidentiality; asymmetric for signatures and identity.
+5. Blockchain systems combine both for practical security and performance.
 
-Answer:
-1. Blockchain is a distributed append-only ledger maintained by consensus.
-2. Transaction: state-change request.
-3. Block: validated transaction container.
-4. Previous hash: pointer to prior block.
-5. Nonce: variable used in proof computations.
-6. Merkle root: compact summary of block transactions.
+## Q2) Benefits of Merkle trees
+1. Merkle trees summarize many transactions into one root hash.
+2. Inclusion proofs are short and efficient in logarithmic depth.
+3. Any leaf modification changes root hash and reveals tampering.
+4. Lightweight clients can verify inclusion without full block download.
+5. Merkle roots are stored in block headers to protect transaction integrity.
 
----
+## Q3) Two categories of consensus mechanisms
+1. Proof-based category uses resource competition or stake selection.
+2. Fault-tolerant category uses replica agreement under defined fault model.
+3. Proof-based examples include PoW and PoS style protocols.
+4. Fault-tolerant examples include Paxos-family and PBFT-family protocols.
+5. Both categories target consistent ledger state across distributed nodes.
 
-### M2-Q2: Explain working of blockchain with neat diagram (7 marks)
+## Q4) Centralized vs decentralized features
+1. Centralized systems rely on one authority, decentralized systems share control.
+2. Centralized systems have single-point failure risk, decentralized systems improve resilience.
+3. Centralized trust is institution-based, decentralized trust is protocol-based.
+4. Decentralized systems are typically more censorship resistant.
+5. Decentralized governance and upgrades can be coordination-heavy.
 
-Answer structure:
-1. User creates and signs transaction.
-2. Transaction broadcast over P2P network.
-3. Nodes verify transaction validity.
-4. Valid transactions are grouped into candidate block.
-5. Consensus algorithm selects valid next block.
-6. Block is appended with previous-hash link.
-7. Ledger copy is updated across participating nodes.
+## Q5) Bitcoin transaction validation
+1. Node verifies sender signature authenticity.
+2. Node checks referenced UTXO existence.
+3. Node confirms referenced UTXO is unspent.
+4. Node verifies input amount is at least output amount.
+5. Node validates script conditions before relay or inclusion.
 
-Diagram:
+## Q6) Smart contract properties
+1. Smart contracts execute automatically once conditions are met.
+2. Execution is deterministic across all validating nodes.
+3. On-chain code and outcomes are transparent and auditable.
+4. Historical execution records are tamper resistant.
+5. Intermediary dependency is reduced for rule-based workflows.
 
-```text
-Create TX -> Broadcast -> Validate -> Form Block -> Consensus -> Append -> Replicate
-```
+## Q7) Oracle types
+1. Software oracles fetch digital-source data feeds.
+2. Hardware oracles bridge physical sensor data on-chain.
+3. Inbound oracles move external data into blockchain context.
+4. Outbound oracles trigger external systems from on-chain events.
+5. Decentralized oracle networks reduce single-source trust risk.
 
-Conclusion:
-- This process gives tamper-evident, decentralized agreement without central authority.
+## Q8) EVM role
+1. EVM executes Ethereum smart contract bytecode deterministically.
+2. It meters computation using gas to prevent abuse.
+3. It applies state transitions after successful execution.
+4. It ensures all nodes compute identical contract outcomes.
+5. It enables Ethereum as a programmable blockchain platform.
 
----
+## Q9) Ethereum account types
+1. EOAs are controlled by private keys and can initiate transactions.
+2. Contract accounts are controlled by deployed code execution.
+3. EOAs do not hold executable bytecode.
+4. Contract accounts store code and persistent storage.
+5. EOAs trigger contract functions through signed transactions.
 
-### M2-Q3: Explain layered blockchain architecture (7 marks)
-
-Answer:
-1. Network layer: base communication.
-2. P2P layer: node discovery and propagation.
-3. Cryptography layer: hashing and signatures.
-4. Consensus layer: agreement logic.
-5. Execution layer: transaction and contract execution.
-6. Application layer: user-facing services and DApps.
-
-Diagram:
-
-```text
-Application
-Execution
-Consensus
-Cryptography
-P2P
-Network
-```
-
----
-
-### M2-Q4: Centralized vs decentralized systems
-
-Answer:
-1. Centralized has single authority; decentralized has distributed control.
-2. Centralized has single-point failure; decentralized improves fault tolerance.
-3. Centralized trust is institution-based; decentralized trust is protocol-based.
-4. Decentralized systems are more censorship resistant.
-5. Tradeoff: decentralization can add coordination overhead.
-
----
-
-## Module 3 Solved Answers
-
-### M3-Q1: Need for consensus + CFT/BFT (7 marks)
-
-Answer:
-1. Blockchain needs consensus because no central final authority exists.
-2. Consensus prevents conflicting ledger states and double spend.
-3. CFT handles crash/silent faults.
-4. BFT handles malicious/Byzantine faults.
-5. PoW/PoS style protocols secure open blockchain participation.
-6. PBFT-style protocols provide deterministic fault-tolerant agreement in constrained settings.
+## Q10) Solidity datatypes
+1. Value types include bool, uint, int, address, and fixed-size bytes.
+2. Reference types include arrays, strings, and structs.
+3. Mapping type stores key-value association with hashed lookup.
+4. Storage location semantics affect gas and mutability behavior.
+5. Correct datatype selection improves safety and contract efficiency.
 
 ---
 
-### M3-Q2: Paxos algorithm for crash fault tolerance (7/8 marks)
-
-Roles:
-- Proposer, Acceptor, Learner.
-
-Phases:
-1. Prepare(N): proposer asks acceptors.
-2. Promise: acceptors promise not to accept lower-numbered proposals.
-3. Accept(V): proposer requests acceptance of value.
-4. Learn: majority-accepted value becomes chosen.
-
-Diagram:
-
-```text
-Proposer -> Acceptors : PREPARE
-Acceptors -> Proposer : PROMISE
-Proposer -> Acceptors : ACCEPT
-Acceptors -> Learners : LEARN
-```
-
-Why correct:
-- Majority intersection ensures a single consistent chosen value.
-
----
-
-### M3-Q3: Compare PoW and PoS (7 marks)
-
-| Aspect | PoW | PoS |
-|---|---|---|
-| Leader selection | Hash puzzle winner | Stake-weighted validator selection |
-| Resource base | Computational power | Economic stake |
-| Energy usage | High | Lower |
-| Attack cost | Requires dominant hash power | Requires dominant stake + slashing risk |
-| Hardware dependency | High | Lower |
-
----
-
-### M3-Q4: Bitcoin mining algorithm + role of miner
-
-Answer:
-1. Miner collects pending transactions from mempool.
-2. Miner validates each transaction.
-3. Miner builds block candidate.
-4. Miner iterates nonce until hash meets target.
-5. Successful block is broadcast and verified.
-6. Miner receives reward/fees.
-
-Flowchart:
-
-```text
-Mempool -> Verify -> Build Candidate -> Hash Loop -> Target? -> Broadcast
-```
-
----
-
-### M3-Q5: Bitcoin payment flow from user perspective
-
-Answer:
-1. Sender wallet selects recipient and amount.
-2. Wallet picks spendable UTXOs as inputs.
-3. Transaction outputs created for receiver and change.
-4. Sender signs transaction with private key.
-5. Transaction broadcast to network.
-6. Nodes validate and miners include in block.
-7. Confirmations accumulate for final confidence.
-
----
-
-### M3-Q6: Transaction validation and UTXO use
-
-Validation checklist:
-1. Signature is valid.
-2. Referenced UTXO exists.
-3. Referenced UTXO unspent.
-4. Input value >= output value.
-5. Script checks pass.
-
-UTXO role:
-- UTXOs are spendable outputs; each input consumes prior UTXO references.
-
-Diagram:
-
-```text
-Inputs (prev UTXOs + signatures) -> Transaction Core -> Outputs (recipient + change)
-```
-
----
-
-### M3-Q7: PBFT minimum nodes numerical
-
-Question pattern:
-- If Byzantine nodes $f=6$, find minimum nodes $n$.
-
-Formula:
-$$
-n \ge 3f+1
-$$
-Substitute:
-$$
-n \ge 3(6)+1=19
-$$
-Final answer:
-- Minimum required nodes = 19.
-
----
-
-## Module 4 Solved Answers
-
-### M4-Q1: Define smart contracts and properties (3 marks)
-
-Answer:
-1. Smart contract is blockchain-deployed program logic.
-2. Executes automatically when trigger conditions are met.
-3. Behavior is deterministic and auditable.
-4. Reduces intermediary dependence.
-5. Provides tamper-resistant execution history.
-
----
-
-### M4-Q2: Explain oracle types (3/7 marks)
-
-Types:
-1. Software oracle
-2. Hardware oracle
-3. Inbound oracle
-4. Outbound oracle
-5. Centralized oracle
-6. Decentralized oracle
-
-Key point:
-- Oracles bridge off-chain data to on-chain contract logic.
-
----
-
-### M4-Q3: Generic data flow from smart contract to oracle (7 marks)
-
-Answer:
-1. Contract emits data request.
-2. Oracle nodes fetch requested external data.
-3. Data is validated/normalized.
-4. Multiple responses can be aggregated (often median).
-5. Verified value is posted on-chain.
-6. Contract consumes returned value and executes action.
-
-Diagram:
-
-```text
-Contract Request -> Oracle Fetch -> Validate/Aggregate -> On-chain Response -> Contract Action
-```
-
----
-
-### M4-Q4: DApp architecture and design (7 marks)
-
-Answer:
-1. Frontend UI for user interaction.
-2. Wallet/signing layer for user authorization.
-3. Web3 library to call blockchain RPC.
-4. Smart contract backend for business logic.
-5. Blockchain state/events for persistent trust layer.
-6. Optional off-chain storage for large files.
-
-Diagram:
-
-```text
-UI -> Wallet/Web3 -> RPC Node -> Smart Contract -> Blockchain State
-```
-
----
-
-### M4-Q5: Use-case answers (government, finance, healthcare, supply chain)
-
-Government:
-- Land records, subsidy flow, procurement audit, verifiable certificates.
-
-Finance:
-- Faster settlement, programmable escrow, auditability, reduced reconciliation overhead.
-
-Healthcare:
-- Consent-based sharing, immutable logs, medicine provenance.
-
-Supply chain:
-- Product traceability, sensor-backed verification, milestone payment automation.
-
----
-
-## Module 5 Solved Answers
-
-### M5-Q1: Role of EVM in Ethereum network (3 marks)
-
-Answer:
-1. EVM executes smart contract bytecode deterministically across nodes.
-2. It enforces gas-based metering to bound computation.
-3. It applies state transitions after valid transaction execution.
-4. It enables Ethereum’s programmable blockchain model.
-
----
-
-### M5-Q2: Ethereum account types and differences
-
-Answer:
-1. EOA: controlled by private key, can initiate transactions.
-2. Contract account: controlled by code, executes on invocation.
-3. EOAs do not store contract bytecode.
-4. Contract accounts include code and persistent storage.
-
----
-
-### M5-Q3: Ethereum transaction types
-
-Answer:
-1. Value transfer transaction.
-2. Contract interaction (function call) transaction.
-3. Contract creation transaction.
-
----
-
-### M5-Q4: Explain transaction processing in Ethereum + gas effect
-
-Processing flow:
-1. Wallet signs transaction.
-2. Transaction broadcast.
-3. Validators/miners execute via EVM.
-4. State updates if execution succeeds.
-5. Receipt/logs generated and block inclusion occurs.
-
-Gas formula:
-$$
-\text{Fee} = \text{Gas Used} \times \text{Effective Gas Price}
-$$
-
-Impact:
-1. Complex operations cost more.
-2. Insufficient gas causes revert while consuming spent computation.
-
----
-
-### M5-Q5: Relationship between transactions, trie, and block header
-
-Answer:
-1. Transactions are organized in transaction trie.
-2. Trie root hash is written into block header.
-3. Any transaction modification changes trie root.
-4. Changed root changes header hash.
-5. Therefore block header secures full transaction-set integrity.
-
----
-
-### M5-Q6: Ethereum world state (Bitcoin vs Ethereum answer support)
-
-World state definition:
-- Snapshot mapping of all account balances, nonces, contract code and storage at a block height.
-
-State transition view:
-
-```text
-Pre-State + Transactions -> EVM Execution -> Post-State + New State Root
-```
-
-Bitcoin vs Ethereum core compare:
-1. Bitcoin: UTXO-focused value-transfer chain.
-2. Ethereum: account-state + programmable contracts.
-
----
-
-### M5-Q7: Solidity datatypes and control structures
-
-Datatypes:
-1. Value: bool, uint, int, address, bytes32
-2. Reference: array, string, struct
-3. Mapping: mapping(key => value)
-
-Control structures:
-1. if/else
-2. for/while
-3. require/revert/assert
-
----
-
-### M5-Q8: Solidity bank contract template (exam-ready)
-
-```solidity
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
-
-contract SimpleBank {
-    mapping(address => uint256) private balances;
-
-    function deposit() external payable {
-        require(msg.value > 0, "Zero deposit");
-        balances[msg.sender] += msg.value;
-    }
-
-    function withdraw(uint256 amount) external {
-        require(amount > 0, "Zero amount");
-        require(balances[msg.sender] >= amount, "Insufficient balance");
-        balances[msg.sender] -= amount;
-        payable(msg.sender).transfer(amount);
-    }
-
-    function viewBalance() external view returns (uint256) {
-        return balances[msg.sender];
-    }
-}
-```
-
----
-
-### M5-Q9: Solidity voting contract template (exam-ready)
-
-```solidity
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
-
-contract Voting {
-    struct Candidate { string name; uint256 votes; }
-    Candidate[] public candidates;
-    mapping(address => bool) public hasVoted;
-
-    constructor(string[] memory names) {
-        for (uint i = 0; i < names.length; i++) {
-            candidates.push(Candidate(names[i], 0));
-        }
-    }
-
-    function vote(uint256 candidateId) external {
-        require(!hasVoted[msg.sender], "Already voted");
-        require(candidateId < candidates.length, "Invalid candidate");
-        hasVoted[msg.sender] = true;
-        candidates[candidateId].votes += 1;
-    }
-}
-```
-
----
-
-### M5-Q10: Solidity simple string storage template
-
-```solidity
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
-
-contract StringStore {
-    string private value;
-
-    function setValue(string calldata newValue) external {
-        value = newValue;
-    }
-
-    function getValue() external view returns (string memory) {
-        return value;
-    }
-}
-```
-
----
-
-## Final 45-Minute BCT Drill
-
-1. Revise fixed comparison tables:
-   - Symmetric vs asymmetric
-   - PoW vs PoS
-   - Bitcoin vs Ethereum
-2. Revise fixed formulas:
-   - PBFT: $n \ge 3f+1$
-   - Ethereum fee: gas used * effective gas price
-3. Practice three must-draw diagrams:
-   - Blockchain workflow
-   - Oracle data flow
-   - Transactions -> trie -> header
-4. Practice one Solidity code answer from memory.
-5. Attempt one full Module 3 and one full Module 5 long answer in exam format.
+## SECTION 3: Part B Answers (Exactly 10 Points Each)
+
+## Q1) Explain Paxos and crash fault tolerance
+1. Paxos is a consensus protocol designed for crash fault tolerance.
+2. Its main roles are proposer, acceptor, and learner.
+3. Proposer starts with Prepare message carrying proposal number N.
+4. Acceptors reply Promise and reject lower-numbered proposals.
+5. Proposer sends Accept request for chosen value V.
+6. Acceptors accept V if promise conditions are respected.
+7. Learners receive accepted value updates from acceptors.
+8. Majority intersection guarantees one consistent chosen value.
+9. Protocol tolerates crash faults as long as majority remains reachable.
+10. Typical message order is Prepare, Promise, Accept, Learn.
+
+## Q2) Compare PoW and PoS with workflow
+1. PoW chooses proposer by solving computational hash puzzle.
+2. PoS chooses proposer primarily by staked economic weight.
+3. PoW workflow is collect transactions, build block, iterate nonce, hit target, broadcast.
+4. PoS workflow is stake lock, proposer selection, attestation, finalization.
+5. PoW security cost is tied to dominant hash-power acquisition.
+6. PoS security cost is tied to dominant stake and slashing exposure.
+7. PoW has high energy footprint due puzzle competition.
+8. PoS generally has lower energy demand than PoW.
+9. Both require network-wide validation before canonical acceptance.
+10. Both aim to prevent conflicting histories and double spending.
+
+## Q3) Explain Bitcoin payment flow from user perspective
+1. Sender wallet selects recipient address and transfer amount.
+2. Wallet selects spendable UTXOs as transaction inputs.
+3. Wallet creates outputs for recipient and possible change.
+4. Sender signs transaction using private key.
+5. Signed transaction is broadcast to P2P network.
+6. Nodes verify signature, script, and UTXO validity.
+7. Miners pick valid transaction from mempool.
+8. Miner includes transaction in block candidate and mines block.
+9. Network accepts block after consensus validation.
+10. Receiver confidence increases with additional confirmations.
+
+## Q4) Explain mining algorithm and role of miner
+1. Miner collects unconfirmed transactions from mempool.
+2. Miner validates each transaction against protocol rules.
+3. Miner builds block candidate with valid transactions.
+4. Miner computes block header hash with varying nonce.
+5. Miner repeats hashing until target difficulty is met.
+6. Winning miner broadcasts valid block to network.
+7. Other nodes verify block and transaction validity.
+8. Accepted block extends canonical chain state.
+9. Miner receives block reward and transaction fees.
+10. Mining secures ordering, immutability, and anti-double-spend guarantees.
+
+## Q5) Explain transaction structure, UTXO, and verification
+1. Bitcoin transaction consumes old outputs and creates new outputs.
+2. Input references previous transaction ID and output index.
+3. Input carries unlocking script and signature evidence.
+4. Output defines amount and locking script conditions.
+5. UTXO means unspent transaction output available for spending.
+6. Verification checks referenced UTXO existence.
+7. Verification ensures referenced UTXO is unspent.
+8. Verification validates script and cryptographic signature.
+9. Verification checks input sum is at least output sum.
+10. This model prevents unauthorized spending and double spending.
+
+## Q6) Explain oracle data flow and oracle ecosystem
+1. Smart contract emits request for external data value.
+2. Oracle nodes fetch requested data from configured sources.
+3. Data is validated, normalized, and optionally filtered.
+4. Multiple oracle responses are collected for robustness.
+5. Aggregation rule such as median reduces outlier influence.
+6. Aggregated value is posted to blockchain as response transaction.
+7. Contract consumes response and executes conditional logic.
+8. Inbound oracle brings external data on-chain.
+9. Outbound oracle can trigger off-chain action from on-chain event.
+10. Decentralized oracle design reduces single-source manipulation risk.
+
+## Q7) Explain DApp architecture with neat design flow
+1. DApp frontend provides user interface for interaction.
+2. Wallet layer handles authentication and transaction signing.
+3. Web3 library builds contract calls and submits transactions.
+4. RPC interface connects client to blockchain node.
+5. Smart contracts implement deterministic business logic.
+6. Blockchain stores state transitions and event logs.
+7. Optional off-chain storage handles large file payloads.
+8. Read operations fetch state via calls without transaction cost.
+9. Write operations produce signed transactions and gas spending.
+10. Trust model shifts from platform operator to protocol execution.
+
+## Q8) Explain Ethereum transaction processing and gas
+1. User wallet prepares and signs Ethereum transaction.
+2. Transaction includes nonce, destination, value, data, and gas parameters.
+3. Signed transaction propagates through peer network mempools.
+4. Validator executes transaction bytecode in EVM context.
+5. Gas is consumed per opcode during execution.
+6. If gas runs out, state update reverts while spent gas remains charged.
+7. Successful execution generates receipt and log events.
+8. Fee is computed as GasUsed multiplied by EffectiveGasPrice.
+9. EffectiveGasPrice includes base fee and priority fee components.
+10. Transaction finality follows block inclusion and protocol confirmation.
+
+## Q9) Explain trie-header relation in Ethereum
+1. Transactions are inserted into deterministic transaction trie structure.
+2. Trie leaves represent encoded transaction data items.
+3. Trie internal nodes hash child links recursively.
+4. Trie root hash summarizes complete transaction set.
+5. Transaction root is stored in block header field.
+6. Any transaction mutation changes path hashes.
+7. Changed path hashes update trie root hash value.
+8. Changed root changes block header hash fingerprint.
+9. Header hash chaining protects block history integrity.
+10. Therefore header commitment secures all included transactions.
+
+## Q10) Explain world state and compare Bitcoin vs Ethereum
+1. Ethereum world state maps accounts to balances, nonce, code, and storage.
+2. Each block execution transforms old state into new state.
+3. State root in header commits cryptographically to entire world state.
+4. EVM execution applies deterministic state transition function.
+5. Receipts and logs provide execution outcome evidence.
+6. Bitcoin model tracks UTXOs rather than account-state mapping.
+7. Ethereum model supports direct account balance and contract storage updates.
+8. Bitcoin script model is intentionally limited for simplicity.
+9. Ethereum supports expressive smart contracts through EVM.
+10. Both systems rely on consensus and cryptographic integrity guarantees.
+
+## Q11) PBFT minimum nodes numerical (f=6)
+1. Problem asks minimum total nodes for Byzantine tolerance when faults f=6.
+2. PBFT condition is n greater than or equal to 3f plus 1.
+3. Write formula: n >= 3f + 1.
+4. Substitute f = 6 into expression.
+5. Compute n >= 3*6 + 1.
+6. Compute n >= 18 + 1.
+7. Therefore n >= 19.
+8. Minimum integer node count satisfying condition is 19.
+9. With fewer than 19 nodes, PBFT guarantee is violated for f=6.
+10. Final answer: required minimum nodes equal 19.

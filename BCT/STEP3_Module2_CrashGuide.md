@@ -1,21 +1,18 @@
-# STEP 3: Module 2 Crash Guide (Blockchain Architecture + Decentralization)
+# STEP 3: Module 2 Crash Guide (Blockchain Architecture and Decentralization)
 
-Module 2 focus:
-- Architecture and ecosystem understanding
-- Repeated diagram-heavy long answers
-
-Mapped from:
-- BCT/module 2.md
-- BCT/ocr_work/qp/questions_extracted.json
+Module focus:
+- Blockchain internals and layered design
+- Decentralization methods and ecosystem logic
+- Diagram-heavy answer preparation
 
 ---
 
-## Topic 1: Blockchain Definition + Terminologies
+## 1) Blockchain Definition and Terminology
 
 Definition:
-- Blockchain is a peer-to-peer distributed, append-only ledger updated through consensus.
+Blockchain is a peer-to-peer distributed append-only ledger updated through consensus.
 
-Must-mention terms:
+Must-write terms:
 1. Transaction
 2. Block
 3. Previous hash
@@ -26,114 +23,100 @@ Must-mention terms:
 
 ---
 
-## Topic 2: Working of Blockchain (High Repeat)
+## 2) Working of Blockchain (Step Answer)
 
-Step flow:
-1. User creates and signs transaction
-2. Transaction broadcast to P2P network
-3. Nodes validate transaction
-4. Valid transactions grouped into candidate block
-5. Consensus mechanism approves next block
-6. Block appended with previous-hash link
-7. Ledger copy updated across nodes
+1. User creates and signs transaction.
+2. Transaction is broadcast to P2P network.
+3. Nodes validate transaction rules and signatures.
+4. Valid transactions are grouped into candidate block.
+5. Consensus mechanism decides valid next block.
+6. New block is appended with previous hash pointer.
+7. Updated ledger state is replicated across nodes.
 
-Diagram:
-
+Process sketch:
 ```text
 Create TX -> Broadcast -> Validate -> Form Block -> Consensus -> Append -> Replicate
 ```
 
 ---
 
-## Topic 3: Layered Blockchain Architecture
+## 3) Layered Architecture
 
-Recommended layer sequence:
+Six-layer reference stack:
 1. Network layer
 2. P2P propagation layer
 3. Cryptography layer
 4. Consensus layer
-5. Execution/transaction layer
-6. Application layer (DApps/services)
+5. Execution layer
+6. Application layer
 
 Diagram:
-
 ```text
-+ Application Layer
-+ Execution Layer
-+ Consensus Layer
-+ Cryptography Layer
-+ P2P Layer
-+ Network Layer
++ Application (DApps)
++ Execution (TX/VM)
++ Consensus (PoW/PoS/BFT)
++ Cryptography (Hash/Signatures)
++ P2P (Discovery/Propagation)
++ Network (Internet)
 ```
 
 ---
 
-## Topic 4: Centralized vs Decentralized Systems
+## 4) Centralized vs Decentralized Systems
 
-Quick compare:
-1. Control: one authority vs shared authority
-2. Failure: single-point risk vs fault tolerance
-3. Trust: institution-based vs protocol-based
-4. Censorship resistance: lower vs higher
-
----
-
-## Topic 5: Methods to Achieve Decentralization
-
-Write these methods:
-1. Distributed ledger replication
-2. Consensus-driven state updates
-3. Open validator/miner participation
-4. Cryptographic verification
-5. Incentive mechanisms for honest behavior
+| Aspect | Centralized | Decentralized |
+|---|---|---|
+| Control | Single authority | Shared protocol governance |
+| Failure risk | Single point of failure | Fault tolerance through replication |
+| Trust model | Institution-based | Protocol and cryptography based |
+| Censorship resistance | Lower | Higher |
+| Upgrade coordination | Easier centrally | Harder multi-party |
 
 ---
 
-## Topic 6: Benefits, Features, Limitations
+## 5) Methods to Achieve Decentralization
+
+1. Distributed ledger replication among peers.
+2. Consensus-driven state transition approval.
+3. Open node participation and validation.
+4. Cryptographic verification of actions.
+5. Incentive mechanisms for honest behavior.
+
+---
+
+## 6) Benefits, Features, Limitations
 
 ## Benefits
-1. Transparency
-2. Traceability
-3. Tamper resistance
-4. Reduced intermediary dependence
+1. Transparency and traceability.
+2. Tamper-evident history.
+3. Reduced dependency on central intermediary.
+4. Better auditability.
 
 ## Features
-1. Append-only structure
-2. Consensus-based update
-3. Shared ledger copies
+1. Append-only record structure.
+2. Cryptographic linking of blocks.
+3. Consensus-based updates.
 
 ## Limitations
-1. Scalability bottlenecks
-2. Storage and communication overhead
-3. Governance and upgrade complexity
+1. Throughput and scalability limits.
+2. Storage and communication overhead.
+3. Governance and upgrade complexity.
 
 ---
 
-## Topic 7: Consensus Categories (Module 2 Level)
+## 7) Consensus Categories (Module 2 Level)
 
-Two major categories:
-1. Proof-based (PoW/PoS style)
-2. Fault-tolerance based (CFT/BFT family)
+1. Proof-based consensus (for example PoW, PoS).
+2. Fault-tolerant consensus family (CFT/BFT style).
 
-Note:
-- Detailed protocol depth comes in Module 3.
-
----
-
-## Module 2 PYQ Attack Set
-
-1. Working of blockchain with neat diagram
-2. Layered blockchain architecture
-3. Methods to achieve decentralization
-4. Ecosystem of decentralization
-5. Benefits, features, limitations
-6. Blockchain definition with key terminologies
+Note for exam:
+Detailed protocol treatment belongs to Module 3.
 
 ---
 
-## Last-Minute Revision Grid
+## 8) Module 2 Final Drill
 
-1. Memorize one 7-step blockchain workflow.
-2. Draw layer stack once from memory.
-3. Keep one central vs decentralized mini-table ready.
-4. Memorize 4-3-3 structure for benefits/features/limitations.
+1. Write 7-step blockchain workflow without notes.
+2. Draw layered architecture once from memory.
+3. Prepare one central vs decentralized table.
+4. Memorize 4 benefits, 3 features, 3 limitations.

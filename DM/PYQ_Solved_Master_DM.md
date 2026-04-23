@@ -1,403 +1,317 @@
-# Data Mining PYQ Solved Master (OCR-Mapped)
+# Data Mining PYQ Solved Master (Full OCR-Mapped, Exam-Oriented)
 
-Subject: Data Mining
+Subject: CST466 Data Mining
+Updated: 23 Apr 2026
 
-Built from OCR sources:
-- DM/ocr_output/Data-Mining-Module-1-Important-Topics-PYQs.txt
-- DM/ocr_output/Data-Mining-Module-2-Important-Topics-PYQs.txt
-- DM/ocr_output/mod3.txt
-- DM/ocr_output/series1.txt
+Built from:
+- 2023/2024/2025 DM question papers
+- Sept 2025 OCR question text
+- Module 1-5 important topic OCR
+- Series 1 and Series 2 OCR
 
-Purpose:
-- Exam-ready answers in compact and long format
-- Step-by-step solved numericals
-- Mark-oriented structure for 3-mark and 14-mark questions
-
----
-
-## How To Use
-
-1. For 3-mark: use definition + 4 to 6 bullet points.
-2. For 14-mark: use Definition -> Formula/Idea -> Steps -> Example -> Conclusion.
-3. For numericals: write given values first, then formula, then substitution, then final answer.
+Mapping files:
+- DM/build/dm_unique_questions.json
+- DM/build/dm_topic_map.json
 
 ---
 
-## Module 1 Solved PYQs
+## How To Use This File
 
-### M1-Q1: List the three major features of a data warehouse
+Part A (3 marks):
+1. Write exactly 5 points.
+2. Keep each point one sentence.
+3. Use definition first.
+4. Include formula where applicable.
+5. End with one application line.
 
-Answer:
-1. Subject-oriented: organized around major business subjects such as customer, sales, product.
-2. Integrated: combines data from multiple heterogeneous sources into a consistent repository.
-3. Time-variant: stores historical data over long time horizons for trend analysis.
-
----
-
-### M1-Q2: OLTP vs OLAP
-
-Answer:
-1. Purpose: OLTP handles daily transactions, OLAP supports analysis and decision making.
-2. Data: OLTP uses current operational data, OLAP uses historical consolidated data.
-3. Query type: OLTP has short frequent updates, OLAP has complex read-heavy queries.
-4. Schema: OLTP often normalized ER; OLAP often star/snowflake multidimensional schema.
-5. Users: OLTP for clerks/apps, OLAP for analysts/managers.
+Part B (14 marks):
+1. Write exactly 10 points.
+2. Start with definition/core concept.
+3. Give ordered steps/architecture/algorithm flow.
+4. Add one example/table/diagram note.
+5. End with one crisp conclusion.
 
 ---
 
-### M1-Q3: Star schema vs snowflake schema
+## Section 1: Module-Wise Non-Duplicate Questions
 
-Answer:
-1. Star schema has one fact table with denormalized dimension tables.
-2. Snowflake schema normalizes dimensions into sub-dimensions.
-3. Star gives simpler joins and faster queries.
-4. Snowflake reduces redundancy but increases join complexity.
-5. Star is easier to understand and draw in exam.
+## Module 1
+
+Part A:
+1. List and explain applications/features of data warehouse.
+2. Differentiate OLTP and OLAP.
+3. Compare star and snowflake schema.
+4. Illustrate multidimensional data model.
+
+Part B:
+1. Explain data mining functionalities.
+2. Explain three-tier data warehouse architecture with neat diagram.
+3. Explain star schema and snowflake schema with example.
+4. Explain OLAP operations in multidimensional data model.
+5. Differentiate ROLAP, MOLAP, HOLAP.
+6. Explain KDD process.
+7. Explain key issues in data mining.
+8. Draw snowflake schema for given case and state OLAP operation sequence.
+
+## Module 2
+
+Part A:
+1. Explain two sampling methods used in data reduction.
+2. Perform smoothing by bin means or boundaries.
+3. Explain significance of data discretization and strategies.
+4. Compute min-max and z-score normalization.
+
+Part B:
+1. Explain preprocessing steps in detail.
+2. Explain cleaning approaches for incomplete/noisy/inconsistent data.
+3. Explain numerosity reduction techniques.
+4. Explain need and methods of data transformation.
+5. Explain normalization methods with equations.
+6. Compare SRSWOR, SRSWR, stratified sampling.
+7. Illustrate PCA for dimensionality reduction.
+8. Explain concept hierarchy with example.
+
+## Module 3
+
+Part A:
+1. Explain gain ratio and advantage over information gain.
+2. State requirements of good clustering algorithm.
+3. Compute Euclidean/Manhattan/Minkowski distances.
+4. Draw confusion matrix and compute precision/recall.
+5. Explain significance of SLIQ or splitting indices.
+
+Part B:
+1. Construct confusion matrix and compute precision/recall/specificity.
+2. Explain DBSCAN with advantages.
+3. Explain PAM algorithm with example.
+4. Explain ID3 first splitting attribute selection.
+5. Compute information gain for given class-labeled dataset.
+6. Explain SLIQ algorithm with example.
+7. Explain partition clustering variants (PAM/ROCK style asks).
+
+## Module 4
+
+Part A:
+1. Define support, confidence, and frequent itemset.
+2. List methods to improve Apriori efficiency.
+3. Explain bi-directional pruning in pincer search.
+4. Explain significance of association rule mining in market basket analysis.
+
+Part B:
+1. Find frequent itemsets using Apriori and generate strong rules.
+2. Explain pincer search algorithm with example.
+3. Find frequent itemsets using FP-Growth.
+4. Explain dynamic itemset counting and dashed-to-solid move.
+5. Explain partition algorithm and compare with Apriori.
+6. State Apriori principle and solve candidate generation problem.
+
+## Module 5
+
+Part A:
+1. Briefly explain web mining taxonomy.
+2. Differentiate web content and web structure mining.
+3. Compare web structure and web usage mining.
+4. Distinguish focused and regular crawling.
+5. Explain pre-processing and pattern analysis in web usage mining.
+
+Part B:
+1. Explain web usage mining applications and activities.
+2. Explain focused crawling in context/personalization.
+3. Explain text retrieval methods.
+4. Relate text mining, information retrieval, and information extraction.
+5. Explain HITS with example.
+6. Explain how web structure differs from content and usage mining.
+7. Write CLEVER algorithm flow for web structure mining.
+8. Explain web usage data structures.
+9. Explain traversal patterns and discovery methods.
+10. Explain web content mining and text mining approaches.
 
 ---
 
-### M1-Q4: Explain OLAP operations on multidimensional data
+## Section 2: Part A 5-Point Capsules (High Yield)
 
-Answer:
-1. Roll-up: aggregation to higher level (day -> month -> year).
-2. Drill-down: detailed view (year -> quarter -> month -> day).
-3. Slice: fix one dimension value (year=2023).
-4. Dice: subcube by range/conditions on multiple dimensions.
-5. Pivot: rotate axes for alternate view.
+## Module 1
+
+OLTP vs OLAP:
+1. OLTP supports day-to-day transactions.
+2. OLAP supports analytical decision making.
+3. OLTP uses current detailed operational data.
+4. OLAP uses historical aggregated data.
+5. OLTP is update-heavy; OLAP is read-heavy.
+
+## Module 2
+
+Data discretization significance:
+1. Discretization converts continuous values to intervals.
+2. It simplifies model representation.
+3. It improves interpretability in rules and trees.
+4. It reduces noise effect by grouping nearby values.
+5. It supports concept hierarchy construction.
+
+## Module 3
+
+Gain ratio advantage:
+1. Information gain may favor high-cardinality attributes.
+2. Gain ratio divides IG by split information.
+3. Split information penalizes over-fragmented splits.
+4. Gain ratio prefers balanced informative splits.
+5. It usually improves decision-tree generalization.
+
+## Module 4
+
+Support, confidence, frequent itemset:
+1. Support is transaction fraction containing itemset.
+2. Confidence is conditional reliability of rule A -> B.
+3. Frequent itemset satisfies minimum support.
+4. Support controls popularity, confidence controls strength.
+5. These metrics drive association rule mining.
+
+## Module 5
+
+Focused vs regular crawling:
+1. Regular crawling aims broad web coverage.
+2. Focused crawling aims topic-specific pages.
+3. Regular crawler follows almost all discovered links.
+4. Focused crawler filters off-topic links early.
+5. Focused crawling gives higher topical precision.
 
 ---
 
-### M1-Q5: KDD process
+## Section 3: Part B 10-Point Answer Blueprints
 
-Answer:
-1. Data cleaning
-2. Data integration
-3. Data selection
-4. Data transformation
-5. Data mining
-6. Pattern evaluation
-7. Knowledge presentation
+## Module 1 Blueprint: Three-tier DW architecture
+1. Data warehouse supports integrated analytical decision making.
+2. Architecture has bottom, middle, and top tiers.
+3. Bottom tier collects source data through ETL process.
+4. ETL performs extraction, cleaning, transformation, loading.
+5. Warehouse repository stores integrated historical data.
+6. Middle tier provides OLAP server functionality.
+7. OLAP supports roll-up, drill-down, slice, dice, pivot.
+8. Top tier provides query, reporting, dashboard, and mining tools.
+9. Draw a 3-level block diagram with arrows bottom to top.
+10. Conclude that tier separation improves scalability and manageability.
 
-Note:
-- Data mining is one stage of KDD, not the whole process.
-
----
-
-### M1-Q6: Three-tier architecture of data warehouse
-
-Answer:
-1. Bottom tier: data sources + ETL + warehouse storage.
-2. Middle tier: OLAP server (ROLAP/MOLAP/HOLAP).
-3. Top tier: front-end tools for querying, reporting, dashboards, mining.
-
----
-
-## Module 2 Solved PYQs
-
-### M2-Q1: Justify significance of preprocessing before mining
-
-Answer:
+## Module 2 Blueprint: Data cleaning + transformation
 1. Real-world data is incomplete, noisy, and inconsistent.
-2. Cleaning improves accuracy and reliability of mined patterns.
-3. Integration removes source-level conflicts and redundancy.
-4. Transformation makes data compatible with algorithms.
-5. Reduction lowers storage/computation costs.
-6. Better preprocessing leads to better model quality.
+2. Missing values handled by mean/median/model/ignore strategies.
+3. Noisy data handled by binning, regression, clustering-based smoothing.
+4. Inconsistency handled by constraints, schema matching, unit normalization.
+5. Transformation includes normalization, aggregation, discretization.
+6. Min-max formula maps values to a fixed range.
+7. Z-score formula standardizes by mean and standard deviation.
+8. Decimal scaling shifts decimal point by power of 10.
+9. Mention one short numerical substitution example.
+10. Conclude preprocessing quality controls mining quality.
+
+## Module 3 Blueprint: Confusion matrix and metrics
+1. Confusion matrix evaluates classifier retrieval/performance.
+2. Matrix entries are TP, FP, FN, TN.
+3. Read TP directly from given statement.
+4. Compute FP as retrieved minus TP.
+5. Compute FN as relevant minus TP.
+6. Compute TN as total minus TP, FP, FN.
+7. Precision = TP/(TP+FP).
+8. Recall = TP/(TP+FN).
+9. Specificity = TN/(TN+FP) when asked.
+10. Conclude by reporting metric values and interpretation.
+
+## Module 3 Blueprint: DBSCAN algorithm
+1. DBSCAN is density-based clustering algorithm.
+2. Inputs are Eps radius and MinPts threshold.
+3. Classify points as core, border, or noise.
+4. Start from unvisited point and check neighborhood size.
+5. If core, start cluster and expand using density reachability.
+6. Add directly density-reachable points to current cluster.
+7. Continue expansion recursively from new core points.
+8. Mark sparse unclustered points as noise.
+9. Mention strengths: arbitrary-shape clusters and outlier handling.
+10. Conclude that DBSCAN avoids predefining number of clusters.
+
+## Module 4 Blueprint: Apriori with strong rules
+1. Apriori mines frequent itemsets level by level.
+2. Use minimum support to filter frequent itemsets.
+3. Generate C1 and count supports in database scan.
+4. Keep L1 frequent sets only.
+5. Join and prune to form C2 using Apriori principle.
+6. Repeat until no new frequent sets.
+7. Generate candidate rules from frequent itemsets.
+8. Compute confidence and apply minimum confidence threshold.
+9. Report final frequent itemsets and strong rules.
+10. Conclude with business meaning of one strong rule.
+
+## Module 4 Blueprint: FP-Growth
+1. FP-Growth mines frequent itemsets without candidate explosion.
+2. Scan once for item frequency and remove infrequent items.
+3. Sort frequent items by descending support.
+4. Build FP-tree from reordered transactions.
+5. Maintain header table with node links.
+6. Create conditional pattern base for each item.
+7. Build conditional FP-tree recursively.
+8. Extract frequent patterns from conditional trees.
+9. Mention lower scan overhead than Apriori.
+10. Conclude FP-Growth is efficient for large dense datasets.
+
+## Module 5 Blueprint: Text retrieval + TM/IR/IE
+1. Information retrieval finds relevant documents for query.
+2. Text mining extracts patterns/knowledge from text corpus.
+3. Information extraction pulls structured facts from text.
+4. Document selection method uses Boolean exact matching.
+5. Document ranking method orders by relevance score.
+6. TF-IDF is common ranking weight mechanism.
+7. IR typically provides candidate documents first.
+8. IE structures entities/relations from candidate documents.
+9. TM combines IR, IE, and analytics tasks.
+10. Conclude by distinguishing find, extract, and discover roles.
+
+## Module 5 Blueprint: HITS/CLEVER style link analysis
+1. Link mining analyzes graph structure among web pages.
+2. HITS uses hub and authority scores.
+3. Authority page is pointed by good hubs.
+4. Hub page points to good authorities.
+5. Initialize scores and iterate mutually reinforcing updates.
+6. Normalize scores after each iteration.
+7. Continue until convergence.
+8. CLEVER applies focused link-analysis for topic-sensitive ranking.
+9. Mention use in web structure mining and ranking.
+10. Conclude with final ranked hubs and authorities.
 
 ---
 
-### M2-Q2: Data discretization purpose and strategies
+## Section 4: Rapid Formula Box
 
-Purpose:
-1. Convert continuous values into intervals.
-2. Reduce complexity and improve interpretability.
-3. Improve performance of rule/tree-based mining.
+1. Min-max normalization:
+x' = (x - xmin)/(xmax - xmin)
 
-Any four strategies:
-1. Binning
-2. Histogram-based
-3. Clustering-based
-4. Decision-tree-based
-5. Correlation/ChiMerge-based
+2. Z-score:
+x' = (x - mu)/sigma
 
----
+3. Entropy:
+H(S) = -sum(pi log2 pi)
 
-### M2-Q3: Explain two sampling methods in data reduction
+4. Information gain:
+IG(S,A) = H(S) - sum((|Sv|/|S|)H(Sv))
 
-Answer:
-1. SRSWOR (without replacement): selected item cannot appear again.
-2. SRSWR (with replacement): selected item is returned and may be selected again.
-3. Cluster sampling: sample groups/clusters directly.
-4. Stratified sampling: divide into strata and sample from each stratum.
+5. Gain ratio:
+GR(S,A) = IG(S,A)/SplitInfo(S,A)
 
----
+6. Precision:
+TP/(TP+FP)
 
-### M2-Q4: Data smoothing by bin means (Solved)
+7. Recall:
+TP/(TP+FN)
 
-Given data:
-[24, 27, 29, 16, 17, 31, 33, 29, 36, 37, 35, 44]
+8. Support:
+count(itemset)/total transactions
 
-Step 1: Sort data
-[16, 17, 24, 27, 29, 29, 31, 33, 35, 36, 37, 44]
-
-Step 2: Build 3 equal-width bins
-- min = 16, max = 44, range = 28
-- width approx = 28/3 = 9.33 (use practical bins)
-
-Bins:
-1. Bin1: 16, 17, 24
-2. Bin2: 27, 29, 29, 31, 33, 35
-3. Bin3: 36, 37, 44
-
-Step 3: Bin means
-1. Mean1 = (16+17+24)/3 = 19
-2. Mean2 = (27+29+29+31+33+35)/6 = 30.67
-3. Mean3 = (36+37+44)/3 = 39
-
-Step 4: Replace each bin value by mean
-Smoothed data:
-[19, 19, 19, 30.67, 30.67, 30.67, 30.67, 30.67, 30.67, 39, 39, 39]
+9. Confidence:
+support(A union B)/support(A)
 
 ---
 
-### M2-Q5: Normalization numerical for value 145 (Solved)
+## Section 5: Revision Loop
 
-Given cost price values:
-100,150,140,115,190,120,130,125,135,145,140,150,165,160,170
-
-#### Part (i): Min-Max normalization to [0,1]
-Formula:
-$$
-v' = \frac{v-min}{max-min}
-$$
-Here: $v=145$, $min=100$, $max=190$
-$$
-v' = \frac{145-100}{190-100} = \frac{45}{90} = 0.5
-$$
-Final: Min-Max normalized value = 0.5
-
-#### Part (ii): Z-score normalization (given standard deviation = 120)
-First compute mean:
-- Sum = 2135
-- Count = 15
-$$
-\mu = \frac{2135}{15} = 142.33
-$$
-Formula:
-$$
-v' = \frac{v-\mu}{\sigma}
-$$
-$$
-v' = \frac{145-142.33}{120} = \frac{2.67}{120} = 0.0223
-$$
-Final: Z-score value approx = 0.022
-
----
-
-### M2-Q6: Approaches to clean incomplete, noisy, inconsistent data
-
-Answer:
-1. Missing values: ignore tuple, mean/median, class mean, model-based prediction.
-2. Noisy data: binning, regression, clustering/outlier treatment.
-3. Inconsistent data: rule checks, schema matching, constraint-based correction.
-
----
-
-### M2-Q7: Explain PCA for dimensionality reduction
-
-Answer:
-1. Standardize/normalize attributes.
-2. Compute covariance matrix.
-3. Compute eigenvalues and eigenvectors.
-4. Sort components by eigenvalue.
-5. Select top k principal components.
-6. Project original data into reduced k-dimensional space.
-
-Benefit:
-- Retains maximum variance with fewer dimensions.
-
----
-
-## Module 3 Solved PYQs
-
-### M3-Q1: What are the requirements for a good clustering algorithm?
-
-Answer:
-1. Scalable to large datasets.
-2. Handles different cluster shapes and sizes.
-3. Robust to noise and outliers.
-4. Requires minimal domain-specific tuning.
-5. Produces stable and interpretable clusters.
-6. Ensures high intra-cluster similarity and low inter-cluster similarity.
-
----
-
-### M3-Q2: Issues in implementing decision trees
-
-Answer:
-1. Overfitting with deep trees.
-2. Instability from small data changes.
-3. Bias toward high-cardinality attributes.
-4. Data fragmentation after repeated splitting.
-5. Greedy local decisions may miss globally optimal tree.
-6. Pruning and generalization control are non-trivial.
-
----
-
-### M3-Q3: Gain Ratio calculation and advantage over Information Gain
-
-Formulas:
-$$
-IG(S,A) = Entropy(S) - \sum_v \frac{|S_v|}{|S|}Entropy(S_v)
-$$
-$$
-SplitInfo(S,A) = -\sum_v \frac{|S_v|}{|S|}\log_2\frac{|S_v|}{|S|}
-$$
-$$
-GainRatio(S,A) = \frac{IG(S,A)}{SplitInfo(S,A)}
-$$
-
-Advantage:
-- Information Gain tends to favor attributes with many distinct values.
-- Gain Ratio penalizes such splits using SplitInfo, giving more balanced attribute selection.
-
----
-
-### M3-Q4: Distance metrics for tuples (22,1,42,10) and (20,0,36,8)
-
-Given:
-- A=(22,1,42,10)
-- B=(20,0,36,8)
-- Differences: (2,1,6,2)
-
-#### (i) Euclidean distance
-$$
-D_E = \sqrt{2^2+1^2+6^2+2^2} = \sqrt{4+1+36+4} = \sqrt{45} = 6.708
-$$
-
-#### (ii) Manhattan distance
-$$
-D_M = |2|+|1|+|6|+|2| = 11
-$$
-
-#### (iii) Minkowski distance of order 3
-$$
-D_3 = (|2|^3+|1|^3+|6|^3+|2|^3)^{1/3}
-= (8+1+216+8)^{1/3} = 233^{1/3} = 6.154
-$$
-
-Final:
-- Euclidean = 6.708
-- Manhattan = 11
-- Minkowski (p=3) = 6.154
-
----
-
-### M3-Q5: Confusion matrix + precision + recall (Solved)
-
-Given:
-- Total records = 80
-- Relevant records = 55
-- Retrieved records = 50
-- Relevant among retrieved = 40
-
-Find TP, FP, FN, TN:
-1. TP = 40
-2. FP = retrieved - relevant retrieved = 50 - 40 = 10
-3. FN = relevant total - TP = 55 - 40 = 15
-4. TN = total - (TP+FP+FN) = 80 - 65 = 15
-
-Confusion matrix:
-
-|                | Predicted Relevant | Predicted Irrelevant |
-|---|---:|---:|
-| Actual Relevant   | TP = 40 | FN = 15 |
-| Actual Irrelevant | FP = 10 | TN = 15 |
-
-Precision:
-$$
-Precision = \frac{TP}{TP+FP} = \frac{40}{40+10} = 0.8
-$$
-
-Recall:
-$$
-Recall = \frac{TP}{TP+FN} = \frac{40}{40+15} = \frac{40}{55} = 0.727
-$$
-
-Final:
-- Precision = 0.80 (80%)
-- Recall = 0.727 (72.7%)
-
----
-
-### M3-Q6: Explain DBSCAN with advantages
-
-Key parameters:
-1. Eps: neighborhood radius
-2. MinPts: minimum neighbors for dense region
-
-Point types:
-1. Core point: has at least MinPts neighbors in Eps radius
-2. Border point: fewer neighbors but reachable from core point
-3. Noise point: not density-reachable
-
-Algorithm flow:
-1. Start with unvisited point.
-2. If core, expand cluster via density-reachability.
-3. If not core and not reachable, mark noise.
-
-Advantages:
-1. Finds arbitrary-shaped clusters.
-2. Automatically handles noise/outliers.
-3. Does not require specifying number of clusters in advance.
-
----
-
-### M3-Q7: K-Means clustering (short answer)
-
-Steps:
-1. Choose k initial centroids.
-2. Assign each point to nearest centroid.
-3. Recompute centroids as cluster means.
-4. Repeat until convergence.
-
-Limitations:
-- Sensitive to initial centroids and outliers.
-- Best suited for compact, spherical clusters.
-
----
-
-### M3-Q8: PAM algorithm (short answer)
-
-Steps:
-1. Build phase: choose initial medoids.
-2. Swap phase: test medoid replacements to reduce total dissimilarity.
-3. Stop when no better swap exists.
-
-Key advantage:
-- Uses real points as cluster centers, so more robust than k-means for outliers.
-
----
-
-### M3-Q9: SLIQ algorithm working
-
-Answer:
-1. Presorts continuous attributes once.
-2. Uses class list to track records and labels.
-3. Evaluates split criteria efficiently.
-4. Selects best split and grows tree breadth-first.
-5. Repeats recursively on child nodes.
-
-Why used:
-- Designed for large datasets with improved scalability.
-
----
-
-## Final 30-Minute Exam Drill
-
-1. Memorize module-wise formulas:
-   - Min-max, z-score, IG, gain ratio, precision/recall, distance metrics.
-2. Practice one full numerical from module 2 and one from module 3.
-3. Practice one comparison table (OLTP vs OLAP or star vs snowflake).
-4. Keep one algorithm skeleton each for K-means, DBSCAN, SLIQ.
-5. In every long answer, keep structure fixed and neat.
+1. Revise non-duplicate question set from STEP5.
+2. For each module, practice one 5-point and one 10-point answer.
+3. Re-solve one numerical from Module 2 and one from Module 3 daily.
+4. Rehearse Apriori and FP-Growth flow in sequence.
+5. Rehearse web mining comparison tables before exam.

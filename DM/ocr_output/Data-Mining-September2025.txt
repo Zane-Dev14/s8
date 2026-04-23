@@ -1,0 +1,101 @@
+
+C 04006M66042503 
+Resta.:  Nam. APJ ABDUL RATAN! TECHNOLOGICAL UNIVERSITY B.Tech Degree S8 (S) Examination September 2025 (2019 Scheme) 
+
+Course Code: CST466 Course Name: DATA MINING 
+Max. Marks: 100 
+PART A Answer all questions, each carries 3 marks 1 List out any three applications of data mining in day-to-day life. 2 Explain Roll up and Drill down with suitable examples.. 3 Perform data smoothing by bin boundaries on 3 equl-width bins. Data: (24,27,29,16,17,31,33,29,36,37,35,441 4 Explain the role of concept hierarchy. 5 Given two objects are represented by the tuples (22, 1, 42,10) and (20, 0, 36, 8). Compute(i)Euclidean distance ii)Manhattan distance. 6 For a seam email classifier, is precision or recall more Important evaluation (3) measure. Justify your answer. 7 Describe any three methods to improve the efficiency of the Apriorl algorithm. (3) 8 Explain dynamic item set counting technique. (3) 9 Explain any two web usage mining activities. (3) 10 Illustrate the focused crawling and regular crawling techniques. (3) PART B Answer any one full question from each module, each carries 14 mark Module I I I a) Explain the knowledge discovery process(KDD )in databases for finding 11.88 Information and patterns in data. b) Explain the three-tier architecture of the data warehouse with a neat diagram. OR 12 0) Consider a data warehouse to represent sales data with dimensions customer, product, date and region and two measures quantity and sales amount. Draw snow flake schema diagram for the dam warehouse. 
+Duration: 3 Flours 
+marks (3) (3) (3) (3) (3) 
+(7) 
+(7) 
+(6) 
+
+0400CST466042503 
+b) Illustrate different OLAF operations in multi-dimensional data model with (8) examples. 
+Module II 13 a) Explain the various techniques used for handling missing data. b) Discuss the significance of data discretization in data mining. List and explain any two data duretintion strategies. 
+(6) (8) 
+OR 14 a) Write about any two data reduction techniqum. (8) b) Why do we need data transformation? What are the different ways of data (6) transformation? 
+15 a) 
+Module III 
+consider the following data set tuna binary classification problem. (7) 
+A 
+B 
+T 
+Class label 
+T 
+T 
+T 
+T 
+T 
+Calculate the gain of attributes A and B. Which attribute would be ulected as root node while constructing the decision tree? b) Explain categorical clustering algorithm or ROCK. 
+OR 
+(7) 
+16 a) Find the first splitting attribute for the decision tree by using the 1D3 algorithm (8) with the following dataset. 
+Rage 20f 3 
+
+0400CSTa66062933 
+Old ...,....., Ym Ta. Softvnue Masa fit Down Old  Old No Np software Hardware Owe Do Mid  Kid Yea Has Software Hardware Down Down Mid  mid No No Hardware Software Up Up New  New Ya No Soften. Hardware Up UP New No Software Up 
+b) Explain the working of SLIQ algo ithm. (VI Module IV 17 a) Illustrate the working of Pincer Search algorithm with an example. (8) b) Describe partition algorithm. (6) 
+OR 
+IS a) State the Apriori principle in candidate generation. Find out the frequent item (8) sets with minimum support of 2 using Apriori for the following data. 
+110 
+71 
+A.11 
+72 
+e,0 
+6.0 
+A. O.0 
+76 
+A,0 
+ARSE 
+b) 0 scribe the working of dynamic Tern set counting technique with suitable example. Module V 
+If a) What are the various data structures used for each usage mining process? Explain. b) Explain HITS algorithm with an example. OR 
+20 a) Describe different Text retrieval methods. Explain the relationship between text mining. information retrieval and Information extraction. b) Write anu ,nlain CLEVER algorithm for web structure mining. eeee 
+Page 3of 3 
+(8) 
+(8) (6) 
+(8) 
+(0) 
+PART A (Answer all questions, each carries 3 marks)
+
+1. List and explain any two applications of data warehouse.
+
+2. Differentiate OLAP and OLTP.
+
+3. Explain the two sampling methods used in data reduction.
+
+4. Calculate the normalized value for 300 in the following set of data points using min-max and z-score normalization:
+   100, 200, 300, 500, 900.
+
+5. Explain splitting indices in a Decision tree. Give examples.
+
+6. Explain the importance of SLIQ algorithm.
+
+7. Describe any three methods to improve the efficiency of Apriori algorithm.
+
+8. Define support, confidence and frequent item set in Association rule mining context.
+
+9. Briefly explain web mining taxonomy.
+
+10. Differentiate between web content mining and web structure mining.
+
+
+PART B (Answer any one full question from each module, each carries 14 marks)
+
+Module I
+
+11. a) Explain the different data mining functions. (7)
+    b) Explain three-tier data warehouse architecture with a neat diagram. (7)
+
+OR
+
+12. a) Explain the differences between star schema and snowflake schema in a data warehouse with a suitable example. (6)
+    b) Illustrate different OLAP operations in multidimensional data model with examples. 
+       List the differences between ROLAP, MOLAP and HOLAP. (8)
+
+
+Module II
+
+13. a) Explain any two data preprocessing steps in detail. (8)
+    b) Suppose that the data for analysis includes the attribute age. The age values ...

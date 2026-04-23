@@ -1,0 +1,159 @@
+{
+  "Module 1": {
+    "Part A": [
+      "List and explain any two applications of data warehouse. (3) PL Differentiate OLAP and OLTP",
+      "Describe the similarities and the differences of star schema and snowflake (3) \u2018 schema",
+      "Illustrate the multi-dimensional data model with a neat figure",
+      "List the differences between OLAP and OLTP. (3) : 3 Justify the significance of pre-processing the data before mining",
+      "List and explain any two applications of data warehouse",
+      "Differentiate OLAP and OLTP"
+    ],
+    "Part B": [
+      "a) Explain the different data mining functions. (7) b) Explain three-tier data warehouse architecture with a neat diagram. (7) OR",
+      "a) Explain the differences between star schema and snowflake schema in a data (6) warehouse with a suitable example. y Illustrate different OLAP operations in multidimensional data model with examples. List the differences between ROLAP, MOLAP and HOLAP",
+      "a) Describe different issues in data mining. (6) b) Suppose that a data warehouse for a university consists of the following four dimensions: student, course, semester, and instructor, and two measures: count and avg grade. (i) Draw a snowflake schema diagram for the data warehouse. (8) (ii) Starting with the base cuboid, what specific OLAP operations should one perform in order to list the average grade of CS courses for each University - student. . \u2018",
+      "a) Explain the three-tier architecture of the data warehouse with a neat figure. (6) : . b) List and illustrate the schemas used for the physical representation of the multi- (8) dimensional data with examples. \u2018",
+      "a) List and explain various data mining functionalities. (6) b) Illustrate different OLAP operations in multidimensional data model with examples. (8) List the differences between ROLAP, MOLAP and HOLAP",
+      "List out the three major features of data warehouse",
+      "Describe the similarities and the differences of OLTP and OLAP",
+      "List and explain any two applications of data warehouse",
+      "Describe the similarities and the differences of star schema and snowflake schema",
+      "Explain different OLAP operations on multidimensional data with suitable",
+      "Describe different issues in data mining",
+      "Explain the three-tier architecture of the data warehouse with a neat figure",
+      "List and illustrate the schemas used for the physical representation of the multi",
+      "List and explain various data mining functionalities",
+      "Describe the similarities and the differences of star",
+      "Explain different OLAP operations on multidimensional",
+      "Explain the three-tier architecture of the data warehouse",
+      "List and illustrate the schemas used for the physical",
+      "Differentiate OLAP and OLTP"
+    ]
+  },
+  "Module 2": {
+    "Part A": [
+      "Explain the two sampling methods used in data reduction. (3) x Calculate the normalized value for 300 in the following set of data points using (3) min-max and z-score normalization: 100, 200, 300, 500, 900. > Explain splitting indices in a Decision tree. Give examples",
+      "Perform data smoothing by bin means on 3 equi-width bins. (3) Data: [20,24,23,12,15,20,31,29,35,36,32,40]",
+      "What is the purpose of data discretization? List any two data discretization (3) Strategies",
+      "Explain the two sampling methods used in data reduction",
+      "00CST466042503 b) Illustrate different OLAF operations in multi-dimensional data model with (8) examples",
+      "Calculate the normalized value for 300 in the following set of data points using min-max and z-score normalization: 100, 200, 300, 500, 900"
+    ],
+    "Part B": [
+      "a) Explain any two data preprocessing steps in detail. (8) b) Suppose that the data for analysis includes the attribute age. The age values",
+      "a) Describe the various techniques for numerosity reduction in data mining. (7) b) Why do we need data transformation? What are the different ways of data (7) transformation?",
+      "a) Suppose that the data for analysis includes the attribute cost price and the values for the data tuples are: 100, 150, 140, 115, 190, 120, 130, 125, 135, 145, 140, 150, 165, 160, 170 (i) Use min-max normalization to transform the value of 145 for cost price onto (6) the range [0,1]. (ii) Use Z-Score normalization to transform the value 145 for cost price where the standard deviation of cost price is 120. ; b) Real-world data tend to be incomplete, noisy and inconsistent. What are the various approaches adopted to clean the data? (8) OR",
+      "a) Describe the various techniques for numerosity reduction in data mining. (8) b) Suppose a group of 12 sales price records has been sorted as follows: 5, 10, 11,",
+      "15, 35, 50, 55, 72, 92, 204, 215. Sketch examples of each of the following . sampling techniques: SRSWOR, SRSWR, stratified sampling. Use samples of (6) size 5 and the strata \u201cyouth,\u201d \u201cmiddle-aged,\u201d and \u201csenior.\u201d",
+      "a) Discuss the significance of data discretization in data mining. List and explain any (6) four data discretization strategies. b) Illustrate PCA for dimensionality reduction with an example. (8) OR",
+      "a). Explain various methods for dealing with missing data. Justify its significance. (6). b) Explain data normalization methods with necessary equations. Calculate the (8) \u201c normalized value for 550 in the set of the data points 50, 150, 250, 350, 450, 550, 650, 700, 850, 950, 1000 using (a) min-max normalization by setting min = 0 and max = 1 (b) z-score normalization (c) Normalization by decimal scaling",
+      "Explain concept hierarchy with an example",
+      "What is the purpose of data discretization? List any two data discretization",
+      "Explain the two sampling methods used in data reduction",
+      "Describe the various techniques for numerosity reduction in data mining",
+      "Why do we need data transformation? What are the different ways of data",
+      "Explain data normalization methods with necessary equations. Calculate the",
+      "Explain Attribute Subset Selection",
+      "Explain Data Integration and Data Transformation",
+      "What is the purpose of data discretization? List any two",
+      "Describe the various techniques for numerosity reduction",
+      "Why do we need data transformation? What are the",
+      "Explain data normalization methods with necessary"
+    ]
+  },
+  "Module 3": {
+    "Part A": [
+      "Explain the importance of SLIQ algorithm. (3) yi! Describe any three methods to improve the efficiency of Apriori algorithm",
+      "How is Gain Ratio calculated? What is the advantage of Gain Ratio over Information (3) Gain?",
+      "What are the requirements for a good clustering algorithm?",
+      "Given two objects are represented by the tuples (22, 1, 42, 10) and (20, 0, 36, 8). (3) Compute (i) Euclidean distance ii) Manhattan distance (iii) Minkowski distance of order 3. { 6 Draw the confusion matrix and calculate precision and recall of the given data. (3) eT ion \u00b0 7 Discuss the significance of association rule mining in market basket analysis",
+      "Explain splitting indices in a Decision tree. Give examples",
+      "Explain the importance of SLIQ algorithm"
+    ],
+    "Part B": [
+      "a) A data base contains 80 records on a particular topic of which 55 are (7) relevant to a Certain investigation. A search was conducted on that topic and 50 records were retrieved. Of the 50 records retrieved, 40 were relevant. Construct the confusion matrix and calculate the precision, recall and specificity scores for the search. b) Explain SLIQ algorithm with a suitable example. (7) OR",
+      "a) Explain partition clustering and the importance of PAM method. (6) b) Explain ROCK algorithm with a suitable example",
+      "a) Consider the following dataset for a binary classification problem with class label \u201cyes\u201d and \u201cno\u201d. [sino see come sudent Sasng_ ta rating Risky [1 youth { high no fair no [2 youth high [no excellent no Pa [mer Tne no tar vee",
+      "aged medium no excellent yes",
+      "aged high yes fair ea The above table shows class labeled dataset of customers in a bank. Explain information gain attribute selection measure, and find the information gain of the attribute \u201cage\u201d. b) \u201cExplain the concept of DBSCAN algorithm along with its advantages. (6) OR",
+      "a) A database contains 80 records on a particular topic of which 55 are relevant toa , certain investigation. A search was conducted on that topic and 50 records were \u2018 retrieved. Of the 50 records retrieved, 40 were relevant. Construct the confusion i) matrix and calculate the precision and recall scores for the search",
+      "a) Illustrate the clustering technique using DBSCAN. (6) b) Explain the steps in creating decision tree using ID3 algorithm. For the dataset given (8) below, find the first splitting attribute for the decision tree by using the ID3 algorithm. , Day Outlook Temperature Humidity Wind = Play Tennis i Sunny Hot High Weak No",
+      "Overcast Hot Normal Weak Yes",
+      "Rain Mild High Strong No ; OR",
+      "a) Discuss PAM algorithm for clustering with an example. (6) b) Explain the construction of decision tree using SLIQ algorithm with an example",
+      "Explain splitting indices in a Decision tree. Give examples",
+      "Explain the importance of SLIQ algorithm",
+      "How are these rules selected?",
+      "What are the requirements for a good clustering algorithm?",
+      "How is Gain Ratio calculated? What is the advantage of Gain Ratio over Information",
+      "What is a Confusion Matrix?",
+      "Explain the concept of DBSCAN argorithm along with its advantages",
+      "Explain K-Means Clustering",
+      "Explain the working of SLIQ algorithm",
+      "How is Gain Ratio calculated? What is the advantage of"
+    ]
+  },
+  "Module 4": {
+    "Part A": [
+      "Define support, confidence and frequent item set in Association rule mining (3) context",
+      "Describe any three methods to improve the efficiency of Apriori algorithm",
+      "Write about the bi-directional searching technique for pruning in pincer search (3) algorithm",
+      ", List the modification methods to improve tht efficiency of Apriori algorithm. \u2018"
+    ],
+    "Part B": [
+      "a) A database has six transactions. Let min_sup be 33.33% and min_conf be 60%. (8) T3___ Cake, Coke, Chips 2 Find frequent item set using Apriori algorithm and generate strong association rules from the dataset. b) Explain partition algorithm with a suitable example. (6) OR",
+      "a) Consider a dataset containing transactions from a retail store. The dataset (8) Consists of the following transactions: Transaction] :{milk, bread, eggs} Transaction2:{milk, bread, butter} Transaction3:{bread, butter} Transaction4:{milk, bread}",
+      "a) A database has six transactions. Let min_sup be 33.33% and min_conf be 60%. T2 Cake, Bread T3__ Cake. Coke, Chips .) Find frequent itemset using Apriori algorithm and generate strong association rules from the dataset. b) Illustrate the working of Pincer Search Algorithm with an example. (6) OR",
+      "a) A database has six transactions. Let min_sup be 3. : Find frequent itemsets using FP growth algorithm. b) Describe the working of dynamic itemset counting technique with suitable example. Specify when to move an itemset from dashed structures to solid (6) structures",
+      "a) Illustrate the working of Pincer Search algorithm with an example. (6) b) State the Apriori principle in candidate generation. Find out the frequent item sets (8) with minimum support of 2 using Apriori for the following data. TL A,B mo ep a Ta [A80 + a T\u00e9 \u2018 we TABGE To A, 8, C OR",
+      "a) Discuss the partitioning algorithm for finding large itemset and compare its (6) ; performance with Apriori algorithm. b) Mention the advantages of FP Growth algorithm. Find out the frequent item sets using (8) FP Growth for the following data. TO Th [Ae a OO eee cs ee , ta ABO",
+      "Bc , re ABGE . To ABE",
+      "Describe any three methods to improve the efficiency of the Apriori Algorithm",
+      "Describe the working of dynamic itemset counting technique with suitable example",
+      "Explain the partitioning algorithm for finding large itemset and explain how it",
+      "What is FP growth algorithm? What are the advantages?",
+      "State the Apriori principle in candidate generation. Find out the frequent item sets",
+      "Describe any three methods to improve the efficiency of",
+      "What is Market Basket Analysis?",
+      "How is Association Rule Mining Useful?",
+      "Describe the working of dynamic itemset counting",
+      "Explain the partitioning algorithm for finding large itemset",
+      "State the Apriori principle in candidate generation. Find",
+      "What are Association Rules?"
+    ]
+  },
+  "Module 5": {
+    "Part A": [
+      "Briefly explain web mining taxonomy",
+      "Differentiate between web content mining and web structure mining",
+      "Describe the following activities involved in the web usage mining (3) i) Pre-processing activity ii) Pattern analysis 910 Differentiate between web content mining and web structure mining",
+      "Compare web structure mining and web usage mining",
+      "Distinguish between focused crawling and regular crawling"
+    ],
+    "Part B": [
+      "a) Explain web usage mining applications and activities. (7) b) Explain context focused crawler and Personalization. (7) OR",
+      "a) Describe different Text retrieval methods. Explain the relationship between text (6) mining, information retrieval and information extraction. b) Explain how web structure mining is different from web usage mining and (8) web content mining? Write a CLEVER algorithm for web structure mining",
+      "a) Describe different Text retrieval methods. Explain the relationship between text (6) . mining, information retrieval and information extraction. . . 6) Explain the different traversal patterns and discovery methods in web usage data. +(8) KKK OR",
+      "a) Describe web content mining techniques. (6) b) Discuss various text mining approaches and techniques in detail. (8) OR ; 20 a) Describe different Text retrieval methods. Distinguish text mining, information (6) retrieval and information extraction. b) Write and explain CLEVER algorithm for web structure mining. (8) kk",
+      "Describe any two-text retrieval indexing techniques",
+      "Compare and contrast the focused crawling and regular crawling techniques",
+      "Describe the following activities involved in the web usage mining i) Pre-processing",
+      "Differentiate between web content mining and web structure mining",
+      "Compare web structure mining and web usage mining",
+      "Explain HITS algorithm with an example",
+      "Describe different Text retrieval methods. Explain the relationship between text",
+      "Explain how web structure mining is different from web usage mining and web",
+      "List and explain the different data structures used for web usage mining?",
+      "Explain the different traversal patterns and discovery methods in web usage data",
+      "Describe web content mining techniques",
+      "Compare and contrast the focused crawling and regular",
+      "Describe the following activities involved in the web usage",
+      "Compares browsing patterns between different user groups (e.g., customers vs. non",
+      "Differentiate between web content mining and web",
+      "Describe different Text retrieval methods. Explain the",
+      "Explain how web structure mining is different from web",
+      "List and explain the different data structures used for",
+      "Explain the different traversal patterns and discovery"
+    ]
+  }
+}

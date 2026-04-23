@@ -1,0 +1,425 @@
+{
+  "Module 1": {
+    "Part A": {
+      "List and explain any two applications of data warehouse. (3) PL Differentiate OLAP and OLTP": [
+        "CST466_DATA_MINING,_APRIL_2025.txt"
+      ],
+      "Describe the similarities and the differences of star schema and snowflake (3) \u2018 schema": [
+        "CST466_DATA_MINING,_JUNE_2023.txt"
+      ],
+      "Illustrate the multi-dimensional data model with a neat figure": [
+        "CST466_DATA_MINING,_MAY_2024.txt"
+      ],
+      "List the differences between OLAP and OLTP. (3) : 3 Justify the significance of pre-processing the data before mining": [
+        "CST466_DATA_MINING,_MAY_2024.txt"
+      ],
+      "List and explain any two applications of data warehouse": [
+        "Data-Mining-September2025.txt"
+      ],
+      "Differentiate OLAP and OLTP": [
+        "Data-Mining-September2025.txt"
+      ]
+    },
+    "Part B": {
+      "a) Explain the different data mining functions. (7) b) Explain three-tier data warehouse architecture with a neat diagram. (7) OR": [
+        "CST466_DATA_MINING,_APRIL_2025.txt",
+        "Data-Mining-September2025.txt"
+      ],
+      "a) Explain the differences between star schema and snowflake schema in a data (6) warehouse with a suitable example. y Illustrate different OLAP operations in multidimensional data model with examples. List the differences between ROLAP, MOLAP and HOLAP": [
+        "CST466_DATA_MINING,_APRIL_2025.txt",
+        "Data-Mining-September2025.txt"
+      ],
+      "a) Describe different issues in data mining. (6) b) Suppose that a data warehouse for a university consists of the following four dimensions: student, course, semester, and instructor, and two measures: count and avg grade. (i) Draw a snowflake schema diagram for the data warehouse. (8) (ii) Starting with the base cuboid, what specific OLAP operations should one perform in order to list the average grade of CS courses for each University - student. . \u2018": [
+        "CST466_DATA_MINING,_JUNE_2023.txt"
+      ],
+      "a) Explain the three-tier architecture of the data warehouse with a neat figure. (6) : . b) List and illustrate the schemas used for the physical representation of the multi- (8) dimensional data with examples. \u2018": [
+        "CST466_DATA_MINING,_MAY_2024.txt"
+      ],
+      "a) List and explain various data mining functionalities. (6) b) Illustrate different OLAP operations in multidimensional data model with examples. (8) List the differences between ROLAP, MOLAP and HOLAP": [
+        "CST466_DATA_MINING,_MAY_2024.txt"
+      ],
+      "List out the three major features of data warehouse": [
+        "Data-Mining-Module-1-Important-Topics-PYQs.txt"
+      ],
+      "Describe the similarities and the differences of OLTP and OLAP": [
+        "Data-Mining-Module-1-Important-Topics-PYQs.txt"
+      ],
+      "List and explain any two applications of data warehouse": [
+        "Data-Mining-Module-1-Important-Topics-PYQs.txt",
+        "Data-Mining-September2025.txt"
+      ],
+      "Describe the similarities and the differences of star schema and snowflake schema": [
+        "Data-Mining-Module-1-Important-Topics-PYQs.txt"
+      ],
+      "Explain different OLAP operations on multidimensional data with suitable": [
+        "Data-Mining-Module-1-Important-Topics-PYQs.txt"
+      ],
+      "Describe different issues in data mining": [
+        "Data-Mining-Module-1-Important-Topics-PYQs.txt"
+      ],
+      "Explain the three-tier architecture of the data warehouse with a neat figure": [
+        "Data-Mining-Module-1-Important-Topics-PYQs.txt"
+      ],
+      "List and illustrate the schemas used for the physical representation of the multi": [
+        "Data-Mining-Module-1-Important-Topics-PYQs.txt"
+      ],
+      "List and explain various data mining functionalities": [
+        "Data-Mining-Module-1-Important-Topics-PYQs.txt"
+      ],
+      "Describe the similarities and the differences of star": [
+        "Data-Mining-Module-1-Important-Topics-PYQs.txt"
+      ],
+      "Explain different OLAP operations on multidimensional": [
+        "Data-Mining-Module-1-Important-Topics-PYQs.txt"
+      ],
+      "Explain the three-tier architecture of the data warehouse": [
+        "Data-Mining-Module-1-Important-Topics-PYQs.txt"
+      ],
+      "List and illustrate the schemas used for the physical": [
+        "Data-Mining-Module-1-Important-Topics-PYQs.txt"
+      ],
+      "Differentiate OLAP and OLTP": [
+        "Data-Mining-September2025.txt"
+      ]
+    }
+  },
+  "Module 2": {
+    "Part A": {
+      "Explain the two sampling methods used in data reduction. (3) x Calculate the normalized value for 300 in the following set of data points using (3) min-max and z-score normalization: 100, 200, 300, 500, 900. > Explain splitting indices in a Decision tree. Give examples": [
+        "CST466_DATA_MINING,_APRIL_2025.txt"
+      ],
+      "Perform data smoothing by bin means on 3 equi-width bins. (3) Data: [20,24,23,12,15,20,31,29,35,36,32,40]": [
+        "CST466_DATA_MINING,_JUNE_2023.txt"
+      ],
+      "What is the purpose of data discretization? List any two data discretization (3) Strategies": [
+        "CST466_DATA_MINING,_JUNE_2023.txt"
+      ],
+      "Explain the two sampling methods used in data reduction": [
+        "CST466_DATA_MINING,_MAY_2024.txt",
+        "Data-Mining-September2025.txt"
+      ],
+      "00CST466042503 b) Illustrate different OLAF operations in multi-dimensional data model with (8) examples": [
+        "Data-Mining-September2025.txt"
+      ],
+      "Calculate the normalized value for 300 in the following set of data points using min-max and z-score normalization: 100, 200, 300, 500, 900": [
+        "Data-Mining-September2025.txt"
+      ]
+    },
+    "Part B": {
+      "a) Explain any two data preprocessing steps in detail. (8) b) Suppose that the data for analysis includes the attribute age. The age values": [
+        "CST466_DATA_MINING,_APRIL_2025.txt",
+        "Data-Mining-September2025.txt"
+      ],
+      "a) Describe the various techniques for numerosity reduction in data mining. (7) b) Why do we need data transformation? What are the different ways of data (7) transformation?": [
+        "CST466_DATA_MINING,_APRIL_2025.txt"
+      ],
+      "a) Suppose that the data for analysis includes the attribute cost price and the values for the data tuples are: 100, 150, 140, 115, 190, 120, 130, 125, 135, 145, 140, 150, 165, 160, 170 (i) Use min-max normalization to transform the value of 145 for cost price onto (6) the range [0,1]. (ii) Use Z-Score normalization to transform the value 145 for cost price where the standard deviation of cost price is 120. ; b) Real-world data tend to be incomplete, noisy and inconsistent. What are the various approaches adopted to clean the data? (8) OR": [
+        "CST466_DATA_MINING,_JUNE_2023.txt"
+      ],
+      "a) Describe the various techniques for numerosity reduction in data mining. (8) b) Suppose a group of 12 sales price records has been sorted as follows: 5, 10, 11,": [
+        "CST466_DATA_MINING,_JUNE_2023.txt"
+      ],
+      "15, 35, 50, 55, 72, 92, 204, 215. Sketch examples of each of the following . sampling techniques: SRSWOR, SRSWR, stratified sampling. Use samples of (6) size 5 and the strata \u201cyouth,\u201d \u201cmiddle-aged,\u201d and \u201csenior.\u201d": [
+        "CST466_DATA_MINING,_JUNE_2023.txt"
+      ],
+      "a) Discuss the significance of data discretization in data mining. List and explain any (6) four data discretization strategies. b) Illustrate PCA for dimensionality reduction with an example. (8) OR": [
+        "CST466_DATA_MINING,_MAY_2024.txt"
+      ],
+      "a). Explain various methods for dealing with missing data. Justify its significance. (6). b) Explain data normalization methods with necessary equations. Calculate the (8) \u201c normalized value for 550 in the set of the data points 50, 150, 250, 350, 450, 550, 650, 700, 850, 950, 1000 using (a) min-max normalization by setting min = 0 and max = 1 (b) z-score normalization (c) Normalization by decimal scaling": [
+        "CST466_DATA_MINING,_MAY_2024.txt"
+      ],
+      "Explain concept hierarchy with an example": [
+        "Data-Mining-Module-2-Important-Topics-PYQs.txt"
+      ],
+      "What is the purpose of data discretization? List any two data discretization": [
+        "Data-Mining-Module-2-Important-Topics-PYQs.txt"
+      ],
+      "Explain the two sampling methods used in data reduction": [
+        "Data-Mining-Module-2-Important-Topics-PYQs.txt",
+        "Data-Mining-September2025.txt"
+      ],
+      "Describe the various techniques for numerosity reduction in data mining": [
+        "Data-Mining-Module-2-Important-Topics-PYQs.txt"
+      ],
+      "Why do we need data transformation? What are the different ways of data": [
+        "Data-Mining-Module-2-Important-Topics-PYQs.txt"
+      ],
+      "Explain data normalization methods with necessary equations. Calculate the": [
+        "Data-Mining-Module-2-Important-Topics-PYQs.txt"
+      ],
+      "Explain Attribute Subset Selection": [
+        "Data-Mining-Module-2-Important-Topics-PYQs.txt"
+      ],
+      "Explain Data Integration and Data Transformation": [
+        "Data-Mining-Module-2-Important-Topics-PYQs.txt"
+      ],
+      "What is the purpose of data discretization? List any two": [
+        "Data-Mining-Module-2-Important-Topics-PYQs.txt"
+      ],
+      "Describe the various techniques for numerosity reduction": [
+        "Data-Mining-Module-2-Important-Topics-PYQs.txt"
+      ],
+      "Why do we need data transformation? What are the": [
+        "Data-Mining-Module-2-Important-Topics-PYQs.txt"
+      ],
+      "Explain data normalization methods with necessary": [
+        "Data-Mining-Module-2-Important-Topics-PYQs.txt"
+      ]
+    }
+  },
+  "Module 3": {
+    "Part A": {
+      "Explain the importance of SLIQ algorithm. (3) yi! Describe any three methods to improve the efficiency of Apriori algorithm": [
+        "CST466_DATA_MINING,_APRIL_2025.txt"
+      ],
+      "How is Gain Ratio calculated? What is the advantage of Gain Ratio over Information (3) Gain?": [
+        "CST466_DATA_MINING,_JUNE_2023.txt"
+      ],
+      "What are the requirements for a good clustering algorithm?": [
+        "CST466_DATA_MINING,_JUNE_2023.txt"
+      ],
+      "Given two objects are represented by the tuples (22, 1, 42, 10) and (20, 0, 36, 8). (3) Compute (i) Euclidean distance ii) Manhattan distance (iii) Minkowski distance of order 3. { 6 Draw the confusion matrix and calculate precision and recall of the given data. (3) eT ion \u00b0 7 Discuss the significance of association rule mining in market basket analysis": [
+        "CST466_DATA_MINING,_MAY_2024.txt"
+      ],
+      "Explain splitting indices in a Decision tree. Give examples": [
+        "Data-Mining-September2025.txt"
+      ],
+      "Explain the importance of SLIQ algorithm": [
+        "Data-Mining-September2025.txt"
+      ]
+    },
+    "Part B": {
+      "a) A data base contains 80 records on a particular topic of which 55 are (7) relevant to a Certain investigation. A search was conducted on that topic and 50 records were retrieved. Of the 50 records retrieved, 40 were relevant. Construct the confusion matrix and calculate the precision, recall and specificity scores for the search. b) Explain SLIQ algorithm with a suitable example. (7) OR": [
+        "CST466_DATA_MINING,_APRIL_2025.txt"
+      ],
+      "a) Explain partition clustering and the importance of PAM method. (6) b) Explain ROCK algorithm with a suitable example": [
+        "CST466_DATA_MINING,_APRIL_2025.txt"
+      ],
+      "a) Consider the following dataset for a binary classification problem with class label \u201cyes\u201d and \u201cno\u201d. [sino see come sudent Sasng_ ta rating Risky [1 youth { high no fair no [2 youth high [no excellent no Pa [mer Tne no tar vee": [
+        "CST466_DATA_MINING,_JUNE_2023.txt"
+      ],
+      "aged medium no excellent yes": [
+        "CST466_DATA_MINING,_JUNE_2023.txt"
+      ],
+      "aged high yes fair ea The above table shows class labeled dataset of customers in a bank. Explain information gain attribute selection measure, and find the information gain of the attribute \u201cage\u201d. b) \u201cExplain the concept of DBSCAN algorithm along with its advantages. (6) OR": [
+        "CST466_DATA_MINING,_JUNE_2023.txt"
+      ],
+      "a) A database contains 80 records on a particular topic of which 55 are relevant toa , certain investigation. A search was conducted on that topic and 50 records were \u2018 retrieved. Of the 50 records retrieved, 40 were relevant. Construct the confusion i) matrix and calculate the precision and recall scores for the search": [
+        "CST466_DATA_MINING,_JUNE_2023.txt"
+      ],
+      "a) Illustrate the clustering technique using DBSCAN. (6) b) Explain the steps in creating decision tree using ID3 algorithm. For the dataset given (8) below, find the first splitting attribute for the decision tree by using the ID3 algorithm. , Day Outlook Temperature Humidity Wind = Play Tennis i Sunny Hot High Weak No": [
+        "CST466_DATA_MINING,_MAY_2024.txt"
+      ],
+      "Overcast Hot Normal Weak Yes": [
+        "CST466_DATA_MINING,_MAY_2024.txt"
+      ],
+      "Rain Mild High Strong No ; OR": [
+        "CST466_DATA_MINING,_MAY_2024.txt"
+      ],
+      "a) Discuss PAM algorithm for clustering with an example. (6) b) Explain the construction of decision tree using SLIQ algorithm with an example": [
+        "CST466_DATA_MINING,_MAY_2024.txt"
+      ],
+      "Explain splitting indices in a Decision tree. Give examples": [
+        "Data-Mining-September2025.txt"
+      ],
+      "Explain the importance of SLIQ algorithm": [
+        "Data-Mining-September2025.txt"
+      ],
+      "How are these rules selected?": [
+        "Data-Mining-Series-2-Important-Topics.txt"
+      ],
+      "What are the requirements for a good clustering algorithm?": [
+        "mod3.txt"
+      ],
+      "How is Gain Ratio calculated? What is the advantage of Gain Ratio over Information": [
+        "mod3.txt"
+      ],
+      "What is a Confusion Matrix?": [
+        "mod3.txt"
+      ],
+      "Explain the concept of DBSCAN argorithm along with its advantages": [
+        "mod3.txt"
+      ],
+      "Explain K-Means Clustering": [
+        "mod3.txt"
+      ],
+      "Explain the working of SLIQ algorithm": [
+        "mod3.txt"
+      ],
+      "How is Gain Ratio calculated? What is the advantage of": [
+        "mod3.txt"
+      ]
+    }
+  },
+  "Module 4": {
+    "Part A": {
+      "Define support, confidence and frequent item set in Association rule mining (3) context": [
+        "CST466_DATA_MINING,_APRIL_2025.txt",
+        "Data-Mining-September2025.txt"
+      ],
+      "Describe any three methods to improve the efficiency of Apriori algorithm": [
+        "CST466_DATA_MINING,_JUNE_2023.txt",
+        "Data-Mining-September2025.txt"
+      ],
+      "Write about the bi-directional searching technique for pruning in pincer search (3) algorithm": [
+        "CST466_DATA_MINING,_JUNE_2023.txt"
+      ],
+      ", List the modification methods to improve tht efficiency of Apriori algorithm. \u2018": [
+        "CST466_DATA_MINING,_MAY_2024.txt"
+      ]
+    },
+    "Part B": {
+      "a) A database has six transactions. Let min_sup be 33.33% and min_conf be 60%. (8) T3___ Cake, Coke, Chips 2 Find frequent item set using Apriori algorithm and generate strong association rules from the dataset. b) Explain partition algorithm with a suitable example. (6) OR": [
+        "CST466_DATA_MINING,_APRIL_2025.txt"
+      ],
+      "a) Consider a dataset containing transactions from a retail store. The dataset (8) Consists of the following transactions: Transaction] :{milk, bread, eggs} Transaction2:{milk, bread, butter} Transaction3:{bread, butter} Transaction4:{milk, bread}": [
+        "CST466_DATA_MINING,_APRIL_2025.txt"
+      ],
+      "a) A database has six transactions. Let min_sup be 33.33% and min_conf be 60%. T2 Cake, Bread T3__ Cake. Coke, Chips .) Find frequent itemset using Apriori algorithm and generate strong association rules from the dataset. b) Illustrate the working of Pincer Search Algorithm with an example. (6) OR": [
+        "CST466_DATA_MINING,_JUNE_2023.txt"
+      ],
+      "a) A database has six transactions. Let min_sup be 3. : Find frequent itemsets using FP growth algorithm. b) Describe the working of dynamic itemset counting technique with suitable example. Specify when to move an itemset from dashed structures to solid (6) structures": [
+        "CST466_DATA_MINING,_JUNE_2023.txt"
+      ],
+      "a) Illustrate the working of Pincer Search algorithm with an example. (6) b) State the Apriori principle in candidate generation. Find out the frequent item sets (8) with minimum support of 2 using Apriori for the following data. TL A,B mo ep a Ta [A80 + a T\u00e9 \u2018 we TABGE To A, 8, C OR": [
+        "CST466_DATA_MINING,_MAY_2024.txt"
+      ],
+      "a) Discuss the partitioning algorithm for finding large itemset and compare its (6) ; performance with Apriori algorithm. b) Mention the advantages of FP Growth algorithm. Find out the frequent item sets using (8) FP Growth for the following data. TO Th [Ae a OO eee cs ee , ta ABO": [
+        "CST466_DATA_MINING,_MAY_2024.txt"
+      ],
+      "Bc , re ABGE . To ABE": [
+        "CST466_DATA_MINING,_MAY_2024.txt"
+      ],
+      "Describe any three methods to improve the efficiency of the Apriori Algorithm": [
+        "Data-Mining-Module-4-Important-Topics-PYQs.txt",
+        "Data-Mining-September2025.txt"
+      ],
+      "Describe the working of dynamic itemset counting technique with suitable example": [
+        "Data-Mining-Module-4-Important-Topics-PYQs.txt"
+      ],
+      "Explain the partitioning algorithm for finding large itemset and explain how it": [
+        "Data-Mining-Module-4-Important-Topics-PYQs.txt"
+      ],
+      "What is FP growth algorithm? What are the advantages?": [
+        "Data-Mining-Module-4-Important-Topics-PYQs.txt"
+      ],
+      "State the Apriori principle in candidate generation. Find out the frequent item sets": [
+        "Data-Mining-Module-4-Important-Topics-PYQs.txt"
+      ],
+      "Describe any three methods to improve the efficiency of": [
+        "Data-Mining-Module-4-Important-Topics-PYQs.txt"
+      ],
+      "What is Market Basket Analysis?": [
+        "Data-Mining-Module-4-Important-Topics-PYQs.txt"
+      ],
+      "How is Association Rule Mining Useful?": [
+        "Data-Mining-Module-4-Important-Topics-PYQs.txt"
+      ],
+      "Describe the working of dynamic itemset counting": [
+        "Data-Mining-Module-4-Important-Topics-PYQs.txt"
+      ],
+      "Explain the partitioning algorithm for finding large itemset": [
+        "Data-Mining-Module-4-Important-Topics-PYQs.txt"
+      ],
+      "State the Apriori principle in candidate generation. Find": [
+        "Data-Mining-Module-4-Important-Topics-PYQs.txt"
+      ],
+      "What are Association Rules?": [
+        "Data-Mining-Series-2-Important-Topics.txt"
+      ]
+    }
+  },
+  "Module 5": {
+    "Part A": {
+      "Briefly explain web mining taxonomy": [
+        "CST466_DATA_MINING,_APRIL_2025.txt",
+        "Data-Mining-September2025.txt"
+      ],
+      "Differentiate between web content mining and web structure mining": [
+        "CST466_DATA_MINING,_APRIL_2025.txt",
+        "Data-Mining-September2025.txt"
+      ],
+      "Describe the following activities involved in the web usage mining (3) i) Pre-processing activity ii) Pattern analysis 910 Differentiate between web content mining and web structure mining": [
+        "CST466_DATA_MINING,_JUNE_2023.txt"
+      ],
+      "Compare web structure mining and web usage mining": [
+        "CST466_DATA_MINING,_MAY_2024.txt"
+      ],
+      "Distinguish between focused crawling and regular crawling": [
+        "CST466_DATA_MINING,_MAY_2024.txt"
+      ]
+    },
+    "Part B": {
+      "a) Explain web usage mining applications and activities. (7) b) Explain context focused crawler and Personalization. (7) OR": [
+        "CST466_DATA_MINING,_APRIL_2025.txt"
+      ],
+      "a) Describe different Text retrieval methods. Explain the relationship between text (6) mining, information retrieval and information extraction. b) Explain how web structure mining is different from web usage mining and (8) web content mining? Write a CLEVER algorithm for web structure mining": [
+        "CST466_DATA_MINING,_APRIL_2025.txt"
+      ],
+      "a) Describe different Text retrieval methods. Explain the relationship between text (6) . mining, information retrieval and information extraction. . . 6) Explain the different traversal patterns and discovery methods in web usage data. +(8) KKK OR": [
+        "CST466_DATA_MINING,_JUNE_2023.txt"
+      ],
+      "a) Describe web content mining techniques. (6) b) Discuss various text mining approaches and techniques in detail. (8) OR ; 20 a) Describe different Text retrieval methods. Distinguish text mining, information (6) retrieval and information extraction. b) Write and explain CLEVER algorithm for web structure mining. (8) kk": [
+        "CST466_DATA_MINING,_MAY_2024.txt"
+      ],
+      "Describe any two-text retrieval indexing techniques": [
+        "Data-Mining-Module-5-Important-Topics-PYQs.txt"
+      ],
+      "Compare and contrast the focused crawling and regular crawling techniques": [
+        "Data-Mining-Module-5-Important-Topics-PYQs.txt"
+      ],
+      "Describe the following activities involved in the web usage mining i) Pre-processing": [
+        "Data-Mining-Module-5-Important-Topics-PYQs.txt"
+      ],
+      "Differentiate between web content mining and web structure mining": [
+        "Data-Mining-Module-5-Important-Topics-PYQs.txt",
+        "Data-Mining-September2025.txt"
+      ],
+      "Compare web structure mining and web usage mining": [
+        "Data-Mining-Module-5-Important-Topics-PYQs.txt"
+      ],
+      "Explain HITS algorithm with an example": [
+        "Data-Mining-Module-5-Important-Topics-PYQs.txt"
+      ],
+      "Describe different Text retrieval methods. Explain the relationship between text": [
+        "Data-Mining-Module-5-Important-Topics-PYQs.txt"
+      ],
+      "Explain how web structure mining is different from web usage mining and web": [
+        "Data-Mining-Module-5-Important-Topics-PYQs.txt"
+      ],
+      "List and explain the different data structures used for web usage mining?": [
+        "Data-Mining-Module-5-Important-Topics-PYQs.txt"
+      ],
+      "Explain the different traversal patterns and discovery methods in web usage data": [
+        "Data-Mining-Module-5-Important-Topics-PYQs.txt"
+      ],
+      "Describe web content mining techniques": [
+        "Data-Mining-Module-5-Important-Topics-PYQs.txt"
+      ],
+      "Compare and contrast the focused crawling and regular": [
+        "Data-Mining-Module-5-Important-Topics-PYQs.txt"
+      ],
+      "Describe the following activities involved in the web usage": [
+        "Data-Mining-Module-5-Important-Topics-PYQs.txt"
+      ],
+      "Compares browsing patterns between different user groups (e.g., customers vs. non": [
+        "Data-Mining-Module-5-Important-Topics-PYQs.txt"
+      ],
+      "Differentiate between web content mining and web": [
+        "Data-Mining-Module-5-Important-Topics-PYQs.txt"
+      ],
+      "Describe different Text retrieval methods. Explain the": [
+        "Data-Mining-Module-5-Important-Topics-PYQs.txt"
+      ],
+      "Explain how web structure mining is different from web": [
+        "Data-Mining-Module-5-Important-Topics-PYQs.txt"
+      ],
+      "List and explain the different data structures used for": [
+        "Data-Mining-Module-5-Important-Topics-PYQs.txt"
+      ],
+      "Explain the different traversal patterns and discovery": [
+        "Data-Mining-Module-5-Important-Topics-PYQs.txt"
+      ]
+    }
+  }
+}

@@ -1,0 +1,113 @@
+
+===== PAGE 1 =====
+c 0400CST466052303 KE
+y & @ e0UCAr Ss
+Reg No.: Name: { ~ oY : wNa\
+APJ ABDUL KALAM TECHNOLOGICAL UNIV. BURST a\sipi :
+Eighth Semester B.Tech Degree (R,S) Examination May 2024 \s eine): “/ He
+| Course Code: CST 466
+Course Name: DATA MINING
+-Max. Marks: 100 Duration: 3 Hours
+PART A
+| Answer all questions, each carries 3 marks. Marks
+1 Illustrate the multi-dimensional data model with a neat figure. (3)
+2 List the differences between OLAP and OLTP. (3)
+: 3 Justify the significance of pre-processing the data before mining. (3)
+4 Explain the two sampling methods used in data reduction. (3)
+| 5 Given two objects are represented by the tuples (22, 1, 42, 10) and (20, 0, 36, 8). (3)
+| Compute (i) Euclidean distance ii) Manhattan distance (iii) Minkowski distance of
+| order 3.
+{ 6 Draw the confusion matrix and calculate precision and recall of the given data. (3)
+| eT ion
+° 7 Discuss the significance of association rule mining in market basket analysis. (3)
+8 , List the modification methods to improve tht efficiency of Apriori algorithm. ‘ (3)
+9 Compare web structure mining and web usage mining. (3)
+10 Distinguish between focused crawling and regular crawling. (3)
+| PART B
+Answer any one full question from each module, each carries 14 marks.
+Module I
+11 a) Explain the three-tier architecture of the data warehouse with a neat figure. (6)
+: . b) List and illustrate the schemas used for the physical representation of the multi- (8)
+dimensional data with examples. ‘
+Page 1 of 3
+
+===== PAGE 2 =====
+at La
+0400CST466052303
+OR
+12 a) List and explain various data mining functionalities. (6)
+b) Illustrate different OLAP operations in multidimensional data model with examples. (8)
+List the differences between ROLAP, MOLAP and HOLAP.
+Module II
+13 a) Discuss the significance of data discretization in data mining. List and explain any (6)
+four data discretization strategies.
+b) Illustrate PCA for dimensionality reduction with an example. (8)
+OR
+14 a). Explain various methods for dealing with missing data. Justify its significance. (6).
+b) Explain data normalization methods with necessary equations. Calculate the (8)
+“ normalized value for 550 in the set of the data points 50, 150, 250, 350, 450, 550,
+650, 700, 850, 950, 1000 using
+(a) min-max normalization by setting min = 0 and max = 1
+(b) z-score normalization
+(c) Normalization by decimal scaling
+Module III
+15 a) Illustrate the clustering technique using DBSCAN. (6)
+b) Explain the steps in creating decision tree using ID3 algorithm. For the dataset given (8)
+below, find the first splitting attribute for the decision tree by using the ID3 algorithm.
+, | Day Outlook Temperature Humidity Wind = Play Tennis
+| i Sunny Hot High Weak No
+. | 2 Sunny Hot High Strong No
+- | 3 Overcast Hot High Weak Yes
+, . | 4 Rain Mild High Weak Yes
+5 Rain Cool = Normal Weak Yes *
+| 6 Rain Cool Normal Strong No
+7 Overcast Cool Normal Strong Yes
+8 Sunny Mild High Weak No
+9 Sunny Cool Normal Weak Yes
+| 10 Ram Mild Normal Weak Yes
+; out Sunny Mild Normal Strong Yes
+, i 612 Overcast Mild High Strong Yes
+| 13 Overcast Hot Normal Weak Yes
+| 14 Rain Mild High Strong No
+; OR .
+, Page 2 of 3
+
+===== PAGE 3 =====
+0400CST466052303
+16 a) Discuss PAM algorithm for clustering with an example. (6)
+b) Explain the construction of decision tree using SLIQ algorithm with an example. (8)
+‘ Module IV
+17 a) Illustrate the working of Pincer Search algorithm with an example. (6)
+b) State the Apriori principle in candidate generation. Find out the frequent item sets (8)
+with minimum support of 2 using Apriori for the following data.
+TL A,B
+mo ep
+a
+Ta [A80 +
+a
+Té
+‘ we TABGE |
+To A, 8, C
+OR
+18 a) Discuss the partitioning algorithm for finding large itemset and compare its (6)
+; performance with Apriori algorithm.
+b) Mention the advantages of FP Growth algorithm. Find out the frequent item sets using (8)
+FP Growth for the following data.
+TO
+Th [Ae
+a OO eee
+cs ee
+, ta ABO
+16 Bc
+,
+re ABGE
+. To ABE
+. _ Module V .
+19 a) Describe web content mining techniques. (6)
+b) Discuss various text mining approaches and techniques in detail. (8)
+OR
+; 20 a) Describe different Text retrieval methods. Distinguish text mining, information (6)
+retrieval and information extraction.
+b) Write and explain CLEVER algorithm for web structure mining. (8)
+kk
+Page 3 of 3

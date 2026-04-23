@@ -1,83 +1,96 @@
 # STEP 4: Module 3 Crash Guide (Classification, Decision Trees, Clustering)
 
-Module 3 focus:
-- Decision tree metrics and implementation issues
-- Confusion matrix, precision, recall
+Module focus:
+- Decision tree quality metrics
+- Classification performance metrics
 - Distance measures
-- Clustering algorithms (K-Means, PAM, DBSCAN)
-- SLIQ decision tree workflow
+- Clustering algorithms
 
-Mapped from OCR:
-- DM/ocr_output/mod3.txt
+Questions asked repeatedly (non-duplicate):
+- Gain ratio and advantage over information gain
+- Requirements of good clustering algorithm
+- Distance metrics: Euclidean, Manhattan, Minkowski
+- Confusion matrix with precision and recall
+- DBSCAN with advantages
+- PAM algorithm with example
+- ID3 first splitting attribute
+- SLIQ algorithm and implementation issues
 
----
-
-## Topic 1: Requirements of a Good Clustering Algorithm
-
-Write these points:
-1. Scalability to large datasets
-2. Handles different cluster shapes/sizes
-3. Robust to noise and outliers
-4. Minimal domain parameter dependence
-5. Stable/reproducible output
-6. High cluster quality (high intra-similarity, low inter-similarity)
-7. Interpretability
+Answer format for this module:
+- Part A: write exactly 5 points.
+- Part B: write exactly 10 points.
+- For algorithm answers, write steps in numbered order.
 
 ---
 
-## Topic 2: Decision Tree Implementation Issues
+## 1) Requirements of a Good Clustering Algorithm
 
-1. Overfitting
-2. Instability due to small data changes
-3. Bias toward attributes with many values
-4. Data fragmentation after deep splits
-5. Greedy local split may miss global best tree
-6. Pruning difficulty
-
-Short fix lines:
-- Use pruning, validation, and better split constraints.
+Write any six to seven points:
+1. Scalability to large datasets.
+2. Handles different shapes and cluster sizes.
+3. Robust to noise and outliers.
+4. Minimal parameter dependence.
+5. High intra-cluster similarity.
+6. Low inter-cluster similarity.
+7. Interpretability and stability.
 
 ---
 
-## Topic 3: Entropy, Information Gain, Gain Ratio, Gini
+## 2) Decision Tree Implementation Issues
+
+1. Overfitting in deep trees.
+2. Instability due to small data changes.
+3. Bias toward attributes with many distinct values.
+4. Data fragmentation at deeper levels.
+5. Greedy splitting may miss global optimum.
+6. Pruning strategy selection is non-trivial.
+
+Mitigation line:
+Use pre-pruning, post-pruning, and validation-based split control.
+
+---
+
+## 3) Core Formulas with Symbol Explanation
 
 ## Entropy
 $$
-Entropy(S) = -\sum_i p_i \log_2 p_i
+H(S) = -\sum_i p_i\log_2 p_i
 $$
+- p_i: class probability in set S.
 
 ## Information Gain
 $$
-IG(S,A) = Entropy(S) - \sum_v \frac{|S_v|}{|S|}Entropy(S_v)
+IG(S,A) = H(S) - \sum_v \frac{|S_v|}{|S|}H(S_v)
 $$
+- S_v: subset after split on attribute value v.
 
 ## Split Information
 $$
-SplitInfo(S,A) = -\sum_v \frac{|S_v|}{|S|}\log_2\frac{|S_v|}{|S|}
+SplitInfo(S,A) = -\sum_v \frac{|S_v|}{|S|}\log_2\left(\frac{|S_v|}{|S|}\right)
 $$
 
 ## Gain Ratio
 $$
-GainRatio(S,A) = \frac{IG(S,A)}{SplitInfo(S,A)}
+GR(S,A) = \frac{IG(S,A)}{SplitInfo(S,A)}
 $$
 
-## Gini Index
+## Gini
 $$
 Gini(S) = 1 - \sum_i p_i^2
 $$
 
-Important note:
-- Gain ratio reduces information gain bias toward high-cardinality attributes.
+Why gain ratio is preferred in many cases:
+It penalizes attributes that create too many tiny partitions.
 
 ---
 
-## Topic 4: Confusion Matrix, Precision, Recall
+## 4) Confusion Matrix, Precision, Recall
 
 Confusion matrix terms:
-1. TP: true positive
-2. TN: true negative
-3. FP: false positive
-4. FN: false negative
+1. TP: true positives
+2. TN: true negatives
+3. FP: false positives
+4. FN: false negatives
 
 Formulas:
 $$
@@ -87,117 +100,132 @@ $$
 Recall = \frac{TP}{TP+FN}
 $$
 
-Exam tip:
-- Write matrix first, then substitute values.
+Worked question:
+Total = 80, Relevant = 55, Retrieved = 50, Relevant retrieved = 40.
+
+Step solution:
+1. TP = 40
+2. FP = 50 - 40 = 10
+3. FN = 55 - 40 = 15
+4. TN = 80 - (40+10+15) = 15
+
+Table:
+
+|  | Predicted Relevant | Predicted Irrelevant |
+|---|---:|---:|
+| Actual Relevant | TP = 40 | FN = 15 |
+| Actual Irrelevant | FP = 10 | TN = 15 |
+
+Metrics:
+$$
+Precision = \frac{40}{50} = 0.8
+$$
+$$
+Recall = \frac{40}{55} = 0.727
+$$
 
 ---
 
-## Topic 5: Distance Metrics
+## 5) Distance Metrics with Full Numerical
 
-Given objects $X=(x_1,...,x_n)$ and $Y=(y_1,...,y_n)$:
+Given:
+X = (22, 1, 42, 10), Y = (20, 0, 36, 8)
+Difference vector = (2, 1, 6, 2)
 
 ## Euclidean
 $$
-D_E = \sqrt{\sum_i (x_i-y_i)^2}
+D_E = \sqrt{2^2+1^2+6^2+2^2} = \sqrt{45} = 6.708
 $$
 
 ## Manhattan
 $$
-D_M = \sum_i |x_i-y_i|
+D_M = |2|+|1|+|6|+|2| = 11
 $$
 
-## Minkowski of order p
+## Minkowski (p=3)
 $$
-D_p = \left(\sum_i |x_i-y_i|^p\right)^{1/p}
+D_3 = (2^3+1^3+6^3+2^3)^{1/3} = (233)^{1/3} = 6.154
 $$
+
+Final answers:
+- Euclidean = 6.708
+- Manhattan = 11
+- Minkowski (order 3) = 6.154
 
 ---
 
-## Topic 6: K-Means Clustering
+## 6) K-means Clustering
 
 Steps:
-1. Choose k centroids
-2. Assign each point to nearest centroid
-3. Recompute centroid as mean of cluster
-4. Repeat until assignments stop changing
-
-Pros:
-- Simple and fast.
-
-Limitations:
-- Needs k in advance, sensitive to initialization and outliers.
-
----
-
-## Topic 7: PAM (Partitioning Around Medoids)
-
-Key difference from K-means:
-- Uses real data points (medoids), not means.
-
-Steps:
-1. Build phase: choose initial medoids
-2. Swap phase: replace medoid with non-medoid if total distance improves
-3. Repeat until no better swap
+1. Initialize k centroids.
+2. Assign each point to nearest centroid.
+3. Recompute each centroid as cluster mean.
+4. Repeat assignment and update until convergence.
 
 Strength:
-- More robust to outliers than k-means.
+Simple and fast.
+
+Limitation:
+Sensitive to initial centroids and outliers.
 
 ---
 
-## Topic 8: DBSCAN
+## 7) PAM (Partitioning Around Medoids)
+
+Core difference from K-means:
+PAM uses actual data points (medoids), not arithmetic means.
+
+Steps:
+1. Build phase: choose initial medoids.
+2. Swap phase: test medoid and non-medoid swaps.
+3. Keep swap if total dissimilarity decreases.
+4. Stop when no improving swap exists.
+
+Strength:
+More robust to outliers than K-means.
+
+---
+
+## 8) DBSCAN
 
 Parameters:
-1. Eps: neighborhood radius
-2. MinPts: minimum points in Eps-neighborhood
+1. Eps: neighborhood radius.
+2. MinPts: minimum neighborhood size to be core.
 
 Point types:
 1. Core point
 2. Border point
 3. Noise point
 
-Algorithm idea:
-1. Start from unvisited point
-2. If core point, expand cluster through density reachability
-3. Otherwise mark as noise/border
+Procedure:
+1. Pick unvisited point.
+2. If core, expand cluster via density reachability.
+3. If not core and not reachable, mark noise.
 
-Strength:
-- Detects arbitrary-shaped clusters and handles outliers naturally.
+Advantages:
+1. Finds arbitrary-shape clusters.
+2. Handles outliers naturally.
+3. No need to predefine number of clusters.
 
 ---
 
-## Topic 9: SLIQ Algorithm
-
-What it is:
-- Scalable decision tree induction for large datasets.
+## 9) SLIQ (Scalable decision tree)
 
 Workflow:
-1. Presort numerical attributes once
-2. Evaluate split criteria efficiently
-3. Choose best split
-4. Maintain class list for records
-5. Build tree level-wise (breadth-first)
-6. Recurse until stopping criteria
+1. Presort numeric attributes once.
+2. Evaluate split criteria efficiently.
+3. Select best split.
+4. Maintain class list for efficient bookkeeping.
+5. Grow tree breadth-first.
+
+Use case line:
+SLIQ is designed for large datasets where scalability is critical.
 
 ---
 
-## Module 3 PYQ Attack Set
+## Module 3 Final Drill
 
-1. Requirements of good clustering algorithm
-2. Decision tree implementation issues
-3. Gain ratio and its advantage over information gain
-4. Distance metric numerical
-5. Confusion matrix + precision/recall
-6. Information gain/Gini based first split
-7. DBSCAN concept and advantages
-8. ID3 first splitting attribute
-9. K-means/PAM/SLIQ explanations
-
----
-
-## Last-Minute Revision Grid
-
-1. Memorize entropy/IG/gain-ratio/gini formulas.
-2. Practice one confusion-matrix numerical.
-3. Practice one distance-metric numerical.
-4. Memorize DBSCAN core-border-noise definitions.
-5. Keep k-means vs PAM 4-point comparison ready.
+1. Memorize entropy, IG, gain ratio, and Gini formulas.
+2. Solve one confusion matrix numerical.
+3. Solve one distance-metric numerical.
+4. Write K-means, PAM, DBSCAN in algorithm style.

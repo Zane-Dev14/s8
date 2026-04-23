@@ -1,44 +1,39 @@
-# STEP 4: Module 3 Crash Guide (Consensus + Bitcoin Transactions)
+# STEP 4: Module 3 Crash Guide (Consensus and Bitcoin Transactions)
 
-Module 3 focus:
-- Consensus reliability and attack resistance
-- Bitcoin mining and transaction validation flow
-
-Mapped from:
-- BCT/module 3.md
-- BCT/Important Notes ALl Modules/Module3_Consensus_Notes.tex
-- BCT/ocr_work/qp/questions_extracted.json
+Module focus:
+- Distributed agreement under faults
+- Bitcoin mining and transaction validation
+- Security attack basics
 
 ---
 
-## Topic 1: Why Consensus is Needed
+## 1) Why Consensus is Needed
 
-Core line:
-- Consensus keeps all distributed ledger copies in one globally consistent state.
+Consensus is required so all nodes agree on one valid ledger history without central authority.
 
 Without consensus:
-1. Double spending risk
-2. Conflicting histories
-3. Inconsistent balances across nodes
+1. Conflicting ledger states appear.
+2. Double-spending becomes possible.
+3. Network trust collapses.
 
 ---
 
-## Topic 2: CFT vs BFT
+## 2) CFT vs BFT
 
-1. CFT handles crash/silent failures.
-2. BFT handles malicious or conflicting behavior.
-3. CFT examples include Paxos family.
-4. BFT examples include PBFT-style protocols.
+1. CFT handles crash or silent failures.
+2. BFT handles malicious or arbitrary behavior.
+3. CFT examples include Paxos-family protocols.
+4. BFT examples include PBFT-family protocols.
 
 PBFT sizing formula:
 $$
-n \ge 3f + 1
+n \ge 3f+1
 $$
-If $f=6$, minimum $n=19$.
+If f = 6, minimum n = 19.
 
 ---
 
-## Topic 3: Paxos (Crash Fault Tolerance)
+## 3) Paxos Protocol (Crash Fault Tolerance)
 
 Roles:
 1. Proposer
@@ -46,13 +41,12 @@ Roles:
 3. Learner
 
 Phases:
-1. Prepare
+1. Prepare(N)
 2. Promise
-3. Accept
+3. Accept(V)
 4. Learn
 
-Diagram:
-
+Message flow:
 ```text
 Proposer -> Acceptors : PREPARE(N)
 Acceptors -> Proposer : PROMISE
@@ -60,104 +54,95 @@ Proposer -> Acceptors : ACCEPT(V)
 Acceptors -> Learners : LEARN(V)
 ```
 
-Exam tip:
-- Write "majority accepted value is chosen" explicitly.
+Exam correctness line:
+Majority intersection ensures a single chosen value.
 
 ---
 
-## Topic 4: PoW and PoS
+## 4) PoW and PoS
 
-## PoW flow
-1. Build candidate block
-2. Iterate nonce and hash
-3. Check target condition
-4. Broadcast valid block
+## PoW steps
+1. Gather valid pending transactions.
+2. Build candidate block.
+3. Iterate nonce and hash.
+4. Accept block if target condition satisfied.
+5. Broadcast and verify.
 
-## PoS flow
-1. Validators lock stake
-2. Proposer selected by protocol
-3. Attestation/validation by others
-4. Finality + reward/slashing
+## PoS steps
+1. Validators lock stake.
+2. Proposer is selected by protocol.
+3. Other validators attest proposed block.
+4. Finality achieved by protocol rule.
+5. Reward honest behavior, slash malicious behavior.
 
-## Compare quick points
-1. Resource: computation vs stake
-2. Energy: high vs lower
-3. Attack cost model: hash power vs economic stake
+Comparison table:
+
+| Aspect | PoW | PoS |
+|---|---|---|
+| Leader basis | Hash puzzle solution | Stake-weighted selection |
+| Main resource | Computation | Economic stake |
+| Energy profile | High | Lower |
+| Attack cost basis | Hash-power dominance | Stake dominance plus slashing risk |
 
 ---
 
-## Topic 5: Bitcoin Mining and Miner Role
+## 5) Bitcoin Mining and Role of Miner
 
-Miner responsibilities:
-1. Collect pending transactions
-2. Validate transactions
-3. Construct candidate block
-4. Execute PoW
-5. Broadcast successful block
+Miner tasks:
+1. Collect transactions from mempool.
+2. Validate scripts, signatures, and UTXO references.
+3. Build block candidate and header.
+4. Run proof-of-work loop.
+5. Broadcast winning block.
 
 Flowchart:
-
 ```text
-Mempool -> Verify TX -> Build Block -> Hash Loop -> Target Met -> Broadcast
+Mempool -> Verify TX -> Build Block -> Nonce/Hash Loop -> Target Met -> Broadcast
 ```
 
 ---
 
-## Topic 6: Bitcoin Transaction Validation + UTXO
+## 6) Bitcoin Transaction Validation and UTXO
 
-Validation checklist (memorize):
-1. Signature valid
-2. Referenced UTXO exists
-3. Referenced UTXO unspent
-4. Input sum >= output sum
-5. Script checks pass
+Validation checklist:
+1. Signature is valid.
+2. Referenced UTXO exists.
+3. Referenced UTXO is unspent.
+4. Input value is at least output value.
+5. Script conditions pass.
 
 UTXO meaning:
-- Unspent Transaction Output, i.e., spendable coin fragments.
+Unspent Transaction Output is a spendable output unit.
 
-Transaction structure:
-
+Transaction structure sketch:
 ```text
-Inputs (prev tx refs + signatures) -> Transaction Core -> Outputs (recipient + change)
+Inputs (prev outputs + unlocking script)
+       -> Transaction core
+Outputs (recipient + change + locking script)
 ```
 
 ---
 
-## Topic 7: Wallet Types
+## 7) Wallet Types
 
-1. Hot wallet (online, convenient)
-2. Cold wallet (offline, safer for long-term)
-3. Custodial wallet (third-party key control)
-4. Non-custodial wallet (user key control)
-
----
-
-## Topic 8: Byzantine, Sybil, and Double-Spend Basics
-
-1. Byzantine fault: node sends deceptive/conflicting data.
-2. Sybil attack: attacker creates many fake identities.
-3. Double-spend attack: same coin attempted in multiple transactions.
-4. Bitcoin resists identity-level Sybil by economic/hash-power based control.
+1. Hot wallet: online and convenient.
+2. Cold wallet: offline and safer for long-term storage.
+3. Custodial wallet: third party controls keys.
+4. Non-custodial wallet: user controls keys.
 
 ---
 
-## Module 3 PYQ Attack Set
+## 8) Byzantine and Sybil Basics
 
-1. Need for consensus and CFT/BFT
-2. Paxos protocol with steps
-3. PoW vs PoS comparison
-4. Mining algorithm with flowchart
-5. Miner tasks
-6. Bitcoin transaction validation
-7. UTXO and transaction structure
-8. Wallet types
-9. PBFT minimum node numerical
+1. Byzantine behavior means malicious or inconsistent node behavior.
+2. Sybil attack means many fake identities under one attacker.
+3. Bitcoin mitigates Sybil by tying influence to economic or computational resource cost.
 
 ---
 
-## Last-Minute Revision Grid
+## 9) Module 3 Final Drill
 
-1. Memorize PPAL sequence: Prepare, Promise, Accept, Learn.
-2. Memorize validation checklist SEUIS.
-3. Practice one PoW vs PoS comparison table.
-4. Practice PBFT formula substitution once.
+1. Recite Paxos phase order: Prepare, Promise, Accept, Learn.
+2. Solve PBFT node count once.
+3. Write 5-point transaction validation checklist.
+4. Draw mining flowchart from memory.
