@@ -203,3 +203,127 @@ Part B repeats:
 2. Write one 10-point answer: text retrieval + TM/IR/IE relation.
 3. Write one 10-point answer: HITS or CLEVER.
 4. Draw one clean comparison table for content/structure/usage.
+
+---
+
+## End Section: All Part B Questions Answered (Final Quick-Write)
+
+## B1) Web usage mining applications and activities (10-point quick write)
+1. Define web usage mining using log/clickstream data.
+2. Collect data from server and application logs.
+3. Clean noise, bots, and duplicate records.
+4. Perform user identification and sessionization.
+5. Complete navigation paths where needed.
+6. Apply pattern discovery (association, clustering, sequential mining).
+7. Perform pattern analysis and filtering.
+8. Map outcomes to personalization and recommendation.
+9. Mention business uses: redesign, targeting, retention.
+10. Conclude with decision-support impact.
+
+## B2) Focused crawler and personalization (10-point quick write)
+1. Define focused crawler as topic-specific web crawler.
+2. Start from seed URLs relevant to target topic.
+3. Score candidate links by topical relevance.
+4. Expand only high-score links.
+5. Ignore off-topic branches to save resources.
+6. Build high-quality topical index.
+7. Connect mined behavior to personalization rules.
+8. Serve user-specific content/recommendation.
+9. Compare with regular crawler broad-coverage strategy.
+10. Conclude with better precision and lower crawl waste.
+
+## B3) Text retrieval methods (10-point quick write)
+1. Define text retrieval as finding relevant documents for query.
+2. Method 1: document selection (Boolean exact match).
+3. Method 2: document ranking (relevance score order).
+4. Selection is strict and high precision for exact needs.
+5. Ranking is flexible and user-friendly for broad search.
+6. Use term indexing for fast lookup.
+7. Use TF-IDF style weighting for ranking.
+8. Return top-k ranked results.
+9. Evaluate with precision and recall.
+10. Conclude method choice depends on query intent.
+
+## B4) Text mining vs IR vs IE relation (10-point quick write)
+1. IR finds relevant documents.
+2. IE extracts structured facts from documents.
+3. Text mining discovers patterns and knowledge.
+4. IR is search-centric retrieval layer.
+5. IE is structure extraction layer.
+6. TM is insight generation layer.
+7. Typical flow: IR -> IE -> TM.
+8. Ranking and retrieval quality affect downstream extraction.
+9. Extracted entities improve mining quality.
+10. Conclude they are complementary, not competing tasks.
+
+## B5) HITS algorithm with example (10-point quick write)
+1. Define hubs and authorities.
+2. Build root set using query results.
+3. Expand to base set by adding linked pages.
+4. Initialize hub and authority scores.
+5. Update authority from incoming hub links.
+6. Update hub from outgoing authority links.
+7. Normalize scores each iteration.
+8. Repeat until convergence.
+9. Rank pages by final authority/hub values.
+10. Conclude with best authority and hub pages.
+
+## B6) CLEVER algorithm for web structure mining (10-point quick write)
+1. Define CLEVER as topic-sensitive link-analysis approach.
+2. Select seed pages for target query/topic.
+3. Build focused subgraph of relevant pages.
+4. Compute hub-authority style reinforcement in subgraph.
+5. Filter irrelevant links to preserve topic purity.
+6. Iterate score updates until stable.
+7. Identify authoritative pages and good hub directories.
+8. Use result for improved query-dependent ranking.
+9. Mention relation to HITS-style concepts.
+10. Conclude with better topical web-structure ranking.
+
+## B7) Web structure vs content vs usage mining (10-point quick write)
+1. Content mining extracts information from page contents.
+2. Structure mining analyzes hyperlinks and graph topology.
+3. Usage mining analyzes behavior from logs and sessions.
+4. Content methods use NLP and extraction models.
+5. Structure methods use graph ranking and centrality.
+6. Usage methods use sequence mining and clustering.
+7. Content answers what is said.
+8. Structure answers who is connected to whom.
+9. Usage answers how users navigate and behave.
+10. Conclude all three should be combined for full web intelligence.
+
+## B8) Web usage data structures and traversal patterns (10-point quick write)
+1. Trie stores path prefixes for user navigation sequences.
+2. Compressed trie/suffix tree improves storage and query speed.
+3. Session graph captures transitions between visited pages.
+4. Sequential patterns find common ordered click paths.
+5. Frequent patterns identify repeatedly co-occurring behaviors.
+6. Cyclic patterns identify periodic revisit behavior.
+7. Path traversal patterns reveal navigation bottlenecks.
+8. Use association and clustering for discovery.
+9. Use classification for user-segment prediction.
+10. Conclude structures and patterns together enable personalization.
+
+## B9) Web content mining techniques (10-point quick write)
+1. Define web content mining on text/media/semi-structured page data.
+2. Unstructured text mining uses NLP and keyword extraction.
+3. Structured mining extracts tables and record fields.
+4. Semi-structured mining parses HTML/XML tag patterns.
+5. Classification tags pages by topic.
+6. Clustering groups similar pages/documents.
+7. Information extraction gets entities and relations.
+8. Summarization condenses long content.
+9. Sentiment and opinion mining capture user polarity.
+10. Conclude with applications in search and recommendation.
+
+## B10) Text mining approaches in detail (10-point quick write)
+1. Start with text preprocessing: tokenization, stopword removal, stemming.
+2. Build feature representations such as TF-IDF vectors.
+3. Apply document retrieval/ranking for candidate set.
+4. Use classification for category prediction.
+5. Use clustering for unsupervised grouping.
+6. Use topic modeling for latent theme discovery.
+7. Use information extraction for entities/relations.
+8. Evaluate with precision, recall, and F-score.
+9. Integrate outputs into decision dashboards.
+10. Conclude with domain applications and insights.

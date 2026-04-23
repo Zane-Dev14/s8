@@ -171,3 +171,79 @@ lift(A -> B) = confidence(A -> B)/support(B)
 2. Solve one FP-growth numerical with conditional pattern base.
 3. Write DIC dashed/solid movement condition in 5 points.
 4. Write partition vs Apriori comparison in 10 points.
+
+---
+
+## End Section: All Part B Questions Answered (Final Quick-Write)
+
+## B1) Apriori with strong rules (10-point quick write)
+1. State minsup and minconf from question.
+2. Generate C1 and count supports.
+3. Keep L1 frequent itemsets.
+4. Join and prune to generate C2.
+5. Count supports and keep L2.
+6. Repeat to get higher frequent sets until stop.
+7. Generate rules from each frequent itemset.
+8. Compute confidence for each rule.
+9. Keep only rules >= minconf.
+10. Present final frequent sets and strong rules table.
+
+## B2) Pincer search with example (10-point quick write)
+1. Define pincer as bottom-up plus top-down search.
+2. Maintain MFCS and MFS structures.
+3. Run Apriori-like candidate generation.
+4. Track infrequent sets to shrink MFCS.
+5. Track frequent maximal sets to grow MFS.
+6. Prune candidates using MFCS knowledge.
+7. Continue support counting each level.
+8. Stop when candidate set becomes empty.
+9. Output maximal and/or all frequent sets.
+10. Mention reduced candidate explosion vs Apriori.
+
+## B3) FP-Growth frequent itemsets (10-point quick write)
+1. Scan once to count item frequencies.
+2. Remove infrequent items by minsup.
+3. Sort frequent items descending.
+4. Reorder each transaction by sorted order.
+5. Build FP-tree with shared prefixes.
+6. Build header table with node links.
+7. Extract conditional pattern base item-wise.
+8. Build conditional FP-trees recursively.
+9. List mined frequent itemsets.
+10. Conclude no candidate generation required.
+
+## B4) Dynamic itemset counting (10-point quick write)
+1. Define dashed and solid structure categories.
+2. Start counting smaller candidates early.
+3. Introduce larger candidates during scans.
+4. Promote dashed itemset when support becomes feasible.
+5. Move dashed to solid after full-pass confirmation.
+6. Prune itemsets that cannot reach minsup.
+7. Update candidate set continuously.
+8. Reduce repeated full DB scans.
+9. Output all solid frequent itemsets.
+10. Mention efficiency gain over static-level Apriori.
+
+## B5) Partition algorithm with comparison (10-point quick write)
+1. Split database into multiple partitions.
+2. Mine local frequent itemsets per partition.
+3. Union local frequent sets as global candidates.
+4. Run one global verification scan.
+5. Keep globally frequent itemsets.
+6. Explain guarantee: global frequent appears in at least one partition.
+7. Compare scans: partition usually two full scans.
+8. Compare Apriori: multiple scans by level.
+9. Compare memory and candidate growth behavior.
+10. Conclude partition is scan-efficient at scale.
+
+## B6) Apriori principle and candidate generation problem (10-point quick write)
+1. Write principle: all non-empty subsets of frequent itemset are frequent.
+2. Use this for pruning impossible candidates.
+3. Generate candidate k-itemsets from frequent (k-1)-itemsets.
+4. Remove candidate if any subset is infrequent.
+5. Count supports on surviving candidates.
+6. Keep those meeting minimum support.
+7. Repeat until no new frequent set forms.
+8. Optionally generate confidence-valid rules.
+9. Present L1, L2, L3 ... in tabular form.
+10. End with final frequent itemset list.

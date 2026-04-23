@@ -7,14 +7,21 @@ Module focus:
 - Clustering algorithms
 
 Questions asked repeatedly (non-duplicate):
-- Gain ratio and advantage over information gain
-- Requirements of good clustering algorithm
-- Distance metrics: Euclidean, Manhattan, Minkowski
-- Confusion matrix with precision and recall
-- DBSCAN with advantages
-- PAM algorithm with example
-- ID3 first splitting attribute
-- SLIQ algorithm and implementation issues
+Part A topics asked:
+1. Gain ratio and advantage over information gain.
+2. Requirements of good clustering algorithm.
+3. Distance metrics: Euclidean, Manhattan, Minkowski.
+4. Confusion matrix with precision and recall.
+5. Decision-tree splitting indices and SLIQ significance.
+
+Part B topics asked:
+1. Confusion matrix with precision/recall/specificity numerical.
+2. DBSCAN algorithm with advantages.
+3. PAM algorithm with example.
+4. ID3 first splitting attribute finding.
+5. Information gain calculation for given attribute.
+6. SLIQ algorithm with construction steps.
+7. Partition clustering variants and comparison asks.
 
 Answer format for this module:
 - Part A: write exactly 5 points.
@@ -229,3 +236,95 @@ SLIQ is designed for large datasets where scalability is critical.
 2. Solve one confusion matrix numerical.
 3. Solve one distance-metric numerical.
 4. Write K-means, PAM, DBSCAN in algorithm style.
+
+---
+
+## Part B Complete Answer Bank (All Asked Questions)
+
+Use acronym for algorithms:
+- DSRC
+- Define, Steps, Result, Conclusion.
+
+## Q1) Confusion matrix with precision, recall, specificity (10 points)
+1. Build confusion matrix from TP, FP, FN, TN values.
+2. Given: total=80, relevant=55, retrieved=50, relevant-retrieved=40.
+3. TP = 40.
+4. FP = retrieved - TP = 50 - 40 = 10.
+5. FN = relevant - TP = 55 - 40 = 15.
+6. TN = total - (TP+FP+FN) = 80 - 65 = 15.
+7. Precision = TP/(TP+FP) = 40/50 = 0.80.
+8. Recall = TP/(TP+FN) = 40/55 = 0.727.
+9. Specificity = TN/(TN+FP) = 15/25 = 0.60.
+10. Conclude: precision is high, recall is moderate, specificity is lower.
+
+## Q2) DBSCAN algorithm with advantages (10 points)
+1. DBSCAN is a density-based clustering method.
+2. Input parameters are Eps and MinPts.
+3. If neighborhood size >= MinPts, point is a core point.
+4. Border points are not core but lie within core neighborhood.
+5. Noise points are neither core nor border.
+6. Start with an unvisited point and mark visited.
+7. If core, expand cluster through density-reachable points.
+8. Continue expansion iteratively for all reachable core neighbors.
+9. Advantages: arbitrary-shape cluster discovery and outlier handling.
+10. No need to specify number of clusters in advance.
+
+## Q3) PAM algorithm with example flow (10 points)
+1. PAM stands for Partitioning Around Medoids.
+2. Medoid is an actual data point minimizing cluster dissimilarity.
+3. Build phase chooses initial k medoids.
+4. Assign each point to nearest medoid.
+5. Swap phase tests medoid and non-medoid exchange.
+6. Compute total dissimilarity after each candidate swap.
+7. Accept swap if objective value decreases.
+8. Repeat swap search until no improvement.
+9. PAM is robust to outliers compared to K-means.
+10. Draw two-cluster medoid assignment sketch for scoring.
+
+## Q4) ID3 first splitting attribute (10 points)
+1. ID3 selects attribute with maximum information gain.
+2. Compute entropy of full dataset first.
+3. Formula: H(S) = -sum(pi log2 pi).
+4. For each attribute A, partition dataset by attribute values.
+5. Compute weighted entropy after split on A.
+6. Formula: IG(S,A)=H(S)-sum((|Sv|/|S|)H(Sv)).
+7. Evaluate IG for all candidate attributes.
+8. Attribute with highest IG becomes root split.
+9. Draw one-level tree with selected root attribute.
+10. Recursively repeat process for child subsets.
+
+## Q5) Information gain for attribute age (10 points)
+1. Count class distribution yes/no for entire dataset.
+2. Compute overall entropy H(S).
+3. Split records by age categories: youth, middle-aged, senior.
+4. Compute entropy for each age subset.
+5. Compute weighted subset entropy using subset proportions.
+6. Subtract weighted entropy from H(S) to get IG(age).
+7. Compare IG(age) with other attribute gains.
+8. If IG(age) is maximum, age is selected for split.
+9. Mention gain ratio if tie-breaking against high-cardinality attributes.
+10. Conclude with exact IG value and rank position in answer.
+
+## Q6) SLIQ algorithm with construction steps (10 points)
+1. SLIQ is scalable decision-tree algorithm for large datasets.
+2. It presorts numerical attributes once to reduce repeated sorting.
+3. It maintains class list to track node-class membership.
+4. For each node, evaluate candidate splits efficiently.
+5. Use Gini-based split selection for best partition quality.
+6. Apply chosen split and update class list entries.
+7. Build tree level by level (breadth-first growth).
+8. Continue until stopping criteria or pure nodes.
+9. SLIQ scales better than naive recursive sort-based trees.
+10. Draw flow: Presort -> Class list -> Split eval -> BFS growth.
+
+## Q7) Partition clustering and comparison-style answer (10 points)
+1. Partition methods divide data into k disjoint clusters.
+2. Objective is to minimize within-cluster distance.
+3. K-means uses centroid means and is computationally fast.
+4. PAM uses medoids and is more robust to outliers.
+5. K-means can fail on non-spherical cluster shapes.
+6. PAM handles noisy points better but costs more computation.
+7. Initialization quality strongly affects both methods.
+8. Distance metric choice changes assignment behavior.
+9. Use comparison table in exam for full marks.
+10. Conclude by choosing method based on scale and noise profile.
