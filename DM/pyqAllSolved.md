@@ -3,6 +3,271 @@
 This file is built from OCR sources in `DM/ocr_output` and extraction in `DM/build`.
 Question wording is normalized from repeated exam variants in `DataMining_combined.txt`.
 
+## TOP REVISION FIRST: Acronyms + Formula Bank + Memory/Step Map
+
+Use this section first before reading any module.
+
+### A) Master Acronym Bank (All Long/Algorithm Questions)
+- Universal 10-mark skeleton: D-S-F-E-A-C
+   - D = Definition
+   - S = Steps/working
+   - F = Formula
+   - E = Example/Numerical
+   - A = Architecture/Diagram
+   - C = Conclusion/complexity/comparison
+- KDD: C-I-S-T-M-E-P
+   - Clean, Integrate, Select, Transform, Mine, Evaluate, Present
+- ID3: E-G-S-R
+   - Entropy, Gain, Split, Recurse
+- SLIQ: S-L-I-Q
+   - Sort lists, Label class-list, Impurity split, Queue/BFS growth
+- DBSCAN: E-M-C-E-N
+   - Eps, MinPts, Core, Expand, Noise
+- PAM: B-S-A-C
+   - Build, Swap, Assign, Cost
+- ROCK: N-L-M
+   - Neighbors, Links, Merge
+- APRIORI: J-P-C-R
+   - Join, Prune, Count, Repeat
+- FP-GROWTH: C-O-T-M
+   - Count, Order, Tree, Mine
+- PINCER: B-T-P
+   - Bottom-up, Top-down, Prune
+- DIC: S-C-P-S
+   - Slice, Count, Promote, Solidify
+- HITS: H-A-I
+   - Hub, Authority, Iterate
+- CLEVER: R-B-S-R
+   - Root set, Base set, Score, Rank
+
+### B) Master Formula Bank (All Formulas in One Place)
+
+#### Distances
+$$
+d_{euclidean}(x,y)=\sqrt{\sum_i (x_i-y_i)^2}
+$$
+$$
+d_{manhattan}(x,y)=\sum_i |x_i-y_i|
+$$
+$$
+d_{minkowski}(x,y)=\left(\sum_i |x_i-y_i|^p\right)^{1/p}
+$$
+
+#### Normalization and Scaling
+$$
+x'_{minmax}=\frac{x-min}{max-min}
+$$
+$$
+z=\frac{x-\mu}{\sigma}
+$$
+$$
+x'_{decimal}=\frac{x}{10^j}
+$$
+
+#### Binning
+$$
+   ext{Bin Mean}=\frac{1}{k}\sum_{i=1}^{k} x_i
+$$
+$$
+   ext{Boundary Replace}(x)=\arg\min_{b\in\{L,U\}}|x-b|
+$$
+
+#### Decision Trees
+$$
+H(S)=-\sum_c p(c)\log_2 p(c)
+$$
+$$
+IG(S,A)=H(S)-\sum_{v\in Values(A)}\frac{|S_v|}{|S|}H(S_v)
+$$
+$$
+SplitInfo(A)=-\sum_v \frac{|S_v|}{|S|}\log_2\left(\frac{|S_v|}{|S|}\right)
+$$
+$$
+GainRatio(A)=\frac{IG(S,A)}{SplitInfo(A)}
+$$
+$$
+Gini(S)=1-\sum_c p(c)^2
+$$
+
+#### Association Rule Mining
+$$
+support(X)=\frac{\sigma(X)}{N}
+$$
+$$
+support(X\Rightarrow Y)=\frac{\sigma(X\cup Y)}{N}
+$$
+$$
+confidence(X\Rightarrow Y)=\frac{\sigma(X\cup Y)}{\sigma(X)}
+$$
+$$
+lift(X\Rightarrow Y)=\frac{confidence(X\Rightarrow Y)}{support(Y)}
+$$
+
+#### Classification Metrics
+$$
+Precision=\frac{TP}{TP+FP},\quad Recall=\frac{TP}{TP+FN}
+$$
+$$
+Specificity=\frac{TN}{TN+FP},\quad Accuracy=\frac{TP+TN}{TP+TN+FP+FN}
+$$
+
+#### Text Mining / IR
+$$
+TFIDF(t,d)=TF(t,d)\cdot \log\left(\frac{N}{df(t)}\right)
+$$
+$$
+Cosine(d,q)=\frac{\sum_i w_{i,d}w_{i,q}}{\sqrt{\sum_i w_{i,d}^2}\sqrt{\sum_i w_{i,q}^2}}
+$$
+
+#### HITS
+$$
+a(p)=\sum_{q\to p} h(q), \quad h(p)=\sum_{p\to r} a(r)
+$$
+
+#### PCA
+$$
+X'=XW_k
+$$
+$$
+   ext{Explained Variance Ratio}_i=\frac{\lambda_i}{\sum_j \lambda_j}
+$$
+
+### C) Question-wise Memory + Step Map (Long/Formula/Numerical)
+
+For every long question, write in this order:
+1. Definition
+2. Step list
+3. Formula box
+4. Example table
+5. Diagram
+6. Conclusion/comparison
+
+#### Module 1 Part B
+- M1B1 (3-tier architecture)
+   - Memory: B-M-T (Bottom, Middle, Top)
+   - Must formulas: Load window formula
+   - Must steps: source -> ETL -> DW -> OLAP -> BI, include diagram
+- M1B2 (schemas)
+   - Memory: S-S-F (Star, Snowflake, Fact constellation)
+   - Must formulas: redundancy relation
+   - Must steps: define each schema, compare joins/storage, add diagram
+- M1B3 (OLAP + ROLAP/MOLAP/HOLAP)
+   - Memory: R-D-S-D-P + R-M-H
+   - Must formulas: aggregate sum/avg
+   - Must steps: explain each OLAP operation with one example each
+- M1B4 (KDD)
+   - Memory: C-I-S-T-M-E-P
+   - Must formulas: interestingness function
+   - Must steps: 7 stages in order + one pipeline diagram
+- M1B5 (schema + OLAP query)
+   - Memory: D-F-H-S-R-G
+   - Must formulas: doctor-wise fee summation
+   - Must steps: dimensions -> fact -> hierarchy -> slice/roll-up -> result table
+
+#### Module 2 Part B
+- M2B1 (missing/noisy/inconsistent)
+   - Memory: M-N-I
+   - Must formulas: z-score outlier
+   - Must steps: missing handling table, noise handling table, consistency rules
+- M2B2 (numerosity + transformation)
+   - Memory: P-N-T (Parametric, Non-parametric, Transform)
+   - Must formulas: compression ratio
+   - Must steps: method list + before/after example
+- M2B3 (discretization + PCA)
+   - Memory: B-H-E-C + P-C-E-P
+   - Must formulas: projection and variance ratio
+   - Must steps: standardize -> covariance -> eigen -> select-k -> project
+- M2B4 (bin means/boundaries)
+   - Memory: S-B-M-B (Sort, Bin, Mean, Boundary)
+   - Must formulas: bin mean, boundary replacement
+   - Must steps: sorted data table, bin table, mean table, boundary table
+- M2B5 (normalization numericals)
+   - Memory: M-Z-D (Minmax, Zscore, Decimal)
+   - Must formulas: all 3 normalization formulas
+   - Must steps: given stats table + substitution + final value row
+
+#### Module 3 Part B
+- M3B1 (ID3 split)
+   - Memory: E-S-W-G-M (Entropy, Split, Weighted entropy, Gain, Max gain)
+   - Must formulas: entropy and IG
+   - Must steps: parent entropy table + per-attribute split table + gain table
+- M3B2 (Gini/IG + DBSCAN)
+   - Memory: G-I-D (Gini, Information gain, DBSCAN)
+   - Must formulas: gini and delta gini
+   - Must steps: impurity table + parameter explanation (eps/minPts)
+- M3B3 (PAM + ROCK)
+   - Memory: PAM(B-S-A-C), ROCK(N-L-M)
+   - Must formulas: PAM cost, ROCK link count
+   - Must steps: medoid selection table + swap table + link graph sketch
+- M3B4 (SLIQ)
+   - Memory: S-L-I-Q
+   - Must formulas: weighted impurity split score
+   - Must steps: attribute-list construction -> split selection -> BFS growth
+- M3B5 (confusion matrix numerical)
+   - Memory: T-F-F-T (TP, FP, FN, TN)
+   - Must formulas: precision, recall, specificity, accuracy
+   - Must steps: derive TP/FP/FN/TN table then metrics table
+
+#### Module 4 Part B
+- M4B1 (Apriori frequent itemsets)
+   - Memory: C1-L1, C2-L2, C3-L3
+   - Must formulas: apriori property
+   - Must steps: candidate-generation table each pass
+- M4B2 (strong rules)
+   - Memory: S-C-L (Support, Confidence, Lift)
+   - Must formulas: support/confidence/lift
+   - Must steps: rule table with threshold filtering
+- M4B3 (partition algorithm)
+   - Memory: P-L-U-G (Partition, Local, Union, Global)
+   - Must formulas: globally frequent implies local frequent in at least one partition
+   - Must steps: partition-wise frequent table + final verification table
+- M4B4 (FP-growth)
+   - Memory: C-O-T-M
+   - Must formulas: support count threshold
+   - Must steps: header table -> FP-tree -> conditional patterns -> frequent sets
+- M4B5 (DIC)
+   - Memory: S-C-P-S
+   - Must formulas: promotion condition by support and checkpoint
+   - Must steps: dashed/solid status-transition table
+
+#### Module 5 Part B
+- M5B1 (web content + text mining)
+   - Memory: P-C-F-M (Parse, Clean, Feature, Mine)
+   - Must formulas: term weighting formula
+   - Must steps: pipeline diagram + technique comparison table
+- M5B2 (IR/TM/IE)
+   - Memory: R-A-E (Retrieve, Analyze, Extract)
+   - Must formulas: cosine similarity
+   - Must steps: IR vs TM vs IE comparison table
+- M5B3 (HITS/CLEVER)
+   - Memory: H-A-I and R-B-S-R
+   - Must formulas: iterative authority/hub updates
+   - Must steps: root/base set construction + iterative score table
+- M5B4 (usage mining)
+   - Memory: L-S-D-A (Logs, Sessions, Discovery, Action)
+   - Must formulas: transition support formula
+   - Must steps: preprocessing -> pattern -> business action mapping table
+- M5B5 (TF-IDF numerical)
+   - Memory: T-D-W (TF, DF/IDF, Weight)
+   - Must formulas: TF-IDF and IDF
+   - Must steps: term-doc table -> TF table -> IDF table -> final TF-IDF table
+
+#### Numerical IDs N1-N9
+- N1 Distance: dimension-wise difference table mandatory
+- N2/N5 Normalization: given-stats table + substitution + final answer
+- N3/N4 Binning: sorted list + bin table + mean/boundary tables
+- N6 ARM rule numerical: support/confidence table mandatory
+- N7 Apriori numerical: Ck/Lk pass tables mandatory
+- N8 FP-growth numerical: frequency table + frequent itemset table mandatory
+- N9 Confusion matrix numerical: TP/FP/FN/TN table + metrics table mandatory
+
+### D) What to Draw for Maximum Marks
+- Warehouse/OLAP: 3-tier + star/snowflake
+- Decision tree: root split + IG/Gini formula box
+- Clustering: core-border-noise or medoid cluster sketch
+- ARM: Ck/Lk lattice/pass table
+- Web mining: crawler flow or hub-authority graph
+
 ## OCR Source Files Used
 - `DM/ocr_output/DataMining_combined.txt`
 - `DM/build/DataMiningCombined_unique_questions.json`
@@ -18,87 +283,216 @@ Question wording is normalized from repeated exam variants in `DataMining_combin
 
 ---
 
-## Section 1: Module-wise Unique Question Bank
+## Section 1: Full Question Bank (No Part B Removed)
+
+This section keeps all Part B sub-questions paper-wise.
+Coverage from 5 core PYQ papers gives 20 Part B sub-questions per module (4 per paper x 5 papers).
+I also retained supplementary August 2024 questions as extra coverage.
+
+### Coverage Count
+- Module 1 Part B: 20 from core PYQs + 4 supplementary
+- Module 2 Part B: 20 from core PYQs + 4 supplementary
+- Module 3 Part B: 20 from core PYQs + 4 supplementary
+- Module 4 Part B: 20 from core PYQs + 4 supplementary
+- Module 5 Part B: 20 from core PYQs + 4 supplementary
+
+Paper keys:
+- P1 = Sept 2025
+- P2 = May 2024
+- P3 = April 2025
+- P4 = Oct 2023
+- P5 = June 2023
+- P6 = Aug 2024 Supplementary
 
 ## Module 1
 
 ### Part A (5-mark style)
-- M1A1. List any three applications of data mining in day-to-day life.
-- M1A2. Explain roll-up and drill-down with suitable examples.
-- M1A3. Illustrate the multi-dimensional data model with a neat figure.
-- M1A4. Differentiate OLTP and OLAP.
-- M1A5. List the major features/applications of a data warehouse.
+- M1A1. List applications of data mining.
+- M1A2. Roll-up and drill-down.
+- M1A3. Multidimensional data model.
+- M1A4. OLTP vs OLAP.
+- M1A5. Data warehouse features/applications.
 
-### Part B (10-mark style)
-- M1B1. Explain the three-tier architecture of a data warehouse with diagram.
-- M1B2. Explain star schema, snowflake schema, and fact constellation with examples.
-- M1B3. Explain OLAP operations and compare ROLAP, MOLAP, HOLAP.
-- M1B4. Explain KDD stages / stages of data mining in BI with diagram.
-- M1B5. Design a warehouse schema and list OLAP operations to answer managerial query.
+### Part B (All Paper-wise Questions, No Deletion)
+1. P1-Q11a: Explain KDD process in databases for finding useful information/patterns.
+2. P1-Q11b: Explain three-tier data warehouse architecture with diagram.
+3. P1-Q12a: Draw snowflake schema for sales warehouse (customer, product, date, region, quantity, sales).
+4. P1-Q12b: Illustrate OLAP operations in multidimensional model.
+5. P2-Q11a: Explain three-tier architecture of data warehouse.
+6. P2-Q11b: Schemas for physical representation of multidimensional data.
+7. P2-Q12a: List and explain data mining functionalities.
+8. P2-Q12b: OLAP operations + differences ROLAP/MOLAP/HOLAP.
+9. P3-Q11a: Explain different data mining functions.
+10. P3-Q11b: Explain three-tier architecture with neat diagram.
+11. P3-Q12a: Star schema vs snowflake schema with example.
+12. P3-Q12b: OLAP operations + ROLAP/MOLAP/HOLAP differences.
+13. P4-Q11a: Explain different OLAP operations on multidimensional data.
+14. P4-Q11b: Illustrate stages in knowledge discovery process.
+15. P4-Q12a: Star vs snowflake schema differences.
+16. P4-Q12b: Doctor-patient warehouse schema + OLAP operations for doctor-wise fee in 2023.
+17. P5-Q11a: Explain KDD process in databases.
+18. P5-Q11b: Illustrate stages of data mining in business intelligence.
+19. P5-Q12a: Describe issues in data mining.
+20. P5-Q12b: University snowflake schema + OLAP operations for CS-course average grade.
+21. P6-Q11a: Explain three-tier architecture with diagram.
+22. P6-Q11b: Healthcare warehouse star schema + OLAP for doctor-wise visits.
+23. P6-Q12a: Sales snowflake schema + roll-up daily to monthly sales.
+24. P6-Q12b: Explain stages of KDD with neat diagram.
+
+Primary solved templates in Section 2:
+- M1B1, M1B2, M1B3, M1B4, M1B5
 
 ## Module 2
 
 ### Part A (5-mark style)
-- M2A1. Perform data smoothing by bin means/bin boundaries on 3 equi-width bins.
-- M2A2. Explain concept hierarchy with examples.
-- M2A3. Why is data preprocessing important before mining?
-- M2A4. Explain sampling methods used in data reduction.
-- M2A5. Explain purpose of data discretization and strategies.
+- M2A1. Data smoothing by binning.
+- M2A2. Concept hierarchy.
+- M2A3. Preprocessing significance.
+- M2A4. Sampling methods.
+- M2A5. Discretization purpose/strategies.
 
-### Part B (10-mark style)
-- M2B1. Explain techniques to handle missing/noisy/inconsistent data.
-- M2B2. Explain numerosity reduction and data transformation methods.
-- M2B3. Explain discretization strategies and illustrate PCA.
-- M2B4. Solve smoothing problem using bin means and bin boundaries.
-- M2B5. Solve normalization problems (min-max, z-score, decimal scaling).
+### Part B (All Paper-wise Questions, No Deletion)
+1. P1-Q13a: Explain techniques for handling missing data.
+2. P1-Q13b: Significance of data discretization + any two strategies.
+3. P1-Q14a: Write about any two data reduction techniques.
+4. P1-Q14b: Need for data transformation and different transformation methods.
+5. P2-Q13a: Significance of data discretization + any four strategies.
+6. P2-Q13b: Illustrate PCA for dimensionality reduction.
+7. P2-Q14a: Methods for dealing with missing data and significance.
+8. P2-Q14b: Normalization methods and normalize 550 (min-max, z-score, decimal).
+9. P3-Q13a: Explain any two preprocessing steps.
+10. P3-Q13b: Smooth age values using bin means and bin boundaries (3 bins).
+11. P3-Q14a: Numerosity reduction techniques.
+12. P3-Q14b: Need and ways of data transformation.
+13. P4-Q13a: Sampling examples (SRSWOR, SRSWR, cluster, stratified) for 12 sales prices.
+14. P4-Q13b: Data cleaning approaches for incomplete/noisy/inconsistent data.
+15. P4-Q14a: Numerosity reduction techniques.
+16. P4-Q14b: Need and ways of data transformation.
+17. P5-Q13a: Normalize 145 using min-max and z-score (sd given).
+18. P5-Q13b: Approaches to clean incomplete/noisy/inconsistent data.
+19. P5-Q14a: Numerosity reduction techniques.
+20. P5-Q14b: Sampling examples (SRSWOR/SRSWR/stratified) for 12 sales prices.
+21. P6-Q13a: Techniques used for handling missing data.
+22. P6-Q13b: Smooth age values (4..34) by bin means and bin boundaries.
+23. P6-Q14a: Attribute subset selection in data reduction.
+24. P6-Q14b: Illustrate PCA for dimensionality reduction.
+
+Primary solved templates in Section 2:
+- M2B1, M2B2, M2B3, M2B4, M2B5
 
 ## Module 3
 
 ### Part A (5-mark style)
-- M3A1. Compute Euclidean, Manhattan and Minkowski distances.
-- M3A2. Precision vs recall for spam classifier: which is more important and why?
-- M3A3. Draw confusion matrix and compute precision/recall.
-- M3A4. Explain gain ratio and its advantage over information gain.
-- M3A5. Requirements of a good clustering algorithm / issues in decision tree.
+- M3A1. Distance measures.
+- M3A2. Precision vs recall.
+- M3A3. Confusion matrix.
+- M3A4. Gain ratio.
+- M3A5. Clustering requirements / decision-tree issues.
 
-### Part B (10-mark style)
-- M3B1. Use ID3 to find first splitting attribute for given dataset.
-- M3B2. Compute gain (Gini/IG) and choose root attribute; explain DBSCAN.
-- M3B3. Explain PAM and ROCK clustering with examples.
-- M3B4. Explain SLIQ algorithm with example.
-- M3B5. Build confusion matrix from retrieval problem and compute metrics.
+### Part B (All Paper-wise Questions, No Deletion)
+1. P1-Q15a: Compute gain of attributes A and B, select root.
+2. P1-Q15b: Explain ROCK categorical clustering.
+3. P1-Q16a: Find first splitting attribute using ID3 for given dataset.
+4. P1-Q16b: Explain SLIQ algorithm.
+5. P2-Q15a: Illustrate DBSCAN clustering.
+6. P2-Q15b: ID3 steps and first split for play-tennis dataset.
+7. P2-Q16a: Discuss PAM algorithm with example.
+8. P2-Q16b: Construct decision tree using SLIQ with example.
+9. P3-Q15a: Build confusion matrix and compute precision/recall/specificity (80,55,50,40).
+10. P3-Q15b: Explain SLIQ with suitable example.
+11. P3-Q16a: Explain partition clustering and importance of PAM.
+12. P3-Q16b: Explain ROCK with suitable example.
+13. P4-Q15a: Compute Gini gain and information gain for A and B.
+14. P4-Q15b: Explain DBSCAN and advantages.
+15. P4-Q16a: Find first splitting attribute using ID3.
+16. P4-Q16b: Explain SLIQ algorithm.
+17. P5-Q15a: Information gain attribute selection; compute gain for age in given bank dataset.
+18. P5-Q15b: Explain DBSCAN with advantages.
+19. P5-Q16a: Build confusion matrix and compute precision/recall (80,55,50,40).
+20. P5-Q16b: Explain PAM algorithm with example.
+21. P6-Q15a: Compute gain(A,B) and choose root for given dataset.
+22. P6-Q15b: DBSCAN parameters and advantages over partition clustering.
+23. P6-Q16a: Dendrogram and linkage criteria in hierarchical clustering.
+24. P6-Q16b: Cluster given points into two clusters using PAM.
+
+Primary solved templates in Section 2:
+- M3B1, M3B2, M3B3, M3B4, M3B5
 
 ## Module 4
 
 ### Part A (5-mark style)
-- M4A1. Methods to improve efficiency of Apriori.
-- M4A2. Define support, confidence, frequent itemset.
-- M4A3. Explain dynamic itemset counting (DIC).
-- M4A4. Explain bi-directional pruning in Pincer Search.
-- M4A5. Compare partition algorithm with Apriori.
+- M4A1. Apriori efficiency improvements.
+- M4A2. Support, confidence, frequent itemset.
+- M4A3. DIC.
+- M4A4. Pincer bi-directional pruning.
+- M4A5. Partition vs Apriori.
 
-### Part B (10-mark style)
-- M4B1. Apriori principle and frequent itemsets for given dataset.
-- M4B2. Find frequent itemsets and strong rules (given minsup/minconf).
-- M4B3. Explain partition algorithm and why it reduces Apriori cost.
-- M4B4. Explain FP-Growth and solve frequent itemset mining on transaction set.
-- M4B5. Explain DIC dashed/solid transition with example.
+### Part B (All Paper-wise Questions, No Deletion)
+1. P1-Q17a: Illustrate Pincer Search algorithm.
+2. P1-Q17b: Describe partition algorithm.
+3. P1-Q18a: Apriori principle + frequent itemsets (min support 2) for given dataset.
+4. P1-Q18b: Describe dynamic itemset counting with example.
+5. P2-Q17a: Illustrate Pincer Search algorithm.
+6. P2-Q17b: Apriori principle + frequent itemsets (min support 2).
+7. P2-Q18a: Partitioning algorithm and comparison with Apriori.
+8. P2-Q18b: FP-Growth advantages + frequent itemsets for given data.
+9. P3-Q17a: Apriori + strong association rules (min_sup 33.33%, min_conf 60%).
+10. P3-Q17b: Explain partition algorithm with example.
+11. P3-Q18a: FP-Growth frequent itemsets (retail dataset, support 40%).
+12. P3-Q18b: Illustrate Pincer Search algorithm.
+13. P4-Q17a: Apriori + strong rules (min_sup 60%, min_conf 80%).
+14. P4-Q17b: Illustrate Pincer Search algorithm.
+15. P4-Q18a: DIC with dashed->solid transition condition.
+16. P4-Q18b: Partitioning algorithm and how it removes Apriori disadvantage.
+17. P5-Q17a: Apriori + strong rules (min_sup 33.33%, min_conf 60%).
+18. P5-Q17b: Illustrate Pincer Search algorithm.
+19. P5-Q18a: FP-Growth with min_sup = 3.
+20. P5-Q18b: DIC with dashed->solid transition.
+21. P6-Q17a: Apriori frequent itemsets + rules (min support count 2, min confidence 60%).
+22. P6-Q17b: Explain dynamic itemset counting in ARM.
+23. P6-Q18a: FP-Growth on retail dataset (support 40%, confidence 60%).
+24. P6-Q18b: Demonstrate Pincer Search with example.
+
+Primary solved templates in Section 2:
+- M4B1, M4B2, M4B3, M4B4, M4B5
 
 ## Module 5
 
 ### Part A (5-mark style)
-- M5A1. Explain web mining taxonomy.
-- M5A2. Differentiate web content, structure, and usage mining.
-- M5A3. Compare focused crawling and regular crawling.
-- M5A4. Explain pre-processing and pattern analysis in web usage mining.
-- M5A5. Explain text retrieval indexing and TF-IDF basics.
+- M5A1. Web mining taxonomy.
+- M5A2. Content vs structure vs usage mining.
+- M5A3. Focused vs regular crawling.
+- M5A4. Usage mining activities.
+- M5A5. Text retrieval indexing and TF-IDF.
 
-### Part B (10-mark style)
-- M5B1. Describe web content mining techniques and text mining approaches.
-- M5B2. Describe text retrieval methods and relation among TM, IR, IE.
-- M5B3. Explain HITS and CLEVER algorithms.
-- M5B4. Explain web usage mining applications, traversal patterns, and discovery methods.
-- M5B5. Compute TF-IDF from term-document matrix (stepwise).
+### Part B (All Paper-wise Questions, No Deletion)
+1. P1-Q19a: Data structures used for web usage mining process.
+2. P1-Q19b: Explain HITS algorithm with example.
+3. P1-Q20a: Text retrieval methods; relationship among text mining, IR, IE.
+4. P1-Q20b: Explain CLEVER algorithm for web structure mining.
+5. P2-Q19a: Describe web content mining techniques.
+6. P2-Q19b: Discuss text mining approaches and techniques.
+7. P2-Q20a: Text retrieval methods; distinguish text mining, IR, IE.
+8. P2-Q20b: Write and explain CLEVER algorithm.
+9. P3-Q19a: Explain web usage mining applications and activities.
+10. P3-Q19b: Explain context focused crawler and personalization.
+11. P3-Q20a: Text retrieval methods; relationship among text mining, IR, IE.
+12. P3-Q20b: Explain web structure mining vs web usage/content + CLEVER.
+13. P4-Q19a: Explain HITS algorithm with example.
+14. P4-Q19b: Text retrieval methods + relationship among text mining, IR, IE.
+15. P4-Q20a: Web structure mining vs web usage/content + CLEVER.
+16. P4-Q20b: Compute TF-IDF value for term T4 in document 3.
+17. P5-Q19a: Data structures used for web usage mining.
+18. P5-Q19b: Any three applications of web usage mining.
+19. P5-Q20a: Text retrieval methods + relationship among text mining, IR, IE.
+20. P5-Q20b: Traversal patterns and discovery methods in web usage data.
+21. P6-Q19a: Web usage mining vs web structure and web content mining.
+22. P6-Q19b: Data structures used for web usage mining process.
+23. P6-Q20a: Text mining techniques and relation to web mining.
+24. P6-Q20b: Explain HITS algorithm with example.
+
+Primary solved templates in Section 2:
+- M5B1, M5B2, M5B3, M5B4, M5B5
 
 ---
 
@@ -1062,9 +1456,244 @@ $$
 
 ---
 
+## Section 3: Numerical Master Sheet (All PYQ Numericals)
+
+This section is added so no numerical is missed and each has explicit steps/tables.
+
+### N1. Distance Numerical (Tuple-Based)
+Given objects: A=(22,1,42,10), B=(20,0,36,8)
+
+Step table:
+
+| Dimension | A | B | Difference | Abs | Square | Cube |
+|---|---:|---:|---:|---:|---:|---:|
+| 1 | 22 | 20 | 2 | 2 | 4 | 8 |
+| 2 | 1 | 0 | 1 | 1 | 1 | 1 |
+| 3 | 42 | 36 | 6 | 6 | 36 | 216 |
+| 4 | 10 | 8 | 2 | 2 | 4 | 8 |
+| Sum |  |  |  | 11 | 45 | 233 |
+
+Results:
+- Manhattan distance = 11
+- Euclidean distance = $\sqrt{45}=6.708$
+- Minkowski (order 3) = $\sqrt[3]{233}=6.152$
+
+### N2. Normalization Numerical (x=300)
+Data: [100, 200, 300, 500, 900]
+
+Step table:
+
+| Item | Value |
+|---|---:|
+| x | 300 |
+| min | 100 |
+| max | 900 |
+| mean | 400 |
+| sd | 282.84 |
+
+Formulas and result:
+- Min-max: $x'=(x-min)/(max-min)=(300-100)/(900-100)=0.25$
+- Z-score: $z=(x-\mu)/\sigma=(300-400)/282.84=-0.3536$
+
+### N3. Binning Numerical (Dataset-1)
+Data: [24,27,29,16,17,31,33,29,36,37,35,44], 3 bins
+
+Sorted: [16,17,24,27,29,29,31,33,35,36,37,44]
+
+Step table (equal frequency bins):
+
+| Bin | Values | Mean | Boundaries |
+|---|---|---:|---|
+| B1 | 16,17,24,27 | 21.00 | 16 and 27 |
+| B2 | 29,29,31,33 | 30.50 | 29 and 33 |
+| B3 | 35,36,37,44 | 38.00 | 35 and 44 |
+
+Smoothed by bin means:
+[21,21,21,21,30.5,30.5,30.5,30.5,38,38,38,38]
+
+Smoothed by boundaries:
+[16,16,27,27,29,29,33,33,35,35,35,44]
+
+### N4. Binning Numerical (Dataset-2)
+Data: [20,24,23,12,15,20,31,29,35,36,32,40], 3 bins
+
+Sorted: [12,15,20,20,23,24,29,31,32,35,36,40]
+
+Step table:
+
+| Bin | Values | Mean | Boundaries |
+|---|---|---:|---|
+| B1 | 12,15,20,20 | 16.75 | 12 and 20 |
+| B2 | 23,24,29,31 | 26.75 | 23 and 31 |
+| B3 | 32,35,36,40 | 35.75 | 32 and 40 |
+
+Smoothed by means:
+[16.75,16.75,16.75,16.75,26.75,26.75,26.75,26.75,35.75,35.75,35.75,35.75]
+
+Smoothed by boundaries:
+[12,12,20,20,23,23,31,31,32,32,32,40]
+
+### N5. Normalization Numerical (x=145 and x=550)
+
+Case A: x=145 for data [100,150,140,115,190,120,130,125,135,145,140,150,165,160,170]
+
+| Quantity | Value |
+|---|---:|
+| min | 100 |
+| max | 190 |
+| x | 145 |
+
+- Min-max: $(145-100)/(190-100)=0.5$
+- Z-score with given $\mu=145,\sigma=120$: $(145-145)/120=0$
+
+Case B: x=550 for data [50,150,250,350,450,550,650,700,850,950,1000]
+
+| Quantity | Value |
+|---|---:|
+| min | 50 |
+| max | 1000 |
+| x | 550 |
+
+- Min-max: $(550-50)/(1000-50)=0.5263$
+- Decimal scaling: $550/10^4=0.055$
+
+### N6. Association Rule Numerical (Support/Confidence)
+Transactions:
+- T1: Bread, Jelly, Peanut-butter
+- T2: Bread, Peanut-butter
+- T3: Bread, Milk, Peanut-butter
+- T4: Beer, Bread
+- T5: Beer, Milk
+
+Step table:
+
+| Rule | Support Count(XY) | Support | Confidence |
+|---|---:|---:|---:|
+| Bread => Peanut-butter | 3 | 3/5=60% | 3/4=75% |
+| Beer => Bread | 1 | 1/5=20% | 1/2=50% |
+
+### N7. Apriori Numerical (Cake/Bread/Coke/Chips style)
+Core transaction set (OCR variants normalize to 6 transactions):
+- T1 {Cake, Bread}
+- T2 {Cake, Bread}
+- T3 {Cake, Coke, Chips}
+- T4 {Bread, Coke}
+- T5 {Cake, Bread, Coke}
+- T6 {Cake, Chips}
+
+For $min\_sup=33.33\%$ and $min\_conf=60\%$:
+
+| Itemset | Support Count | Frequent? |
+|---|---:|---|
+| {Cake} | 5 | Yes |
+| {Bread} | 4 | Yes |
+| {Coke} | 3 | Yes |
+| {Chips} | 2 | Yes |
+| {Cake,Bread} | 3 | Yes |
+| {Cake,Coke} | 2 | Yes |
+| {Cake,Chips} | 2 | Yes |
+| {Bread,Coke} | 2 | Yes |
+| {Cake,Bread,Coke} | 1 | No |
+
+Example strong rules:
+- Bread => Cake: confidence = 3/4 = 75%
+- Coke => Bread: confidence = 2/3 = 66.67%
+- Chips => Cake: confidence = 2/2 = 100%
+
+### N8. FP-Growth Numerical (Retail Dataset)
+Transactions:
+- {milk,bread,eggs}
+- {milk,bread,butter}
+- {bread,butter}
+- {milk,bread}
+- {bread,eggs}
+
+$min\_sup=40\%$ of 5 = 2
+
+| Itemset | Support Count | Frequent? |
+|---|---:|---|
+| {bread} | 5 | Yes |
+| {milk} | 3 | Yes |
+| {eggs} | 2 | Yes |
+| {butter} | 2 | Yes |
+| {bread,milk} | 3 | Yes |
+| {bread,eggs} | 2 | Yes |
+| {bread,butter} | 2 | Yes |
+
+Sample rules (for min_conf=60%):
+- milk => bread = 3/3 = 100%
+- eggs => bread = 2/2 = 100%
+- butter => bread = 2/2 = 100%
+
+### N9. Retrieval Numerical (Confusion Matrix)
+Given: total=80, relevant=55, retrieved=50, retrieved relevant=40
+
+| Metric | Value |
+|---|---:|
+| TP | 40 |
+| FP | 10 |
+| FN | 15 |
+| TN | 15 |
+
+| Score | Formula | Value |
+|---|---|---:|
+| Precision | TP/(TP+FP) | 0.80 |
+| Recall | TP/(TP+FN) | 0.7273 |
+| Specificity | TN/(TN+FP) | 0.60 |
+
+---
+
+## Section 4: Hard-Part Memory Aids (Acronyms + Exam Skeleton)
+
+Use these for algorithm-heavy Part B answers.
+
+### Universal Part B Skeleton (10+ marks)
+- Acronym: D-S-F-E-A-C
+- D = Definition
+- S = Steps/working
+- F = Formula/supporting equations
+- E = Example/numerical
+- A = Architecture/diagram
+- C = Conclusion/complexity/comparison
+
+### Algorithm Acronyms
+- KDD: C-I-S-T-M-E-P
+   - Clean -> Integrate -> Select -> Transform -> Mine -> Evaluate -> Present
+- ID3: E-G-S-R
+   - Entropy -> Gain -> Split -> Recurse
+- SLIQ: S-L-I-Q
+   - Sort lists -> Label/class list -> Impurity split -> Queue/BFS grow
+- DBSCAN: E-M-C-E-N
+   - Eps -> MinPts -> Core points -> Expand cluster -> Noise
+- PAM: B-S-A-C
+   - Build medoids -> Swap -> Assign -> Compute cost
+- ROCK: N-L-M
+   - Neighbors -> Links -> Merge clusters
+- APRIORI: J-P-C-R
+   - Join -> Prune -> Count -> Repeat
+- FP-GROWTH: C-O-T-M
+   - Count -> Order -> Tree build -> Mine patterns
+- PINCER: B-T-P
+   - Bottom-up + Top-down -> Prune with MFI
+- DIC: S-C-P-S
+   - Slice scan -> Count -> Promote -> Solidify
+- HITS: H-A-I
+   - Hub scores -> Authority scores -> Iterate
+- CLEVER: R-B-S-R
+   - Root set -> Base set -> Score -> Rank
+
+### Quick What-To-Draw Guide
+- Warehouse/OLAP questions: 3-tier or star/snowflake diagram.
+- Decision tree questions: node split diagram + entropy/IG formula box.
+- Clustering questions: point scatter (core/border/noise or medoids).
+- ARM questions: candidate lattice or pass table C1/L1, C2/L2, C3/L3.
+- Web mining questions: hub-authority graph or crawler flow.
+
+---
+
 ## Final Exam Writing Notes (Applied in This File)
 - Part A answers are structured as 5 direct scoring points.
 - Part B answers are expanded for 10+ mark depth.
 - Every Part B answer includes a diagram and at least one formula.
 - Numerical answers include stepwise tables and explicit final values.
-- Question wording is normalized from OCR duplicates, preserving exam intent.
+- Part B bank now keeps full paper-wise coverage, not only 5 compressed templates per module.
