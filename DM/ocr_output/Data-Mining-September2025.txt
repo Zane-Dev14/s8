@@ -98,4 +98,52 @@ OR
 Module II
 
 13. a) Explain any two data preprocessing steps in detail. (8)
-    b) Suppose that the data for analysis includes the attribute age. The age values ...
+    b) Suppose that the data for analysis includes the attribute age. The age values ...    
+(Continuation of PART B)
+
+13. b) For the data tuples (in increasing order):
+    4, 8, 9, 15, 21, 21, 24, 25, 26, 28, 29, 34.
+    Use smoothing by bin means and bin boundaries to smooth the above data,
+    where number of bins are 3.
+
+
+OR
+
+14. a) Describe the various techniques for numerosity reduction in data mining. (7)
+    b) Why do we need data transformation? What are the different ways of data transformation? (7)
+
+
+Module III
+
+15. a) A database contains 80 records on a particular topic of which 55 are relevant to a certain investigation.
+       A search was conducted on that topic and 50 records were retrieved. Of the 50 records retrieved,
+       40 were relevant. Construct the confusion matrix and calculate the precision, recall and specificity
+       scores for the search. (7)
+
+    b) Explain SLIQ algorithm with a suitable example. (7)
+
+
+OR
+
+16. a) Explain partition clustering and the importance of PAM method. (6)
+    b) Explain ROCK algorithm with a suitable example. (8)
+
+
+Module IV
+
+17. a) A database has six transactions. Let min_sup be 33.33% and min_conf be 60%.
+       Find frequent item set using Apriori algorithm and generate strong association rules from the dataset. (8)
+
+    b) Explain partition algorithm with a suitable example. (6)
+
+
+OR
+
+18. a) Consider a dataset containing transactions from a retail store. The dataset consists of the following transactions:
+
+       Transaction 1: {milk, bread, eggs}
+       Transaction 2: {milk, bread, butter}
+       Transaction 3: {bread, butter}
+       Transaction 4: {milk, bread}
+
+       (remaining part of question not visible)
