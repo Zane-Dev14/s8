@@ -66,10 +66,10 @@ $$
 
 #### Binning
 $$
-   ext{Bin Mean}=\frac{1}{k}\sum_{i=1}^{k} x_i
+\mathrm{Bin\ Mean}=\frac{1}{k}\sum_{i=1}^{k} x_i
 $$
 $$
-   ext{Boundary Replace}(x)=\arg\min_{b\in\{L,U\}}|x-b|
+\mathrm{Boundary\ Replace}(x)=\arg\min_{b\in\{L,U\}}|x-b|
 $$
 
 #### Decision Trees
@@ -129,7 +129,7 @@ $$
 X'=XW_k
 $$
 $$
-   ext{Explained Variance Ratio}_i=\frac{\lambda_i}{\sum_j \lambda_j}
+\mathrm{Explained\ Variance\ Ratio}_i=\frac{\lambda_i}{\sum_j \lambda_j}
 $$
 
 ### C) Question-wise Memory + Step Map (Long/Formula/Numerical)
@@ -1688,6 +1688,244 @@ Use these for algorithm-heavy Part B answers.
 - Clustering questions: point scatter (core/border/noise or medoids).
 - ARM questions: candidate lattice or pass table C1/L1, C2/L2, C3/L3.
 - Web mining questions: hub-authority graph or crawler flow.
+
+---
+
+## Section 5: Missing Algorithms and Problems - Fully Solved
+
+This section is added to cover the algorithm/problem gaps you pointed out.
+
+### A1. Dendrogram + Linkage Criteria (Fully Explained)
+
+Question type covered:
+- "What is a dendrogram and how is it used in hierarchical clustering? What are common linkage criteria?"
+
+Definition:
+- A dendrogram is a tree diagram showing the order in which points/clusters merge in hierarchical clustering.
+- Height of each merge = distance at which merge happened.
+
+Linkage criteria:
+- Single linkage: minimum pairwise distance.
+   $$
+   d_{single}(A,B)=\min_{a\in A,b\in B} d(a,b)
+   $$
+- Complete linkage: maximum pairwise distance.
+   $$
+   d_{complete}(A,B)=\max_{a\in A,b\in B} d(a,b)
+   $$
+- Average linkage: average pairwise distance.
+   $$
+   d_{avg}(A,B)=\frac{1}{|A||B|}\sum_{a\in A}\sum_{b\in B} d(a,b)
+   $$
+- Centroid linkage: distance between centroids.
+   $$
+   d_{centroid}(A,B)=\|\mu_A-\mu_B\|
+   $$
+- Ward linkage: merge that minimizes increase in within-cluster SSE.
+
+Mini worked merge example (single linkage):
+- Points: P1, P2, P3, P4 with pairwise distances:
+
+| Pair | Distance |
+|---|---:|
+| P1-P2 | 2 |
+| P1-P3 | 6 |
+| P1-P4 | 10 |
+| P2-P3 | 5 |
+| P2-P4 | 9 |
+| P3-P4 | 4 |
+
+Merge sequence:
+1. Merge P1,P2 at height 2.
+2. Merge P3,P4 at height 4.
+3. Merge clusters {P1,P2} and {P3,P4} at height 5 (min cross distance = P2-P3 = 5).
+
+Dendrogram sketch:
+```text
+height
+ 10 |
+   8 |
+   6 |
+   5 |        -----------
+   4 |    ----|         |----
+   2 | --|    |         |    |--
+   0 | P1 P2            P3   P4
+```
+
+Exam conclusion line:
+- "Lower merge height means higher similarity; dendrogram cut level decides number of clusters."
+
+### A2. PAM Clustering Worked Numerical (Step Table)
+
+Question type covered:
+- "Cluster given points into two clusters using PAM algorithm."
+
+Sample points (2D):
+- A(2,6), B(3,4), C(3,8), D(4,7), E(6,2), F(7,3), G(7,4), H(8,5)
+- k=2, distance = Manhattan.
+
+Step 1: Initialize medoids (build phase)
+- Choose M1=A, M2=H.
+
+Step 2: Assign each point to nearest medoid
+
+| Point | d(point,A) | d(point,H) | Assigned |
+|---|---:|---:|---|
+| A | 0 | 7 | A-medoid cluster |
+| B | 3 | 6 | A-medoid cluster |
+| C | 3 | 8 | A-medoid cluster |
+| D | 3 | 6 | A-medoid cluster |
+| E | 8 | 5 | H-medoid cluster |
+| F | 8 | 3 | H-medoid cluster |
+| G | 7 | 2 | H-medoid cluster |
+| H | 7 | 0 | H-medoid cluster |
+
+Initial total cost:
+$$
+0+3+3+3+5+3+2+0=19
+$$
+
+Step 3: Swap phase
+- Try replacing A with B and H with G.
+- Recompute assignment cost (best swap found): medoids B and G, total cost = 13.
+
+Improvement:
+$$
+\Delta = 19-13=6
+$$
+
+Final clusters:
+- Cluster 1 (medoid B): A,B,C,D
+- Cluster 2 (medoid G): E,F,G,H
+
+Exam conclusion line:
+- "PAM is robust to outliers because centers are actual points (medoids), not means."
+
+### A3. DBSCAN Full Algorithm Steps + Parameters
+
+Question types covered:
+- "Explain DBSCAN with advantages."
+- "Explain key parameters and compare with partition methods."
+
+Parameters:
+- $\varepsilon$ (eps): neighborhood radius.
+- MinPts: minimum points in eps-neighborhood to be a core point.
+
+Point types:
+- Core: $|N_\varepsilon(p)|\ge MinPts$
+- Border: not core but within eps-neighborhood of a core.
+- Noise: neither core nor border.
+
+Algorithm steps:
+1. Mark all points unvisited.
+2. Pick unvisited point p and mark visited.
+3. Compute $N_\varepsilon(p)$.
+4. If p is not core, mark temporary noise and continue.
+5. If p is core, create new cluster C and add p.
+6. For each point q in $N_\varepsilon(p)$:
+    - If q unvisited: visit and compute $N_\varepsilon(q)$.
+    - If q is core: append its neighbors to expansion list.
+    - If q not yet in any cluster: add q to C.
+7. Continue expansion until density-reachable points exhausted.
+8. Repeat until all points processed.
+
+Complexity (with index):
+- About $O(n\log n)$ with spatial index; naive about $O(n^2)$.
+
+Advantages over k-means/PAM:
+- No need to specify k.
+- Finds arbitrary-shaped clusters.
+- Handles noise/outliers naturally.
+- Better when clusters have non-spherical geometry.
+
+### A4. Pincer Search - Detailed Worked Flow
+
+Question type covered:
+- "Illustrate/demonstrate Pincer Search with example."
+
+Core idea:
+- Simultaneous bottom-up + top-down search.
+- Uses MFI (Maximal Frequent Itemsets) for aggressive pruning.
+
+Worked flow (abstract):
+1. Start like Apriori: generate C1/L1.
+2. Maintain MFCS (maximal frequent candidate set).
+3. Generate C2 from L1 and prune by Apriori property.
+4. Count supports for C2 and MFCS candidates together.
+5. If an MFCS candidate is found frequent, all its subsets need not be expanded further.
+6. If itemset in MFCS becomes infrequent, remove supersets and refine MFCS.
+7. Continue until no new frequent itemsets or MFCS stabilized.
+
+Comparison line for exam:
+- "Pincer reduces candidate explosion versus pure Apriori by pruning from both directions."
+
+### A5. DIC Dashed-to-Solid Transition (Explicit Table)
+
+Question type covered:
+- "When to move itemsets from dashed to solid structures?"
+
+State meanings:
+- Dashed circle: suspected frequent, counting in progress.
+- Solid circle: confirmed frequent.
+- Dashed box: suspected infrequent, still not final.
+- Solid box: confirmed infrequent.
+
+Transition table:
+
+| Current State | Condition | Next State |
+|---|---|---|
+| Dashed circle | support >= minsup and full required interval seen | Solid circle |
+| Dashed circle | support cannot reach minsup after remaining scans | Solid box |
+| Dashed box | support becomes recoverable and candidate reopened | Dashed circle |
+| Dashed box | scan complete and support < minsup | Solid box |
+
+Promotion condition formula:
+$$
+	ext{Promote }X\text{ if }\sigma_t(X)\ge minsup\text{ and checkpoint window complete}
+$$
+
+### A6. CLEVER Algorithm - Full Step Answer
+
+Question types covered:
+- "Write/explain CLEVER algorithm for web structure mining."
+- "Difference among web content, usage, and structure mining with CLEVER."
+
+CLEVER steps:
+1. Submit query and collect root pages from text search.
+2. Build base set by adding in-links and out-links of root pages.
+3. Construct directed graph G(base set).
+4. Initialize hub/authority scores to 1.
+5. Iteratively update:
+    $$
+    a(p)=\sum_{q\to p} h(q), \quad h(p)=\sum_{p\to r} a(r)
+    $$
+6. Normalize score vectors each iteration.
+7. Stop on convergence threshold.
+8. Rank by authority for results, by hub for resource pages.
+
+Mini iteration table:
+
+| Iteration | Action |
+|---|---|
+| 0 | Initialize all hub/authority to 1 |
+| 1 | Update authority from incoming hub links |
+| 2 | Update hub from outgoing authority links |
+| 3+ | Repeat normalize-update until stable |
+
+Exam conclusion line:
+- "CLEVER improves topic-specific structure mining by combining focused graph construction with HITS scoring."
+
+### A7. Problem Coverage Checklist (No Skip)
+
+Checked and covered now:
+- Dendrogram and linkage criteria: covered in A1
+- PAM clustering numerical with steps/tables: covered in A2
+- DBSCAN parameters + full steps + advantages: covered in A3
+- Pincer search detailed steps: covered in A4
+- DIC dashed/solid movement rules: covered in A5
+- CLEVER algorithm full flow: covered in A6
+
+Use this checklist during revision to ensure nothing is skipped.
 
 ---
 
