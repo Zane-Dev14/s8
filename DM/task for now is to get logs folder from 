@@ -1,0 +1,20 @@
+task for now is to get logs folder from customer , check errors from logs
+search grep, case sensitive, "exception, ERROR, crash, WARN,WARNING"
+
+ssp and seas has codes, b2bi doesnt have code. need to capture all expetions and errors and warnings
+
+with filename + timestamp. 
+
+Check b2bi logs and find.
+we get logs from customer, zip file, huge.
+
+main thing to take care of: Make sure performace is good. Need to use cache etc.
+
+check installs log folder . zip it and use it. 
+
+Talk to siddappa for this. He did property file comparisor
+
+Mine is for log analysis, similar to his, inline with his. We are building one big tool for health check
+
+USe ai, find out how to fix certain issues. use rag maybe, try and use deterministic+ ai based. 
+Will use watsonx, or bob MCP. 
